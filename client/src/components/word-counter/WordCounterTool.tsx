@@ -4,6 +4,13 @@ import StatsCard from './StatsCard';
 import KeywordTable from './KeywordTable';
 import ExportButtons from './ExportButtons';
 import { useToast } from '@/hooks/use-toast';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import AdvancedAnalytics from '@/components/features/AdvancedAnalytics';
+import SEOAnalyzer from '@/components/features/SEOAnalyzer';
+import SocialMediaOptimizer from '@/components/features/SocialMediaOptimizer';
+import CompetitorAnalysis from '@/components/features/CompetitorAnalysis';
+import ContentGoals from '@/components/features/ContentGoals';
+import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
 
 export default function WordCounterTool() {
   const [text, setText] = useState('');
@@ -251,34 +258,111 @@ export default function WordCounterTool() {
             </div>
           </div>
 
-          {/* Keyword Density Analysis */}
-          <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
-              <h3 className="text-lg font-semibold text-foreground">Keyword Density Analysis</h3>
-              <div className="flex gap-2">
-                <button 
-                  onClick={highlightKeywords}
-                  className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
-                  data-testid="button-highlight-keywords"
-                >
-                  <i className="fas fa-highlighter mr-2"></i>Highlight Keywords
-                </button>
-                <button 
-                  onClick={clearHighlights}
-                  className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors"
-                  data-testid="button-clear-highlights"
-                >
-                  <i className="fas fa-eraser mr-2"></i>Clear
-                </button>
+          {/* Professional Features Tabs */}
+          <div className="bg-card rounded-lg shadow-sm border border-border">
+            <Tabs defaultValue="analytics" className="w-full">
+              <div className="border-b border-border px-6 pt-6">
+                <TabsList className="grid w-full grid-cols-6">
+                  <TabsTrigger value="analytics" className="flex items-center gap-2">
+                    <BarChart3 className="h-4 w-4" />
+                    <span className="hidden sm:inline">Analytics</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="seo" className="flex items-center gap-2">
+                    <Search className="h-4 w-4" />
+                    <span className="hidden sm:inline">SEO</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="social" className="flex items-center gap-2">
+                    <Share2 className="h-4 w-4" />
+                    <span className="hidden sm:inline">Social</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="competitor" className="flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4" />
+                    <span className="hidden sm:inline">Compete</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="goals" className="flex items-center gap-2">
+                    <Target className="h-4 w-4" />
+                    <span className="hidden sm:inline">Goals</span>
+                  </TabsTrigger>
+                  <TabsTrigger value="keywords" className="flex items-center gap-2">
+                    <Sparkles className="h-4 w-4" />
+                    <span className="hidden sm:inline">Keywords</span>
+                  </TabsTrigger>
+                </TabsList>
               </div>
-            </div>
 
-            {/* Keyword Tables */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-              <KeywordTable title="Top Single Keywords" keywords={keywords.single} />
-              <KeywordTable title="Top Two-word Phrases" keywords={keywords.twoWord} />
-              <KeywordTable title="Top Three-word Phrases" keywords={keywords.threeWord} />
-            </div>
+              <div className="p-6">
+                <TabsContent value="analytics" className="mt-0">
+                  <AdvancedAnalytics 
+                    text={text}
+                    wordCount={stats.wordCount}
+                    sentenceCount={stats.sentenceCount}
+                    paragraphCount={stats.paragraphCount}
+                    readabilityScore={readability.score}
+                  />
+                </TabsContent>
+
+                <TabsContent value="seo" className="mt-0">
+                  <SEOAnalyzer 
+                    text={text}
+                    title="Word Counter Plus Analysis"
+                    metaDescription="Advanced text analysis with professional insights"
+                  />
+                </TabsContent>
+
+                <TabsContent value="social" className="mt-0">
+                  <SocialMediaOptimizer 
+                    text={text}
+                    title="Check out my text analysis results!"
+                  />
+                </TabsContent>
+
+                <TabsContent value="competitor" className="mt-0">
+                  <CompetitorAnalysis 
+                    text={text}
+                    wordCount={stats.wordCount}
+                    readabilityScore={readability.score}
+                  />
+                </TabsContent>
+
+                <TabsContent value="goals" className="mt-0">
+                  <ContentGoals 
+                    wordCount={stats.wordCount}
+                    readingTime={readability.readingTime}
+                    readabilityScore={readability.score}
+                  />
+                </TabsContent>
+
+                <TabsContent value="keywords" className="mt-0">
+                  <div className="space-y-6">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                      <h3 className="text-lg font-semibold text-foreground">Keyword Density Analysis</h3>
+                      <div className="flex gap-2">
+                        <button 
+                          onClick={highlightKeywords}
+                          className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
+                          data-testid="button-highlight-keywords"
+                        >
+                          <i className="fas fa-highlighter mr-2"></i>Highlight Keywords
+                        </button>
+                        <button 
+                          onClick={clearHighlights}
+                          className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors"
+                          data-testid="button-clear-highlights"
+                        >
+                          <i className="fas fa-eraser mr-2"></i>Clear
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                      <KeywordTable title="Top Single Keywords" keywords={keywords.single} />
+                      <KeywordTable title="Top Two-word Phrases" keywords={keywords.twoWord} />
+                      <KeywordTable title="Top Three-word Phrases" keywords={keywords.threeWord} />
+                    </div>
+                  </div>
+                </TabsContent>
+              </div>
+            </Tabs>
           </div>
 
           {/* Export & Share Options */}
