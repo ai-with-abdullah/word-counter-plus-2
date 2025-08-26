@@ -200,6 +200,17 @@ export default function WordCounterTool() {
             <StatsCard value={stats.paragraphCount} label="Paragraphs" icon="fas fa-paragraph" iconColor="text-purple-600" />
           </div>
 
+          {/* Text Statistics Cards */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-foreground">Text Statistics</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <StatsCard value={stats.avgWordLength} label="Average Word Length" icon="fas fa-ruler" iconColor="text-indigo-600" />
+              <StatsCard value={stats.longestWord || '-'} label="Longest Word" icon="fas fa-arrows-alt-h" iconColor="text-red-600" />
+              <StatsCard value={stats.shortestWord || '-'} label="Shortest Word" icon="fas fa-compress-alt" iconColor="text-yellow-600" />
+              <StatsCard value={stats.charNoSpaces} label="Characters (no spaces)" icon="fas fa-font" iconColor="text-teal-600" />
+            </div>
+          </div>
+
           {/* Advanced Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Readability Analysis */}
@@ -227,14 +238,11 @@ export default function WordCounterTool() {
               </div>
             </div>
 
-            {/* Text Statistics - Card Layout */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-foreground">Text Statistics</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatsCard value={stats.avgWordLength} label="Average Word Length" icon="fas fa-ruler" iconColor="text-indigo-600" />
-                <StatsCard value={stats.longestWord || '-'} label="Longest Word" icon="fas fa-arrows-alt-h" iconColor="text-red-600" />
-                <StatsCard value={stats.shortestWord || '-'} label="Shortest Word" icon="fas fa-compress-alt" iconColor="text-yellow-600" />
-                <StatsCard value={stats.charNoSpaces} label="Characters (no spaces)" icon="fas fa-font" iconColor="text-teal-600" />
+            {/* Placeholder for future metrics */}
+            <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
+              <h3 className="text-lg font-semibold text-foreground mb-4">Additional Metrics</h3>
+              <div className="text-center text-muted-foreground">
+                <p>More analysis features coming soon</p>
               </div>
             </div>
           </div>
