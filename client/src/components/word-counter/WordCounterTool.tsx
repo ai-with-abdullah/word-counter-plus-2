@@ -193,11 +193,11 @@ export default function WordCounterTool() {
           </div>
 
           {/* Real-time Statistics */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <StatsCard value={stats.wordCount} label="Words" icon="fas fa-file-word" iconColor="text-chart-1" />
-            <StatsCard value={stats.charCount} label="Characters" icon="fas fa-keyboard" iconColor="text-chart-2" />
-            <StatsCard value={stats.sentenceCount} label="Sentences" icon="fas fa-list-ol" iconColor="text-chart-3" />
-            <StatsCard value={stats.paragraphCount} label="Paragraphs" icon="fas fa-paragraph" iconColor="text-chart-4" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <StatsCard value={stats.wordCount} label="Words" icon="fas fa-file-word" iconColor="text-blue-500" />
+            <StatsCard value={stats.charCount} label="Characters" icon="fas fa-keyboard" iconColor="text-green-500" />
+            <StatsCard value={stats.sentenceCount} label="Sentences" icon="fas fa-list-ol" iconColor="text-orange-500" />
+            <StatsCard value={stats.paragraphCount} label="Paragraphs" icon="fas fa-paragraph" iconColor="text-purple-500" />
           </div>
 
           {/* Advanced Metrics */}
