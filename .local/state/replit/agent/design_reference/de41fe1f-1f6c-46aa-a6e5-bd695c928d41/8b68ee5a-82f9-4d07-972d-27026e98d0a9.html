@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Word Counter Tool - Free Text Analysis & SEO Writing Assistant</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Free advanced word counter tool with real-time analytics, readability scores, keyword density analysis, and export features. Perfect for writers, bloggers, and SEO professionals.">
+    <meta name="keywords" content="word counter, character counter, text analysis, readability score, keyword density, writing tool, SEO tool">
+    <meta name="author" content="WordCount Pro">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Advanced Word Counter Tool - Free Text Analysis">
+    <meta property="og:description" content="Professional word counting tool with advanced analytics, readability scores, and keyword analysis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordcountpro.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=630">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Advanced Word Counter Tool",
+        "description": "Free professional word counting and text analysis tool",
+        "url": "https://wordcountpro.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0"
+        }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    popover: {
+                        DEFAULT: "var(--popover)",
+                        foreground: "var(--popover-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    destructive: {
+                        DEFAULT: "var(--destructive)",
+                        foreground: "var(--destructive-foreground)",
+                    },
+                    border: "var(--border)",
+                    input: "var(--input)",
+                    ring: "var(--ring)",
+                    chart: {
+                        "1": "var(--chart-1)",
+                        "2": "var(--chart-2)",
+                        "3": "var(--chart-3)",
+                        "4": "var(--chart-4)",
+                        "5": "var(--chart-5)",
+                    }
+                },
+                fontFamily: {
+                    sans: ["var(--font-sans)"],
+                    serif: ["var(--font-serif)"],
+                    mono: ["var(--font-mono)"],
+                }
+            }
+        }
+    };
+    </script>
+
+    <style>
+        :root {
+            --card: #fcfcfc;
+            --ring: hsl(0, 0%, 41.96%);
+            --input: #b5b5b5;
+            --muted: #e3e3e3;
+            --accent: hsl(0, 0%, 100%);
+            --border: #e8e8e8;
+            --radius: 0.8rem;
+            --shadow: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00), 0px 1px 2px -1px hsl(9, 75%, 61% / 0.00);
+            --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
+            --chart-2: hsl(159.7826, 100%, 36.0784%);
+            --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
+            --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
+            --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
+            --popover: hsl(45, 25%, 97%);
+            --primary: #eb1a4e;
+            --sidebar: hsl(45, 25%, 97%);
+            --spacing: 0.25rem;
+            --font-mono: Menlo, monospace;
+            --font-sans: 'Poppins', sans-serif;
+            --secondary: #c4c4c4;
+            --shadow-lg: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00), 0px 4px 6px -1px hsl(9, 75%, 61% / 0.00);
+            --shadow-md: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00), 0px 2px 4px -1px hsl(9, 75%, 61% / 0.00);
+            --shadow-sm: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00), 0px 1px 2px -1px hsl(9, 75%, 61% / 0.00);
+            --shadow-xl: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00), 0px 8px 10px -1px hsl(9, 75%, 61% / 0.00);
+            --shadow-xs: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00);
+            --background: #f0f0f0;
+            --font-serif: 'Poppins', sans-serif;
+            --foreground: #1a1a1a;
+            --shadow-2xl: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00);
+            --shadow-2xs: 0px 2px 0px 0px hsl(9, 75%, 61% / 0.00);
+            --destructive: hsl(0, 0%, 0%);
+            --sidebar-ring: hsl(9, 75%, 61%);
+            --sidebar-accent: hsl(25, 45%, 80%);
+            --sidebar-border: hsl(45, 15%, 80%);
+            --card-foreground: hsl(0, 0%, 0%);
+            --sidebar-primary: hsl(9, 75%, 61%);
+            --tracking-normal: 0em;
+            --muted-foreground: #212121;
+            --accent-foreground: hsl(0, 0%, 10.2%);
+            --popover-foreground: hsl(0, 0%, 100%);
+            --primary-foreground: #ffffff;
+            --sidebar-foreground: hsl(20, 14%, 17%);
+            --secondary-foreground: #1a1a1a;
+            --destructive-foreground: #ffffff;
+            --sidebar-accent-foreground: hsl(20, 14%, 17%);
+            --sidebar-primary-foreground: hsl(0, 0%, 100%);
+        }
+
+        .dark {
+            --card: hsl(20, 14%, 8%);
+            --ring: hsl(9, 75%, 61%);
+            --input: hsl(20, 14%, 18%);
+            --muted: hsl(20, 14%, 15%);
+            --accent: hsl(25, 45%, 20%);
+            --border: hsl(20, 14%, 15%);
+            --chart-1: hsl(203.8863, 88.2845%, 53.1373%);
+            --chart-2: hsl(159.7826, 100%, 36.0784%);
+            --chart-3: hsl(42.0290, 92.8251%, 56.2745%);
+            --chart-4: hsl(147.1429, 78.5047%, 41.9608%);
+            --chart-5: hsl(341.4894, 75.2000%, 50.9804%);
+            --popover: hsl(20, 14%, 4%);
+            --primary: hsl(9, 75%, 61%);
+            --sidebar: hsl(20, 14%, 8%);
+            --secondary: hsl(30, 15%, 52%);
+            --background: hsl(20, 14%, 4%);
+            --foreground: hsl(45, 25%, 91%);
+            --destructive: hsl(356.3033, 90.5579%, 54.3137%);
+            --sidebar-ring: hsl(9, 75%, 61%);
+            --sidebar-accent: hsl(25, 45%, 20%);
+            --sidebar-border: hsl(20, 14%, 15%);
+            --card-foreground: hsl(45, 25%, 85%);
+            --sidebar-primary: hsl(9, 75%, 61%);
+            --muted-foreground: hsl(45, 15%, 46%);
+            --accent-foreground: hsl(45, 25%, 85%);
+            --popover-foreground: hsl(45, 25%, 91%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --sidebar-foreground: hsl(45, 25%, 85%);
+            --secondary-foreground: hsl(0, 0%, 100%);
+            --destructive-foreground: hsl(0, 0%, 100%);
+            --sidebar-accent-foreground: hsl(45, 25%, 85%);
+            --sidebar-primary-foreground: hsl(0, 0%, 100%);
+        }
+
+        /* Custom Styles */
+        .highlight-keyword {
+            background-color: rgba(235, 26, 78, 0.2);
+            border-radius: 3px;
+            padding: 1px 2px;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary) var(--progress, 0%), var(--muted) var(--progress, 0%));
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+        }
+    </style>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-background text-foreground font-sans transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-pen-nib text-primary text-xl"></i>
+                    <h1 class="text-xl font-bold text-foreground">WordCount Pro</h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-foreground hover:text-primary transition-colors">Home</a>
+                    <a href="#faq" class="text-muted-foreground hover:text-primary transition-colors">FAQ</a>
+                    <a href="#privacy" class="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#terms" class="text-muted-foreground hover:text-primary transition-colors">Terms</a>
+                    <a href="#contact" class="text-muted-foreground hover:text-primary transition-colors">Contact</a>
+                </nav>
+
+                <!-- Dark Mode Toggle & Mobile Menu -->
+                <div class="flex items-center space-x-3">
+                    <button id="themeToggle" class="p-2 rounded-lg bg-muted hover:bg-accent transition-colors">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg bg-muted hover:bg-accent transition-colors">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobileMenu" class="mobile-menu fixed top-16 left-0 w-full h-screen bg-card z-40 md:hidden">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="text-foreground hover:text-primary transition-colors py-2">Home</a>
+                <a href="#faq" class="text-muted-foreground hover:text-primary transition-colors py-2">FAQ</a>
+                <a href="#privacy" class="text-muted-foreground hover:text-primary transition-colors py-2">Privacy Policy</a>
+                <a href="#terms" class="text-muted-foreground hover:text-primary transition-colors py-2">Terms</a>
+                <a href="#contact" class="text-muted-foreground hover:text-primary transition-colors py-2">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="home" class="container mx-auto px-4 py-8">
+        <!-- AdSense Top Banner -->
+        <div class="bg-muted rounded-lg p-4 mb-8 text-center text-muted-foreground no-print">
+            <p class="text-sm">Advertisement Space - Google AdSense Banner (728x90)</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Main Tool Area -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Tool Header -->
+                <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                    <h1 class="text-3xl font-bold text-foreground mb-2">Advanced Word Counter Tool</h1>
+                    <p class="text-muted-foreground">Professional text analysis with real-time statistics, readability scores, and keyword density analysis</p>
+                </div>
+
+                <!-- Text Input Area -->
+                <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
+                        <label for="textInput" class="text-lg font-semibold text-foreground">Enter Your Text</label>
+                        <div class="flex flex-wrap gap-2">
+                            <button id="clearText" class="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors">
+                                <i class="fas fa-trash mr-2"></i>Clear
+                            </button>
+                            <button id="pasteText" class="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-colors">
+                                <i class="fas fa-paste mr-2"></i>Paste
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <textarea id="textInput" 
+                              class="w-full h-64 p-4 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all" 
+                              placeholder="Start typing or paste your text here to analyze it in real-time..."
+                              data-mock="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+
+                    <!-- Word Limit Tracker -->
+                    <div class="mt-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm text-muted-foreground">Word Limit Progress</span>
+                            <div class="flex items-center gap-2">
+                                <input type="number" id="wordLimit" value="500" min="1" class="w-20 px-2 py-1 text-sm bg-background border border-border rounded">
+                                <span class="text-sm text-muted-foreground">words</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar h-2 bg-muted rounded-full" style="--progress: 15%"></div>
+                        <p class="text-xs text-muted-foreground mt-1">
+                            <span id="progressText" data-bind="currentWords">75</span> / <span data-bind="wordLimit">500</span> words
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Real-time Statistics -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- @COMPONENT: StatCard [word count] -->
+                    <div class="bg-card rounded-lg p-4 shadow-sm border border-border">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-foreground" id="wordCount" data-bind="stats.wordCount">75</p>
+                                <p class="text-sm text-muted-foreground">Words</p>
+                            </div>
+                            <i class="fas fa-file-word text-chart-1 text-xl"></i>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: StatCard -->
+
+                    <!-- @COMPONENT: StatCard [character count] -->
+                    <div class="bg-card rounded-lg p-4 shadow-sm border border-border">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-foreground" id="charCount" data-bind="stats.charCount">445</p>
+                                <p class="text-sm text-muted-foreground">Characters</p>
+                            </div>
+                            <i class="fas fa-keyboard text-chart-2 text-xl"></i>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: StatCard -->
+
+                    <!-- @COMPONENT: StatCard [sentence count] -->
+                    <div class="bg-card rounded-lg p-4 shadow-sm border border-border">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-foreground" id="sentenceCount" data-bind="stats.sentenceCount">4</p>
+                                <p class="text-sm text-muted-foreground">Sentences</p>
+                            </div>
+                            <i class="fas fa-list-ol text-chart-3 text-xl"></i>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: StatCard -->
+
+                    <!-- @COMPONENT: StatCard [paragraph count] -->
+                    <div class="bg-card rounded-lg p-4 shadow-sm border border-border">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-foreground" id="paragraphCount" data-bind="stats.paragraphCount">1</p>
+                                <p class="text-sm text-muted-foreground">Paragraphs</p>
+                            </div>
+                            <i class="fas fa-paragraph text-chart-4 text-xl"></i>
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: StatCard -->
+                </div>
+
+                <!-- Advanced Metrics -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Readability Analysis -->
+                    <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                        <h3 class="text-lg font-semibold text-foreground mb-4">Readability Analysis</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Flesch-Kincaid Score</span>
+                                <span class="font-semibold" id="readabilityScore" data-bind="readability.score">68.5</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Reading Level</span>
+                                <span class="px-3 py-1 bg-chart-2 text-white rounded-full text-sm" id="readingLevel" data-bind="readability.level">Standard</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Reading Time</span>
+                                <span class="font-semibold" id="readingTime" data-bind="readability.readingTime">~1 min</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Speaking Time</span>
+                                <span class="font-semibold" id="speakingTime" data-bind="readability.speakingTime">~1.5 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Statistics -->
+                    <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                        <h3 class="text-lg font-semibold text-foreground mb-4">Text Statistics</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Average Word Length</span>
+                                <span class="font-semibold" id="avgWordLength" data-bind="stats.avgWordLength">5.9</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Longest Word</span>
+                                <span class="font-semibold" id="longestWord" data-bind="stats.longestWord">consectetur</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Shortest Word</span>
+                                <span class="font-semibold" id="shortestWord" data-bind="stats.shortestWord">ut</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-muted-foreground">Characters (no spaces)</span>
+                                <span class="font-semibold" id="charNoSpaces" data-bind="stats.charNoSpaces">374</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Keyword Density Analysis -->
+                <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-3">
+                        <h3 class="text-lg font-semibold text-foreground">Keyword Density Analysis</h3>
+                        <div class="flex gap-2">
+                            <button id="highlightKeywords" class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors">
+                                <i class="fas fa-highlighter mr-2"></i>Highlight Keywords
+                            </button>
+                            <button id="clearHighlights" class="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors">
+                                <i class="fas fa-eraser mr-2"></i>Clear
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Keyword Tables -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                        <!-- Single Keywords -->
+                        <div>
+                            <h4 class="font-semibold text-foreground mb-3">Top Single Keywords</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead>
+                                        <tr class="border-b border-border">
+                                            <th class="text-left py-2 text-muted-foreground">Keyword</th>
+                                            <th class="text-right py-2 text-muted-foreground">Count</th>
+                                            <th class="text-right py-2 text-muted-foreground">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="singleKeywords" data-mock="true">
+                                        <tr class="border-b border-border">
+                                            <td class="py-2">dolor</td>
+                                            <td class="text-right py-2">3</td>
+                                            <td class="text-right py-2">4.0%</td>
+                                        </tr>
+                                        <tr class="border-b border-border">
+                                            <td class="py-2">lorem</td>
+                                            <td class="text-right py-2">2</td>
+                                            <td class="text-right py-2">2.7%</td>
+                                        </tr>
+                                        <tr class="border-b border-border">
+                                            <td class="py-2">ipsum</td>
+                                            <td class="text-right py-2">2</td>
+                                            <td class="text-right py-2">2.7%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Two-word Phrases -->
+                        <div>
+                            <h4 class="font-semibold text-foreground mb-3">Top Two-word Phrases</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead>
+                                        <tr class="border-b border-border">
+                                            <th class="text-left py-2 text-muted-foreground">Phrase</th>
+                                            <th class="text-right py-2 text-muted-foreground">Count</th>
+                                            <th class="text-right py-2 text-muted-foreground">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="twoWordPhrases" data-mock="true">
+                                        <tr class="border-b border-border">
+                                            <td class="py-2">lorem ipsum</td>
+                                            <td class="text-right py-2">2</td>
+                                            <td class="text-right py-2">2.9%</td>
+                                        </tr>
+                                        <tr class="border-b border-border">
+                                            <td class="py-2">dolor sit</td>
+                                            <td class="text-right py-2">2</td>
+                                            <td class="text-right py-2">2.9%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Three-word Phrases -->
+                        <div>
+                            <h4 class="font-semibold text-foreground mb-3">Top Three-word Phrases</h4>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead>
+                                        <tr class="border-b border-border">
+                                            <th class="text-left py-2 text-muted-foreground">Phrase</th>
+                                            <th class="text-right py-2 text-muted-foreground">Count</th>
+                                            <th class="text-right py-2 text-muted-foreground">%</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="threeWordPhrases" data-mock="true">
+                                        <tr class="border-b border-border">
+                                            <td class="py-2">lorem ipsum dolor</td>
+                                            <td class="text-right py-2">1</td>
+                                            <td class="text-right py-2">1.4%</td>
+                                        </tr>
+                                        <tr class="border-b border-border">
+                                            <td class="py-2">dolor sit amet</td>
+                                            <td class="text-right py-2">1</td>
+                                            <td class="text-right py-2">1.4%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export & Share Options -->
+                <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                    <h3 class="text-lg font-semibold text-foreground mb-4">Export & Share</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+                        <button id="exportPDF" class="flex flex-col items-center p-3 bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+                            <i class="fas fa-file-pdf text-xl text-red-500 mb-1"></i>
+                            <span class="text-xs text-center">PDF</span>
+                        </button>
+                        <button id="exportCSV" class="flex flex-col items-center p-3 bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+                            <i class="fas fa-file-csv text-xl text-green-500 mb-1"></i>
+                            <span class="text-xs text-center">CSV</span>
+                        </button>
+                        <button id="exportTXT" class="flex flex-col items-center p-3 bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+                            <i class="fas fa-file-alt text-xl text-blue-500 mb-1"></i>
+                            <span class="text-xs text-center">TXT</span>
+                        </button>
+                        <button id="copyResults" class="flex flex-col items-center p-3 bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+                            <i class="fas fa-copy text-xl text-purple-500 mb-1"></i>
+                            <span class="text-xs text-center">Copy</span>
+                        </button>
+                        <button id="shareTwitter" class="flex flex-col items-center p-3 bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+                            <i class="fab fa-twitter text-xl text-blue-400 mb-1"></i>
+                            <span class="text-xs text-center">Twitter</span>
+                        </button>
+                        <button id="shareLinkedIn" class="flex flex-col items-center p-3 bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+                            <i class="fab fa-linkedin text-xl text-blue-600 mb-1"></i>
+                            <span class="text-xs text-center">LinkedIn</span>
+                        </button>
+                        <button id="shareFacebook" class="flex flex-col items-center p-3 bg-accent hover:bg-accent/80 rounded-lg transition-colors">
+                            <i class="fab fa-facebook text-xl text-blue-500 mb-1"></i>
+                            <span class="text-xs text-center">Facebook</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- AdSense Sidebar Ad -->
+                <div class="bg-muted rounded-lg p-4 text-center text-muted-foreground no-print">
+                    <p class="text-sm">Advertisement<br>Google AdSense<br>(300x250)</p>
+                </div>
+
+                <!-- Quick Tips -->
+                <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                    <h3 class="text-lg font-semibold text-foreground mb-4">💡 Quick Tips</h3>
+                    <ul class="space-y-3 text-sm text-muted-foreground">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mr-2 mt-0.5"></i>
+                            Keep sentences under 20 words for better readability
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mr-2 mt-0.5"></i>
+                            Aim for 1-2% keyword density for SEO
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mr-2 mt-0.5"></i>
+                            Use active voice for clearer writing
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-primary mr-2 mt-0.5"></i>
+                            Break up long paragraphs for better flow
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Word Target Goals -->
+                <div class="bg-card rounded-lg p-6 shadow-sm border border-border">
+                    <h3 class="text-lg font-semibold text-foreground mb-4">📊 Word Count Goals</h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between items-center p-2 bg-muted rounded">
+                            <span>Blog Post</span>
+                            <span class="font-semibold">1,500-2,500</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 bg-muted rounded">
+                            <span>Social Media</span>
+                            <span class="font-semibold">100-280</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 bg-muted rounded">
+                            <span>Email Subject</span>
+                            <span class="font-semibold">6-10</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 bg-muted rounded">
+                            <span>Meta Description</span>
+                            <span class="font-semibold">120-160</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AdSense Sidebar Ad 2 -->
+                <div class="bg-muted rounded-lg p-4 text-center text-muted-foreground no-print">
+                    <p class="text-sm">Advertisement<br>Google AdSense<br>(300x600)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="mt-16">
+            <div class="bg-card rounded-lg p-8 shadow-sm border border-border">
+                <h2 class="text-3xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h2>
+                
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- @COMPONENT: FAQItem [question about accuracy] -->
+                    <div class="border border-border rounded-lg">
+                        <button class="faq-question w-full text-left p-4 hover:bg-muted/50 transition-colors flex justify-between items-center">
+                            <span class="font-semibold">How accurate is the word counter?</span>
+                            <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-4 pt-0 text-muted-foreground">
+                            Our word counter uses advanced algorithms to accurately count words, characters, sentences, and paragraphs. It handles various text formats and provides real-time analysis as you type.
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: FAQItem -->
+
+                    <!-- @COMPONENT: FAQItem [question about readability] -->
+                    <div class="border border-border rounded-lg">
+                        <button class="faq-question w-full text-left p-4 hover:bg-muted/50 transition-colors flex justify-between items-center">
+                            <span class="font-semibold">What is the Flesch-Kincaid readability score?</span>
+                            <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-4 pt-0 text-muted-foreground">
+                            The Flesch-Kincaid score measures text readability based on sentence length and syllable count. Higher scores indicate easier readability, with 60-70 being standard and 90-100 being very easy to read.
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: FAQItem -->
+
+                    <!-- @COMPONENT: FAQItem [question about privacy] -->
+                    <div class="border border-border rounded-lg">
+                        <button class="faq-question w-full text-left p-4 hover:bg-muted/50 transition-colors flex justify-between items-center">
+                            <span class="font-semibold">Is my text stored or shared with anyone?</span>
+                            <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-4 pt-0 text-muted-foreground">
+                            No, your text is processed entirely in your browser and never sent to our servers. We respect your privacy and don't store or share any of your content. You can use our tool offline once loaded.
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: FAQItem -->
+
+                    <!-- @COMPONENT: FAQItem [question about export] -->
+                    <div class="border border-border rounded-lg">
+                        <button class="faq-question w-full text-left p-4 hover:bg-muted/50 transition-colors flex justify-between items-center">
+                            <span class="font-semibold">Can I export my analysis results?</span>
+                            <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-4 pt-0 text-muted-foreground">
+                            Yes! You can export your analysis in multiple formats including PDF, CSV, and TXT. You can also copy results to clipboard or share them on social media platforms.
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: FAQItem -->
+
+                    <!-- @COMPONENT: FAQItem [question about features] -->
+                    <div class="border border-border rounded-lg">
+                        <button class="faq-question w-full text-left p-4 hover:bg-muted/50 transition-colors flex justify-between items-center">
+                            <span class="font-semibold">What features does the keyword density analysis include?</span>
+                            <i class="fas fa-chevron-down text-muted-foreground transition-transform"></i>
+                        </button>
+                        <div class="faq-answer hidden p-4 pt-0 text-muted-foreground">
+                            Our keyword density tool analyzes single keywords, two-word phrases, and three-word phrases. It shows frequency counts, percentages, and can highlight keywords in your text for easy visualization.
+                        </div>
+                    </div>
+                    <!-- @END_COMPONENT: FAQItem -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Pages Sections -->
+        <section id="privacy" class="mt-16">
+            <div class="bg-card rounded-lg p-8 shadow-sm border border-border">
+                <h2 class="text-3xl font-bold text-foreground mb-6">Privacy Policy</h2>
+                <div class="prose prose-gray max-w-none text-muted-foreground">
+                    <p class="mb-4">Last updated: [Date]</p>
+                    <h3 class="text-xl font-semibold text-foreground mb-3">Information We Collect</h3>
+                    <p class="mb-4">We do not collect, store, or process any of your text content. All analysis is performed locally in your browser.</p>
+                    <h3 class="text-xl font-semibold text-foreground mb-3">Cookies and Local Storage</h3>
+                    <p class="mb-4">We use browser local storage to save your preferences (such as dark mode settings) and auto-save your text for convenience.</p>
+                    <h3 class="text-xl font-semibold text-foreground mb-3">Third-Party Services</h3>
+                    <p class="mb-4">This website may use Google Analytics for usage statistics and Google AdSense for advertisements. These services have their own privacy policies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="terms" class="mt-16">
+            <div class="bg-card rounded-lg p-8 shadow-sm border border-border">
+                <h2 class="text-3xl font-bold text-foreground mb-6">Terms & Conditions</h2>
+                <div class="prose prose-gray max-w-none text-muted-foreground">
+                    <p class="mb-4">Last updated: [Date]</p>
+                    <h3 class="text-xl font-semibold text-foreground mb-3">Use of Service</h3>
+                    <p class="mb-4">Our word counter tool is provided free of charge for personal and commercial use. We make no warranties about the accuracy of results.</p>
+                    <h3 class="text-xl font-semibold text-foreground mb-3">Limitations</h3>
+                    <p class="mb-4">You agree not to use this service for any unlawful purposes or in any way that could damage our service or reputation.</p>
+                    <h3 class="text-xl font-semibold text-foreground mb-3">Disclaimer</h3>
+                    <p class="mb-4">This tool is provided "as is" without any warranties. Results should be verified for critical applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mt-16">
+            <div class="bg-card rounded-lg p-8 shadow-sm border border-border">
+                <h2 class="text-3xl font-bold text-foreground mb-6">Contact Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-foreground mb-4">Get in Touch</h3>
+                        <div class="space-y-3 text-muted-foreground">
+                            <p class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-primary"></i>
+                                support@wordcountpro.com
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-clock mr-3 text-primary"></i>
+                                Monday - Friday, 9AM - 5PM EST
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-reply mr-3 text-primary"></i>
+                                We respond within 24 hours
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-foreground mb-2">Name</label>
+                                <input type="text" class="w-full p-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-foreground mb-2">Email</label>
+                                <input type="email" class="w-full p-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-foreground mb-2">Message</label>
+                                <textarea rows="4" class="w-full p-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-border mt-16">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-pen-nib text-primary text-xl"></i>
+                        <h3 class="text-xl font-bold text-foreground">WordCount Pro</h3>
+                    </div>
+                    <p class="text-muted-foreground text-sm">Professional word counting and text analysis tool for writers, bloggers, and content creators.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-foreground mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li><a href="#home" class="hover:text-primary transition-colors">Word Counter</a></li>
+                        <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#privacy" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#terms" class="hover:text-primary transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#contact" class="hover:text-primary transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Features -->
+                <div>
+                    <h4 class="font-semibold text-foreground mb-4">Features</h4>
+                    <ul class="space-y-2 text-sm text-muted-foreground">
+                        <li>Real-time word counting</li>
+                        <li>Readability analysis</li>
+                        <li>Keyword density</li>
+                        <li>Export options</li>
+                        <li>Social sharing</li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="font-semibold text-foreground mb-4">Stay Updated</h4>
+                    <p class="text-sm text-muted-foreground mb-4">Get writing tips and tool updates</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Your email" class="w-full p-2 bg-background border border-border rounded text-sm focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <button type="submit" class="w-full py-2 bg-primary text-primary-foreground rounded text-sm hover:bg-primary/80 transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="border-border my-8">
+
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-muted-foreground">© 2024 WordCount Pro. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // TODO: Implement comprehensive text analysis functionality
+        // TODO: Implement export features (PDF, CSV, TXT)
+        // TODO: Implement social sharing functionality
+        // TODO: Implement Google Analytics integration
+
+        (function() {
+            'use strict';
+
+            // Application State
+            let appState = {
+                text: '',
+                stats: {
+                    wordCount: 0,
+                    charCount: 0,
+                    charNoSpaces: 0,
+                    sentenceCount: 0,
+                    paragraphCount: 0,
+                    avgWordLength: 0,
+                    longestWord: '',
+                    shortestWord: ''
+                },
+                readability: {
+                    score: 0,
+                    level: 'Unknown',
+                    readingTime: 0,
+                    speakingTime: 0
+                },
+                keywords: {
+                    single: [],
+                    twoWord: [],
+                    threeWord: []
+                },
+                wordLimit: 500,
+                darkMode: false
+            };
+
+            // DOM Elements
+            const elements = {
+                textInput: document.getElementById('textInput'),
+                wordCount: document.getElementById('wordCount'),
+                charCount: document.getElementById('charCount'),
+                charNoSpaces: document.getElementById('charNoSpaces'),
+                sentenceCount: document.getElementById('sentenceCount'),
+                paragraphCount: document.getElementById('paragraphCount'),
+                avgWordLength: document.getElementById('avgWordLength'),
+                longestWord: document.getElementById('longestWord'),
+                shortestWord: document.getElementById('shortestWord'),
+                readabilityScore: document.getElementById('readabilityScore'),
+                readingLevel: document.getElementById('readingLevel'),
+                readingTime: document.getElementById('readingTime'),
+                speakingTime: document.getElementById('speakingTime'),
+                wordLimit: document.getElementById('wordLimit'),
+                progressText: document.getElementById('progressText'),
+                themeToggle: document.getElementById('themeToggle'),
+                mobileMenuToggle: document.getElementById('mobileMenuToggle'),
+                mobileMenu: document.getElementById('mobileMenu'),
+                clearText: document.getElementById('clearText'),
+                pasteText: document.getElementById('pasteText'),
+                highlightKeywords: document.getElementById('highlightKeywords'),
+                clearHighlights: document.getElementById('clearHighlights')
+            };
+
+            // Initialize Application
+            function init() {
+                loadUserPreferences();
+                bindEvents();
+                updateAnalysis();
+                loadSavedText();
+            }
+
+            // Event Bindings
+            function bindEvents() {
+                // Text input analysis
+                elements.textInput.addEventListener('input', debounce(updateAnalysis, 300));
+                elements.textInput.addEventListener('input', saveText);
+
+                // Word limit changes
+                elements.wordLimit.addEventListener('change', updateWordLimitProgress);
+
+                // Theme toggle
+                elements.themeToggle.addEventListener('click', toggleTheme);
+
+                // Mobile menu
+                elements.mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+
+                // Text controls
+                elements.clearText.addEventListener('click', clearText);
+                elements.pasteText.addEventListener('click', pasteText);
+
+                // Keyword highlighting
+                elements.highlightKeywords.addEventListener('click', highlightKeywords);
+                elements.clearHighlights.addEventListener('click', clearHighlights);
+
+                // FAQ toggles
+                document.querySelectorAll('.faq-question').forEach(question => {
+                    question.addEventListener('click', toggleFAQ);
+                });
+
+                // Export buttons
+                document.getElementById('exportPDF').addEventListener('click', () => exportResults('pdf'));
+                document.getElementById('exportCSV').addEventListener('click', () => exportResults('csv'));
+                document.getElementById('exportTXT').addEventListener('click', () => exportResults('txt'));
+                document.getElementById('copyResults').addEventListener('click', copyResults);
+
+                // Social sharing
+                document.getElementById('shareTwitter').addEventListener('click', () => shareOnSocial('twitter'));
+                document.getElementById('shareLinkedIn').addEventListener('click', () => shareOnSocial('linkedin'));
+                document.getElementById('shareFacebook').addEventListener('click', () => shareOnSocial('facebook'));
+
+                // Smooth scrolling for navigation
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                            // Close mobile menu if open
+                            elements.mobileMenu.classList.remove('open');
+                        }
+                    });
+                });
+            }
+
+            // Text Analysis Functions
+            function updateAnalysis() {
+                const text = elements.textInput.value;
+                appState.text = text;
+
+                // Basic statistics
+                calculateBasicStats(text);
+                calculateReadabilityStats(text);
+                calculateKeywordDensity(text);
+                updateWordLimitProgress();
+                
+                // Update UI
+                updateStatsDisplay();
+                updateReadabilityDisplay();
+                updateKeywordTables();
+            }
+
+            function calculateBasicStats(text) {
+                const words = text.trim() ? text.trim().split(/\s+/).filter(word => word.length > 0) : [];
+                const sentences = text.trim() ? text.split(/[.!?]+/).filter(s => s.trim().length > 0) : [];
+                const paragraphs = text.trim() ? text.split(/\n\s*\n/).filter(p => p.trim().length > 0) : [];
+
+                appState.stats = {
+                    wordCount: words.length,
+                    charCount: text.length,
+                    charNoSpaces: text.replace(/\s/g, '').length,
+                    sentenceCount: sentences.length,
+                    paragraphCount: Math.max(paragraphs.length, text.trim() ? 1 : 0),
+                    avgWordLength: words.length ? (words.join('').length / words.length).toFixed(1) : 0,
+                    longestWord: words.length ? words.reduce((a, b) => a.length > b.length ? a : b) : '',
+                    shortestWord: words.length ? words.reduce((a, b) => a.length < b.length ? a : b) : ''
+                };
+            }
+
+            function calculateReadabilityStats(text) {
+                const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+                const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+                
+                if (words.length === 0 || sentences.length === 0) {
+                    appState.readability = {
+                        score: 0,
+                        level: 'Unknown',
+                        readingTime: 0,
+                        speakingTime: 0
+                    };
+                    return;
+                }
+
+                // Simplified Flesch Reading Ease calculation
+                const avgWordsPerSentence = words.length / sentences.length;
+                const avgSyllablesPerWord = words.reduce((total, word) => total + countSyllables(word), 0) / words.length;
+                
+                const fleschScore = 206.835 - (1.015 * avgWordsPerSentence) - (84.6 * avgSyllablesPerWord);
+                
+                appState.readability = {
+                    score: Math.max(0, Math.min(100, fleschScore)).toFixed(1),
+                    level: getReadingLevel(fleschScore),
+                    readingTime: Math.ceil(words.length / 200), // 200 WPM
+                    speakingTime: Math.ceil(words.length / 130) // 130 WPM
+                };
+            }
+
+            function countSyllables(word) {
+                // Simplified syllable counting
+                word = word.toLowerCase();
+                if (word.length <= 3) return 1;
+                
+                word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+                word = word.replace(/^y/, '');
+                const matches = word.match(/[aeiouy]{1,2}/g);
+                return matches ? matches.length : 1;
+            }
+
+            function getReadingLevel(score) {
+                if (score >= 90) return 'Very Easy';
+                if (score >= 80) return 'Easy';
+                if (score >= 70) return 'Fairly Easy';
+                if (score >= 60) return 'Standard';
+                if (score >= 50) return 'Fairly Difficult';
+                if (score >= 30) return 'Difficult';
+                return 'Very Difficult';
+            }
+
+            function calculateKeywordDensity(text) {
+                const words = text.toLowerCase()
+                    .replace(/[^\w\s]/g, ' ')
+                    .split(/\s+/)
+                    .filter(word => word.length > 2); // Filter out small words
+
+                if (words.length === 0) {
+                    appState.keywords = { single: [], twoWord: [], threeWord: [] };
+                    return;
+                }
+
+                // Single keywords
+                const singleKeywords = {};
+                words.forEach(word => {
+                    singleKeywords[word] = (singleKeywords[word] || 0) + 1;
+                });
+
+                // Two-word phrases
+                const twoWordPhrases = {};
+                for (let i = 0; i < words.length - 1; i++) {
+                    const phrase = words[i] + ' ' + words[i + 1];
+                    twoWordPhrases[phrase] = (twoWordPhrases[phrase] || 0) + 1;
+                }
+
+                // Three-word phrases
+                const threeWordPhrases = {};
+                for (let i = 0; i < words.length - 2; i++) {
+                    const phrase = words[i] + ' ' + words[i + 1] + ' ' + words[i + 2];
+                    threeWordPhrases[phrase] = (threeWordPhrases[phrase] || 0) + 1;
+                }
+
+                appState.keywords = {
+                    single: Object.entries(singleKeywords)
+                        .sort(([,a], [,b]) => b - a)
+                        .slice(0, 10)
+                        .map(([word, count]) => ({
+                            keyword: word,
+                            count,
+                            percentage: ((count / words.length) * 100).toFixed(1)
+                        })),
+                    twoWord: Object.entries(twoWordPhrases)
+                        .filter(([,count]) => count > 1)
+                        .sort(([,a], [,b]) => b - a)
+                        .slice(0, 10)
+                        .map(([phrase, count]) => ({
+                            keyword: phrase,
+                            count,
+                            percentage: ((count / (words.length - 1)) * 100).toFixed(1)
+                        })),
+                    threeWord: Object.entries(threeWordPhrases)
+                        .filter(([,count]) => count > 1)
+                        .sort(([,a], [,b]) => b - a)
+                        .slice(0, 10)
+                        .map(([phrase, count]) => ({
+                            keyword: phrase,
+                            count,
+                            percentage: ((count / (words.length - 2)) * 100).toFixed(1)
+                        }))
+                };
+            }
+
+            // UI Update Functions
+            function updateStatsDisplay() {
+                elements.wordCount.textContent = appState.stats.wordCount;
+                elements.charCount.textContent = appState.stats.charCount;
+                elements.charNoSpaces.textContent = appState.stats.charNoSpaces;
+                elements.sentenceCount.textContent = appState.stats.sentenceCount;
+                elements.paragraphCount.textContent = appState.stats.paragraphCount;
+                elements.avgWordLength.textContent = appState.stats.avgWordLength;
+                elements.longestWord.textContent = appState.stats.longestWord || '-';
+                elements.shortestWord.textContent = appState.stats.shortestWord || '-';
+            }
+
+            function updateReadabilityDisplay() {
+                elements.readabilityScore.textContent = appState.readability.score;
+                elements.readingLevel.textContent = appState.readability.level;
+                elements.readingTime.textContent = `~${appState.readability.readingTime} min`;
+                elements.speakingTime.textContent = `~${appState.readability.speakingTime} min`;
+                
+                // Update reading level color
+                const levelElement = elements.readingLevel;
+                levelElement.className = 'px-3 py-1 text-white rounded-full text-sm ';
+                if (appState.readability.score >= 70) levelElement.className += 'bg-green-500';
+                else if (appState.readability.score >= 50) levelElement.className += 'bg-yellow-500';
+                else levelElement.className += 'bg-red-500';
+            }
+
+            function updateKeywordTables() {
+                updateKeywordTable('singleKeywords', appState.keywords.single);
+                updateKeywordTable('twoWordPhrases', appState.keywords.twoWord);
+                updateKeywordTable('threeWordPhrases', appState.keywords.threeWord);
+            }
+
+            function updateKeywordTable(tableId, keywords) {
+                const tbody = document.getElementById(tableId);
+                tbody.innerHTML = '';
+                
+                keywords.slice(0, 5).forEach(item => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td class="py-2">${item.keyword}</td>
+                        <td class="text-right py-2">${item.count}</td>
+                        <td class="text-right py-2">${item.percentage}%</td>
+                    `;
+                    row.className = 'border-b border-border';
+                });
+
+                if (keywords.length === 0) {
+                    const row = tbody.insertRow();
+                    row.innerHTML = '<td colspan="3" class="py-4 text-center text-muted-foreground">No keywords found</td>';
+                }
+            }
+
+            function updateWordLimitProgress() {
+                const limit = parseInt(elements.wordLimit.value);
+                const current = appState.stats.wordCount;
+                const percentage = Math.min((current / limit) * 100, 100);
+                
+                const progressBar = document.querySelector('.progress-bar');
+                progressBar.style.setProperty('--progress', `${percentage}%`);
+                
+                elements.progressText.textContent = current;
+                
+                // Update color based on progress
+                if (percentage >= 100) {
+                    progressBar.style.background = `linear-gradient(90deg, var(--destructive) ${percentage}%, var(--muted) ${percentage}%)`;
+                } else if (percentage >= 80) {
+                    progressBar.style.background = `linear-gradient(90deg, var(--chart-3) ${percentage}%, var(--muted) ${percentage}%)`;
+                } else {
+                    progressBar.style.background = `linear-gradient(90deg, var(--primary) ${percentage}%, var(--muted) ${percentage}%)`;
+                }
+            }
+
+            // Feature Functions
+            function clearText() {
+                elements.textInput.value = '';
+                updateAnalysis();
+                saveText();
+            }
+
+            async function pasteText() {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    elements.textInput.value = text;
+                    updateAnalysis();
+                    saveText();
+                } catch (err) {
+                    console.log('Paste not supported or permission denied');
+                }
+            }
+
+            function highlightKeywords() {
+                const text = elements.textInput.value;
+                const topKeywords = appState.keywords.single.slice(0, 5).map(k => k.keyword);
+                
+                let highlightedText = text;
+                topKeywords.forEach(keyword => {
+                    const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
+                    highlightedText = highlightedText.replace(regex, `<span class="highlight-keyword">${keyword}</span>`);
+                });
+                
+                // Create preview div
+                let previewDiv = document.getElementById('textPreview');
+                if (!previewDiv) {
+                    previewDiv = document.createElement('div');
+                    previewDiv.id = 'textPreview';
+                    previewDiv.className = 'w-full h-64 p-4 bg-background border border-border rounded-lg overflow-auto mt-4';
+                    elements.textInput.parentNode.appendChild(previewDiv);
+                }
+                
+                previewDiv.innerHTML = highlightedText;
+                elements.textInput.style.display = 'none';
+            }
+
+            function clearHighlights() {
+                const previewDiv = document.getElementById('textPreview');
+                if (previewDiv) {
+                    previewDiv.remove();
+                }
+                elements.textInput.style.display = 'block';
+            }
+
+            function exportResults(format) {
+                const data = {
+                    text: appState.text,
+                    stats: appState.stats,
+                    readability: appState.readability,
+                    keywords: appState.keywords,
+                    timestamp: new Date().toISOString()
+                };
+
+                switch (format) {
+                    case 'pdf':
+                        // TODO: Implement PDF export using a library like jsPDF
+                        alert('PDF export feature coming soon!');
+                        break;
+                    case 'csv':
+                        exportCSV(data);
+                        break;
+                    case 'txt':
+                        exportTXT(data);
+                        break;
+                }
+            }
+
+            function exportCSV(data) {
+                const csvContent = [
+                    ['Metric', 'Value'],
+                    ['Word Count', data.stats.wordCount],
+                    ['Character Count', data.stats.charCount],
+                    ['Character Count (No Spaces)', data.stats.charNoSpaces],
+                    ['Sentence Count', data.stats.sentenceCount],
+                    ['Paragraph Count', data.stats.paragraphCount],
+                    ['Average Word Length', data.stats.avgWordLength],
+                    ['Longest Word', data.stats.longestWord],
+                    ['Shortest Word', data.stats.shortestWord],
+                    ['Readability Score', data.readability.score],
+                    ['Reading Level', data.readability.level],
+                    ['Reading Time (minutes)', data.readability.readingTime],
+                    ['Speaking Time (minutes)', data.readability.speakingTime]
+                ].map(row => row.join(',')).join('\n');
+
+                downloadFile(csvContent, 'word-analysis.csv', 'text/csv');
+            }
+
+            function exportTXT(data) {
+                const txtContent = `Word Analysis Report
+Generated: ${new Date().toLocaleString()}
+
+=== BASIC STATISTICS ===
+Word Count: ${data.stats.wordCount}
+Character Count: ${data.stats.charCount}
+Character Count (No Spaces): ${data.stats.charNoSpaces}
+Sentence Count: ${data.stats.sentenceCount}
+Paragraph Count: ${data.stats.paragraphCount}
+Average Word Length: ${data.stats.avgWordLength}
+Longest Word: ${data.stats.longestWord}
+Shortest Word: ${data.stats.shortestWord}
+
+=== READABILITY ANALYSIS ===
+Flesch-Kincaid Score: ${data.readability.score}
+Reading Level: ${data.readability.level}
+Estimated Reading Time: ${data.readability.readingTime} minutes
+Estimated Speaking Time: ${data.readability.speakingTime} minutes
+
+=== TOP KEYWORDS ===
+${data.keywords.single.slice(0, 5).map(k => `${k.keyword}: ${k.count} (${k.percentage}%)`).join('\n')}
+
+=== ORIGINAL TEXT ===
+${data.text}`;
+
+                downloadFile(txtContent, 'word-analysis.txt', 'text/plain');
+            }
+
+            function downloadFile(content, filename, mimeType) {
+                const blob = new Blob([content], { type: mimeType });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            async function copyResults() {
+                const results = `Word Count: ${appState.stats.wordCount}
+Character Count: ${appState.stats.charCount}
+Readability Score: ${appState.readability.score} (${appState.readability.level})
+Reading Time: ${appState.readability.readingTime} minutes`;
+
+                try {
+                    await navigator.clipboard.writeText(results);
+                    showNotification('Results copied to clipboard!');
+                } catch (err) {
+                    console.log('Copy not supported');
+                }
+            }
+
+            function shareOnSocial(platform) {
+                const text = `I just analyzed my text with WordCount Pro! ${appState.stats.wordCount} words, ${appState.readability.score} readability score.`;
+                const url = window.location.href;
+                
+                const shareUrls = {
+                    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
+                    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+                    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+                };
+
+                if (shareUrls[platform]) {
+                    window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+                }
+            }
+
+            // Theme Management
+            function toggleTheme() {
+                appState.darkMode = !appState.darkMode;
+                updateTheme();
+                localStorage.setItem('darkMode', appState.darkMode);
+            }
+
+            function updateTheme() {
+                if (appState.darkMode) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            }
+
+            function loadUserPreferences() {
+                const savedDarkMode = localStorage.getItem('darkMode');
+                if (savedDarkMode !== null) {
+                    appState.darkMode = savedDarkMode === 'true';
+                    updateTheme();
+                }
+
+                const savedWordLimit = localStorage.getItem('wordLimit');
+                if (savedWordLimit) {
+                    appState.wordLimit = parseInt(savedWordLimit);
+                    elements.wordLimit.value = appState.wordLimit;
+                }
+            }
+
+            // Mobile Menu
+            function toggleMobileMenu() {
+                elements.mobileMenu.classList.toggle('open');
+            }
+
+            // FAQ Functions
+            function toggleFAQ(e) {
+                const question = e.currentTarget;
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+
+            // Auto-save and restore text
+            function saveText() {
+                localStorage.setItem('savedText', elements.textInput.value);
+            }
+
+            function loadSavedText() {
+                const savedText = localStorage.getItem('savedText');
+                if (savedText && !elements.textInput.value.trim()) {
+                    elements.textInput.value = savedText;
+                }
+            }
+
+            // Utility Functions
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            function showNotification(message) {
+                // Simple notification - could be enhanced with a proper notification system
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg z-50';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            }
+
+            // Initialize the application
+            init();
+
+        })();
+
+        // Google Analytics placeholder
+        // TODO: Replace with actual Google Analytics tracking code
+        /*
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        */
+    </script>
+</body>
+</html>
