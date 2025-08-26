@@ -227,26 +227,14 @@ export default function WordCounterTool() {
               </div>
             </div>
 
-            {/* Text Statistics */}
-            <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Text Statistics</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Average Word Length</span>
-                  <span className="font-semibold" data-testid="text-avg-word-length">{stats.avgWordLength}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Longest Word</span>
-                  <span className="font-semibold" data-testid="text-longest-word">{stats.longestWord || '-'}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Shortest Word</span>
-                  <span className="font-semibold" data-testid="text-shortest-word">{stats.shortestWord || '-'}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Characters (no spaces)</span>
-                  <span className="font-semibold" data-testid="text-char-no-spaces">{stats.charNoSpaces}</span>
-                </div>
+            {/* Text Statistics - Card Layout */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-foreground">Text Statistics</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <StatsCard value={stats.avgWordLength} label="Average Word Length" icon="fas fa-ruler" iconColor="text-indigo-600" />
+                <StatsCard value={stats.longestWord || '-'} label="Longest Word" icon="fas fa-arrows-alt-h" iconColor="text-red-600" />
+                <StatsCard value={stats.shortestWord || '-'} label="Shortest Word" icon="fas fa-compress-alt" iconColor="text-yellow-600" />
+                <StatsCard value={stats.charNoSpaces} label="Characters (no spaces)" icon="fas fa-font" iconColor="text-teal-600" />
               </div>
             </div>
           </div>
