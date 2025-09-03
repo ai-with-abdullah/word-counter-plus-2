@@ -4,7 +4,6 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
-  base: "/word-counter-plus/", // ← یہ line add کریں
   plugins: [
     react(),
     runtimeErrorOverlay(),
