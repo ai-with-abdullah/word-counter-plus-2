@@ -218,10 +218,10 @@ export default function WordCounterTool() {
                   <span className="font-semibold" data-testid="text-readability-score">{readability.score}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-muted-foreground">Reading Level</span>
+                  {/* <span className="text-muted-foreground">Reading Level</span>
                   <span className={`px-3 py-1 text-white rounded-full text-sm ${getReadingLevelColor(readability.score)}`} data-testid="text-reading-level">
                     {readability.level}
-                  </span>
+                  </span> */}
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Reading Time</span>

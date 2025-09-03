@@ -20,7 +20,7 @@ export function exportCSV(data: ExportData): void {
     ['Longest Word', data.stats.longestWord],
     ['Shortest Word', data.stats.shortestWord],
     ['Readability Score', data.readability.score.toString()],
-    ['Reading Level', data.readability.level],
+    // ['Reading Level', data.readability.level],
     ['Reading Time (minutes)', data.readability.readingTime.toString()],
     ['Speaking Time (minutes)', data.readability.speakingTime.toString()]
   ].map(row => row.join(',')).join('\n');
@@ -44,7 +44,7 @@ Shortest Word: ${data.stats.shortestWord}
 
 === READABILITY ANALYSIS ===
 Flesch-Kincaid Score: ${data.readability.score}
-Reading Level: ${data.readability.level}
+// Reading Level: ${data.readability.level}
 Estimated Reading Time: ${data.readability.readingTime} minutes
 Estimated Speaking Time: ${data.readability.speakingTime} minutes
 
@@ -118,7 +118,7 @@ export function exportPDF(data: ExportData): void {
     doc.setFont('helvetica', 'normal');
     const readabilityStats = [
       `Flesch-Kincaid Score: ${data.readability.score}`,
-      `Reading Level: ${data.readability.level}`,
+      // `Reading Level: ${data.readability.level}`,
       `Estimated Reading Time: ${data.readability.readingTime} minutes`,
       `Estimated Speaking Time: ${data.readability.speakingTime} minutes`
     ];

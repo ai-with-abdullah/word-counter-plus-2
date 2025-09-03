@@ -1114,19 +1114,19 @@
                 elements.shortestWord.textContent = appState.stats.shortestWord || '-';
             }
 
-            function updateReadabilityDisplay() {
-                elements.readabilityScore.textContent = appState.readability.score;
-                elements.readingLevel.textContent = appState.readability.level;
-                elements.readingTime.textContent = `~${appState.readability.readingTime} min`;
-                elements.speakingTime.textContent = `~${appState.readability.speakingTime} min`;
+            // function updateReadabilityDisplay() {
+            //     elements.readabilityScore.textContent = appState.readability.score;
+            //     elements.readingLevel.textContent = appState.readability.level;
+            //     elements.readingTime.textContent = `~${appState.readability.readingTime} min`;
+            //     elements.speakingTime.textContent = `~${appState.readability.speakingTime} min`;
                 
-                // Update reading level color
-                const levelElement = elements.readingLevel;
-                levelElement.className = 'px-3 py-1 text-white rounded-full text-sm ';
-                if (appState.readability.score >= 70) levelElement.className += 'bg-green-500';
-                else if (appState.readability.score >= 50) levelElement.className += 'bg-yellow-500';
-                else levelElement.className += 'bg-red-500';
-            }
+            //     // Update reading level color
+            //     const levelElement = elements.readingLevel;
+            //     levelElement.className = 'px-3 py-1 text-white rounded-full text-sm ';
+            //     if (appState.readability.score >= 70) levelElement.className += 'bg-green-500';
+            //     else if (appState.readability.score >= 50) levelElement.className += 'bg-yellow-500';
+            //     else levelElement.className += 'bg-red-500';
+            // }
 
             function updateKeywordTables() {
                 updateKeywordTable('singleKeywords', appState.keywords.single);
@@ -1258,7 +1258,7 @@
                     ['Longest Word', data.stats.longestWord],
                     ['Shortest Word', data.stats.shortestWord],
                     ['Readability Score', data.readability.score],
-                    ['Reading Level', data.readability.level],
+                    // ['Reading Level', data.readability.level],
                     ['Reading Time (minutes)', data.readability.readingTime],
                     ['Speaking Time (minutes)', data.readability.speakingTime]
                 ].map(row => row.join(',')).join('\n');
@@ -1282,7 +1282,7 @@ Shortest Word: ${data.stats.shortestWord}
 
 === READABILITY ANALYSIS ===
 Flesch-Kincaid Score: ${data.readability.score}
-Reading Level: ${data.readability.level}
+// Reading Level: ${data.readability.level}
 Estimated Reading Time: ${data.readability.readingTime} minutes
 Estimated Speaking Time: ${data.readability.speakingTime} minutes
 
