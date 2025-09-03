@@ -1,4 +1,6 @@
 import { Link } from 'wouter';
+import { FaPenNib } from "react-icons/fa";
+
 
 export default function Footer() {
 
@@ -9,7 +11,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <i className="fas fa-pen-nib text-primary text-xl"></i>
+              {/* <i className="fas fa-pen-nib text-primary text-xl"></i> */}
+              <FaPenNib className="text-primary text-xl" />
               <h3 className="text-xl font-bold text-foreground">Word Counter Plus</h3>
             </div>
             <p className="text-muted-foreground text-sm">Professional word counting and text analysis tool for writers, bloggers, and content creators.</p>
