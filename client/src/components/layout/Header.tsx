@@ -23,7 +23,7 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" data-testid="link-home">
               <div className="flex items-center space-x-2">
-                <i className="fas fa-pen-nib text-primary text-xl"></i>
+                <i className="fas fa-pen-nib text-primary text-xl" aria-label="Word Counter Logo"></i>
                 <h1 className="text-xl font-bold text-foreground">Word Counter Plus</h1>
               </div>
             </Link>
@@ -51,7 +51,7 @@ export default function Header() {
                 className="md:hidden p-2 rounded-lg bg-muted hover:bg-accent transition-colors"
                 data-testid="button-mobile-menu"
               >
-                <i className="fas fa-bars"></i>
+                <i className="fas fa-bars" aria-label="Side Menu"></i>
               </button>
             </div>
           </div>

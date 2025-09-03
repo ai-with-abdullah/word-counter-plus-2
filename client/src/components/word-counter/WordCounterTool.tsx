@@ -141,14 +141,14 @@ export default function WordCounterTool() {
                   className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors"
                   data-testid="button-clear-text"
                 >
-                  <i className="fas fa-trash mr-2"></i>Clear
+                  <i className="fas fa-trash mr-2" aria-label="Trash/Remove icon"></i>Clear
                 </button>
                 <button 
                   onClick={pasteText}
                   className="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-colors"
                   data-testid="button-paste-text"
                 >
-                  <i className="fas fa-paste mr-2"></i>Paste
+                  <i className="fas fa-paste mr-2" aria-label="Past Icon"></i>Paste
                 </button>
               </div>
             </div>
@@ -342,14 +342,14 @@ export default function WordCounterTool() {
                           className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors"
                           data-testid="button-highlight-keywords"
                         >
-                          <i className="fas fa-highlighter mr-2"></i>Highlight Keywords
+                          <i className="fas fa-highlighter mr-2" aria-label="Hilight Icon"></i>Highlight Keywords
                         </button>
                         <button 
                           onClick={clearHighlights}
                           className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors"
                           data-testid="button-clear-highlights"
                         >
-                          <i className="fas fa-eraser mr-2"></i>Clear
+                          <i className="fas fa-eraser mr-2" aria-label="Erase/Remove icon"></i>Clear
                         </button>
                       </div>
                     </div>
@@ -385,19 +385,19 @@ export default function WordCounterTool() {
             <h3 className="text-lg font-semibold text-foreground mb-4">💡 Quick Tips</h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start">
-                <i className="fas fa-check text-primary mr-2 mt-0.5"></i>
+                <i className="fas fa-check text-primary mr-2 mt-0.5" aria-label="Check Icon"></i>
                 Keep sentences under 20 words for better readability
               </li>
               <li className="flex items-start">
-                <i className="fas fa-check text-primary mr-2 mt-0.5"></i>
+                <i className="fas fa-check text-primary mr-2 mt-0.5" aria-label="Check Icon"></i>
                 Aim for 1-2% keyword density for SEO
               </li>
               <li className="flex items-start">
-                <i className="fas fa-check text-primary mr-2 mt-0.5"></i>
+                <i className="fas fa-check text-primary mr-2 mt-0.5" aria-label="Check Icon"></i>
                 Use active voice for clearer writing
               </li>
               <li className="flex items-start">
-                <i className="fas fa-check text-primary mr-2 mt-0.5"></i>
+                <i className="fas fa-check text-primary mr-2 mt-0.5" aria-label="Check Icon"></i>
                 Break up long paragraphs for better flow
               </li>
             </ul>

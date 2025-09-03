@@ -156,7 +156,7 @@ export default function BlogPost() {
         <div className="mb-8">
           <Link href="/blog">
             <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
-              <i className="fas fa-arrow-left mr-2"></i>
+              <i className="fas fa-arrow-left mr-2" aria-label="Left arrow Icon"></i>
               Back to Blog
             </span>
           </Link>
@@ -180,14 +180,14 @@ export default function BlogPost() {
           </h1>
           
           <div className="flex items-center text-muted-foreground text-sm">
-            <i className="fas fa-calendar mr-2"></i>
+            <i className="fas fa-calendar mr-2" aria-label="Calendar Icon"></i>
             <span>{new Date(post.publishDate).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'long', 
               day: 'numeric'
             })}</span>
             <span className="mx-2">•</span>
-            <i className="fas fa-clock mr-2"></i>
+            <i className="fas fa-calendar mr-2" aria-label="Calendar Icon"></i>
             <span>{post.readTime}</span>
           </div>
         </header>
@@ -217,13 +217,13 @@ export default function BlogPost() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/">
               <span className="inline-flex items-center bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors font-semibold">
-                <i className="fas fa-play mr-2"></i>
+            <i className="fas fa-calendar mr-2" aria-label="Calendar Icon"></i>
                 Try Word Counter Plus
               </span>
             </Link>
             <Link href="/blog">
               <span className="inline-flex items-center border border-border px-6 py-3 rounded-lg hover:bg-muted/50 transition-colors font-semibold">
-                <i className="fas fa-book mr-2"></i>
+                <i className="fas fa-book mr-2" aria-label="Book Icon"></i>
                 Read More Articles
               </span>
             </Link>
@@ -234,7 +234,7 @@ export default function BlogPost() {
         <nav className="mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <Link href="/blog">
             <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
-              <i className="fas fa-arrow-left mr-2"></i>
+              <i className="fas fa-arrow-left mr-2" aria-label="left arrow Icon"></i>
               All Blog Posts
             </span>
           </Link>
@@ -251,7 +251,7 @@ export default function BlogPost() {
               }}
               className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors"
             >
-              <i className="fas fa-share mr-2"></i>
+              <i className="fas fa-share mr-2" aria-label="Share Icon"></i>
               Share
             </button>
           </div>

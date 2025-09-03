@@ -115,11 +115,11 @@ export default function FAQ() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="/contact" className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
-                <i className="fas fa-envelope mr-2"></i>
+                <i className="fas fa-envelope mr-2" aria-label="Envelope Icon"></i>
                 Contact Support
               </a>
               <a href="/" className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
-                <i className="fas fa-play mr-2"></i>
+                <i className="fas fa-play mr-2" aria-label="Play Icon"></i>
                 Try the Tool
               </a>
             </div>

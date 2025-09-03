@@ -59,14 +59,14 @@ export default function Contact() {
             <h2 className="text-xl font-semibold text-foreground mb-4">Get in Touch</h2>
             <div className="space-y-4 text-muted-foreground">
               <div className="flex items-center">
-                <i className="fas fa-clock mr-3 text-primary"></i>
+                <i className="fas fa-clock mr-3 text-primary" aria-label="Clock Icon"></i>
                 <div>
                   <p className="font-semibold">Response Time</p>
                   <p>Within 24 hours</p>
                 </div>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-calendar mr-3 text-primary"></i>
+                <i className="fas fa-calendar mr-3 text-primary" aria-label="Calendar Icon"></i>
                 <div>
                   <p className="font-semibold">Business Hours</p>
                   <p>Monday - Friday, 9AM - 5PM EST</p>
@@ -142,14 +142,14 @@ export default function Contact() {
                 className="w-full py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors font-semibold"
                 data-testid="button-send-message"
               >
-                <i className="fas fa-paper-plane mr-2"></i>
+                <i className="fas fa-paper-plane mr-2" aria-label="Send Icon"></i>
                 Send Message
               </button>
             </form>
 
             <div className="mt-6 p-4 bg-muted/50 rounded-lg">
               <div className="flex items-start">
-                <i className="fas fa-info-circle text-primary mr-3 mt-1"></i>
+                <i className="fas fa-info-circle text-primary mr-3 mt-1" aria-label="Info Icon"></i>
                 <div className="text-sm text-muted-foreground">
                   <p className="font-semibold mb-1">Privacy Note</p>
                   <p>We respect your privacy. Your contact information will only be used to respond to your inquiry and will not be shared with third parties.</p>
