@@ -247,34 +247,6 @@ export default function AdvancedAnalytics({ text, wordCount, sentenceCount, para
           </CardContent>
         </Card>
       )}
-
-      {/* Readability Breakdown */}
-      {readabilityData.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle>Readability Breakdown</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={200}>
-              <PieChart>
-                <Pie
-                  data={readabilityData}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={80}
-                  dataKey="value"
-                  label={({ name }) => name}
-                >
-                  {readabilityData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.fill} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
-      )}
     </div>
   );
 }

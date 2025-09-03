@@ -1,11 +1,13 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import open from "open"; // <-- Add this package for auto-opening browser
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Logging middleware
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
@@ -47,25 +49,47 @@ app.use((req, res, next) => {
     throw err;
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
+  // Setup Vite in dev mode, otherwise serve static files
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || '5000', 10);
-  server.listen({
-    port,
-    host: "0.0.0.0",
-    reusePort: true,
-  }, () => {
-    log(`serving on port ${port}`);
-  });
+  // Auto Port Selection + Auto Browser Open ✅
+  const DEFAULT_PORT = parseInt(process.env.PORT || "5000", 10);
+
+  const startServer = (port: number) => {
+    const listener = server.listen(
+      {
+        port,
+        host: "0.0.0.0",
+        reusePort: true,
+      },
+      async () => {
+        const url = `http://localhost:${port}`;
+        console.clear();
+        console.log("\x1b[36m%s\x1b[0m", "====================================");
+        console.log("\x1b[32m✅ Server is running successfully!\x1b[0m");
+        console.log("\x1b[33m🌐 URL:\x1b[0m", url);
+        console.log("\x1b[36m====================================\x1b[0m");
+
+        // Open browser automatically
+        await open(url);
+      }
+    );
+
+    // If port is in use, try next port automatically
+    listener.on("error", (err: any) => {
+      if (err.code === "EADDRINUSE") {
+        console.log(`⚠️  Port ${port} is busy, trying ${port + 1}...`);
+        startServer(port + 1);
+      } else {
+        console.error(`❌ Server error: ${err.message}`);
+        process.exit(1);
+      }
+    });
+  };
+
+  startServer(DEFAULT_PORT);
 })();
