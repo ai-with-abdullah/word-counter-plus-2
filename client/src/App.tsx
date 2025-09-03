@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/hooks/useTheme";
 import Header from "@/components/layout/Header";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import Footer from "@/components/layout/Footer";
 import Home from "@/pages/Home";
 import Blog from "@/pages/Blog";
@@ -37,6 +38,7 @@ function App() {
         <TooltipProvider>
           <div className="min-h-screen bg-background text-foreground">
             <Header />
+            <ScrollToTop /> 
             <Router />
             <Footer />
           </div>
