@@ -215,22 +215,32 @@ export default function WordCounterTool() {
                     onChange={(e) => setWordLimit(parseInt(e.target.value) || 500)}
                     min="1" 
                     className="w-20 px-2 py-1 text-sm bg-background border border-border rounded"
-                    data-testid="input-word-limit"/>
+                    data-testid="input-word-limit"
+                  />
                   <span className="text-sm text-muted-foreground">words</span>
                 </div>
               </div>
+
+              {/* Accessible Progress Bar */}
               <div 
                 className="progress-bar h-2 bg-muted rounded-full" 
+                role="progressbar"
+                aria-valuenow={stats.wordCount}
+                aria-valuemin={0}
+                aria-valuemax={wordLimit}
+                aria-label="Word limit progress"
                 style={{
                   '--progress': `${progressPercentage}%`,
                   background: `linear-gradient(90deg, ${getProgressBarColor(progressPercentage)} ${progressPercentage}%, var(--muted) ${progressPercentage}%)`
                 } as React.CSSProperties}>
               </div>
+
               <p className="text-xs text-muted-foreground mt-1">
                 <span data-testid="text-current-words">{stats.wordCount}</span> / 
                 <span data-testid="text-word-limit">{wordLimit}</span> words
               </p>
             </div>
+
           </div>
 
           {/* Real-time Statistics */}
