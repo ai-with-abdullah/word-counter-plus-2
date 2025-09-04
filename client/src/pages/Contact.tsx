@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import useSEO from '@/hooks/useSEO';
+import { FaCalendar, FaClock, FaInfo, FaInfoCircle, FaPaperPlane } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -59,14 +60,15 @@ export default function Contact() {
             <h2 className="text-xl font-semibold text-foreground mb-4">Get in Touch</h2>
             <div className="space-y-4 text-muted-foreground">
               <div className="flex items-center">
-                <i className="fas fa-clock mr-3 text-primary" aria-label="Clock Icon"></i>
+                <FaClock className="mr-3 text-primary" aria-label="Clock Icon" />
                 <div>
                   <p className="font-semibold">Response Time</p>
                   <p>Within 24 hours</p>
                 </div>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-calendar mr-3 text-primary" aria-label="Calendar Icon"></i>
+                {/* <i className="fas fa-calendar mr-3 text-primary" aria-label="Calendar Icon"></i> */}
+                <FaCalendar className="mr-3 text-primary" aria-label="Calendar Icon" />
                 <div>
                   <p className="font-semibold">Business Hours</p>
                   <p>Monday - Friday, 9AM - 5PM EST</p>
@@ -142,14 +144,14 @@ export default function Contact() {
                 className="w-full py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors font-semibold"
                 data-testid="button-send-message"
               >
-                <i className="fas fa-paper-plane mr-2" aria-label="Send Icon"></i>
-                Send Message
+                <i className="fas fa-paper-plane mr-2" aria-hidden="true"></i>Send Message
+                {/* <FaPaperPlane className="mr-2" aria-label="Send Icon"/> Send Message */}
               </button>
             </form>
 
             <div className="mt-6 p-4 bg-muted/50 rounded-lg">
               <div className="flex items-start">
-                <i className="fas fa-info-circle text-primary mr-3 mt-1" aria-label="Info Icon"></i>
+                <FaInfo className="text-primary mr-3 mt-1" aria-label="Info Icon" />
                 <div className="text-sm text-muted-foreground">
                   <p className="font-semibold mb-1">Privacy Note</p>
                   <p>We respect your privacy. Your contact information will only be used to respond to your inquiry and will not be shared with third parties.</p>

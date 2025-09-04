@@ -1,6 +1,7 @@
 import useSEO from '@/hooks/useSEO';
 import WordCounterTool from '@/components/word-counter/WordCounterTool';
 import { Link } from 'wouter';
+import { FaArrowRight, FaBolt, FaChartLine, FaCheckCircle, FaDownload, FaGraduationCap, FaPenFancy } from 'react-icons/fa';
 
 export default function Home() {
   useSEO({
@@ -66,12 +67,12 @@ export default function Home() {
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   <div className="text-center p-4 bg-muted/50 rounded-lg">
-                    <i className="fas fa-bolt text-primary text-2xl mb-2" aria-label="Bolt Icon"></i>
+                    <FaBolt className="text-primary text-2xl mb-2" aria-label="Bolt Icon" />
                     <h3 className="font-semibold">Real-time Analysis</h3>
                     <p className="text-sm">Instant results as you type</p>
                   </div>
                   <div className="text-center p-4 bg-muted/50 rounded-lg">
-                    <i className="fas fa-download text-primary text-2xl mb-2" aria-label="Download Icon"></i>
+                    <FaDownload className="text-primary text-2xl mb-2" aria-label="Download Icon" />
                     <h3 className="font-semibold">Export Options</h3>
                     <p className="text-sm">PDF, CSV, TXT formats</p>
                   </div>
@@ -84,37 +85,37 @@ export default function Home() {
               <h2 className="text-2xl font-bold text-foreground mb-4">Key Features</h2>
               <ul className="space-y-3">
                 <li className="flex items-start">
-                  <i className="fas fa-check-circle text-primary mr-3 mt-1" aria-label="Check Icon"></i>
+                  <FaCheckCircle className="text-primary mr-3 mt-1" aria-label="Check Circle Icon" />
                   <div>
                     <strong>Advanced Word Counter:</strong> Count words, characters, sentences, and paragraphs with precision
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check-circle text-primary mr-3 mt-1" aria-label="Check Icon"></i>
+                  <FaCheckCircle className="text-primary mr-3 mt-1" aria-label="Check Circle Icon" />
                   <div>
                     <strong>Readability Analysis:</strong> Flesch-Kincaid readability scores and reading level assessment
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check-circle text-primary mr-3 mt-1" aria-label="Check Circle Icon"></i>
+                  <FaCheckCircle className="text-primary mr-3 mt-1" aria-label="Check Circle Icon" />
                   <div>
                     <strong>Keyword Density:</strong> Analyze keyword frequency for SEO optimization
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check-circle text-primary mr-3 mt-1" aria-label="Check Circle Icon"></i>
+                  <FaCheckCircle className="text-primary mr-3 mt-1" aria-label="Check Circle Icon" />
                   <div>
                     <strong>Export & Share:</strong> Download analysis as PDF, CSV, or TXT files
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check-circle text-primary mr-3 mt-1" aria-label="Check Circle Icon"></i>
+                  <FaCheckCircle className="text-primary mr-3 mt-1" aria-label="Check Circle Icon" />
                   <div>
                     <strong>Reading Time:</strong> Estimate reading and speaking time for your content
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <i className="fas fa-check-circle text-primary mr-3 mt-1" aria-label="Check Circle Icon"></i>
+                  <FaCheckCircle className="text-primary mr-3 mt-1" aria-label="Check Circle Icon" />
                   <div>
                     <strong>Goal Tracking:</strong> Set word limits and track your progress
                   </div>
@@ -125,7 +126,7 @@ export default function Home() {
                 <Link href="/faq">
                   <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
                     Learn More About Our Features
-                    <i className="fas fa-arrow-right ml-2" aria-label="Arrow Icon"></i>
+                    <FaArrowRight className="ml-2" aria-label="Right Arrow Icon" />
                   </span>
                 </Link>
               </div>
@@ -141,7 +142,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="bg-white dark:bg-card rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
-                <i className="fas fa-pen-fancy text-primary text-2xl" aria-label="Pen Icon"></i>
+                <FaPenFancy className="text-primary text-2xl" aria-label="Pen Icon" />
               </div>
               <h3 className="font-semibold mb-2">Content Creators</h3>
               <p className="text-sm text-muted-foreground">
@@ -150,7 +151,7 @@ export default function Home() {
             </div>
             <div className="text-center">
               <div className="bg-white dark:bg-card rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
-                <i className="fas fa-graduation-cap text-primary text-2xl" aria-label="Graduation Icon"></i>
+                <FaGraduationCap className="text-primary text-2xl" aria-label="Graduation Cap Icon" />
               </div>
               <h3 className="font-semibold mb-2">Students</h3>
               <p className="text-sm text-muted-foreground">
@@ -159,7 +160,7 @@ export default function Home() {
             </div>
             <div className="text-center">
               <div className="bg-white dark:bg-card rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center shadow-lg">
-                <i className="fas fa-chart-line text-primary text-2xl" aria-label="Line Chart Icon"></i>
+                <FaChartLine className="text-primary text-2xl" aria-label="Line Chart Icon" />
               </div>
               <h3 className="font-semibold mb-2">SEO Specialists</h3>
               <p className="text-sm text-muted-foreground">

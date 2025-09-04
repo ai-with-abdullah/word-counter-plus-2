@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import useSEO from '@/hooks/useSEO';
+import { FaEnvelope, FaPlay, FaChevronDown } from 'react-icons/fa';
+
 
 interface FAQItem {
   question: string;
@@ -93,9 +95,10 @@ export default function FAQ() {
                   data-testid={`faq-question-${index}`}
                 >
                   <span className="font-semibold">{faq.question}</span>
-                  <i className={`fas fa-chevron-down text-muted-foreground transition-transform ${
-                    openItems.includes(index) ? 'rotate-180' : ''
-                  }`}></i>
+                  <FaChevronDown className={`text-muted-foreground transition-transform ${
+                      openItems.includes(index) ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
                 {openItems.includes(index) && (
                   <div className="p-4 pt-0 text-muted-foreground" data-testid={`faq-answer-${index}`}>
@@ -115,11 +118,11 @@ export default function FAQ() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="/contact" className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
-                <i className="fas fa-envelope mr-2" aria-label="Envelope Icon"></i>
+                <FaEnvelope className="mr-2" aria-label="Envelope Icon" />
                 Contact Support
               </a>
               <a href="/" className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
-                <i className="fas fa-play mr-2" aria-label="Play Icon"></i>
+                <FaPlay className="mr-2" aria-label="Play Icon" />
                 Try the Tool
               </a>
             </div>

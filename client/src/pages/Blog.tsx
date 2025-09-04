@@ -1,5 +1,6 @@
 import useSEO from '@/hooks/useSEO';
 import { Link } from 'wouter';
+import { FaPlay, FaCalendar, FaClock, FaArrowRight } from "@/components/common/Icons";
 
 export interface BlogPost {
   id: string;
@@ -380,21 +381,21 @@ export default function Blog() {
               
               <div className="flex items-center justify-between">
                 <div className="flex items-center text-sm text-muted-foreground">
-                  <i className="fas fa-calendar mr-2" aria-label="Calendar Icon"></i>
+                  <FaCalendar className="mr-2" aria-label="Calendar Icon" />
                   <span>{new Date(post.publishDate).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'long', 
                     day: 'numeric'
                   })}</span>
                   <span className="mx-2">•</span>
-                  <i className="fas fa-clock mr-2" aria-label="Clock Icon"></i>
+                  <FaClock className="mr-2" aria-label="Clock Icon" />
                   <span>{post.readTime}</span>
                 </div>
                 
                 <Link href={`/blog/${post.slug}`}>
                   <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
                     Read More
-                    <i className="fas fa-arrow-right ml-2" aria-label="Right Arrow Icon"></i>
+                    <FaArrowRight className="ml-2" aria-label="Right Arrow Icon" />
                   </span>
                 </Link>
               </div>
@@ -413,7 +414,7 @@ export default function Blog() {
           </p>
           <Link href="/">
             <span className="inline-flex items-center bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors font-semibold">
-              <i className="fas fa-play mr-2" aria-label="Play Icon"></i>
+              <FaPlay className="mr-2" aria-label="Play Icon" />
               Try Word Counter Plus
             </span>
           </Link>
