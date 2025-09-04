@@ -123,8 +123,11 @@ export default function WordCounterTool() {
           {/* Tool Header */}
           <div className="bg-gradient-to-r from-primary/10 via-accent/5 to-primary/5 rounded-xl p-8 shadow-lg border border-border/50 text-center">
             <div className="max-w-3xl mx-auto">
-              <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
+              <h1 
+                className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-700 to-pink-600 bg-clip-text text-transparent mb-4">
                 Advanced Word Counter Tool
+                <span className="sr-only">
+                </span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {/* Real-time text analysis with readability and keyword tracking. */}
@@ -140,41 +143,64 @@ export default function WordCounterTool() {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
               <label htmlFor="textInput" className="text-lg font-semibold text-foreground">Enter Your Text</label>
               <div className="flex flex-wrap gap-2">
+                {/* Clear Button */}
                 <button 
                   onClick={clearText}
                   className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors"
                   data-testid="button-clear-text"
+                  aria-label="Clear all text from the input area"
                 >
                   <FaTrash className="inline mr-2" aria-hidden="true" />
+                  <span className="sr-only">Clear Text</span>
                   Clear
                 </button>
+
+                {/* Paste Button */}
                 <button 
                   onClick={pasteText}
                   className="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-colors"
                   data-testid="button-paste-text"
+                  aria-label="Paste text from clipboard into the input area"
                 >
                   <FaPaste className="inline mr-2" aria-hidden="true" />
+                  <span className="sr-only">Paste Text</span>
                   Paste
                 </button>
               </div>
+
             </div>
             
             {!isHighlighted ? (
-              <textarea 
-                id="textInput"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                className="w-full h-64 p-4 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all" 
-                placeholder="Start typing or paste your text here to analyze it in real-time..."
-                data-testid="textarea-text-input"
-              />
+              <div>
+                {/* Hidden label for screen readers */}
+                <label htmlFor="textInput" className="sr-only">
+                  Enter your text to analyze word count and readability
+                </label>
+
+                <textarea 
+                  id="textInput"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  className="w-full h-64 p-4 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all" 
+                  placeholder="Start typing or paste your text here to analyze it in real-time..."
+                  aria-describedby="textHelp"
+                  data-testid="textarea-text-input"
+                />
+
+                {/* Helper text (screen readers کے لیے) */}
+                <p id="textHelp" className="sr-only">
+                  Paste or type your text here. The tool will count words, characters, and show readability analysis in real-time.
+                </p>
+              </div>
             ) : (
               <div 
                 className="w-full h-64 p-4 bg-background border border-border rounded-lg overflow-auto whitespace-pre-wrap"
                 dangerouslySetInnerHTML={{ __html: renderTextWithHighlights() }}
+                aria-label="Highlighted text with top keywords marked"
                 data-testid="text-highlighted-preview"
               />
             )}
+
 
             {/* Word Limit Tracker */}
             <div className="mt-4">
