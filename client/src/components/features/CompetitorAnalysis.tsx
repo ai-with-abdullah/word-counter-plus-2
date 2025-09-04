@@ -156,7 +156,7 @@ export default function CompetitorAnalysis({ text, wordCount, readabilityScore }
                 {competitive.overallScore}/100
               </Badge>
             </div>
-            <Progress value={competitive.overallScore} className="h-3" />
+            <Progress value={competitive.overallScore} className="h-3" aria-label="Competitive score progress"/>
             
             <div className="flex items-center justify-between">
               <span className="text-sm text-gray-600">Content Type Match</span>
@@ -187,7 +187,7 @@ export default function CompetitorAnalysis({ text, wordCount, readabilityScore }
                   </Badge>
                 </div>
                 <p className="text-sm">{item.message}</p>
-                <Progress value={item.score} className="h-1 mt-2" />
+                <Progress value={item.score} className="h-1 mt-2" aria-label={`${item.metric} score progress`} />
               </div>
             ))}
           </div>

@@ -216,6 +216,7 @@ export default function AdvancedAnalytics({ text, wordCount, sentenceCount, para
                 <Progress 
                   value={Math.min((item.value / item.optimal) * 100, 100)} 
                   className="h-2"
+                  aria-label={`${item.name} progress`} 
                 />
               </div>
             ))}
@@ -240,7 +241,7 @@ export default function AdvancedAnalytics({ text, wordCount, sentenceCount, para
                     <span className="text-sm font-medium">{goal.text}</span>
                     <span className="text-sm font-bold">{Math.round(goal.progress)}%</span>
                   </div>
-                  <Progress value={goal.progress} className="h-2" />
+                  <Progress value={goal.progress} className="h-2" aria-label={`${goal.text} progress`}/>
                 </div>
               ))}
             </div>

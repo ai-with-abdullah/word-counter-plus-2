@@ -173,7 +173,7 @@ export default function SEOAnalyzer({ text, title = '', metaDescription = '' }: 
                 {seoData.seoScore}/100
               </Badge>
             </div>
-            <Progress value={seoData.seoScore} className="h-3" />
+            <Progress value={seoData.seoScore} className="h-3" aria-label="Overall SEO Score progress" />
             
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div className="text-center">

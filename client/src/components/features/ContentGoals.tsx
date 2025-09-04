@@ -240,7 +240,7 @@ export default function ContentGoals({ wordCount, readingTime, readabilityScore 
                         <span>Progress</span>
                         <span className="font-medium">{Math.round(progress)}%</span>
                       </div>
-                      <Progress value={progress} className="h-2" />
+                      <Progress value={progress} className="h-2" aria-label={`${goal.title} progress`} />
                     </div>
                   </div>
                 );
