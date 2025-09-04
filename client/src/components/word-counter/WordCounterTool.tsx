@@ -127,7 +127,10 @@ export default function WordCounterTool() {
                 Advanced Word Counter Tool
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Professional text analysis with real-time statistics, readability scores, and keyword density analysis
+                {/* Real-time text analysis with readability and keyword tracking. */}
+                Real-time text analysis with readability and keyword tracking.
+                
+                
               </p>
             </div>
           </div>
