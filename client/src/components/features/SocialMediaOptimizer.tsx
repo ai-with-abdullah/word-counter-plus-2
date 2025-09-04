@@ -147,19 +147,19 @@ export default function SocialMediaOptimizer({ text, title = '' }: SocialMediaOp
         <CardContent>
           <Tabs defaultValue="twitter" className="w-full">
             <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="twitter" className="flex items-center space-x-1">
+              <TabsTrigger value="twitter" aria-label='Twitter Tab' className="flex items-center space-x-1">
                 <Twitter className="h-3 w-3" />
                 <span className="hidden sm:inline">Twitter</span>
               </TabsTrigger>
-              <TabsTrigger value="linkedin" className="flex items-center space-x-1">
+              <TabsTrigger value="linkedin" aria-label='LinkedIn Tab' className="flex items-center space-x-1">
                 <Linkedin className="h-3 w-3" />
                 <span className="hidden sm:inline">LinkedIn</span>
               </TabsTrigger>
-              <TabsTrigger value="facebook" className="flex items-center space-x-1">
+              <TabsTrigger value="facebook" aria-label='Facebook Tab' className="flex items-center space-x-1">
                 <Facebook className="h-3 w-3" />
                 <span className="hidden sm:inline">Facebook</span>
               </TabsTrigger>
-              <TabsTrigger value="instagram" className="flex items-center space-x-1">
+              <TabsTrigger value="instagram" aria-label='Instagram Tab' className="flex items-center space-x-1">
                 <Instagram className="h-3 w-3" />
                 <span className="hidden sm:inline">Instagram</span>
               </TabsTrigger>

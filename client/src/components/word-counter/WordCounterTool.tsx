@@ -130,10 +130,9 @@ export default function WordCounterTool() {
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                {/* Real-time text analysis with readability and keyword tracking. */}
+
                 Real-time text analysis with readability and keyword tracking.
-                
-                
+
               </p>
             </div>
           </div>
@@ -173,19 +172,18 @@ export default function WordCounterTool() {
             {!isHighlighted ? (
               <div>
                 {/* Hidden label for screen readers */}
-                <label htmlFor="textInput" className="sr-only">
-                  Enter your text to analyze word count and readability
-                </label>
 
                 <textarea 
                   id="textInput"
+                  aria-describedby="textHelp"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   className="w-full h-64 p-4 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all" 
                   placeholder="Start typing or paste your text here to analyze it in real-time..."
-                  aria-describedby="textHelp"
+                  
                   data-testid="textarea-text-input"
                 />
+
 
                 {/* Helper text (screen readers کے لیے) */}
                 <p id="textHelp" className="sr-only">
@@ -207,14 +205,17 @@ export default function WordCounterTool() {
               <div className="flex justify-between items-center mb-2">
                 <span className="text-sm text-muted-foreground">Word Limit Progress</span>
                 <div className="flex items-center gap-2">
+                  <label htmlFor="wordLimit" className="sr-only">
+                    Set word limit for analysis
+                  </label>
                   <input 
+                    id="wordLimit" 
                     type="number" 
                     value={wordLimit}
                     onChange={(e) => setWordLimit(parseInt(e.target.value) || 500)}
                     min="1" 
                     className="w-20 px-2 py-1 text-sm bg-background border border-border rounded"
-                    data-testid="input-word-limit"
-                  />
+                    data-testid="input-word-limit"/>
                   <span className="text-sm text-muted-foreground">words</span>
                 </div>
               </div>
@@ -223,10 +224,11 @@ export default function WordCounterTool() {
                 style={{
                   '--progress': `${progressPercentage}%`,
                   background: `linear-gradient(90deg, ${getProgressBarColor(progressPercentage)} ${progressPercentage}%, var(--muted) ${progressPercentage}%)`
-                } as React.CSSProperties}
-              ></div>
+                } as React.CSSProperties}>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
-                <span data-testid="text-current-words">{stats.wordCount}</span> / <span data-testid="text-word-limit">{wordLimit}</span> words
+                <span data-testid="text-current-words">{stats.wordCount}</span> / 
+                <span data-testid="text-word-limit">{wordLimit}</span> words
               </p>
             </div>
           </div>
@@ -295,27 +297,27 @@ export default function WordCounterTool() {
             <Tabs defaultValue="analytics" className="w-full">
               <div className="border-b border-border px-6 pt-6">
                 <TabsList className="grid w-full grid-cols-6">
-                  <TabsTrigger value="analytics" className="flex items-center gap-2">
+                  <TabsTrigger value="analytics" aria-label='Analytics Tab' className="flex items-center gap-2">
                     <BarChart3 className="h-4 w-4" />
                     <span className="hidden sm:inline">Analytics</span>
                   </TabsTrigger>
-                  <TabsTrigger value="seo" className="flex items-center gap-2">
+                  <TabsTrigger value="seo" aria-label='SEO Tab' className="flex items-center gap-2">
                     <Search className="h-4 w-4" />
                     <span className="hidden sm:inline">SEO</span>
                   </TabsTrigger>
-                  <TabsTrigger value="social" className="flex items-center gap-2">
+                  <TabsTrigger value="social" aria-label='Social Tab' className="flex items-center gap-2">
                     <Share2 className="h-4 w-4" />
                     <span className="hidden sm:inline">Social</span>
                   </TabsTrigger>
-                  <TabsTrigger value="competitor" className="flex items-center gap-2">
+                  <TabsTrigger value="competitor" aria-label='Compete Tab' className="flex items-center gap-2">
                     <TrendingUp className="h-4 w-4" />
                     <span className="hidden sm:inline">Compete</span>
                   </TabsTrigger>
-                  <TabsTrigger value="goals" className="flex items-center gap-2">
+                  <TabsTrigger value="goals" aria-label='Goals Tab' className="flex items-center gap-2">
                     <Target className="h-4 w-4" />
                     <span className="hidden sm:inline">Goals</span>
                   </TabsTrigger>
-                  <TabsTrigger value="keywords" className="flex items-center gap-2">
+                  <TabsTrigger value="keywords" aria-label='Keywords Tab' className="flex items-center gap-2">
                     <Sparkles className="h-4 w-4" />
                     <span className="hidden sm:inline">Keywords</span>
                   </TabsTrigger>
