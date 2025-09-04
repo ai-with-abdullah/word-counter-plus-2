@@ -124,10 +124,11 @@ export default function Home() {
               
               <div className="mt-6">
                 <Link href="/faq">
-                  <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
-                    Learn More About Our Features
-                    <FaArrowRight className="ml-2" aria-label="Right Arrow Icon" />
-                  </span>
+                  <span className="inline-flex items-center text-red-700 hover:text-red-600 font-medium">
+                  Learn More About Our Features
+                  <FaArrowRight className="ml-2" aria-hidden="true" />
+                </span>
+
                 </Link>
               </div>
             </div>

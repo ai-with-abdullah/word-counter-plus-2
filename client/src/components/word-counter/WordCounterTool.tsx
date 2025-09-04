@@ -245,7 +245,7 @@ export default function WordCounterTool() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Readability Analysis */}
             <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Readability Analysis</h3>
+              <h2 className="text-lg font-semibold text-foreground mb-4">Readability Analysis</h2>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Flesch-Kincaid Score</span>
