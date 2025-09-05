@@ -139,13 +139,12 @@ export default function Contact() {
                 />
               </div>
               
-              <button 
-                type="submit" 
-                className="w-full py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors font-semibold"
-                data-testid="button-send-message"
-              >
-                <i className="fas fa-paper-plane mr-2" aria-hidden="true"></i>Send Message
-                {/* <FaPaperPlane className="mr-2" aria-label="Send Icon"/> Send Message */}
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors font-semibold"
+                data-testid="button-send-message">
+                <FaPaperPlane className="mr-2 h-5 w-5" aria-hidden="true" />
+                Send Message
               </button>
             </form>
 
