@@ -27,11 +27,12 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    target: "esnext",
     rollupOptions: {
       output: {
         manualChunks: {
-          react: ["react", "react-dom"],
-          pdf: ["jspdf", "html2canvas"], // 📦 الگ chunk
+          pdf: ["jspdf"],
+          canvas: ["html2canvas"],
         },
       },
     },
