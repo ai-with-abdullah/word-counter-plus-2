@@ -5,7 +5,7 @@ export default function Privacy() {
     title: "Privacy Policy | Word Counter Plus",
     description: "Learn about Word Counter Plus privacy policy. Your text data is processed locally in your browser and never stored on our servers. Complete privacy protection.",
     keywords: "privacy policy, data protection, text privacy, local processing, no data storage, browser based tool",
-    canonical: "https://wordcounterplus.com/privacy"
+    canonical: "https://wordcounterplusapp.com/privacy"
   });
 
   return (

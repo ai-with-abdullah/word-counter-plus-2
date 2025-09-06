@@ -1,6 +1,6 @@
 /* TEAM */
 Creator: Word Counter Plus Team
-Site: https://wordcounterplus.com
+Site: https://wordcounterplusapp.com
 Location: Global
 
 /* SITE */

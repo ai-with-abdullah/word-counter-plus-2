@@ -15,7 +15,7 @@ export default function Contact() {
     title: "Contact Us - Get Support | Word Counter Plus",
     description: "Contact Word Counter Plus for support, feature requests, partnerships, or questions about our word counter and text analysis tool. We respond within 24 hours.",
     keywords: "contact support, word counter plus contact, word counter help, customer service, feature requests, partnerships, technical support",
-    canonical: "https://wordcounterplus.com/contact"
+    canonical: "https://wordcounterplusapp.com/contact"
   });
 
   const handleSubmit = (e: React.FormEvent) => {

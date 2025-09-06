@@ -15,7 +15,7 @@ export default function FAQ() {
     title: "FAQ - Frequently Asked Questions | Word Counter Plus",
     description: "Find answers to common questions about Word Counter Plus word counter tool. Learn about features, privacy, export options, readability scores, and SEO optimization.",
     keywords: "FAQ, word counter questions, text analysis help, readability score explanation, keyword density FAQ, export formats, privacy questions",
-    canonical: "https://wordcounterplus.com/faq"
+    canonical: "https://wordcounterplusapp.com/faq"
   });
 
   const toggleItem = (index: number) => {

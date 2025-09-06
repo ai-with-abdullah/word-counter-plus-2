@@ -5,7 +5,7 @@ export default function Terms() {
     title: "Terms of Service | Word Counter Plus",
     description: "Read the terms of service for Word Counter Plus word counter tool. Learn about acceptable use, service availability, and user rights for our text analysis platform.",
     keywords: "terms of service, terms and conditions, user agreement, word counter terms, text analysis terms, acceptable use policy",
-    canonical: "https://wordcounterplus.com/terms"
+    canonical: "https://wordcounterplusapp.com/terms"
   });
 
 

@@ -311,7 +311,7 @@ export default function Blog() {
     title: "Blog - Writing Tips & Text Analysis Guides | Word Counter Plus",
     description: "Discover expert writing tips, text analysis guides, and content creation strategies. Learn how to improve your writing with our comprehensive blog articles and tutorials.",
     keywords: "writing tips, text analysis, content creation, SEO writing, blog posts, writing guides, readability tips, keyword optimization, content strategy, writing tutorials",
-    canonical: "https://wordcounterplusapp.com/blog",
+    canonical: "https://wordcounterplusappapp.com/blog",
     ogType: 'article',
   });
 
@@ -320,17 +320,17 @@ export default function Blog() {
     "@type": "Blog",
     "name": "Word Counter Plus Blog",
     "description": "Expert writing tips, text analysis guides, and content creation strategies",
-    "url": "https://wordcounterplus.com/blog",
+    "url": "https://wordcounterplusapp.com/blog",
     "publisher": {
       "@type": "Organization",
       "name": "Word Counter Plus",
-      "url": "https://wordcounterplus.com"
+      "url": "https://wordcounterplusapp.com"
     },
     "blogPost": blogPosts.map(post => ({
       "@type": "BlogPosting",
       "headline": post.title,
       "description": post.excerpt,
-      "url": `https://wordcounterplus.com/blog/${post.slug}`,
+      "url": `https://wordcounterplusapp.com/blog/${post.slug}`,
       "datePublished": post.publishDate,
       "author": {
         "@type": "Organization",

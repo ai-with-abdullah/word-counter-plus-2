@@ -46,7 +46,7 @@ export default function BlogPost() {
     title: `${post.title} | Word Counter Plus Blog`,
     description: post.excerpt,
     keywords: `${post.tags.join(', ')}, writing tips, content creation, word counter, text analysis`,
-    canonical: `https://wordcounterplusapp.com/blog/${post.slug}`,
+    canonical: `https://wordcounterplusappapp.com/blog/${post.slug}`,
     ogType: 'article',
     ogImage: post.image
   });
@@ -56,18 +56,18 @@ export default function BlogPost() {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
-    url: `https://wordcounterplus.com/blog/${post.slug}`,
+    url: `https://wordcounterplusapp.com/blog/${post.slug}`,
     datePublished: post.publishDate,
     dateModified: post.publishDate,
     author: {
       '@type': 'Organization',
       name: 'Word Counter Plus',
-      url: 'https://wordcounterplus.com'
+      url: 'https://wordcounterplusapp.com'
     },
     publisher: {
       '@type': 'Organization',
       name: 'Word Counter Plus',
-      url: 'https://wordcounterplus.com'
+      url: 'https://wordcounterplusapp.com'
     },
     keywords: post.tags.join(', '),
     wordCount: post.content.split(' ').length,
@@ -308,7 +308,7 @@ export default function BlogPost() {
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
                   post.title
-                )}&url=${encodeURIComponent(window.location.href)}&via=WordCounterPlus`}
+                )}&url=${encodeURIComponent(window.location.href)}&via=wordcounterplusapp`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-black hover:underline"

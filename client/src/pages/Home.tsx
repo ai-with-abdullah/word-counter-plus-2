@@ -8,7 +8,7 @@ export default function Home() {
     title: "Word Counter Plus - Free Advanced Word Counter & Text Analysis Tool",
     description: "Professional word counter and text analysis tool with real-time statistics, readability scores, keyword density analysis, and export options. Free online tool for writers, bloggers, students, and content creators.",
     keywords: "word counter, character counter, text analysis, readability score, keyword density, SEO tool, writing tool, content analysis, paragraph counter, sentence counter, reading time calculator, writing assistant, text statistics",
-    canonical: "https://wordcounterplus.com/",
+    canonical: "https://wordcounterplusapp.com/",
     ogType: "website"
   });
 

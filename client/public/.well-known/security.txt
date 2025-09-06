@@ -1,10 +1,10 @@
-Contact: https://wordcounterplus.com/contact
+Contact: https://wordcounterplusapp.com/contact
 Expires: 2025-12-31T23:59:59.000Z
 Preferred-Languages: en
-Canonical: https://wordcounterplus.com/.well-known/security.txt
+Canonical: https://wordcounterplusapp.com/.well-known/security.txt
 
 # Security Policy for Word Counter Plus
 # We take security seriously. If you discover any security vulnerabilities, please report them responsibly through our contact form.
 
-Policy: https://wordcounterplus.com/privacy
-Acknowledgments: https://wordcounterplus.com/contact
+Policy: https://wordcounterplusapp.com/privacy
+Acknowledgments: https://wordcounterplusapp.com/contact
