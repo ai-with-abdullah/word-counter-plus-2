@@ -7,6 +7,8 @@ interface SEOProps {
   canonical?: string;
   ogImage?: string;
   ogType?: string;
+  ogSiteName?: string;     // ✅ New prop
+  twitterCard?: string;    // ✅ New prop
   noindex?: boolean;
 }
 
@@ -17,6 +19,8 @@ export const useSEO = ({
   canonical,
   ogImage = "https://textcountplus.com/og-image.jpg",
   ogType = "website",
+  ogSiteName = "Word Counter Plus",      // ✅ Default brand name
+  twitterCard = "summary_large_image",   // ✅ Default better Twitter card
   noindex = false
 }: SEOProps) => {
   useEffect(() => {
@@ -56,12 +60,14 @@ export const useSEO = ({
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:type', ogType, true);
     updateMetaTag('og:image', ogImage, true);
+    updateMetaTag('og:site_name', ogSiteName, true);   // ✅ Added site_name
     
     if (canonical) {
       updateMetaTag('og:url', canonical, true);
     }
 
     // Twitter
+    updateMetaTag('twitter:card', twitterCard, true);  // ✅ Added Twitter card
     updateMetaTag('twitter:title', title, true);
     updateMetaTag('twitter:description', description, true);
     updateMetaTag('twitter:image', ogImage, true);
@@ -78,7 +84,7 @@ export const useSEO = ({
       
       canonicalLink.href = canonical;
     }
-  }, [title, description, keywords, canonical, ogImage, ogType, noindex]);
+  }, [title, description, keywords, canonical, ogImage, ogType, ogSiteName, twitterCard, noindex]);
 };
 
 export default useSEO;

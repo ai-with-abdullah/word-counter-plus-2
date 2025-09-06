@@ -6,6 +6,7 @@ export interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
+  image?: string;
   content: string;
   publishDate: string;
   readTime: string;
@@ -60,7 +61,8 @@ Improving readability makes your content more accessible to a wider audience. St
     publishDate: "2025-01-15",
     readTime: "5 min read",
     tags: ["Writing Tips", "Readability", "Content Creation"],
-    slug: "improve-writing-readability-score"
+    slug: "improve-writing-readability-score",
+    image: "/images/improve-readability.png"
   },
   {
     id: "2",

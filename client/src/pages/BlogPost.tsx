@@ -2,20 +2,36 @@ import { useRoute } from 'wouter';
 import { blogPosts, type BlogPost } from './Blog';
 import useSEO from '@/hooks/useSEO';
 import { Link } from 'wouter';
-import { FaArrowLeft, FaBook, FaCalendar, FaShare } from 'react-icons/fa';
+import {
+  FaArrowLeft,
+  FaBook,
+  FaCalendar,
+  FaShare,
+  FaWhatsapp,
+  FaFacebook,
+  FaReddit,
+  FaEnvelope,
+  FaLink,
+  FaLinkedin
+} from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6'; // ✅ X (Twitter) icon
+import { useState } from 'react';
 
 export default function BlogPost() {
   const [match, params] = useRoute('/blog/:slug');
   const slug = params?.slug;
-  
+  const [showShareModal, setShowShareModal] = useState(false);
+
   const post = blogPosts.find((p: BlogPost) => p.slug === slug);
-  
+
   if (!post) {
     return (
       <main className="container mx-auto px-4 py-8">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-foreground mb-4">Post Not Found</h1>
-          <p className="text-muted-foreground mb-6">The blog post you're looking for doesn't exist.</p>
+          <p className="text-muted-foreground mb-6">
+            The blog post you're looking for doesn't exist.
+          </p>
           <Link href="/blog">
             <span className="text-primary hover:text-primary/80 font-medium">
               ← Back to Blog
@@ -31,30 +47,30 @@ export default function BlogPost() {
     description: post.excerpt,
     keywords: `${post.tags.join(', ')}, writing tips, content creation, word counter, text analysis`,
     canonical: `https://wordcounterplus.com/blog/${post.slug}`,
-    ogType: "article"
+    ogType: 'article'
   });
 
   const jsonLdSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "url": `https://wordcounterplus.com/blog/${post.slug}`,
-    "datePublished": post.publishDate,
-    "dateModified": post.publishDate,
-    "author": {
-      "@type": "Organization",
-      "name": "Word Counter Plus",
-      "url": "https://wordcounterplus.com"
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    url: `https://wordcounterplus.com/blog/${post.slug}`,
+    datePublished: post.publishDate,
+    dateModified: post.publishDate,
+    author: {
+      '@type': 'Organization',
+      name: 'Word Counter Plus',
+      url: 'https://wordcounterplus.com'
     },
-    "publisher": {
-      "@type": "Organization", 
-      "name": "Word Counter Plus",
-      "url": "https://wordcounterplus.com"
+    publisher: {
+      '@type': 'Organization',
+      name: 'Word Counter Plus',
+      url: 'https://wordcounterplus.com'
     },
-    "keywords": post.tags.join(", "),
-    "wordCount": post.content.split(' ').length,
-    "timeRequired": post.readTime
+    keywords: post.tags.join(', '),
+    wordCount: post.content.split(' ').length,
+    timeRequired: post.readTime
   };
 
   // Convert markdown-style content to HTML-like JSX
@@ -65,7 +81,7 @@ export default function BlogPost() {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
-      
+
       if (!line) {
         elements.push(<br key={key++} />);
         continue;
@@ -136,10 +152,10 @@ export default function BlogPost() {
         const processedLine = line
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
           .replace(/\*(.*?)\*/g, '<em>$1</em>');
-        
+
         elements.push(
-          <p 
-            key={key++} 
+          <p
+            key={key++}
             className="text-muted-foreground mb-4 leading-relaxed"
             dangerouslySetInnerHTML={{ __html: processedLine }}
           />
@@ -167,7 +183,7 @@ export default function BlogPost() {
         <header className="mb-8">
           <div className="flex flex-wrap gap-2 mb-4">
             {post.tags.map((tag) => (
-              <span 
+              <span
                 key={tag}
                 className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
               >
@@ -175,34 +191,45 @@ export default function BlogPost() {
               </span>
             ))}
           </div>
-          
+
           <h1 className="text-4xl font-bold text-foreground mb-4 leading-tight">
             {post.title}
           </h1>
-          
+
           <div className="flex items-center text-muted-foreground text-sm">
             <FaCalendar className="mr-2" aria-label="Calendar Icon" />
-            <span>{new Date(post.publishDate).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long', 
-              day: 'numeric'
-            })}</span>
+            <span>
+              {new Date(post.publishDate).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </span>
             <span className="mx-2">•</span>
             <FaCalendar className="mr-2" aria-label="Calendar Icon" />
             <span>{post.readTime}</span>
           </div>
         </header>
 
+        {/* Featured Image */}
+        {post.image && (
+          <div className="mb-8">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full rounded-lg shadow-md object-cover"
+            />
+          </div>
+        )}
+
         {/* Article Content */}
         <article className="prose prose-lg max-w-none">
           <div className="text-lg text-muted-foreground mb-8 font-medium leading-relaxed">
             {post.excerpt}
           </div>
-          
+
           <div className="border-l-4 border-primary/20 pl-6 mb-8">
-            <div className="content-body">
-              {renderContent(post.content)}
-            </div>
+            <div className="content-body">{renderContent(post.content)}</div>
           </div>
         </article>
 
@@ -212,13 +239,13 @@ export default function BlogPost() {
             Want to Analyze Your Own Writing?
           </h2>
           <p className="text-muted-foreground mb-6 text-center max-w-2xl mx-auto">
-            Use Word Counter Plus to check your content's readability, keyword density, and overall quality. 
-            Get instant feedback to improve your writing.
+            Use Word Counter Plus to check your content's readability, keyword density, and overall
+            quality. Get instant feedback to improve your writing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/">
               <span className="inline-flex items-center bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/80 transition-colors font-semibold">
-              <FaCalendar className="mr-2" aria-label="Calendar Icon" />
+                <FaCalendar className="mr-2" aria-label="Calendar Icon" />
                 Try Word Counter Plus
               </span>
             </Link>
@@ -239,17 +266,10 @@ export default function BlogPost() {
               All Blog Posts
             </span>
           </Link>
-          
+
           <div className="flex gap-4">
             <button
-              onClick={() => {
-                if (navigator.share) {
-                  navigator.share({
-                    title: post.title,
-                    url: window.location.href,
-                  });
-                }
-              }}
+              onClick={() => setShowShareModal(true)}
               className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors"
             >
               <FaShare className="mr-2" aria-label="Share Icon" />
@@ -259,9 +279,95 @@ export default function BlogPost() {
         </nav>
       </div>
 
+      {/* Share Modal */}
+      {showShareModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-80 relative">
+            <h2 className="text-lg font-semibold mb-4">Share this post</h2>
+            <div className="flex flex-col gap-3">
+              <a
+                href={`https://wa.me/?text=${encodeURIComponent(post.title + ' ' + window.location.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-green-600 hover:underline"
+              >
+                <FaWhatsapp /> WhatsApp
+              </a>
+
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-blue-600 hover:underline"
+              >
+                <FaFacebook /> Facebook
+              </a>
+
+              <a
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+                  post.title
+                )}&url=${encodeURIComponent(window.location.href)}&via=WordCounterPlus`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-black hover:underline"
+              >
+                <FaXTwitter /> X (Twitter)
+              </a>
+
+              <a
+                href={`https://www.reddit.com/submit?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(
+                  post.title
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-orange-600 hover:underline"
+              >
+                <FaReddit /> Reddit
+              </a>
+
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-blue-700 hover:underline"
+              >
+                <FaLinkedin /> LinkedIn
+              </a>
+
+              <a
+                href={`mailto:?subject=${encodeURIComponent(
+                  post.title
+                )}&body=${encodeURIComponent(post.excerpt + '\n\nRead more here: ' + window.location.href)}`}
+                className="flex items-center gap-2 text-red-600 hover:underline"
+              >
+                <FaEnvelope /> Email
+              </a>
+
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                  alert('Link copied to clipboard!');
+                }}
+                className="flex items-center gap-2 text-gray-600 hover:underline"
+              >
+                <FaLink /> Copy Link
+              </button>
+            </div>
+
+            {/* Close button */}
+            <button
+              onClick={() => setShowShareModal(false)}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* JSON-LD Schema */}
-      <script 
-        type="application/ld+json" 
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
     </main>
