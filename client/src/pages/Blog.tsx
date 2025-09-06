@@ -58,7 +58,7 @@ Use Word Counter Plus to:
 ## Conclusion
 
 Improving readability makes your content more accessible to a wider audience. Start with these basic techniques and use our word counter tool to track your progress.`,
-    publishDate: "2025-01-15",
+    publishDate: "2025-09-5",
     readTime: "5 min read",
     tags: ["Writing Tips", "Readability", "Content Creation"],
     slug: "improve-writing-readability-score",
