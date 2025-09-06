@@ -62,248 +62,248 @@ Improving readability makes your content more accessible to a wider audience. St
     readTime: "5 min read",
     tags: ["Writing Tips", "Readability", "Content Creation"],
     slug: "improve-writing-readability-score",
-    image: "/images/improve-readability.png"
-  },
-  {
-    id: "2",
-    title: "SEO Content Writing: The Ultimate Guide",
-    excerpt: "Master the art of SEO content writing with our comprehensive guide. Learn keyword optimization, content structure, and ranking strategies that actually work.",
-    content: `# SEO Content Writing: The Ultimate Guide
+    image: "/images/improve-readability.png"}
+//   },
+//   {
+//     id: "2",
+//     title: "SEO Content Writing: The Ultimate Guide",
+//     excerpt: "Master the art of SEO content writing with our comprehensive guide. Learn keyword optimization, content structure, and ranking strategies that actually work.",
+//     content: `# SEO Content Writing: The Ultimate Guide
 
-## What is SEO Content Writing?
+// ## What is SEO Content Writing?
 
-SEO content writing is the practice of creating valuable, informative content that ranks well in search engines while serving your audience's needs.
+// SEO content writing is the practice of creating valuable, informative content that ranks well in search engines while serving your audience's needs.
 
-## Essential SEO Writing Techniques
+// ## Essential SEO Writing Techniques
 
-### 1. Keyword Research and Optimization
-- Use tools to find relevant keywords
-- Aim for 1-2% keyword density
-- Include keywords in titles, headers, and naturally throughout content
+// ### 1. Keyword Research and Optimization
+// - Use tools to find relevant keywords
+// - Aim for 1-2% keyword density
+// - Include keywords in titles, headers, and naturally throughout content
 
-### 2. Content Structure
-- Use H1, H2, H3 tags properly
-- Create scannable content with bullet points
-- Include internal and external links
+// ### 2. Content Structure
+// - Use H1, H2, H3 tags properly
+// - Create scannable content with bullet points
+// - Include internal and external links
 
-### 3. Write for Your Audience First
-- Solve real problems
-- Answer common questions
-- Provide actionable insights
+// ### 3. Write for Your Audience First
+// - Solve real problems
+// - Answer common questions
+// - Provide actionable insights
 
-## Using Word Counter Plus for SEO
+// ## Using Word Counter Plus for SEO
 
-Our tool helps you:
-- Monitor keyword density
-- Check word count targets
-- Analyze readability for your target audience
-- Ensure proper content length
+// Our tool helps you:
+// - Monitor keyword density
+// - Check word count targets
+// - Analyze readability for your target audience
+// - Ensure proper content length
 
-## Advanced SEO Tips
+// ## Advanced SEO Tips
 
-### Content Length Guidelines
-- Blog posts: 1,500-2,500 words
-- Product pages: 300-500 words
-- Landing pages: 500-1,000 words
+// ### Content Length Guidelines
+// - Blog posts: 1,500-2,500 words
+// - Product pages: 300-500 words
+// - Landing pages: 500-1,000 words
 
-### On-Page Optimization
-- Optimize meta titles and descriptions
-- Use schema markup
-- Ensure fast loading times
-- Make content mobile-friendly
+// ### On-Page Optimization
+// - Optimize meta titles and descriptions
+// - Use schema markup
+// - Ensure fast loading times
+// - Make content mobile-friendly
 
-## Measuring Success
+// ## Measuring Success
 
-Track your SEO content performance with:
-- Organic traffic growth
-- Keyword ranking improvements
-- User engagement metrics
-- Conversion rates
+// Track your SEO content performance with:
+// - Organic traffic growth
+// - Keyword ranking improvements
+// - User engagement metrics
+// - Conversion rates
 
-Start optimizing your content today with Word Counter Plus!`,
-    publishDate: "2025-01-10",
-    readTime: "8 min read",
-    tags: ["SEO", "Content Writing", "Digital Marketing"],
-    slug: "seo-content-writing-ultimate-guide"
-  },
-  {
-    id: "3",
-    title: "10 Writing Mistakes That Kill Your Content",
-    excerpt: "Avoid these common writing mistakes that can damage your credibility and hurt your rankings. Learn how to identify and fix these issues in your content.",
-    content: `# 10 Writing Mistakes That Kill Your Content
+// Start optimizing your content today with Word Counter Plus!`,
+//     publishDate: "2025-01-10",
+//     readTime: "8 min read",
+//     tags: ["SEO", "Content Writing", "Digital Marketing"],
+//     slug: "seo-content-writing-ultimate-guide"
+//   },
+//   {
+//     id: "3",
+//     title: "10 Writing Mistakes That Kill Your Content",
+//     excerpt: "Avoid these common writing mistakes that can damage your credibility and hurt your rankings. Learn how to identify and fix these issues in your content.",
+//     content: `# 10 Writing Mistakes That Kill Your Content
 
-Writing great content is challenging, but avoiding common mistakes can dramatically improve your results. Here are the top 10 writing mistakes and how to fix them.
+// Writing great content is challenging, but avoiding common mistakes can dramatically improve your results. Here are the top 10 writing mistakes and how to fix them.
 
-## 1. Writing Without a Clear Purpose
+// ## 1. Writing Without a Clear Purpose
 
-**Mistake:** Starting to write without knowing your goal
-**Solution:** Define your objective before writing the first word
+// **Mistake:** Starting to write without knowing your goal
+// **Solution:** Define your objective before writing the first word
 
-## 2. Ignoring Your Target Audience
+// ## 2. Ignoring Your Target Audience
 
-**Mistake:** Writing for everyone instead of someone specific
-**Solution:** Create detailed reader personas and write directly to them
+// **Mistake:** Writing for everyone instead of someone specific
+// **Solution:** Create detailed reader personas and write directly to them
 
-## 3. Using Passive Voice Excessively
+// ## 3. Using Passive Voice Excessively
 
-**Mistake:** "Mistakes were made by the team"
-**Solution:** "The team made mistakes" - active voice is clearer
+// **Mistake:** "Mistakes were made by the team"
+// **Solution:** "The team made mistakes" - active voice is clearer
 
-## 4. Overcomplicating Your Language
+// ## 4. Overcomplicating Your Language
 
-**Mistake:** Using jargon and complex terms unnecessarily
-**Solution:** Write like you're explaining to a friend
+// **Mistake:** Using jargon and complex terms unnecessarily
+// **Solution:** Write like you're explaining to a friend
 
-## 5. Creating Walls of Text
+// ## 5. Creating Walls of Text
 
-**Mistake:** Long paragraphs without breaks
-**Solution:** Use shorter paragraphs, bullet points, and headers
+// **Mistake:** Long paragraphs without breaks
+// **Solution:** Use shorter paragraphs, bullet points, and headers
 
-## 6. Weak Headlines
+// ## 6. Weak Headlines
 
-**Mistake:** Generic, boring titles
-**Solution:** Use numbers, power words, and clear benefits
+// **Mistake:** Generic, boring titles
+// **Solution:** Use numbers, power words, and clear benefits
 
-## 7. No Clear Call-to-Action
+// ## 7. No Clear Call-to-Action
 
-**Mistake:** Ending abruptly without next steps
-**Solution:** Always tell readers what to do next
+// **Mistake:** Ending abruptly without next steps
+// **Solution:** Always tell readers what to do next
 
-## 8. Poor Grammar and Spelling
+// ## 8. Poor Grammar and Spelling
 
-**Mistake:** Not proofreading your content
-**Solution:** Use tools like Word Counter Plus to check your work
+// **Mistake:** Not proofreading your content
+// **Solution:** Use tools like Word Counter Plus to check your work
 
-## 9. Keyword Stuffing
+// ## 9. Keyword Stuffing
 
-**Mistake:** Forcing keywords unnaturally into content
-**Solution:** Focus on natural keyword placement (1-2% density)
+// **Mistake:** Forcing keywords unnaturally into content
+// **Solution:** Focus on natural keyword placement (1-2% density)
 
-## 10. Ignoring Mobile Readers
+// ## 10. Ignoring Mobile Readers
 
-**Mistake:** Not considering mobile experience
-**Solution:** Use shorter sentences and paragraphs for mobile
+// **Mistake:** Not considering mobile experience
+// **Solution:** Use shorter sentences and paragraphs for mobile
 
-## How Word Counter Plus Helps
+// ## How Word Counter Plus Helps
 
-Our tool helps you avoid these mistakes by:
-- Checking readability scores
-- Monitoring keyword density
-- Analyzing sentence and paragraph length
-- Providing export options for editing
+// Our tool helps you avoid these mistakes by:
+// - Checking readability scores
+// - Monitoring keyword density
+// - Analyzing sentence and paragraph length
+// - Providing export options for editing
 
-## Start Improving Today
+// ## Start Improving Today
 
-Great writing is a skill that improves with practice. Use these tips and our word counter tool to create content that engages readers and drives results.`,
-    publishDate: "2025-01-05",
-    readTime: "6 min read",
-    tags: ["Writing Tips", "Content Quality", "Blogging"],
-    slug: "writing-mistakes-kill-content"
-  },
-  {
-    id: "4",
-    title: "Content Planning: How to Create a Winning Strategy",
-    excerpt: "Build a content strategy that drives traffic, engagement, and conversions. Learn how to plan, create, and optimize content that your audience loves.",
-    content: `# Content Planning: How to Create a Winning Strategy
+// Great writing is a skill that improves with practice. Use these tips and our word counter tool to create content that engages readers and drives results.`,
+//     publishDate: "2025-01-05",
+//     readTime: "6 min read",
+//     tags: ["Writing Tips", "Content Quality", "Blogging"],
+//     slug: "writing-mistakes-kill-content"
+//   },
+//   {
+//     id: "4",
+//     title: "Content Planning: How to Create a Winning Strategy",
+//     excerpt: "Build a content strategy that drives traffic, engagement, and conversions. Learn how to plan, create, and optimize content that your audience loves.",
+//     content: `# Content Planning: How to Create a Winning Strategy
 
-## Why Content Planning Matters
+// ## Why Content Planning Matters
 
-A solid content plan is the foundation of successful digital marketing. Without a plan, you're just creating random content and hoping it works.
+// A solid content plan is the foundation of successful digital marketing. Without a plan, you're just creating random content and hoping it works.
 
-## Step 1: Define Your Content Goals
+// ## Step 1: Define Your Content Goals
 
-### Common Content Goals:
-- Increase brand awareness
-- Generate leads
-- Drive website traffic
-- Establish thought leadership
-- Improve customer retention
+// ### Common Content Goals:
+// - Increase brand awareness
+// - Generate leads
+// - Drive website traffic
+// - Establish thought leadership
+// - Improve customer retention
 
-## Step 2: Know Your Audience
+// ## Step 2: Know Your Audience
 
-Create detailed buyer personas:
-- Demographics (age, location, job title)
-- Pain points and challenges
-- Content preferences
-- Where they consume content
+// Create detailed buyer personas:
+// - Demographics (age, location, job title)
+// - Pain points and challenges
+// - Content preferences
+// - Where they consume content
 
-## Step 3: Content Types That Work
+// ## Step 3: Content Types That Work
 
-### Blog Posts
-- How-to guides
-- Industry insights
-- Case studies
-- List posts
+// ### Blog Posts
+// - How-to guides
+// - Industry insights
+// - Case studies
+// - List posts
 
-### Visual Content
-- Infographics
-- Screenshots
-- Charts and graphs
-- Video content
+// ### Visual Content
+// - Infographics
+// - Screenshots
+// - Charts and graphs
+// - Video content
 
-## Step 4: Create a Content Calendar
+// ## Step 4: Create a Content Calendar
 
-### Monthly Planning
-- Week 1: Educational content
-- Week 2: Industry news/trends
-- Week 3: Product-focused content
-- Week 4: Community content
+// ### Monthly Planning
+// - Week 1: Educational content
+// - Week 2: Industry news/trends
+// - Week 3: Product-focused content
+// - Week 4: Community content
 
-## Step 5: Optimize for Search
+// ## Step 5: Optimize for Search
 
-### SEO Best Practices:
-- Research keywords before writing
-- Use Word Counter Plus to check keyword density
-- Optimize titles and meta descriptions
-- Include internal and external links
+// ### SEO Best Practices:
+// - Research keywords before writing
+// - Use Word Counter Plus to check keyword density
+// - Optimize titles and meta descriptions
+// - Include internal and external links
 
-## Step 6: Measure and Improve
+// ## Step 6: Measure and Improve
 
-Track these metrics:
-- Organic traffic
-- Time on page
-- Social shares
-- Conversion rates
-- Keyword rankings
+// Track these metrics:
+// - Organic traffic
+// - Time on page
+// - Social shares
+// - Conversion rates
+// - Keyword rankings
 
-## Tools for Content Planning
+// ## Tools for Content Planning
 
-### Essential Tools:
-- Word Counter Plus for content analysis
-- Google Analytics for performance tracking
-- Social media scheduling tools
-- Project management software
+// ### Essential Tools:
+// - Word Counter Plus for content analysis
+// - Google Analytics for performance tracking
+// - Social media scheduling tools
+// - Project management software
 
-## Content Planning Template
+// ## Content Planning Template
 
-1. **Topic Research**
-   - Keyword research
-   - Competitor analysis
-   - Audience questions
+// 1. **Topic Research**
+//    - Keyword research
+//    - Competitor analysis
+//    - Audience questions
 
-2. **Content Creation**
-   - Write compelling headlines
-   - Structure with headers
-   - Optimize for readability
+// 2. **Content Creation**
+//    - Write compelling headlines
+//    - Structure with headers
+//    - Optimize for readability
 
-3. **Quality Check**
-   - Use Word Counter Plus to analyze
-   - Check for grammar and spelling
-   - Verify keyword optimization
+// 3. **Quality Check**
+//    - Use Word Counter Plus to analyze
+//    - Check for grammar and spelling
+//    - Verify keyword optimization
 
-4. **Promotion Strategy**
-   - Social media sharing
-   - Email newsletter
-   - Internal linking
+// 4. **Promotion Strategy**
+//    - Social media sharing
+//    - Email newsletter
+//    - Internal linking
 
-## Conclusion
+// ## Conclusion
 
-Great content doesn't happen by accident. It requires planning, strategy, and the right tools. Start planning your content strategy today and use Word Counter Plus to ensure every piece meets your quality standards.`,
-    publishDate: "2025-01-01",
-    readTime: "7 min read",
-    tags: ["Content Strategy", "Planning", "Marketing"],
-    slug: "content-planning-winning-strategy"
-  }
+// Great content doesn't happen by accident. It requires planning, strategy, and the right tools. Start planning your content strategy today and use Word Counter Plus to ensure every piece meets your quality standards.`,
+//     publishDate: "2025-01-01",
+//     readTime: "7 min read",
+//     tags: ["Content Strategy", "Planning", "Marketing"],
+//     slug: "content-planning-winning-strategy"
+//   }
 ];
 
 export default function Blog() {
