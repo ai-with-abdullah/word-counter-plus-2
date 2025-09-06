@@ -46,8 +46,9 @@ export default function BlogPost() {
     title: `${post.title} | Word Counter Plus Blog`,
     description: post.excerpt,
     keywords: `${post.tags.join(', ')}, writing tips, content creation, word counter, text analysis`,
-    canonical: `https://wordcounterplus.com/blog/${post.slug}`,
-    ogType: 'article'
+    canonical: `https://wordcounterplusapp.com/blog/${post.slug}`,
+    ogType: 'article',
+    ogImage: post.image
   });
 
   const jsonLdSchema = {
@@ -217,6 +218,7 @@ export default function BlogPost() {
             <img
               src={post.image}
               alt={post.title}
+              loading="lazy"
               className="w-full rounded-lg shadow-md object-cover"
             />
           </div>

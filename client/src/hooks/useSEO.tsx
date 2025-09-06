@@ -17,7 +17,7 @@ export const useSEO = ({
   description,
   keywords,
   canonical,
-  ogImage = "https://textcountplus.com/og-image.jpg",
+  ogImage = "https://textcountplusapp.com/og-image.jpg",
   ogType = "website",
   ogSiteName = "Word Counter Plus",      // ✅ Default brand name
   twitterCard = "summary_large_image",   // ✅ Default better Twitter card

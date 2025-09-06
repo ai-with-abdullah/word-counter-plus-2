@@ -311,7 +311,8 @@ export default function Blog() {
     title: "Blog - Writing Tips & Text Analysis Guides | Word Counter Plus",
     description: "Discover expert writing tips, text analysis guides, and content creation strategies. Learn how to improve your writing with our comprehensive blog articles and tutorials.",
     keywords: "writing tips, text analysis, content creation, SEO writing, blog posts, writing guides, readability tips, keyword optimization, content strategy, writing tutorials",
-    canonical: "https://wordcounterplus.com/blog"
+    canonical: "https://wordcounterplusapp.com/blog",
+    ogType: 'article',
   });
 
   const jsonLdSchema = {
