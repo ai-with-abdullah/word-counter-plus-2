@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://wordcountplusapp.com/sitemap.xml
+Sitemap: https://wordcounterplusapp.com 
 
 # Allow all search engines to crawl the site
 User-agent: Googlebot
