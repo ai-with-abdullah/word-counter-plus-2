@@ -7,14 +7,17 @@ import { ThemeProvider } from "@/hooks/useTheme";
 import Header from "@/components/layout/Header";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import Footer from "@/components/layout/Footer";
-import Home from "@/pages/Home";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
-import FAQ from "@/pages/FAQ";
-import Privacy from "@/pages/Privacy";
-import Terms from "@/pages/Terms";
-import Contact from "@/pages/Contact";
-import NotFound from "@/pages/not-found";
+import { Suspense, lazy } from "react";
+
+// ✅ Lazy imports (only load when needed)
+const Home = lazy(() => import("@/pages/Home"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const BlogPost = lazy(() => import("@/pages/BlogPost"));
+const FAQ = lazy(() => import("@/pages/FAQ"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
+const Terms = lazy(() => import("@/pages/Terms"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const NotFound = lazy(() => import("@/pages/not-found"));
 
 function Router() {
   return (
@@ -38,8 +41,13 @@ function App() {
         <TooltipProvider>
           <div className="min-h-screen bg-background text-foreground">
             <Header />
-            <ScrollToTop /> 
-            <Router />
+            <ScrollToTop />
+
+            {/* ✅ Suspense fallback for lazy components */}
+            <Suspense fallback={<div className="p-6 text-center">Loading...</div>}>
+              <Router />
+            </Suspense>
+
             <Footer />
           </div>
           <Toaster />
