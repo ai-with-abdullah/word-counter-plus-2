@@ -21,7 +21,7 @@ const FeatureLoader = () => (
   </div>
 );
 import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
-import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash } from "@/components/common/Icons";
+import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash, FaUpload, FaCopy, FaSync, FaSort } from "@/components/common/Icons";
 
 export default function WordCounterTool() {
   const [text, setText] = useState('');
@@ -89,6 +89,114 @@ export default function WordCounterTool() {
     setIsHighlighted(false);
   };
 
+  // Text case conversion functions
+  const convertToUppercase = () => {
+    setText(text.toUpperCase());
+    toast({
+      title: "Text Converted",
+      description: "Text has been converted to uppercase.",
+    });
+  };
+
+  const convertToLowercase = () => {
+    setText(text.toLowerCase());
+    toast({
+      title: "Text Converted",
+      description: "Text has been converted to lowercase.",
+    });
+  };
+
+  const convertToTitleCase = () => {
+    const titleCase = text.replace(/\w\S*/g, (txt) => 
+      txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    );
+    setText(titleCase);
+    toast({
+      title: "Text Converted",
+      description: "Text has been converted to title case.",
+    });
+  };
+
+  const convertToSentenceCase = () => {
+    const sentenceCase = text.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, (c) => 
+      c.toUpperCase()
+    );
+    setText(sentenceCase);
+    toast({
+      title: "Text Converted",
+      description: "Text has been converted to sentence case.",
+    });
+  };
+
+  // File upload functionality
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (file.type !== 'text/plain' && !file.name.endsWith('.txt')) {
+      toast({
+        title: "Invalid File Type",
+        description: "Please upload a text (.txt) file only.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target?.result as string;
+      setText(content);
+      toast({
+        title: "File Uploaded",
+        description: `File "${file.name}" has been uploaded successfully.`,
+      });
+    };
+    reader.readAsText(file);
+  };
+
+  // Additional text manipulation functions
+  const reverseText = () => {
+    setText(text.split('').reverse().join(''));
+    toast({
+      title: "Text Reversed",
+      description: "Text has been reversed.",
+    });
+  };
+
+  const removeExtraSpaces = () => {
+    const cleaned = text.replace(/\s+/g, ' ').trim();
+    setText(cleaned);
+    toast({
+      title: "Spaces Cleaned",
+      description: "Extra spaces have been removed.",
+    });
+  };
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast({
+        title: "Text Copied",
+        description: "Text has been copied to clipboard.",
+      });
+    } catch (error) {
+      toast({
+        title: "Copy Failed",
+        description: "Unable to copy text to clipboard.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const sortLines = () => {
+    const lines = text.split('\n').sort();
+    setText(lines.join('\n'));
+    toast({
+      title: "Lines Sorted",
+      description: "Text lines have been sorted alphabetically.",
+    });
+  };
+
   const getReadingLevelColor = (score: number) => {
     if (score >= 70) return 'bg-green-500';
     if (score >= 50) return 'bg-yellow-500';
@@ -152,6 +260,31 @@ export default function WordCounterTool() {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
               <label htmlFor="textInput" className="text-lg font-semibold text-foreground">Enter Your Text</label>
               <div className="flex flex-wrap gap-2">
+                {/* File Upload */}
+                <label className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors cursor-pointer"
+                       data-testid="button-upload-file">
+                  <FaUpload className="inline mr-2" aria-hidden="true" />
+                  Upload File
+                  <input 
+                    type="file" 
+                    accept=".txt,text/plain" 
+                    onChange={handleFileUpload}
+                    className="sr-only"
+                    aria-label="Upload a text file to analyze"
+                  />
+                </label>
+
+                {/* Copy Button */}
+                <button 
+                  onClick={copyToClipboard}
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                  data-testid="button-copy-text"
+                  aria-label="Copy text to clipboard"
+                >
+                  <FaCopy className="inline mr-2" aria-hidden="true" />
+                  Copy
+                </button>
+
                 {/* Clear Button */}
                 <button 
                   onClick={clearText}
@@ -251,6 +384,92 @@ export default function WordCounterTool() {
               </p>
             </div>
 
+          </div>
+
+          {/* Text Tools */}
+          <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Text Tools</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Case Conversion */}
+              <div>
+                <h4 className="text-md font-medium text-foreground mb-3">Case Conversion</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  <button 
+                    onClick={convertToUppercase}
+                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                    data-testid="button-uppercase"
+                    disabled={!text.trim()}
+                  >
+                    UPPERCASE
+                  </button>
+                  <button 
+                    onClick={convertToLowercase}
+                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                    data-testid="button-lowercase"
+                    disabled={!text.trim()}
+                  >
+                    lowercase
+                  </button>
+                  <button 
+                    onClick={convertToTitleCase}
+                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                    data-testid="button-titlecase"
+                    disabled={!text.trim()}
+                  >
+                    Title Case
+                  </button>
+                  <button 
+                    onClick={convertToSentenceCase}
+                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                    data-testid="button-sentencecase"
+                    disabled={!text.trim()}
+                  >
+                    Sentence case
+                  </button>
+                </div>
+              </div>
+
+              {/* Text Manipulation */}
+              <div>
+                <h4 className="text-md font-medium text-foreground mb-3">Text Operations</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  <button 
+                    onClick={reverseText}
+                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
+                    data-testid="button-reverse"
+                    disabled={!text.trim()}
+                  >
+                    <FaSync className="inline mr-1" />
+                    Reverse
+                  </button>
+                  <button 
+                    onClick={removeExtraSpaces}
+                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
+                    data-testid="button-clean-spaces"
+                    disabled={!text.trim()}
+                  >
+                    Clean Spaces
+                  </button>
+                  <button 
+                    onClick={sortLines}
+                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
+                    data-testid="button-sort-lines"
+                    disabled={!text.trim()}
+                  >
+                    <FaSort className="inline mr-1" />
+                    Sort Lines
+                  </button>
+                  <button 
+                    onClick={() => setText(text.replace(/[0-9]/g, ''))}
+                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
+                    data-testid="button-remove-numbers"
+                    disabled={!text.trim()}
+                  >
+                    Remove Numbers
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Real-time Statistics */}

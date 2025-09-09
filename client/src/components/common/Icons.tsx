@@ -23,6 +23,10 @@ import {
   FaPenFancy,
   FaGraduationCap,
   FaChartLine,
+  FaUpload,
+  FaCopy,
+  FaSync,
+  FaSort,
 } from "react-icons/fa";
 
 export {
@@ -49,4 +53,8 @@ export {
   FaPenFancy,
   FaGraduationCap,
   FaChartLine,
+  FaUpload,
+  FaCopy,
+  FaSync,
+  FaSort,
 };
