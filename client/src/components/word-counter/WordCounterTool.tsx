@@ -468,37 +468,26 @@ export default function WordCounterTool() {
             </div>
           </div>
 
-          {/* Professional Features Tabs */}
-          <div className="bg-card rounded-lg shadow-sm border border-border">
-            <Tabs defaultValue="analytics" className="w-full">
-              <div className="border-b border-border px-6 pt-6">
-                <TabsList className="grid w-full grid-cols-6">
-                  <TabsTrigger value="analytics" aria-label='Analytics Tab' className="flex items-center gap-2">
-                    <BarChart3 className="h-4 w-4" />
-                    <span className="hidden sm:inline">Analytics</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="seo" aria-label='SEO Tab' className="flex items-center gap-2">
-                    <Search className="h-4 w-4" />
-                    <span className="hidden sm:inline">SEO</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="social" aria-label='Social Tab' className="flex items-center gap-2">
-                    <Share2 className="h-4 w-4" />
-                    <span className="hidden sm:inline">Social</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="competitor" aria-label='Compete Tab' className="flex items-center gap-2">
-                    <TrendingUp className="h-4 w-4" />
-                    <span className="hidden sm:inline">Compete</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="goals" aria-label='Goals Tab' className="flex items-center gap-2">
-                    <Target className="h-4 w-4" />
-                    <span className="hidden sm:inline">Goals</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="keywords" aria-label='Keywords Tab' className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4" />
-                    <span className="hidden sm:inline">Keywords</span>
-                  </TabsTrigger>
-                </TabsList>
-              </div>
+          {/* Advanced Features */}
+          {text.trim() && (
+            <div className="bg-card rounded-lg shadow-sm border border-border">
+              <Tabs defaultValue="keywords" className="w-full">
+                <div className="border-b border-border px-6 pt-6">
+                  <TabsList className="grid w-full grid-cols-3">
+                    <TabsTrigger value="keywords" aria-label='Keywords Tab' className="flex items-center gap-2">
+                      <Sparkles className="h-4 w-4" />
+                      <span className="hidden sm:inline">Keywords</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="analytics" aria-label='Analytics Tab' className="flex items-center gap-2">
+                      <BarChart3 className="h-4 w-4" />
+                      <span className="hidden sm:inline">Analytics</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="seo" aria-label='SEO Tab' className="flex items-center gap-2">
+                      <Search className="h-4 w-4" />
+                      <span className="hidden sm:inline">SEO</span>
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
 
               <div className="p-6">
                 <TabsContent value="analytics" className="mt-0">
@@ -586,6 +575,7 @@ export default function WordCounterTool() {
               </div>
             </Tabs>
           </div>
+          )}
 
           {/* Export & Share Options */}
           <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
