@@ -591,7 +591,7 @@ export default function WordCounterTool() {
         </div>
 
         {/* Sidebar */}
-        <div className="lg:col-span-1 space-y-6">
+        <div className="xl:col-span-1 space-y-4 sm:space-y-6">
           {/* AdSense Sidebar Ad - COMMENTED OUT 
           <div className="bg-muted rounded-lg p-4 text-center text-muted-foreground no-print">
             <p className="text-sm">Advertisement<br />Google AdSense<br />(300x250)</p>
@@ -599,32 +599,32 @@ export default function WordCounterTool() {
           */}
 
           {/* Quick Tips */}
-          <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-            <h3 className="text-lg font-semibold text-foreground mb-4">💡 Quick Tips</h3>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+          <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
+            <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">💡 Quick Tips</h3>
+            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-muted-foreground">
               <li className="flex items-start">
-                <FaCheck className="text-primary mr-2 mt-0.5" aria-label="Check Icon" />
+                <FaCheck className="text-primary mr-2 mt-0.5 flex-shrink-0" aria-label="Check Icon" />
                 Keep sentences under 20 words for better readability
               </li>
               <li className="flex items-start">
-                <FaCheck className="text-primary mr-2 mt-0.5" aria-label="Check Icon" />
+                <FaCheck className="text-primary mr-2 mt-0.5 flex-shrink-0" aria-label="Check Icon" />
                 Aim for 1-2% keyword density for SEO
               </li>
               <li className="flex items-start">
-                <FaCheck className="text-primary mr-2 mt-0.5" aria-label="Check Icon" />
+                <FaCheck className="text-primary mr-2 mt-0.5 flex-shrink-0" aria-label="Check Icon" />
                 Use active voice for clearer writing
               </li>
               <li className="flex items-start">
-                <FaCheck className="text-primary mr-2 mt-0.5" aria-label="Check Icon" />
+                <FaCheck className="text-primary mr-2 mt-0.5 flex-shrink-0" aria-label="Check Icon" />
                 Break up long paragraphs for better flow
               </li>
             </ul>
           </div>
 
           {/* Word Target Goals */}
-          <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-            <h3 className="text-lg font-semibold text-foreground mb-4">📊 Word Count Goals</h3>
-            <div className="space-y-3 text-sm">
+          <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
+            <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">📊 Word Count Goals</h3>
+            <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <div className="flex justify-between items-center p-2 bg-muted rounded">
                 <span>Blog Post</span>
                 <span className="font-semibold">1,500-2,500</span>
