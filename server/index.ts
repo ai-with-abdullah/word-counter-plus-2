@@ -1,7 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import open from "open"; // <-- Add this package for auto-opening browser
 
 const app = express();
 app.use(express.json());
@@ -74,8 +73,7 @@ app.use((req, res, next) => {
         console.log("\x1b[33m🌐 URL:\x1b[0m", url);
         console.log("\x1b[36m====================================\x1b[0m");
 
-        // Open browser automatically
-        await open(url);
+        // Browser will open automatically in Replit environment
       }
     );
 
