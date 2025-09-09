@@ -7,9 +7,11 @@ interface SEOProps {
   canonical?: string;
   ogImage?: string;
   ogType?: string;
-  ogSiteName?: string;     // ✅ New prop
-  twitterCard?: string;    // ✅ New prop
+  ogSiteName?: string;
+  twitterCard?: string;
   noindex?: boolean;
+  author?: string;
+  siteName?: string;
 }
 
 export const useSEO = ({
@@ -17,11 +19,13 @@ export const useSEO = ({
   description,
   keywords,
   canonical,
-  ogImage = "https://textcountplusapp.com/og-image.jpg",
+  ogImage = "/og-image.png",
   ogType = "website",
-  ogSiteName = "Word Counter Plus",      // ✅ Default brand name
-  twitterCard = "summary_large_image",   // ✅ Default better Twitter card
-  noindex = false
+  ogSiteName = "Word Counter Plus",
+  twitterCard = "summary_large_image",
+  noindex = false,
+  author,
+  siteName
 }: SEOProps) => {
   useEffect(() => {
     // Update document title
@@ -59,18 +63,27 @@ export const useSEO = ({
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:type', ogType, true);
-    updateMetaTag('og:image', ogImage, true);
-    updateMetaTag('og:site_name', ogSiteName, true);   // ✅ Added site_name
+    updateMetaTag('og:image', ogImage.startsWith('http') ? ogImage : `${window.location.origin}${ogImage}`, true);
+    updateMetaTag('og:image:width', '1200', true);
+    updateMetaTag('og:image:height', '630', true);
+    updateMetaTag('og:image:alt', title, true);
+    updateMetaTag('og:site_name', siteName || ogSiteName, true);
     
     if (canonical) {
       updateMetaTag('og:url', canonical, true);
     }
+    
+    if (author) {
+      updateMetaTag('article:author', author, true);
+    }
 
     // Twitter
-    updateMetaTag('twitter:card', twitterCard, true);  // ✅ Added Twitter card
+    updateMetaTag('twitter:card', twitterCard, true);
     updateMetaTag('twitter:title', title, true);
     updateMetaTag('twitter:description', description, true);
-    updateMetaTag('twitter:image', ogImage, true);
+    updateMetaTag('twitter:image', ogImage.startsWith('http') ? ogImage : `${window.location.origin}${ogImage}`, true);
+    updateMetaTag('twitter:site', '@wordcounterplusapp', true);
+    updateMetaTag('twitter:creator', '@wordcounterplusapp', true);
 
     // Canonical URL
     if (canonical) {
