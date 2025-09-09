@@ -359,12 +359,12 @@ export default function WordCounterTool() {
 
           {/* Quick Actions */}
           {text.trim() && (
-            <div className="bg-card rounded-lg p-4 shadow-sm border border-border">
-              <h3 className="text-base font-medium text-foreground mb-3">Quick Actions</h3>
-              <div className="flex flex-wrap gap-2">
+            <div className="bg-card rounded-lg p-3 sm:p-4 shadow-sm border border-border">
+              <h3 className="text-sm sm:text-base font-medium text-foreground mb-3">Quick Actions</h3>
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                 <button 
                   onClick={copyToClipboard}
-                  className="px-3 py-1.5 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors"
+                  className="px-2 sm:px-3 py-1.5 bg-green-600 text-white rounded text-xs sm:text-sm hover:bg-green-700 transition-colors"
                   data-testid="button-copy-text"
                 >
                   <FaCopy className="inline mr-1" />
@@ -372,46 +372,51 @@ export default function WordCounterTool() {
                 </button>
                 <button 
                   onClick={convertToUppercase}
-                  className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                  className="px-2 sm:px-3 py-1.5 bg-blue-600 text-white rounded text-xs sm:text-sm hover:bg-blue-700 transition-colors"
                   data-testid="button-uppercase"
                 >
-                  UPPERCASE
+                  <span className="hidden sm:inline">UPPERCASE</span>
+                  <span className="sm:hidden">UPPER</span>
                 </button>
                 <button 
                   onClick={convertToLowercase}
-                  className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                  className="px-2 sm:px-3 py-1.5 bg-blue-600 text-white rounded text-xs sm:text-sm hover:bg-blue-700 transition-colors"
                   data-testid="button-lowercase"
                 >
-                  lowercase
+                  <span className="hidden sm:inline">lowercase</span>
+                  <span className="sm:hidden">lower</span>
                 </button>
                 <button 
                   onClick={convertToTitleCase}
-                  className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                  className="px-2 sm:px-3 py-1.5 bg-blue-600 text-white rounded text-xs sm:text-sm hover:bg-blue-700 transition-colors"
                   data-testid="button-titlecase"
                 >
-                  Title Case
+                  <span className="hidden sm:inline">Title Case</span>
+                  <span className="sm:hidden">Title</span>
                 </button>
                 <button 
                   onClick={removeExtraSpaces}
-                  className="px-3 py-1.5 bg-purple-600 text-white rounded text-sm hover:bg-purple-700 transition-colors"
+                  className="px-2 sm:px-3 py-1.5 bg-purple-600 text-white rounded text-xs sm:text-sm hover:bg-purple-700 transition-colors"
                   data-testid="button-clean-spaces"
                 >
-                  Clean Spaces
+                  <span className="hidden sm:inline">Clean Spaces</span>
+                  <span className="sm:hidden">Clean</span>
                 </button>
                 <button 
                   onClick={sortLines}
-                  className="px-3 py-1.5 bg-purple-600 text-white rounded text-sm hover:bg-purple-700 transition-colors"
+                  className="px-2 sm:px-3 py-1.5 bg-purple-600 text-white rounded text-xs sm:text-sm hover:bg-purple-700 transition-colors"
                   data-testid="button-sort-lines"
                 >
                   <FaSort className="inline mr-1" />
-                  Sort Lines
+                  <span className="hidden sm:inline">Sort Lines</span>
+                  <span className="sm:hidden">Sort</span>
                 </button>
               </div>
             </div>
           )}
 
           {/* Real-time Statistics */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-4 sm:mb-8">
             <StatsCard value={stats.wordCount} label="Words" icon="fas fa-file-word" iconColor="text-blue-600" />
             <StatsCard value={stats.charCount} label="Characters" icon="fas fa-keyboard" iconColor="text-green-600" />
             <StatsCard value={stats.sentenceCount} label="Sentences" icon="fas fa-list-ol" iconColor="text-orange-600" />
@@ -419,10 +424,10 @@ export default function WordCounterTool() {
           </div>
 
           {/* Advanced Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
             {/* Readability Analysis */}
-            <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-              <h2 className="text-lg font-semibold text-foreground mb-4">Readability Analysis</h2>
+            <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
+              <h2 className="text-base sm:text-lg font-semibold text-foreground mb-4">Readability Analysis</h2>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Flesch-Kincaid Score</span>
@@ -446,8 +451,8 @@ export default function WordCounterTool() {
             </div>
 
             {/* Text Statistics */}
-            <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-4">Text Statistics</h3>
+            <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4">Text Statistics</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-muted-foreground">Average Word Length</span>
