@@ -16,6 +16,7 @@ const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const FAQ = lazy(() => import("@/pages/FAQ"));
 const Privacy = lazy(() => import("@/pages/Privacy"));
 const Terms = lazy(() => import("@/pages/Terms"));
+const Disclaimer = lazy(() => import("@/pages/Disclaimer"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
@@ -36,6 +37,7 @@ function Router() {
         <Route path="/faq" component={FAQ} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
+        <Route path="/disclaimer" component={Disclaimer} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
