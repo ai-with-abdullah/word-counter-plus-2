@@ -11,6 +11,7 @@ import Home from "@/pages/Home";
 import { lazy, Suspense } from "react";
 
 // Lazy load non-critical pages
+const About = lazy(() => import("@/pages/About"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
 const FAQ = lazy(() => import("@/pages/FAQ"));
@@ -32,13 +33,14 @@ function Router() {
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/blog" component={Blog} />
         <Route path="/faq" component={FAQ} />
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
         <Route path="/disclaimer" component={Disclaimer} />
-        <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

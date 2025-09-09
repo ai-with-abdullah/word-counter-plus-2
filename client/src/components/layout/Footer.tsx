@@ -30,14 +30,14 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Pages */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-foreground mb-4">Pages</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="/">
+                <Link href="/about">
                   <span className="hover:text-primary transition-colors">
-                    Advanced Word Counter
+                    About Us
                   </span>
                 </Link>
               </li>
@@ -86,8 +86,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Media - Commented for later use */}
-          {/*
+          {/* Social Media */}
           <div>
             <h4 className="font-semibold text-foreground mb-4">Follow Us</h4>
             <div className="flex space-x-4">
@@ -188,7 +187,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          */}
 
           {/*
             
