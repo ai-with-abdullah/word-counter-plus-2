@@ -28,12 +28,31 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     target: "esnext",
+    cssCodeSplit: true,
     rollupOptions: {
       output: {
         manualChunks: {
+          // Vendor chunks for better caching
+          vendor: ["react", "react-dom"],
+          ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tabs"],
+          routing: ["wouter"],
+          query: ["@tanstack/react-query"],
           pdf: ["jspdf"],
           canvas: ["html2canvas"],
+          icons: ["lucide-react", "react-icons"],
+          charts: ["recharts"],
+          framer: ["framer-motion"],
         },
+        chunkFileNames: "assets/[name]-[hash].js",
+        entryFileNames: "assets/[name]-[hash].js",
+        assetFileNames: "assets/[name]-[hash].[ext]",
+      },
+    },
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
       },
     },
   },
