@@ -48,7 +48,7 @@ export default function BlogPost() {
     keywords: `${post.tags.join(', ')}, writing tips, content creation, word counter, text analysis`,
     canonical: `https://wordcounterplusapp.com/blog/${post.slug}`,
     ogType: 'article',
-    ogImage: post.image || '/images/default-blog-og.png',
+    ogImage: post.image || '/og-image.png',
     twitterCard: 'summary_large_image',
     author: 'Word Counter Plus Team',
     siteName: 'Word Counter Plus'
@@ -62,19 +62,32 @@ export default function BlogPost() {
     url: `https://wordcounterplusapp.com/blog/${post.slug}`,
     datePublished: post.publishDate,
     dateModified: post.publishDate,
+    image: post.image ? `https://wordcounterplusapp.com${post.image}` : 'https://wordcounterplusapp.com/og-image.png',
     author: {
       '@type': 'Organization',
       name: 'Word Counter Plus',
-      url: 'https://wordcounterplusapp.com'
+      url: 'https://wordcounterplusapp.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://wordcounterplusapp.com/word-counter-plus-logo.png'
+      }
     },
     publisher: {
       '@type': 'Organization',
       name: 'Word Counter Plus',
-      url: 'https://wordcounterplusapp.com'
+      url: 'https://wordcounterplusapp.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://wordcounterplusapp.com/word-counter-plus-logo.png'
+      }
     },
     keywords: post.tags.join(', '),
     wordCount: post.content.split(' ').length,
-    timeRequired: post.readTime
+    timeRequired: post.readTime,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://wordcounterplusapp.com/blog/${post.slug}`
+    }
   };
 
   // Convert markdown-style content to HTML-like JSX
