@@ -149,48 +149,133 @@ export default function Blog() {
           ))}
         </div>
 
-        {/* Pagination Controls */}
+        {/* Responsive Pagination Controls */}
         {totalPages > 1 && (
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            {/* Previous Button */}
-            <Button
-              variant="outline"
-              onClick={() => setCurrentPage(currentPage - 1)}
-              disabled={currentPage === 1}
-              className="flex items-center gap-2"
-              data-testid="button-prev-page"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Previous
-            </Button>
-
-            {/* Page Numbers */}
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <Button
-                  key={page}
-                  variant={page === currentPage ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setCurrentPage(page)}
-                  className="w-10 h-10"
-                  data-testid={`button-page-${page}`}
-                >
-                  {page}
-                </Button>
-              ))}
+          <div className="mt-12">
+            {/* Mobile Pagination */}
+            <div className="flex sm:hidden items-center justify-between">
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="flex items-center gap-2"
+                data-testid="button-prev-page-mobile"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Previous
+              </Button>
+              
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">
+                  Page {currentPage} of {totalPages}
+                </span>
+              </div>
+              
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="flex items-center gap-2"
+                data-testid="button-next-page-mobile"
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </Button>
             </div>
 
-            {/* Next Button */}
-            <Button
-              variant="outline"
-              onClick={() => setCurrentPage(currentPage + 1)}
-              disabled={currentPage === totalPages}
-              className="flex items-center gap-2"
-              data-testid="button-next-page"
-            >
-              Next
-              <ChevronRight className="w-4 h-4" />
-            </Button>
+            {/* Desktop Pagination */}
+            <div className="hidden sm:flex items-center justify-center gap-4">
+              {/* Previous Button */}
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="flex items-center gap-2"
+                data-testid="button-prev-page"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Previous
+              </Button>
+
+              {/* Smart Page Numbers */}
+              <div className="flex items-center gap-1">
+                {(() => {
+                  const getPageNumbers = () => {
+                    const delta = 2; // Number of pages to show on each side of current page
+                    const range = [];
+                    const rangeWithDots = [];
+
+                    // Always show first page
+                    range.push(1);
+
+                    // Calculate start and end of middle range
+                    const start = Math.max(2, currentPage - delta);
+                    const end = Math.min(totalPages - 1, currentPage + delta);
+
+                    // Add dots after first page if needed
+                    if (start > 2) {
+                      rangeWithDots.push(1);
+                      rangeWithDots.push('...');
+                    } else {
+                      rangeWithDots.push(1);
+                    }
+
+                    // Add middle range
+                    for (let i = start; i <= end; i++) {
+                      if (i !== 1 && i !== totalPages) {
+                        rangeWithDots.push(i);
+                      }
+                    }
+
+                    // Add dots before last page if needed
+                    if (end < totalPages - 1) {
+                      rangeWithDots.push('...');
+                      rangeWithDots.push(totalPages);
+                    } else if (totalPages > 1) {
+                      rangeWithDots.push(totalPages);
+                    }
+
+                    // Remove duplicates and clean up
+                    return Array.from(new Set(rangeWithDots));
+                  };
+
+                  return getPageNumbers().map((page, index) => {
+                    if (page === '...') {
+                      return (
+                        <span key={`dots-${index}`} className="px-2 text-muted-foreground">
+                          ...
+                        </span>
+                      );
+                    }
+
+                    return (
+                      <Button
+                        key={page}
+                        variant={page === currentPage ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setCurrentPage(page as number)}
+                        className="w-10 h-10"
+                        data-testid={`button-page-${page}`}
+                      >
+                        {page}
+                      </Button>
+                    );
+                  });
+                })()}
+              </div>
+
+              {/* Next Button */}
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="flex items-center gap-2"
+                data-testid="button-next-page"
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         )}
 
