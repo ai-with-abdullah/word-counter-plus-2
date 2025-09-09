@@ -239,77 +239,47 @@ export default function WordCounterTool() {
         {/* Main Tool Area */}
         <div className="lg:col-span-3 space-y-6">
           {/* Tool Header */}
-          <div className="bg-gradient-to-r from-primary/10 via-accent/5 to-primary/5 rounded-xl p-8 shadow-lg border border-border/50 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h1 
-                className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-700 to-pink-600 bg-clip-text text-transparent mb-4">
-                Advanced Word Counter Tool
-                <span className="sr-only">
-                </span>
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-
-                Real-time text analysis with readability and keyword tracking.
-
-              </p>
-            </div>
+          <div className="text-center mb-8">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+              Word Counter Plus
+            </h1>
+            <p className="text-muted-foreground">
+              Analyze your text with advanced word counting and readability tools
+            </p>
           </div>
 
           {/* Text Input Area */}
           <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
-              <label htmlFor="textInput" className="text-lg font-semibold text-foreground">Enter Your Text</label>
-              <div className="flex flex-wrap gap-2">
-                {/* File Upload */}
-                <label className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/80 transition-colors cursor-pointer"
-                       data-testid="button-upload-file">
-                  <FaUpload className="inline mr-2" aria-hidden="true" />
-                  Upload File
-                  <input 
-                    type="file" 
-                    accept=".txt,text/plain" 
-                    onChange={handleFileUpload}
-                    className="sr-only"
-                    aria-label="Upload a text file to analyze"
-                  />
-                </label>
+            <div className="mb-4">
+              <div className="flex justify-between items-center mb-3">
+                <label htmlFor="textInput" className="text-lg font-semibold text-foreground">Enter Your Text</label>
+                <div className="flex gap-2">
+                  {/* File Upload */}
+                  <label className="px-3 py-1.5 bg-primary text-primary-foreground rounded text-sm hover:bg-primary/80 transition-colors cursor-pointer"
+                         data-testid="button-upload-file">
+                    <FaUpload className="inline mr-1" aria-hidden="true" />
+                    Upload
+                    <input 
+                      type="file" 
+                      accept=".txt,text/plain" 
+                      onChange={handleFileUpload}
+                      className="sr-only"
+                      aria-label="Upload a text file to analyze"
+                    />
+                  </label>
 
-                {/* Copy Button */}
-                <button 
-                  onClick={copyToClipboard}
-                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                  data-testid="button-copy-text"
-                  aria-label="Copy text to clipboard"
-                >
-                  <FaCopy className="inline mr-2" aria-hidden="true" />
-                  Copy
-                </button>
-
-                {/* Clear Button */}
-                <button 
-                  onClick={clearText}
-                  className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors"
-                  data-testid="button-clear-text"
-                  aria-label="Clear all text from the input area"
-                >
-                  <FaTrash className="inline mr-2" aria-hidden="true" />
-                  <span className="sr-only">Clear Text</span>
-                  Clear
-                </button>
-
-                {/* Paste Button */}
-                <button 
-                  onClick={pasteText}
-                  className="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-colors"
-                  data-testid="button-paste-text"
-                  aria-label="Paste text from clipboard into the input area"
-                >
-                  <FaPaste className="inline mr-2" aria-hidden="true" />
-                  <span className="sr-only">Paste Text</span>
-                  Paste
-                </button>
+                  {/* Clear Button */}
+                  <button 
+                    onClick={clearText}
+                    className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded text-sm hover:bg-secondary/80 transition-colors"
+                    data-testid="button-clear-text"
+                    aria-label="Clear all text"
+                  >
+                    <FaTrash className="inline mr-1" aria-hidden="true" />
+                    Clear
+                  </button>
+                </div>
               </div>
-
             </div>
             
             {!isHighlighted ? (
@@ -386,91 +356,58 @@ export default function WordCounterTool() {
 
           </div>
 
-          {/* Text Tools */}
-          <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Text Tools</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Case Conversion */}
-              <div>
-                <h4 className="text-md font-medium text-foreground mb-3">Case Conversion</h4>
-                <div className="grid grid-cols-2 gap-2">
-                  <button 
-                    onClick={convertToUppercase}
-                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                    data-testid="button-uppercase"
-                    disabled={!text.trim()}
-                  >
-                    UPPERCASE
-                  </button>
-                  <button 
-                    onClick={convertToLowercase}
-                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                    data-testid="button-lowercase"
-                    disabled={!text.trim()}
-                  >
-                    lowercase
-                  </button>
-                  <button 
-                    onClick={convertToTitleCase}
-                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                    data-testid="button-titlecase"
-                    disabled={!text.trim()}
-                  >
-                    Title Case
-                  </button>
-                  <button 
-                    onClick={convertToSentenceCase}
-                    className="px-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                    data-testid="button-sentencecase"
-                    disabled={!text.trim()}
-                  >
-                    Sentence case
-                  </button>
-                </div>
-              </div>
-
-              {/* Text Manipulation */}
-              <div>
-                <h4 className="text-md font-medium text-foreground mb-3">Text Operations</h4>
-                <div className="grid grid-cols-2 gap-2">
-                  <button 
-                    onClick={reverseText}
-                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
-                    data-testid="button-reverse"
-                    disabled={!text.trim()}
-                  >
-                    <FaSync className="inline mr-1" />
-                    Reverse
-                  </button>
-                  <button 
-                    onClick={removeExtraSpaces}
-                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
-                    data-testid="button-clean-spaces"
-                    disabled={!text.trim()}
-                  >
-                    Clean Spaces
-                  </button>
-                  <button 
-                    onClick={sortLines}
-                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
-                    data-testid="button-sort-lines"
-                    disabled={!text.trim()}
-                  >
-                    <FaSort className="inline mr-1" />
-                    Sort Lines
-                  </button>
-                  <button 
-                    onClick={() => setText(text.replace(/[0-9]/g, ''))}
-                    className="px-3 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm"
-                    data-testid="button-remove-numbers"
-                    disabled={!text.trim()}
-                  >
-                    Remove Numbers
-                  </button>
-                </div>
+          {/* Quick Actions */}
+          {text.trim() && (
+            <div className="bg-card rounded-lg p-4 shadow-sm border border-border">
+              <h3 className="text-base font-medium text-foreground mb-3">Quick Actions</h3>
+              <div className="flex flex-wrap gap-2">
+                <button 
+                  onClick={copyToClipboard}
+                  className="px-3 py-1.5 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors"
+                  data-testid="button-copy-text"
+                >
+                  <FaCopy className="inline mr-1" />
+                  Copy
+                </button>
+                <button 
+                  onClick={convertToUppercase}
+                  className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                  data-testid="button-uppercase"
+                >
+                  UPPERCASE
+                </button>
+                <button 
+                  onClick={convertToLowercase}
+                  className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                  data-testid="button-lowercase"
+                >
+                  lowercase
+                </button>
+                <button 
+                  onClick={convertToTitleCase}
+                  className="px-3 py-1.5 bg-blue-600 text-white rounded text-sm hover:bg-blue-700 transition-colors"
+                  data-testid="button-titlecase"
+                >
+                  Title Case
+                </button>
+                <button 
+                  onClick={removeExtraSpaces}
+                  className="px-3 py-1.5 bg-purple-600 text-white rounded text-sm hover:bg-purple-700 transition-colors"
+                  data-testid="button-clean-spaces"
+                >
+                  Clean Spaces
+                </button>
+                <button 
+                  onClick={sortLines}
+                  className="px-3 py-1.5 bg-purple-600 text-white rounded text-sm hover:bg-purple-700 transition-colors"
+                  data-testid="button-sort-lines"
+                >
+                  <FaSort className="inline mr-1" />
+                  Sort Lines
+                </button>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Real-time Statistics */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
