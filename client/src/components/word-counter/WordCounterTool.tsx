@@ -5,11 +5,21 @@ import KeywordTable from './KeywordTable';
 import ExportButtons from './ExportButtons';
 import { useToast } from '@/hooks/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import AdvancedAnalytics from '@/components/features/AdvancedAnalytics';
-import SEOAnalyzer from '@/components/features/SEOAnalyzer';
-import SocialMediaOptimizer from '@/components/features/SocialMediaOptimizer';
-import CompetitorAnalysis from '@/components/features/CompetitorAnalysis';
-import ContentGoals from '@/components/features/ContentGoals';
+import { lazy, Suspense } from 'react';
+
+// Lazy load heavy feature components
+const AdvancedAnalytics = lazy(() => import('@/components/features/AdvancedAnalytics'));
+const SEOAnalyzer = lazy(() => import('@/components/features/SEOAnalyzer'));
+const SocialMediaOptimizer = lazy(() => import('@/components/features/SocialMediaOptimizer'));
+const CompetitorAnalysis = lazy(() => import('@/components/features/CompetitorAnalysis'));
+const ContentGoals = lazy(() => import('@/components/features/ContentGoals'));
+
+// Feature loading fallback
+const FeatureLoader = () => (
+  <div className="flex items-center justify-center py-8">
+    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+  </div>
+);
 import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
 import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash } from "@/components/common/Icons";
 
@@ -336,44 +346,54 @@ export default function WordCounterTool() {
 
               <div className="p-6">
                 <TabsContent value="analytics" className="mt-0">
-                  <AdvancedAnalytics 
-                    text={text}
-                    wordCount={stats.wordCount}
-                    sentenceCount={stats.sentenceCount}
-                    paragraphCount={stats.paragraphCount}
-                    readabilityScore={readability.score}
-                  />
+                  <Suspense fallback={<FeatureLoader />}>
+                    <AdvancedAnalytics 
+                      text={text}
+                      wordCount={stats.wordCount}
+                      sentenceCount={stats.sentenceCount}
+                      paragraphCount={stats.paragraphCount}
+                      readabilityScore={readability.score}
+                    />
+                  </Suspense>
                 </TabsContent>
 
                 <TabsContent value="seo" className="mt-0">
-                  <SEOAnalyzer 
-                    text={text}
-                    title="Word Counter Plus Analysis"
-                    metaDescription="Advanced text analysis with professional insights"
-                  />
+                  <Suspense fallback={<FeatureLoader />}>
+                    <SEOAnalyzer 
+                      text={text}
+                      title="Word Counter Plus Analysis"
+                      metaDescription="Advanced text analysis with professional insights"
+                    />
+                  </Suspense>
                 </TabsContent>
 
                 <TabsContent value="social" className="mt-0">
-                  <SocialMediaOptimizer 
-                    text={text}
-                    title="Check out my text analysis results!"
-                  />
+                  <Suspense fallback={<FeatureLoader />}>
+                    <SocialMediaOptimizer 
+                      text={text}
+                      title="Check out my text analysis results!"
+                    />
+                  </Suspense>
                 </TabsContent>
 
                 <TabsContent value="competitor" className="mt-0">
-                  <CompetitorAnalysis 
-                    text={text}
-                    wordCount={stats.wordCount}
-                    readabilityScore={readability.score}
-                  />
+                  <Suspense fallback={<FeatureLoader />}>
+                    <CompetitorAnalysis 
+                      text={text}
+                      wordCount={stats.wordCount}
+                      readabilityScore={readability.score}
+                    />
+                  </Suspense>
                 </TabsContent>
 
                 <TabsContent value="goals" className="mt-0">
-                  <ContentGoals 
-                    wordCount={stats.wordCount}
-                    readingTime={readability.readingTime}
-                    readabilityScore={readability.score}
-                  />
+                  <Suspense fallback={<FeatureLoader />}>
+                    <ContentGoals 
+                      wordCount={stats.wordCount}
+                      readingTime={readability.readingTime}
+                      readabilityScore={readability.score}
+                    />
+                  </Suspense>
                 </TabsContent>
 
                 <TabsContent value="keywords" className="mt-0">
