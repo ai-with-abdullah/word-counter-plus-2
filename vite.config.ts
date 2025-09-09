@@ -29,32 +29,65 @@ export default defineConfig({
     emptyOutDir: true,
     target: "esnext",
     cssCodeSplit: true,
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
-          // Vendor chunks for better caching
+          // Critical vendor chunks for better caching and loading
           vendor: ["react", "react-dom"],
-          ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tabs"],
+          ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tabs", "@radix-ui/react-alert-dialog", "@radix-ui/react-select"],
           routing: ["wouter"],
           query: ["@tanstack/react-query"],
           pdf: ["jspdf"],
-          canvas: ["html2canvas"],
           icons: ["lucide-react", "react-icons"],
           charts: ["recharts"],
           framer: ["framer-motion"],
+          utils: ["clsx", "tailwind-merge", "class-variance-authority"],
+          form: ["react-hook-form", "@hookform/resolvers", "zod"],
         },
-        chunkFileNames: "assets/[name]-[hash].js",
-        entryFileNames: "assets/[name]-[hash].js",
-        assetFileNames: "assets/[name]-[hash].[ext]",
+        chunkFileNames: "js/[name]-[hash].js",
+        entryFileNames: "js/[name]-[hash].js",
+        assetFileNames: (assetInfo) => {
+          const info = assetInfo.name?.split('.') || [];
+          const ext = info[info.length - 1];
+          if (/\.(png|jpe?g|gif|svg|webp|ico)$/i.test(assetInfo.name || '')) {
+            return `images/[name]-[hash][extname]`;
+          }
+          if (/\.(css)$/i.test(assetInfo.name || '')) {
+            return `css/[name]-[hash][extname]`;
+          }
+          if (/\.(woff2?|eot|ttf|otf)$/i.test(assetInfo.name || '')) {
+            return `fonts/[name]-[hash][extname]`;
+          }
+          return `assets/[name]-[hash][extname]`;
+        },
+      },
+      // Treeshaking optimizations
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false,
+        unknownGlobalSideEffects: false,
       },
     },
     minify: "terser",
     terserOptions: {
       compress: {
-        drop_console: true,
+        drop_console: process.env.NODE_ENV === "production",
         drop_debugger: true,
+        pure_funcs: ["console.log", "console.info", "console.debug", "console.trace"],
+        passes: 2,
+      },
+      mangle: {
+        safari10: true,
+      },
+      format: {
+        comments: false,
       },
     },
+    // Enable gzip compression hint
+    reportCompressedSize: true,
+    // Increase chunk size warning limit
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     host: "0.0.0.0",
@@ -63,5 +96,14 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ["react", "react-dom", "wouter", "@tanstack/react-query"],
+    exclude: ["@replit/vite-plugin-cartographer"],
+  },
+  // Enable CSS minification
+  css: {
+    devSourcemap: false,
   },
 });
