@@ -3,12 +3,20 @@ node_modules/
 
 # Production build output
 dist/
+build/
 
 # Local environment / cache folders
 .local/
+.cache/
 
 # Mac system files
 .DS_Store
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+.replit/
+replit.md
 
 # Logs
 npm-debug.log*
@@ -16,17 +24,17 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Optional caches
-.cache/
-.vscode/
-.replit/
-*.swp
-
 # Temporary files
+*.swp
 *.tar.gz
+*.zip
 
 # Ignore Vite config backups
 vite.config.ts.*
 
-# Ignore server public if generated
+# Ignore generated server public folder
 server/public
+
+# Ignore environment variable files
+.env
+.env.*
