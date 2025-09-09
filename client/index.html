@@ -54,11 +54,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/manifest.json" />
     
-    <!-- Optimized Font Loading -->
+    <!-- Optimized Font Loading with performance hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Font Awesome with performance optimization -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
     
     <!-- DNS Prefetch for External Resources -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
@@ -203,12 +207,28 @@
     
     <!-- Critical CSS and Resource Hints -->
     <script>
-      // Preload critical resources
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'script';
-      link.href = '/src/main.tsx';
-      document.head.appendChild(link);
+      // Preload critical resources for better performance
+      const criticalResources = [
+        { href: '/src/main.tsx', as: 'script' },
+        { href: '/src/index.css', as: 'style' }
+      ];
+      
+      criticalResources.forEach(resource => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = resource.as;
+        link.href = resource.href;
+        document.head.appendChild(link);
+      });
+      
+      // Service Worker registration for caching (if available)
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {
+            // Silent fail if no service worker
+          });
+        });
+      }
     </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <!-- <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script> -->
