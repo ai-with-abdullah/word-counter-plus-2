@@ -1,11 +1,33 @@
 import useSEO from '@/hooks/useSEO';
 import { Link } from 'wouter';
-import { FaPlay, FaCalendar, FaClock, FaArrowRight } from "@/components/common/Icons";
+import { FaPlay, FaCalendar, FaClock, FaArrowRight, FaArrowLeft } from "@/components/common/Icons";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { blogPosts, BlogPost } from '@/data/blogData';
+import { useState, useMemo } from 'react';
+import { Button } from '@/components/ui/button';
 
 export type { BlogPost };
 
+const POSTS_PER_PAGE = 6;
+
 export default function Blog() {
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  // Calculate pagination
+  const { currentPosts, totalPages, startIndex, endIndex } = useMemo(() => {
+    const startIdx = (currentPage - 1) * POSTS_PER_PAGE;
+    const endIdx = startIdx + POSTS_PER_PAGE;
+    const current = blogPosts.slice(startIdx, endIdx);
+    const total = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+    
+    return {
+      currentPosts: current,
+      totalPages: total,
+      startIndex: startIdx + 1,
+      endIndex: Math.min(endIdx, blogPosts.length)
+    };
+  }, [currentPage]);
+
   useSEO({
     title: "Blog - Writing Tips & Text Analysis Guides | Word Counter Plus",
     description: "Discover expert writing tips, text analysis guides, and content creation strategies. Learn how to improve your writing with our comprehensive blog articles and tutorials.",
@@ -53,12 +75,20 @@ export default function Blog() {
           </p>
         </div>
 
+        {/* Blog Posts Stats */}
+        <div className="mb-6 text-center">
+          <p className="text-muted-foreground">
+            Showing {startIndex}-{endIndex} of {blogPosts.length} articles
+          </p>
+        </div>
+
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {blogPosts.map((post) => (
+          {currentPosts.map((post, index) => (
             <article 
-              key={post.id} 
+              key={`${post.id}-${index}`}
               className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow overflow-hidden"
+              data-testid={`blog-post-${post.id}`}
             >
               {/* Featured Image */}
               {post.image && (
@@ -75,9 +105,9 @@ export default function Blog() {
               <div className="p-6">
                 <div className="mb-4">
                   <div className="flex flex-wrap gap-2 mb-3">
-                    {post.tags.map((tag: string) => (
+                    {post.tags.map((tag: string, tagIndex: number) => (
                       <span 
-                        key={tag}
+                        key={`${tag}-${tagIndex}`}
                         className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
                       >
                         {tag}
@@ -118,6 +148,51 @@ export default function Blog() {
             </article>
           ))}
         </div>
+
+        {/* Pagination Controls */}
+        {totalPages > 1 && (
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* Previous Button */}
+            <Button
+              variant="outline"
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="flex items-center gap-2"
+              data-testid="button-prev-page"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Previous
+            </Button>
+
+            {/* Page Numbers */}
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <Button
+                  key={page}
+                  variant={page === currentPage ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setCurrentPage(page)}
+                  className="w-10 h-10"
+                  data-testid={`button-page-${page}`}
+                >
+                  {page}
+                </Button>
+              ))}
+            </div>
+
+            {/* Next Button */}
+            <Button
+              variant="outline"
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="flex items-center gap-2"
+              data-testid="button-next-page"
+            >
+              Next
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+          </div>
+        )}
 
         {/* CTA Section */}
         <div className="mt-16 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-8 text-center">
