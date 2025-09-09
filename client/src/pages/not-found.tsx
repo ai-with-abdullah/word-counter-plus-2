@@ -1,120 +1,96 @@
-import { motion } from "framer-motion";
-import { Home, LifeBuoy } from "lucide-react";
+import { Link } from "wouter";
+import { Home, Search, ArrowLeft, LifeBuoy } from "lucide-react";
+import useSEO from '@/hooks/useSEO';
 
 export default function NotFound() {
-  // Generate random stars
-  const stars = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    delay: Math.random() * 5,
-  }));
+  useSEO({
+    title: "Page Not Found | Word Counter Plus",
+    description: "The page you're looking for doesn't exist. Return to Word Counter Plus to continue using our powerful text analysis tools.",
+    keywords: "404, page not found, word counter, text analysis tool",
+    canonical: "https://wordcounterplusapp.com/404"
+  });
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-red-50 via-white to-red-100 dark:from-gray-900 dark:via-gray-950 dark:to-black px-6 overflow-hidden">
-      {/* Animated gradient blobs */}
-      <motion.div
-        className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-red-400/30 blur-3xl"
-        animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
-        transition={{ duration: 12, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-pink-400/30 blur-3xl"
-        animate={{ x: [0, -30, 0], y: [0, -40, 0] }}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
+    <main className="min-h-screen flex items-center justify-center bg-background px-4">
+      <div className="max-w-2xl mx-auto text-center">
+        <div className="bg-card rounded-xl p-8 md:p-12 shadow-lg border border-border">
+          {/* 404 Number */}
+          <div className="mb-8">
+            <h1 className="text-9xl md:text-[12rem] font-bold text-primary/20 leading-none select-none">
+              404
+            </h1>
+          </div>
 
-      {/* Floating planet ball */}
-      <motion.div
-        className="absolute top-1/3 left-1/4 w-32 h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-pink-500 via-red-400 to-orange-400 blur-2xl opacity-60"
-        animate={{ y: [0, -20, 0], scale: [1, 1.1, 1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
+          {/* Main Content */}
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Page Not Found
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Sorry, we couldn't find the page you're looking for. The page may have been moved, 
+                deleted, or you may have entered an incorrect URL.
+              </p>
+            </div>
 
-      {/* Animated stars */}
-      {stars.map((star) => (
-        <motion.div
-          key={star.id}
-          className="absolute rounded-full bg-white"
-          style={{
-            top: `${star.y}%`,
-            left: `${star.x}%`,
-            width: star.size,
-            height: star.size,
-          }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            delay: star.delay,
-          }}
-        />
-      ))}
+            {/* Search Suggestion */}
+            <div className="bg-muted/50 rounded-lg p-4 border border-border/50">
+              <div className="flex items-center justify-center space-x-2 text-muted-foreground mb-2">
+                <Search className="w-5 h-5" />
+                <span className="font-medium">Looking for something specific?</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Try our <Link href="/" className="text-primary hover:text-primary/80 font-medium">word counter tool</Link> or 
+                check out our <Link href="/faq" className="text-primary hover:text-primary/80 font-medium">frequently asked questions</Link>.
+              </p>
+            </div>
 
-      {/* Main content */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 text-center max-w-2xl bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl rounded-2xl shadow-2xl p-10"
-      >
-        {/* 404 Heading */}
-        <motion.h1
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-8xl md:text-9xl font-extrabold bg-gradient-to-r from-red-600 via-pink-500 to-red-400 text-transparent bg-clip-text drop-shadow-lg"
-        >
-          404
-        </motion.h1>
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Link href="/">
+                <button className="flex items-center justify-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto">
+                  <Home className="w-5 h-5" />
+                  <span>Back to Home</span>
+                </button>
+              </Link>
 
-        {/* Subtitle */}
-        <motion.h2
-          animate={{ y: [0, -5, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="mt-4 text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100"
-        >
-          Lost in Space?
-        </motion.h2>
+              <button 
+                onClick={() => window.history.back()}
+                className="flex items-center justify-center space-x-2 bg-muted text-foreground px-6 py-3 rounded-lg font-medium hover:bg-muted/80 transition-colors w-full sm:w-auto"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                <span>Go Back</span>
+              </button>
 
-        {/* Description */}
-        <p className="mt-3 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-          The page you’re looking for doesn’t exist or may have drifted away.  
-          Don’t worry, we’ll help you find your way back.
-        </p>
+              <Link href="/contact">
+                <button className="flex items-center justify-center space-x-2 border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-muted/50 transition-colors w-full sm:w-auto">
+                  <LifeBuoy className="w-5 h-5" />
+                  <span>Get Help</span>
+                </button>
+              </Link>
+            </div>
 
-        {/* CTA Buttons */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <motion.a
-            href="/"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            animate={{ y: [0, -4, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 to-pink-500 text-white font-semibold shadow-lg hover:shadow-2xl transition-all"
-          >
-            <Home className="w-5 h-5" /> Back to Home
-          </motion.a>
-
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            animate={{ y: [0, -4, 0] }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-500 text-red-600 dark:text-red-400 font-semibold bg-white dark:bg-gray-900 shadow hover:bg-red-50 dark:hover:bg-gray-800 transition-all"
-          >
-            <LifeBuoy className="w-5 h-5" /> Get Support
-          </motion.a>
+            {/* Quick Links */}
+            <div className="pt-6 border-t border-border">
+              <p className="text-sm text-muted-foreground mb-4">Or try these popular pages:</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                <Link href="/" className="text-sm text-primary hover:text-primary/80 bg-primary/10 px-3 py-1 rounded-full transition-colors">
+                  Word Counter
+                </Link>
+                <Link href="/blog" className="text-sm text-primary hover:text-primary/80 bg-primary/10 px-3 py-1 rounded-full transition-colors">
+                  Blog
+                </Link>
+                <Link href="/faq" className="text-sm text-primary hover:text-primary/80 bg-primary/10 px-3 py-1 rounded-full transition-colors">
+                  FAQ
+                </Link>
+                <Link href="/privacy" className="text-sm text-primary hover:text-primary/80 bg-primary/10 px-3 py-1 rounded-full transition-colors">
+                  Privacy Policy
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </main>
   );
 }
-// Footer component is not included in the 404 page to keep it clean and focused.
