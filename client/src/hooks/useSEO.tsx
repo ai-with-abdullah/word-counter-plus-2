@@ -97,7 +97,7 @@ export const useSEO = ({
       
       canonicalLink.href = canonical;
     }
-  }, [title, description, keywords, canonical, ogImage, ogType, ogSiteName, twitterCard, noindex]);
+  }, [title, description, keywords, canonical, ogImage, ogType, ogSiteName, twitterCard, noindex, author, siteName]);
 };
 
 export default useSEO;

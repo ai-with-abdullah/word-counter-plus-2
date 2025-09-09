@@ -371,10 +371,18 @@ export default function BlogPost() {
               )}
               <h3 className="font-semibold text-foreground text-sm mb-1">{post.title}</h3>
               <p className="text-xs text-muted-foreground line-clamp-2">{post.excerpt}</p>
-              <div className="flex items-center mt-2 text-xs text-muted-foreground">
-                <span className="bg-primary/10 text-primary px-2 py-1 rounded">
-                  Word Counter Plus
-                </span>
+              <div className="flex items-center justify-between mt-2 text-xs text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <img 
+                    src="/word-counter-plus-logo.png" 
+                    alt="Word Counter Plus" 
+                    className="w-4 h-4 rounded-sm"
+                  />
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded font-medium">
+                    Word Counter Plus
+                  </span>
+                </div>
+                <span className="text-xs">{post.readTime}</span>
               </div>
             </div>
 
@@ -392,7 +400,7 @@ export default function BlogPost() {
 
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                  post.title + ' - ' + post.excerpt.substring(0, 100) + '...'
+                  `${post.title}\n\n${post.excerpt.substring(0, 120)}...\n\n🔗 Read more:`
                 )}&url=${encodeURIComponent(window.location.href)}&via=wordcounterplusapp`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -403,7 +411,7 @@ export default function BlogPost() {
               </a>
 
               <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(post.title)}&summary=${encodeURIComponent(post.excerpt)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 p-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
@@ -413,7 +421,7 @@ export default function BlogPost() {
               </a>
 
               <a
-                href={`https://wa.me/?text=${encodeURIComponent(post.title + '\n\n' + post.excerpt + '\n\n' + window.location.href)}`}
+                href={`https://wa.me/?text=${encodeURIComponent(`📚 *${post.title}*\n\n${post.excerpt}\n\n🔗 Read the full article:\n${window.location.href}\n\n✨ Shared from Word Counter Plus`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 p-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
@@ -434,13 +442,16 @@ export default function BlogPost() {
 
               <a
                 href={`mailto:?subject=${encodeURIComponent(
-                  post.title
+                  `📚 ${post.title} | Word Counter Plus`
                 )}&body=${encodeURIComponent(
-                  'I thought you might find this interesting:\n\n' + 
-                  post.title + '\n\n' + 
-                  post.excerpt + '\n\n' + 
-                  'Read more: ' + window.location.href + '\n\n' +
-                  'Shared from Word Counter Plus - Advanced Text Analysis Tool'
+                  `Hi there!\n\nI thought you might find this article interesting:\n\n` +
+                  `"${post.title}"\n\n` +
+                  `${post.excerpt}\n\n` +
+                  `📖 Read the full article here:\n${window.location.href}\n\n` +
+                  `—\n` +
+                  `This article was shared from Word Counter Plus, the comprehensive text analysis and writing tool.\n` +
+                  `Visit: https://wordcounterplusapp.com\n\n` +
+                  `Best regards!`
                 )}`}
                 className="flex items-center justify-center gap-2 p-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
