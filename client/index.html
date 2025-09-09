@@ -205,30 +205,17 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Critical CSS and Resource Hints -->
+    <!-- Performance optimizations -->
     <script>
-      // Preload critical resources for better performance
-      const criticalResources = [
-        { href: '/src/main.tsx', as: 'script' },
-        { href: '/src/index.css', as: 'style' }
-      ];
-      
-      criticalResources.forEach(resource => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = resource.as;
-        link.href = resource.href;
-        document.head.appendChild(link);
-      });
-      
-      // Service Worker registration for caching (if available)
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
+      // Only preload resources that actually exist in production
+      window.addEventListener('load', () => {
+        // Service Worker registration only if file exists
+        if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js').catch(() => {
             // Silent fail if no service worker
           });
-        });
-      }
+        }
+      });
     </script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <!-- <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script> -->
