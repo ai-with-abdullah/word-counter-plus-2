@@ -46,9 +46,12 @@ export default function BlogPost() {
     title: `${post.title} | Word Counter Plus Blog`,
     description: post.excerpt,
     keywords: `${post.tags.join(', ')}, writing tips, content creation, word counter, text analysis`,
-    canonical: `https://wordcounterplusappapp.com/blog/${post.slug}`,
+    canonical: `https://wordcounterplusapp.com/blog/${post.slug}`,
     ogType: 'article',
-    ogImage: post.image
+    ogImage: post.image || '/images/default-blog-og.png',
+    twitterCard: 'summary_large_image',
+    author: 'Word Counter Plus Team',
+    siteName: 'Word Counter Plus'
   });
 
   const jsonLdSchema = {
@@ -235,7 +238,56 @@ export default function BlogPost() {
           </div>
         </article>
 
-        {/* Related Posts CTA */}
+        {/* Related Posts */}
+        {(() => {
+          const relatedPosts = getRelatedPosts(post.slug, 3);
+          return relatedPosts.length > 0 ? (
+            <div className="mt-12">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Related Articles</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {relatedPosts.map((relatedPost) => (
+                  <article key={relatedPost.id} className="bg-card rounded-lg p-4 border border-border hover:shadow-md transition-shadow">
+                    {relatedPost.image && (
+                      <div className="aspect-video mb-3">
+                        <img
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          className="w-full h-full object-cover rounded"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className="space-y-2">
+                      <div className="flex flex-wrap gap-1">
+                        {relatedPost.tags.slice(0, 2).map((tag: string) => (
+                          <span 
+                            key={tag}
+                            className="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="font-semibold text-foreground hover:text-primary transition-colors">
+                        <Link href={`/blog/${relatedPost.slug}`}>
+                          <span>{relatedPost.title}</span>
+                        </Link>
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {relatedPost.excerpt}
+                      </p>
+                      <div className="flex items-center text-xs text-muted-foreground">
+                        <span>{relatedPost.readTime}</span>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ) : null;
+        })()}
+
+        {/* CTA Section */}
         <div className="mt-12 bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-8">
           <h2 className="text-2xl font-bold text-foreground mb-4 text-center">
             Want to Analyze Your Own Writing?
@@ -281,88 +333,122 @@ export default function BlogPost() {
         </nav>
       </div>
 
-      {/* Share Modal */}
+      {/* Enhanced Share Modal */}
       {showShareModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-80 relative">
-            <h2 className="text-lg font-semibold mb-4">Share this post</h2>
-            <div className="flex flex-col gap-3">
-              <a
-                href={`https://wa.me/?text=${encodeURIComponent(post.title + ' ' + window.location.href)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-green-600 hover:underline"
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-card rounded-xl shadow-2xl p-6 w-full max-w-md border border-border">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-foreground">Share this article</h2>
+              <button
+                onClick={() => setShowShareModal(false)}
+                className="text-muted-foreground hover:text-foreground transition-colors p-1"
               >
-                <FaWhatsapp /> WhatsApp
-              </a>
+                ✕
+              </button>
+            </div>
 
+            {/* Post Preview */}
+            <div className="mb-6 p-3 bg-muted/50 rounded-lg border border-border">
+              {post.image && (
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-20 object-cover rounded mb-2"
+                />
+              )}
+              <h3 className="font-semibold text-foreground text-sm mb-1">{post.title}</h3>
+              <p className="text-xs text-muted-foreground line-clamp-2">{post.excerpt}</p>
+              <div className="flex items-center mt-2 text-xs text-muted-foreground">
+                <span className="bg-primary/10 text-primary px-2 py-1 rounded">
+                  Word Counter Plus
+                </span>
+              </div>
+            </div>
+
+            {/* Share Options */}
+            <div className="grid grid-cols-2 gap-3">
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-600 hover:underline"
+                className="flex items-center justify-center gap-2 p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                <FaFacebook /> Facebook
+                <FaFacebook size={20} />
+                <span className="font-medium">Facebook</span>
               </a>
 
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-                  post.title
+                  post.title + ' - ' + post.excerpt.substring(0, 100) + '...'
                 )}&url=${encodeURIComponent(window.location.href)}&via=wordcounterplusapp`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-black hover:underline"
+                className="flex items-center justify-center gap-2 p-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
               >
-                <FaXTwitter /> X (Twitter)
-              </a>
-
-              <a
-                href={`https://www.reddit.com/submit?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(
-                  post.title
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-orange-600 hover:underline"
-              >
-                <FaReddit /> Reddit
+                <FaXTwitter size={20} />
+                <span className="font-medium">Twitter</span>
               </a>
 
               <a
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-700 hover:underline"
+                className="flex items-center justify-center gap-2 p-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
               >
-                <FaLinkedin /> LinkedIn
+                <FaLinkedin size={20} />
+                <span className="font-medium">LinkedIn</span>
+              </a>
+
+              <a
+                href={`https://wa.me/?text=${encodeURIComponent(post.title + '\n\n' + post.excerpt + '\n\n' + window.location.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 p-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              >
+                <FaWhatsapp size={20} />
+                <span className="font-medium">WhatsApp</span>
+              </a>
+
+              <a
+                href={`https://www.reddit.com/submit?url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(post.title)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 p-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+              >
+                <FaReddit size={20} />
+                <span className="font-medium">Reddit</span>
               </a>
 
               <a
                 href={`mailto:?subject=${encodeURIComponent(
                   post.title
-                )}&body=${encodeURIComponent(post.excerpt + '\n\nRead more here: ' + window.location.href)}`}
-                className="flex items-center gap-2 text-red-600 hover:underline"
+                )}&body=${encodeURIComponent(
+                  'I thought you might find this interesting:\n\n' + 
+                  post.title + '\n\n' + 
+                  post.excerpt + '\n\n' + 
+                  'Read more: ' + window.location.href + '\n\n' +
+                  'Shared from Word Counter Plus - Advanced Text Analysis Tool'
+                )}`}
+                className="flex items-center justify-center gap-2 p-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
-                <FaEnvelope /> Email
+                <FaEnvelope size={20} />
+                <span className="font-medium">Email</span>
               </a>
+            </div>
 
+            {/* Copy Link */}
+            <div className="mt-4 pt-4 border-t border-border">
               <button
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
                   alert('Link copied to clipboard!');
                 }}
-                className="flex items-center gap-2 text-gray-600 hover:underline"
+                className="w-full flex items-center justify-center gap-2 p-3 border border-border rounded-lg hover:bg-muted/50 transition-colors text-foreground"
               >
-                <FaLink /> Copy Link
+                <FaLink />
+                <span className="font-medium">Copy Link</span>
               </button>
             </div>
-
-            {/* Close button */}
-            <button
-              onClick={() => setShowShareModal(false)}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
-            >
-              ✕
-            </button>
           </div>
         </div>
       )}
