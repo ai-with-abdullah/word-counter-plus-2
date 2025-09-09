@@ -1,12 +1,14 @@
 # Overview
 
-Word Counter Plus is a modern, responsive word counter and text analysis tool. Originally built as a full-stack React/Express application, it has been converted to a standalone HTML file for maximum portability and ease of deployment. The project provides real-time text analysis capabilities including word count, character count, readability scoring, and keyword density analysis. It features a clean, dashboard-like interface with dark mode support and is designed to be SEO-friendly and AdSense-ready for commercial use.
+Word Counter Plus is a modern, responsive word counter and text analysis tool built as a full-stack React/Express application. The project provides real-time text analysis capabilities including word count, character count, readability scoring, and keyword density analysis. It features a clean, dashboard-like interface with dark mode support and is designed to be SEO-friendly and AdSense-ready for commercial use.
 
 ## Current Implementation
 
-The application now exists in two forms:
-1. **React Full-Stack Version**: Complete with server-side functionality and component architecture
-2. **Standalone HTML Version**: Single file implementation with embedded CSS and JavaScript (word-counter-plus.html)
+The application is fully configured and running in the Replit environment:
+- **Development Server**: Running on port 5000 with hot reload support
+- **Frontend**: React 18 with TypeScript, Vite build system
+- **Backend**: Express.js server with Vite integration for development
+- **Deployment**: Configured for autoscale deployment with build optimization
 
 # User Preferences
 
