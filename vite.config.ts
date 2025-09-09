@@ -32,18 +32,42 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
+        manualChunks: (id) => {
           // Critical vendor chunks for better caching and loading
-          vendor: ["react", "react-dom"],
-          ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tabs", "@radix-ui/react-alert-dialog", "@radix-ui/react-select"],
-          routing: ["wouter"],
-          query: ["@tanstack/react-query"],
-          pdf: ["jspdf"],
-          icons: ["lucide-react", "react-icons"],
-          charts: ["recharts"],
-          framer: ["framer-motion"],
-          utils: ["clsx", "tailwind-merge", "class-variance-authority"],
-          form: ["react-hook-form", "@hookform/resolvers", "zod"],
+          if (id.includes("react") || id.includes("react-dom")) {
+            return "vendor";
+          }
+          // Only load UI components when actually needed
+          if (id.includes("@radix-ui") && 
+              (id.includes("dialog") || id.includes("dropdown") || id.includes("tabs"))) {
+            return "ui-core";
+          }
+          if (id.includes("wouter")) {
+            return "routing";
+          }
+          if (id.includes("@tanstack/react-query")) {
+            return "query";
+          }
+          // PDF will be dynamically imported, don't chunk it
+          if (id.includes("jspdf") || id.includes("html2canvas")) {
+            return null; // Let it be loaded dynamically
+          }
+          if (id.includes("lucide-react")) {
+            return "icons";
+          }
+          // Charts only when needed
+          if (id.includes("recharts")) {
+            return null; // Let it be loaded when charts are actually used
+          }
+          if (id.includes("framer-motion")) {
+            return null; // Load when animations are actually needed
+          }
+          if (id.includes("clsx") || id.includes("tailwind-merge") || id.includes("class-variance-authority")) {
+            return "utils";
+          }
+          if (id.includes("react-hook-form") || id.includes("@hookform/resolvers") || id.includes("zod")) {
+            return "form";
+          }
         },
         chunkFileNames: "js/[name]-[hash].js",
         entryFileNames: "js/[name]-[hash].js",
