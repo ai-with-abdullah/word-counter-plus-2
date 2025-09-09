@@ -54,13 +54,36 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/manifest.json" />
     
-    <!-- Optimized Font Loading with performance hints -->
+    <!-- Critical font loading with swap and performance optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <style>
+      /* Critical CSS - Inline font loading to prevent render blocking */
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLGT9Z1xlFd2JQEk.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2') format('woff2');
+      }
+      body { font-family: 'Poppins', sans-serif; }
+    </style>
     
-    <!-- Font Awesome with performance optimization -->
+    <!-- Defer non-critical Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"></noscript>
     
@@ -183,20 +206,31 @@
     }
     </script>
     
-    <!-- Delayed Google Analytics for Performance -->
+    <!-- Highly optimized Google Analytics with intersection observer -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-NF8M6HRHGY');
       
-      // Load GA after initial page load
-      window.addEventListener('load', function() {
+      // Load GA only after user interaction or 3 seconds delay
+      let gaLoaded = false;
+      function loadGA() {
+        if (gaLoaded) return;
+        gaLoaded = true;
         var script = document.createElement('script');
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-NF8M6HRHGY';
         document.head.appendChild(script);
+      }
+      
+      // Load on user interaction
+      ['mousedown', 'touchstart', 'scroll', 'keydown'].forEach(event => {
+        document.addEventListener(event, loadGA, { once: true, passive: true });
       });
+      
+      // Fallback after 3 seconds
+      setTimeout(loadGA, 3000);
     </script>
 
      
