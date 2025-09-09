@@ -86,7 +86,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Media */}
+          {/* Social Media - Uncommented for review, comment when ready */}
+          {/*
           <div>
             <h4 className="font-semibold text-foreground mb-4">Follow Us</h4>
             <div className="flex space-x-4">
@@ -187,6 +188,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
+          */}
 
           {/*
             
