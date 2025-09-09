@@ -5,9 +5,9 @@ import { FaArrowRight, FaBolt, FaChartLine, FaCheckCircle, FaDownload, FaGraduat
 
 export default function Home() {
   useSEO({
-    title: "Word Counter Plus - Free Advanced Word Counter & Text Analysis Tool",
-    description: "Professional word counter and text analysis tool with real-time statistics, readability scores, keyword density analysis, and export options. Free online tool for writers, bloggers, students, and content creators.",
-    keywords: "word counter, character counter, text analysis, readability score, keyword density, SEO tool, writing tool, content analysis, paragraph counter, sentence counter, reading time calculator, writing assistant, text statistics",
+    title: "Free Word Counter, Character Counter & Text Counter - Word Counter Plus",
+    description: "Free online word counter, character counter, and text counter tool. Count words, characters, paragraphs, sentences instantly. Best text analysis tool with readability scores, keyword density, and export options for writers, students, and content creators.",
+    keywords: "word counter, character counter, text counter, count words, count characters, free word counter, online word counter, text analysis, word count tool, character count tool, text count tool, paragraph counter, sentence counter, readability score, keyword density, SEO tool, writing tool, content analysis, text statistics, word frequency, character frequency, text counter online, free character counter, count text, word counter online free, character counter online, text counter free, writing analysis, document word count, essay word counter, blog word counter, social media character counter, twitter character counter, facebook character counter, instagram character counter, letter counter, symbol counter, space counter, line counter, page counter, text length checker, word limit checker, character limit checker, text editor, writing assistant, content writing tool, copywriting tool, academic writing, student writing tool, author tool, blogger tool, journalist tool, content creator tool, marketing tool, digital marketing tool, social media tool, email marketing tool, content marketing tool, writing productivity, text processing, document analysis, manuscript analysis, thesis word count, dissertation word count, research paper word count, article word count, story word count, novel word count, book word count, script word count, screenplay word count, poetry word count, lyrics word count, speech word count, presentation word count, report word count, proposal word count, resume word count, cover letter word count, press release word count, website content analysis, web copy analysis, ad copy analysis, product description analysis, meta description counter, title tag counter, heading counter, alt text counter, caption counter, subtitle counter, translation word count, proofreading tool, editing tool, revision tool, draft analysis, final copy analysis, word tracker, character tracker, text tracker, writing goal tracker, daily word count, weekly word count, monthly word count, yearly word count, writing progress, writing metrics, writing statistics, text metrics, content metrics, word density, character density, text density, vocabulary analysis, language analysis, linguistic analysis, readability analysis, flesch reading ease, flesch kincaid grade level, gunning fog index, automated readability index, coleman liau index, simple measure of gobbledygook, reading time calculator, speaking time calculator, typing time calculator",
     canonical: "https://wordcounterplusapp.com/",
     ogType: "website"
   });
@@ -46,8 +46,11 @@ export default function Home() {
 
   return (
     <>
-      {/* Main Content */}
-      <WordCounterTool />
+      {/* Main Application */}
+      <main role="main">
+        <h1 className="sr-only">Free Word Counter, Character Counter & Text Counter Tool</h1>
+        <WordCounterTool />
+      </main>
       
       {/* SEO Content Section */}
       <section className="container mx-auto px-4 py-12">
@@ -125,10 +128,9 @@ export default function Home() {
               <div className="mt-6">
                 <Link href="/faq">
                   <span className="inline-flex items-center text-red-700 hover:text-red-600 font-medium">
-                  Learn More About Our Features
-                  <FaArrowRight className="ml-2" aria-hidden="true" />
-                </span>
-
+                    Learn More About Our Features
+                    <FaArrowRight className="ml-2" aria-hidden="true" />
+                  </span>
                 </Link>
               </div>
             </div>
