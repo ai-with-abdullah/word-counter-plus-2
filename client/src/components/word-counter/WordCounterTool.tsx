@@ -228,37 +228,38 @@ export default function WordCounterTool() {
   };
 
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
       {/* AdSense Top Banner - COMMENTED OUT 
       <div className="bg-muted rounded-lg p-4 mb-8 text-center text-muted-foreground no-print">
         <p className="text-sm">Advertisement Space - Google AdSense Banner (728x90)</p>
       </div> 
       */}
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 lg:gap-6">
         {/* Main Tool Area */}
-        <div className="lg:col-span-3 space-y-6">
+        <div className="xl:col-span-3 space-y-4 sm:space-y-6">
           {/* Tool Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+          <div className="text-center mb-4 sm:mb-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2">
               Word Counter Plus
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-sm sm:text-base text-muted-foreground">
               Analyze your text with advanced word counting and readability tools
             </p>
           </div>
 
           {/* Text Input Area */}
-          <div className="bg-card rounded-lg p-6 shadow-sm border border-border">
+          <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
             <div className="mb-4">
-              <div className="flex justify-between items-center mb-3">
-                <label htmlFor="textInput" className="text-lg font-semibold text-foreground">Enter Your Text</label>
-                <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
+                <label htmlFor="textInput" className="text-base sm:text-lg font-semibold text-foreground">Enter Your Text</label>
+                <div className="flex gap-2 w-full sm:w-auto">
                   {/* File Upload */}
-                  <label className="px-3 py-1.5 bg-primary text-primary-foreground rounded text-sm hover:bg-primary/80 transition-colors cursor-pointer"
+                  <label className="flex-1 sm:flex-none px-3 py-1.5 bg-primary text-primary-foreground rounded text-sm hover:bg-primary/80 transition-colors cursor-pointer text-center"
                          data-testid="button-upload-file">
                     <FaUpload className="inline mr-1" aria-hidden="true" />
-                    Upload
+                    <span className="hidden sm:inline">Upload</span>
+                    <span className="sm:hidden">Upload File</span>
                     <input 
                       type="file" 
                       accept=".txt,text/plain" 
@@ -271,7 +272,7 @@ export default function WordCounterTool() {
                   {/* Clear Button */}
                   <button 
                     onClick={clearText}
-                    className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded text-sm hover:bg-secondary/80 transition-colors"
+                    className="flex-1 sm:flex-none px-3 py-1.5 bg-secondary text-secondary-foreground rounded text-sm hover:bg-secondary/80 transition-colors"
                     data-testid="button-clear-text"
                     aria-label="Clear all text"
                   >
@@ -291,7 +292,7 @@ export default function WordCounterTool() {
                   aria-describedby="textHelp"
                   value={text}
                   onChange={(e) => setText(e.target.value)}
-                  className="w-full h-64 p-4 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all" 
+                  className="w-full h-48 sm:h-64 p-3 sm:p-4 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-all text-sm sm:text-base" 
                   placeholder="Start typing or paste your text here to analyze it in real-time..."
                   
                   data-testid="textarea-text-input"
