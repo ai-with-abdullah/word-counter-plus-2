@@ -13,6 +13,7 @@ export default function Header() {
     { name: 'FAQ', href: '/faq' },
     { name: 'Privacy', href: '/privacy' },
     { name: 'Terms', href: '/terms' },
+    { name: 'Disclaimer', href: '/disclaimer' },
     { name: 'Contact', href: '/contact' }
   ];
 
@@ -33,11 +34,11 @@ export default function Header() {
             <nav className="hidden md:flex space-x-6">
               {navigation.map((item) => (
                 <Link key={item.name} href={item.href} data-testid={`link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                  <span className={`transition-colors ${
+                  <span className={`relative transition-all duration-300 ease-in-out font-medium ${
                     location === item.href 
-                      ? 'text-foreground' 
-                      : 'text-muted-foreground hover:text-primary'
-                  }`}>
+                      ? 'text-primary scale-105' 
+                      : 'text-muted-foreground hover:text-primary hover:scale-105'
+                  } ${location === item.href ? 'after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full' : ''}`}>
                     {item.name}
                   </span>
                 </Link>
