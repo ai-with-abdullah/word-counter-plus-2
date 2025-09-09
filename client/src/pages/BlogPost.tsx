@@ -1,5 +1,5 @@
 import { useRoute } from 'wouter';
-import { blogPosts, type BlogPost } from './Blog';
+import { blogPosts, type BlogPost, getRelatedPosts } from '@/data/blogData';
 import useSEO from '@/hooks/useSEO';
 import { Link } from 'wouter';
 import {
@@ -183,7 +183,7 @@ export default function BlogPost() {
         {/* Article Header */}
         <header className="mb-8">
           <div className="flex flex-wrap gap-2 mb-4">
-            {post.tags.map((tag) => (
+            {post.tags.map((tag: string) => (
               <span
                 key={tag}
                 className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
