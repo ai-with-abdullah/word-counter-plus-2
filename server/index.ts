@@ -71,7 +71,7 @@ app.use("/api", (req, res, next) => {
   }
 
   // Fixed port for Replit environment
-  const DEFAULT_PORT = parseInt(process.env.PORT || "5000", 10);
+  const DEFAULT_PORT = parseInt(process.env.PORT || "5005", 10);
 
   const startServer = (port: number) => {
     const listener = server.listen(
