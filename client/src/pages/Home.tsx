@@ -1,5 +1,8 @@
 import useSEO from '@/hooks/useSEO';
-import WordCounterTool from '@/components/word-counter/WordCounterTool';
+import { lazy, Suspense } from 'react';
+
+// Lazy load the main tool to reduce initial bundle size
+const WordCounterTool = lazy(() => import('@/components/word-counter/WordCounterTool'));
 import { Link } from 'wouter';
 import { FaArrowRight, FaBolt, FaChartLine, FaCheckCircle, FaDownload, FaGraduationCap, FaPenFancy } from 'react-icons/fa';
 
@@ -49,7 +52,16 @@ export default function Home() {
       {/* Main Application */}
       <main role="main">
         <h1 className="sr-only">Free Word Counter, Character Counter & Text Counter Tool</h1>
-        <WordCounterTool />
+        <Suspense fallback={
+          <div className="flex items-center justify-center py-12">
+            <div className="flex flex-col items-center space-y-4">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+              <p className="text-sm text-muted-foreground">Loading Word Counter...</p>
+            </div>
+          </div>
+        }>
+          <WordCounterTool />
+        </Suspense>
       </main>
       
       {/* SEO Content Section */}
