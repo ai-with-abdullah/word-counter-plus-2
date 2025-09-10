@@ -52,11 +52,11 @@ export async function setupVite(app: Express, server: Server) {
         "index.html",
       );
 
-      // always reload the index.html file from disk incase it changes
+      // Cache template in memory for better performance  
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       template = template.replace(
         `src="/src/main.tsx"`,
-        `src="/src/main.tsx?v=${nanoid()}"`,
+        `src="/src/main.tsx?v=${Date.now()}"`,
       );
       const page = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
@@ -76,10 +76,24 @@ export function serveStatic(app: Express) {
     );
   }
 
-  app.use(express.static(distPath));
+  // Serve static files with aggressive caching for production performance
+  app.use(express.static(distPath, {
+    maxAge: '1y', // Cache static assets for 1 year
+    etag: true,
+    lastModified: true,
+    setHeaders: (res, path) => {
+      // Different cache strategies for different file types
+      if (path.endsWith('.html')) {
+        res.setHeader('Cache-Control', 'no-cache'); // HTML should not be cached
+      } else if (path.match(/\.(js|css|woff2?|png|jpg|jpeg|gif|svg|ico)$/)) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 year cache for assets
+      }
+    }
+  }));
 
   // fall through to index.html if the file doesn't exist
   app.use("*", (_req, res) => {
+    res.setHeader('Cache-Control', 'no-cache'); // Don't cache the fallback HTML
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }
