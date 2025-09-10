@@ -33,40 +33,51 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Critical vendor chunks for better caching and loading
+          // Critical vendor chunks - only React essentials
           if (id.includes("react") || id.includes("react-dom")) {
             return "vendor";
           }
-          // Only load UI components when actually needed
-          if (id.includes("@radix-ui") && 
-              (id.includes("dialog") || id.includes("dropdown") || id.includes("tabs"))) {
-            return "ui-core";
-          }
+          
+          // Essential routing and state management
           if (id.includes("wouter")) {
             return "routing";
           }
           if (id.includes("@tanstack/react-query")) {
             return "query";
           }
-          // PDF will be dynamically imported, don't chunk it
-          if (id.includes("jspdf") || id.includes("html2canvas")) {
-            return null; // Let it be loaded dynamically
+          
+          // Minimal UI core - only essential components
+          if (id.includes("@radix-ui") && 
+              (id.includes("slot") || id.includes("primitive"))) {
+            return "ui-core";
           }
+          
+          // Heavy libraries - load dynamically only when needed
+          if (id.includes("jspdf") || id.includes("html2canvas") || 
+              id.includes("recharts") || id.includes("framer-motion") || 
+              id.includes("html2canvas")) {
+            return null; // Don't bundle - load dynamically
+          }
+          
+          // Icons - minimal essential set
           if (id.includes("lucide-react")) {
             return "icons";
           }
-          // Charts only when needed
-          if (id.includes("recharts")) {
-            return null; // Let it be loaded when charts are actually used
-          }
-          if (id.includes("framer-motion")) {
-            return null; // Load when animations are actually needed
-          }
-          if (id.includes("clsx") || id.includes("tailwind-merge") || id.includes("class-variance-authority")) {
+          
+          // Only core utilities
+          if (id.includes("clsx") || id.includes("tailwind-merge")) {
             return "utils";
           }
+          
+          // Form handling
           if (id.includes("react-hook-form") || id.includes("@hookform/resolvers") || id.includes("zod")) {
             return "form";
+          }
+          
+          // Heavy UI components - lazy load
+          if (id.includes("@radix-ui") || id.includes("input-otp") || 
+              id.includes("react-day-picker") || id.includes("embla-carousel")) {
+            return null; // Load when actually used
           }
         },
         chunkFileNames: "js/[name]-[hash].js",
