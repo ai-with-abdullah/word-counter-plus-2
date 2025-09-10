@@ -1,3 +1,9 @@
+/* 
+ * ADS SECTION COMMENTED OUT
+ * AdSense component has been disabled as requested
+ */
+
+/*
 import { useEffect, useRef } from 'react';
 
 interface AdSenseUnitProps {
@@ -72,5 +78,9 @@ const AdSenseUnit = ({
     />
   );
 };
+*/
+
+// AdSense component is disabled - returns null
+const AdSenseUnit = () => null;
 
 export default AdSenseUnit;
