@@ -8,6 +8,7 @@ import Header from "@/components/layout/Header";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import Footer from "@/components/layout/Footer";
 import Home from "@/pages/Home";
+import { OptimizedLoader } from '@/components/ui/optimized-loader';
 import { lazy, Suspense } from "react";
 
 // Lazy load non-critical pages
@@ -19,13 +20,12 @@ const Privacy = lazy(() => import("@/pages/Privacy"));
 const Terms = lazy(() => import("@/pages/Terms"));
 const Disclaimer = lazy(() => import("@/pages/Disclaimer"));
 const Contact = lazy(() => import("@/pages/Contact"));
-const LoadingDemo = lazy(() => import("@/pages/LoadingDemo"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 // Loading fallback component
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-[50vh]">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    <OptimizedLoader />
   </div>
 );
 
@@ -42,7 +42,6 @@ function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/terms" component={Terms} />
         <Route path="/disclaimer" component={Disclaimer} />
-        <Route path="/loading-demo" component={LoadingDemo} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
