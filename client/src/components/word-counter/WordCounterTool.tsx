@@ -22,8 +22,8 @@ const FeatureLoader = () => (
 );
 
 import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
-import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash, FaUpload, FaCopy, FaSync, FaSort } from "@/components/common/Icons";
-import { FaFileAlt, FaKeyboard, FaList, FaAlignLeft } from 'react-icons/fa';
+import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash, FaUpload, FaCopy, FaSync, FaSort, FaBook, FaClock, FaInfoCircle, FaCalendar } from "@/components/common/Icons";
+// Using icons from the common Icons file that are already working
 // import AdSenseUnit from '@/components/ads/AdSenseUnit'; // Commented out - ads disabled
 
 export default function WordCounterTool() {
@@ -427,10 +427,10 @@ export default function WordCounterTool() {
 
           {/* Real-time Statistics */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-4 sm:mb-8">
-            <StatsCard value={stats.wordCount} label="Words" Icon={FaFileAlt} iconColor="text-blue-600" />
-            <StatsCard value={stats.charCount} label="Characters" Icon={FaKeyboard} iconColor="text-green-600" />
-            <StatsCard value={stats.sentenceCount} label="Sentences" Icon={FaList} iconColor="text-orange-600" />
-            <StatsCard value={stats.paragraphCount} label="Paragraphs" Icon={FaAlignLeft} iconColor="text-purple-600" />
+            <StatsCard value={stats.wordCount} label="Words" Icon={FaBook} iconColor="text-blue-600" />
+            <StatsCard value={stats.charCount} label="Characters" Icon={FaCopy} iconColor="text-green-600" />
+            <StatsCard value={stats.sentenceCount} label="Sentences" Icon={FaInfoCircle} iconColor="text-orange-600" />
+            <StatsCard value={stats.paragraphCount} label="Paragraphs" Icon={FaCalendar} iconColor="text-purple-600" />
           </div>
 
           {/* Advanced Metrics */}
