@@ -23,7 +23,8 @@ const FeatureLoader = () => (
 
 import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
 import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash, FaUpload, FaCopy, FaSync, FaSort } from "@/components/common/Icons";
-import AdSenseUnit from '@/components/ads/AdSenseUnit';
+import { FaFileWord, FaKeyboard, FaListOl, FaParagraph } from 'react-icons/fa';
+// import AdSenseUnit from '@/components/ads/AdSenseUnit'; // Commented out - ads disabled
 
 export default function WordCounterTool() {
   const [text, setText] = useState('');
@@ -232,6 +233,7 @@ export default function WordCounterTool() {
   return (
     <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
       {/* Strategic Top Banner Ad - Non-intrusive placement */}
+      {/* 
       <div className="mb-6 no-print">
         <AdSenseUnit 
           adSlot="1234567890"
@@ -241,6 +243,7 @@ export default function WordCounterTool() {
           adTest={true}
         />
       </div>
+      */}
 
       <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 lg:gap-6">
         {/* Main Tool Area */}
@@ -424,10 +427,10 @@ export default function WordCounterTool() {
 
           {/* Real-time Statistics */}
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-4 sm:mb-8">
-            <StatsCard value={stats.wordCount} label="Words" icon="fas fa-file-word" iconColor="text-blue-600" />
-            <StatsCard value={stats.charCount} label="Characters" icon="fas fa-keyboard" iconColor="text-green-600" />
-            <StatsCard value={stats.sentenceCount} label="Sentences" icon="fas fa-list-ol" iconColor="text-orange-600" />
-            <StatsCard value={stats.paragraphCount} label="Paragraphs" icon="fas fa-paragraph" iconColor="text-purple-600" />
+            <StatsCard value={stats.wordCount} label="Words" Icon={FaFileWord} iconColor="text-blue-600" />
+            <StatsCard value={stats.charCount} label="Characters" Icon={FaKeyboard} iconColor="text-green-600" />
+            <StatsCard value={stats.sentenceCount} label="Sentences" Icon={FaListOl} iconColor="text-orange-600" />
+            <StatsCard value={stats.paragraphCount} label="Paragraphs" Icon={FaParagraph} iconColor="text-purple-600" />
           </div>
 
           {/* Advanced Metrics */}
@@ -600,6 +603,7 @@ export default function WordCounterTool() {
         {/* Sidebar */}
         <div className="xl:col-span-1 space-y-4 sm:space-y-6">
           {/* Strategic Sidebar Ad - Rectangle format */}
+          {/* 
           <div className="no-print">
             <AdSenseUnit 
               adSlot="2345678901"
@@ -609,6 +613,7 @@ export default function WordCounterTool() {
               adTest={true}
             />
           </div>
+          */}
 
           {/* Quick Tips */}
           <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
@@ -657,6 +662,7 @@ export default function WordCounterTool() {
           </div>
 
           {/* Strategic Sidebar Ad 2 - Skyscraper format */}
+          {/* 
           <div className="no-print">
             <AdSenseUnit 
               adSlot="3456789012"
@@ -666,6 +672,7 @@ export default function WordCounterTool() {
               adTest={true}
             />
           </div>
+          */}
         </div>
       </div>
     </main>

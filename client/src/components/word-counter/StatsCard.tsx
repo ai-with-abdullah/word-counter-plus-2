@@ -1,11 +1,13 @@
+import React from 'react';
+
 interface StatsCardProps {
   value: string | number;
   label: string;
-  icon: string;
+  Icon: React.ComponentType<{ className?: string }>;
   iconColor: string;
 }
 
-export default function StatsCard({ value, label, icon, iconColor }: StatsCardProps) {
+export default function StatsCard({ value, label, Icon, iconColor }: StatsCardProps) {
   return (
     <div className="bg-white dark:bg-card rounded-xl p-6 shadow-lg border border-gray-100 dark:border-border hover:shadow-xl transition-all duration-200 hover:scale-105">
       <div className="flex items-start justify-between">
@@ -17,7 +19,7 @@ export default function StatsCard({ value, label, icon, iconColor }: StatsCardPr
         </div>
         <div className="flex-shrink-0 ml-4">
           <div className="w-12 h-12 rounded-lg bg-gray-50 dark:bg-muted/50 flex items-center justify-center">
-            <i className={`${icon} text-xl ${iconColor}`}></i>
+            <Icon className={`text-xl ${iconColor}`} />
           </div>
         </div>
       </div>
