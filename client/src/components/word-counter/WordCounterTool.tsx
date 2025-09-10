@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useTextAnalysis } from '@/hooks/useTextAnalysis';
+import { useTextAnalysisOptimized as useTextAnalysis } from '@/hooks/useTextAnalysisOptimized';
 import StatsCard from './StatsCard';
 import KeywordTable from './KeywordTable';
 import ExportButtons from './ExportButtons';
