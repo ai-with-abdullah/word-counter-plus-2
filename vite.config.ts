@@ -126,8 +126,24 @@ export default defineConfig({
     include: ["react", "react-dom", "wouter", "@tanstack/react-query"],
     exclude: ["@replit/vite-plugin-cartographer"],
   },
-  // Enable CSS minification
+  // Aggressive CSS optimization
   css: {
     devSourcemap: false,
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+        ...(process.env.NODE_ENV === 'production' ? [
+          require('cssnano')({
+            preset: ['default', {
+              discardComments: { removeAll: true },
+              normalizeWhitespace: true,
+              mergeLonghand: true,
+              mergeRules: true,
+            }]
+          })
+        ] : [])
+      ]
+    }
   },
 });

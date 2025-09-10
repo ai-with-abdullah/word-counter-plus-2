@@ -139,9 +139,16 @@
     
     <!-- Preload critical resources for ultra-fast loading -->
     <link rel="preload" href="/src/main.tsx" as="script" crossorigin>
-    <!-- Non-critical CSS loaded asynchronously -->
-    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- CSS loaded asynchronously for optimal performance -->
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="print">
     <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
+    <script>
+      // Immediately apply the stylesheet once loaded
+      document.addEventListener('DOMContentLoaded', () => {
+        const cssLink = document.querySelector('link[href*="index.css"]');
+        if (cssLink) cssLink.media = 'all';
+      });
+    </script>
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -258,31 +265,33 @@
     }
     </script>
     
-    <!-- Highly optimized Google Analytics with intersection observer -->
+    <!-- Analytics deferred for better performance - loads only after user interaction -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NF8M6HRHGY');
-      
-      // Load GA only after user interaction or 3 seconds delay
-      let gaLoaded = false;
-      function loadGA() {
-        if (gaLoaded) return;
-        gaLoaded = true;
-        var script = document.createElement('script');
+      // Ultra-lightweight analytics - only load after meaningful user interaction
+      let analyticsLoaded = false;
+      function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+        
+        // Minimal analytics setup
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NF8M6HRHGY');
+        
+        const script = document.createElement('script');
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-NF8M6HRHGY';
         document.head.appendChild(script);
       }
       
-      // Load on user interaction
-      ['mousedown', 'touchstart', 'scroll', 'keydown'].forEach(event => {
-        document.addEventListener(event, loadGA, { once: true, passive: true });
+      // Only load analytics after meaningful user engagement (not on initial page load)
+      ['click', 'submit', 'input'].forEach(event => {
+        document.addEventListener(event, loadAnalytics, { once: true, passive: true });
       });
       
-      // Fallback after 3 seconds
-      setTimeout(loadGA, 3000);
+      // Very late fallback - 10 seconds instead of 3
+      setTimeout(loadAnalytics, 10000);
     </script>
 
      
