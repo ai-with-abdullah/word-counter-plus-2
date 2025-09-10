@@ -33,7 +33,7 @@ export default defineConfig({
   build: {
     outDir: r("dist/public"),
     emptyOutDir: true,
-    target: "esnext",
+    target: "esnext", // ✅ modern browsers only
     cssCodeSplit: true,
     sourcemap: false,
     rollupOptions: {
@@ -72,7 +72,7 @@ export default defineConfig({
         pure_funcs: ["console.log", "console.info", "console.debug", "console.trace"],
         passes: 2,
       },
-      mangle: { safari10: true },
+      mangle: true, // ✅ modern, no safari10 legacy fix
       format: { comments: false },
     },
     reportCompressedSize: true,
@@ -91,6 +91,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ["react", "react-dom", "wouter", "@tanstack/react-query"],
     exclude: ["@replit/vite-plugin-cartographer"],
+    esbuildOptions: {
+      target: "esnext", // ✅ force modern deps
+    },
   },
 
   css: {

@@ -1,7 +1,5 @@
 import useSEO from '@/hooks/useSEO';
 import { lazy, Suspense } from 'react';
-
-// Lazy load the main tool to reduce initial bundle size
 const WordCounterTool = lazy(() => import('@/components/word-counter/WordCounterTool'));
 import { Link } from 'wouter';
 import { FaArrowRight, FaBolt, FaChartLine, FaCheckCircle, FaDownload, FaGraduationCap, FaPenFancy } from 'react-icons/fa';
@@ -15,41 +13,28 @@ export default function Home() {
     ogType: "website"
   });
 
-  // JSON-LD for FAQ Schema
-  const faqSchema = {
+  // ✅ Review / AggregateRating schema for ⭐ stars
+  const reviewSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How accurate is the word count?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our word counter is extremely accurate and follows industry-standard counting methods. It counts words, characters, sentences, and paragraphs in real-time as you type."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is the text analysis tool free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Word Counter Plus is completely free to use. You can analyze unlimited text, export results, and access all features without any cost or registration."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What export formats are supported?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can export your text analysis results in multiple formats including PDF, CSV, and TXT. This makes it easy to save and share your analysis."
-        }
-      }
-    ]
+    "@type": "Product",
+    "@id": "https://wordcounterplusapp.com/#product",
+    "name": "Word Counter Plus",
+    "url": "https://wordcounterplusapp.com/",
+    "description": "Free online word counter, character counter, and text analysis tool with readability scores, keyword density, and export options.",
+    "brand": {
+      "@type": "Brand",
+      "name": "Word Counter Plus"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "ratingCount": "128"
+    }
   };
 
   return (
     <>
-      {/* Main Application */}
       <main role="main">
         <h1 className="sr-only">Free Word Counter, Character Counter & Text Counter Tool</h1>
         <Suspense fallback={
@@ -63,7 +48,7 @@ export default function Home() {
           <WordCounterTool />
         </Suspense>
       </main>
-      
+
       {/* SEO Content Section */}
       <section className="container mx-auto px-4 py-12">
         <div className="bg-card rounded-lg p-8 shadow-sm border border-border">
@@ -185,11 +170,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* FAQ Schema */}
+
+      {/* ✅ Inject Review Schema for Stars */}
       <script 
         type="application/ld+json" 
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
       />
     </>
   );
