@@ -20,8 +20,10 @@ const FeatureLoader = () => (
     <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
   </div>
 );
+
 import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
 import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash, FaUpload, FaCopy, FaSync, FaSort } from "@/components/common/Icons";
+import AdSenseUnit from '@/components/ads/AdSenseUnit';
 
 export default function WordCounterTool() {
   const [text, setText] = useState('');
@@ -229,11 +231,16 @@ export default function WordCounterTool() {
 
   return (
     <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
-      {/* AdSense Top Banner - COMMENTED OUT 
-      <div className="bg-muted rounded-lg p-4 mb-8 text-center text-muted-foreground no-print">
-        <p className="text-sm">Advertisement Space - Google AdSense Banner (728x90)</p>
-      </div> 
-      */}
+      {/* Strategic Top Banner Ad - Non-intrusive placement */}
+      <div className="mb-6 no-print">
+        <AdSenseUnit 
+          adSlot="1234567890"
+          adFormat="horizontal"
+          style={{ minHeight: '90px' }}
+          className="w-full"
+          adTest={true}
+        />
+      </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-4 gap-4 lg:gap-6">
         {/* Main Tool Area */}
@@ -592,11 +599,16 @@ export default function WordCounterTool() {
 
         {/* Sidebar */}
         <div className="xl:col-span-1 space-y-4 sm:space-y-6">
-          {/* AdSense Sidebar Ad - COMMENTED OUT 
-          <div className="bg-muted rounded-lg p-4 text-center text-muted-foreground no-print">
-            <p className="text-sm">Advertisement<br />Google AdSense<br />(300x250)</p>
-          </div> 
-          */}
+          {/* Strategic Sidebar Ad - Rectangle format */}
+          <div className="no-print">
+            <AdSenseUnit 
+              adSlot="2345678901"
+              adFormat="rectangle"
+              style={{ minHeight: '250px' }}
+              className="w-full"
+              adTest={true}
+            />
+          </div>
 
           {/* Quick Tips */}
           <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
@@ -644,11 +656,16 @@ export default function WordCounterTool() {
             </div>
           </div>
 
-          {/* AdSense Sidebar Ad 2 - COMMENTED OUT 
-          <div className="bg-muted rounded-lg p-4 text-center text-muted-foreground no-print">
-            <p className="text-sm">Advertisement<br />Google AdSense<br />(300x600)</p>
-          </div> 
-          */}
+          {/* Strategic Sidebar Ad 2 - Skyscraper format */}
+          <div className="no-print">
+            <AdSenseUnit 
+              adSlot="3456789012"
+              adFormat="vertical"
+              style={{ minHeight: '600px' }}
+              className="w-full"
+              adTest={true}
+            />
+          </div>
         </div>
       </div>
     </main>
