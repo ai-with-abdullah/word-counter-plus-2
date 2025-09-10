@@ -58,7 +58,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
-      /* Critical CSS - Inline font loading to prevent render blocking */
+      /* Critical CSS - Inline font loading and essential styles to prevent render blocking */
       @font-face {
         font-family: 'Poppins';
         font-style: normal;
@@ -80,7 +80,56 @@
         font-display: swap;
         src: url('https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2') format('woff2');
       }
-      body { font-family: 'Poppins', sans-serif; }
+      
+      /* Critical CSS Variables - Essential theme colors */
+      :root {
+        --primary: #d81448;
+        --background: #f0f0f0;
+        --foreground: #1a1a1a;
+        --muted-foreground: #212121;
+        --card: #fcfcfc;
+        --border: #e8e8e8;
+        --radius: 0.8rem;
+      }
+      
+      .dark {
+        --background: hsl(20, 14%, 4%);
+        --foreground: hsl(45, 25%, 91%);
+        --card: hsl(20, 14%, 8%);
+        --border: hsl(20, 14%, 15%);
+        --muted-foreground: hsl(20, 14%, 65%);
+      }
+      
+      /* Essential base styles */
+      * { box-sizing: border-box; }
+      body { 
+        font-family: 'Poppins', sans-serif; 
+        margin: 0;
+        background-color: var(--background);
+        color: var(--foreground);
+        transition: background-color 0.2s, color 0.2s;
+      }
+      
+      /* Critical layout styles for above-the-fold content */
+      .min-h-screen { min-height: 100vh; }
+      .flex { display: flex; }
+      .flex-col { flex-direction: column; }
+      .items-center { align-items: center; }
+      .justify-center { justify-content: center; }
+      .text-center { text-align: center; }
+      .hidden { display: none; }
+      
+      /* Loading state to prevent flash */
+      #root:empty::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--background);
+        z-index: 9999;
+      }
     </style>
     
     
@@ -90,7 +139,9 @@
     
     <!-- Preload critical resources for ultra-fast loading -->
     <link rel="preload" href="/src/main.tsx" as="script" crossorigin>
-    <link rel="preload" href="/src/index.css" as="style">
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
