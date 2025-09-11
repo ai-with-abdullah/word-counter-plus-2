@@ -22,6 +22,18 @@ export default function BlogPost() {
   const slug = params?.slug;
   const [showShareModal, setShowShareModal] = useState(false);
 
+  // Get the "from" parameter to know which page to return to
+  const getReturnPage = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const from = urlParams.get('from');
+    if (from && from.startsWith('page-')) {
+      const pageNum = from.replace('page-', '');
+      return pageNum === '1' ? '/blog' : `/blog?page=${pageNum}`;
+    }
+    return '/blog';
+  };
+
+  const returnUrl = getReturnPage();
   const post = blogPosts.find((p: BlogPost) => p.slug === slug);
 
   if (!post) {
@@ -32,7 +44,7 @@ export default function BlogPost() {
           <p className="text-muted-foreground mb-6">
             The blog post you're looking for doesn't exist.
           </p>
-          <Link href="/blog">
+          <Link href={returnUrl}>
             <span className="text-primary hover:text-primary/80 font-medium">
               ← Back to Blog
             </span>
@@ -188,7 +200,7 @@ export default function BlogPost() {
       <div className="max-w-4xl mx-auto">
         {/* Back to Blog */}
         <div className="mb-8">
-          <Link href="/blog">
+          <Link href={returnUrl}>
             <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
               <FaArrowLeft className="mr-2" aria-label="Left arrow Icon" />
               Back to Blog
@@ -316,7 +328,7 @@ export default function BlogPost() {
                 Try Word Counter Plus
               </span>
             </Link>
-            <Link href="/blog">
+            <Link href={returnUrl}>
               <span className="inline-flex items-center border border-border px-6 py-3 rounded-lg hover:bg-muted/50 transition-colors font-semibold">
                 <FaBook className="mr-2" aria-label="Book Icon" />
                 Read More Articles
@@ -327,7 +339,7 @@ export default function BlogPost() {
 
         {/* Navigation */}
         <nav className="mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <Link href="/blog">
+          <Link href={returnUrl}>
             <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
               <FaArrowLeft className="mr-2" aria-label="Left arrow Icon" />
               All Blog Posts

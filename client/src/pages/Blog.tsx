@@ -1,9 +1,9 @@
 import useSEO from '@/hooks/useSEO';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { FaPlay, FaCalendar, FaClock, FaArrowRight, FaArrowLeft } from "@/components/common/Icons";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { blogPosts, BlogPost } from '@/data/blogData';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import AdSenseUnit from '@/components/ads/AdSenseUnit';
 
@@ -12,7 +12,38 @@ export type { BlogPost };
 const POSTS_PER_PAGE = 6;
 
 export default function Blog() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [location, navigate] = useLocation();
+  
+  // Get page from URL parameters, default to 1
+  const getPageFromUrl = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const page = parseInt(urlParams.get('page') || '1', 10);
+    return Math.max(1, page);
+  };
+  
+  const [currentPage, setCurrentPage] = useState(getPageFromUrl);
+  
+  // Update URL when page changes
+  const updatePage = (newPage: number) => {
+    setCurrentPage(newPage);
+    const url = new URL(window.location.href);
+    if (newPage === 1) {
+      url.searchParams.delete('page');
+    } else {
+      url.searchParams.set('page', newPage.toString());
+    }
+    const newUrl = url.pathname + (url.searchParams.toString() ? '?' + url.searchParams.toString() : '');
+    navigate(newUrl);
+  };
+  
+  // Listen to URL changes (browser back/forward)
+  useEffect(() => {
+    const handlePopstate = () => {
+      setCurrentPage(getPageFromUrl());
+    };
+    window.addEventListener('popstate', handlePopstate);
+    return () => window.removeEventListener('popstate', handlePopstate);
+  }, []);
   
   // Calculate pagination
   const { currentPosts, totalPages, startIndex, endIndex } = useMemo(() => {
@@ -127,7 +158,7 @@ export default function Blog() {
                     ))}
                   </div>
                   <h2 className="text-2xl font-bold text-foreground mb-3 hover:text-primary transition-colors">
-                    <Link href={`/blog/${post.slug}`}>
+                    <Link href={`/blog/${post.slug}?from=page-${currentPage}`}>
                       <span>{post.title}</span>
                     </Link>
                   </h2>
@@ -149,7 +180,7 @@ export default function Blog() {
                     <span>{post.readTime}</span>
                   </div>
                   
-                  <Link href={`/blog/${post.slug}`}>
+                  <Link href={`/blog/${post.slug}?from=page-${currentPage}`}>
                     <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
                       Read More
                       <FaArrowRight className="ml-2" aria-label="Right Arrow Icon" />
@@ -170,7 +201,7 @@ export default function Blog() {
               {currentPage > 1 ? (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage - 1)}
+                  onClick={() => updatePage(currentPage - 1)}
                   className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page-mobile"
                 >
@@ -190,7 +221,7 @@ export default function Blog() {
               {currentPage < totalPages ? (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage + 1)}
+                  onClick={() => updatePage(currentPage + 1)}
                   className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page-mobile"
                 >
@@ -207,7 +238,7 @@ export default function Blog() {
               {currentPage > 1 && (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage - 1)}
+                  onClick={() => updatePage(currentPage - 1)}
                   className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page"
                 >
@@ -236,7 +267,7 @@ export default function Blog() {
                     <Button
                       key={page}
                       variant={page === currentPage ? "default" : "outline"}
-                      onClick={() => setCurrentPage(page)}
+                      onClick={() => updatePage(page)}
                       className={`w-12 h-12 rounded-full font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 shadow-sm ${
                         page === currentPage 
                           ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
@@ -254,7 +285,7 @@ export default function Blog() {
               {currentPage < totalPages && (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage + 1)}
+                  onClick={() => updatePage(currentPage + 1)}
                   className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page"
                 >
