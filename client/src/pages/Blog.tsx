@@ -1,7 +1,7 @@
 import useSEO from '@/hooks/useSEO';
 import { Link } from 'wouter';
 import { FaPlay, FaCalendar, FaClock, FaArrowRight, FaArrowLeft } from "@/components/common/Icons";
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { blogPosts, BlogPost } from '@/data/blogData';
 import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
@@ -166,15 +166,19 @@ export default function Blog() {
           <div className="mt-12">
             {/* Mobile Pagination */}
             <div className="flex sm:hidden items-center justify-between">
-              <Button
-                variant="outline"
-                onClick={() => setCurrentPage(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="w-10 h-10 p-0 rounded-full"
-                data-testid="button-prev-page-mobile"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </Button>
+              {/* Previous Button - Only show if not on first page */}
+              {currentPage > 1 ? (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-prev-page-mobile"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </Button>
+              ) : (
+                <div className="w-10 h-10"></div>
+              )}
               
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">
@@ -182,123 +186,81 @@ export default function Blog() {
                 </span>
               </div>
               
-              <Button
-                variant="outline"
-                onClick={() => setCurrentPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="w-10 h-10 p-0 rounded-full"
-                data-testid="button-next-page-mobile"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </Button>
+              {/* Next Button - Only show if not on last page */}
+              {currentPage < totalPages ? (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-next-page-mobile"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              ) : (
+                <div className="w-10 h-10"></div>
+              )}
             </div>
 
             {/* Desktop Pagination */}
             <div className="hidden sm:flex items-center justify-center gap-3">
-              {/* First Page Button */}
-              <Button
-                variant="outline"
-                onClick={() => setCurrentPage(1)}
-                disabled={currentPage === 1}
-                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
-                data-testid="button-first-page"
-              >
-                <ChevronsLeft className="w-4 h-4" />
-              </Button>
-              
-              {/* Previous Button */}
-              <Button
-                variant="outline"
-                onClick={() => setCurrentPage(currentPage - 1)}
-                disabled={currentPage === 1}
-                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
-                data-testid="button-prev-page"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </Button>
+              {/* Previous Button - Only show if not on first page */}
+              {currentPage > 1 && (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-prev-page"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </Button>
+              )}
 
-              {/* Smart Page Numbers - Show first 2 pages and last page only */}
+              {/* Simple Page Numbers - Show current and next page only */}
               <div className="flex items-center gap-2">
                 {(() => {
-                  const getPageNumbers = () => {
-                    if (totalPages <= 4) {
-                      // If 4 or fewer pages, show all
-                      return Array.from({ length: totalPages }, (_, i) => i + 1);
-                    }
-                    
-                    // Show pattern: 1, 2, ..., last
+                  const getVisiblePages = () => {
                     const pages = [];
                     
-                    // Always show first page
-                    pages.push(1);
+                    // Always show current page
+                    pages.push(currentPage);
                     
-                    // Show second page if it exists
-                    if (totalPages >= 2) {
-                      pages.push(2);
-                    }
-                    
-                    // Add dots if there's a gap
-                    if (totalPages > 3) {
-                      pages.push('...');
-                    }
-                    
-                    // Always show last page (if different from first 2)
-                    if (totalPages > 2) {
-                      pages.push(totalPages);
+                    // Show next page if it exists
+                    if (currentPage < totalPages) {
+                      pages.push(currentPage + 1);
                     }
                     
                     return pages;
                   };
 
-                  return getPageNumbers().map((page, index) => {
-                    if (page === '...') {
-                      return (
-                        <span key={`dots-${index}`} className="px-3 text-muted-foreground font-bold text-lg">
-                          -----
-                        </span>
-                      );
-                    }
-
-                    return (
-                      <Button
-                        key={page}
-                        variant={page === currentPage ? "default" : "outline"}
-                        onClick={() => setCurrentPage(page as number)}
-                        className={`w-12 h-12 rounded-full font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 shadow-sm ${
-                          page === currentPage 
-                            ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
-                            : 'bg-background hover:bg-primary/10 hover:border-primary/50'
-                        }`}
-                        data-testid={`button-page-${page}`}
-                      >
-                        {page}
-                      </Button>
-                    );
-                  });
+                  return getVisiblePages().map((page) => (
+                    <Button
+                      key={page}
+                      variant={page === currentPage ? "default" : "outline"}
+                      onClick={() => setCurrentPage(page)}
+                      className={`w-12 h-12 rounded-full font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 shadow-sm ${
+                        page === currentPage 
+                          ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
+                          : 'bg-background hover:bg-primary/10 hover:border-primary/50'
+                      }`}
+                      data-testid={`button-page-${page}`}
+                    >
+                      {page}
+                    </Button>
+                  ));
                 })()}
               </div>
 
-              {/* Next Button */}
-              <Button
-                variant="outline"
-                onClick={() => setCurrentPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
-                data-testid="button-next-page"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </Button>
-              
-              {/* Last Page Button */}
-              <Button
-                variant="outline"
-                onClick={() => setCurrentPage(totalPages)}
-                disabled={currentPage === totalPages}
-                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
-                data-testid="button-last-page"
-              >
-                <ChevronsRight className="w-4 h-4" />
-              </Button>
+              {/* Next Button - Only show if not on last page */}
+              {currentPage < totalPages && (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-next-page"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              )}
             </div>
           </div>
         )}
