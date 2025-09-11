@@ -13,24 +13,77 @@ export default function Home() {
     ogType: "website"
   });
 
-  // ✅ Review / AggregateRating schema for ⭐ stars
-  const reviewSchema = {
+  // ✅ Comprehensive Structured Data Schemas
+  const websiteSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": "https://wordcounterplusapp.com/#product",
+    "@type": "WebSite",
+    "@id": "https://wordcounterplusapp.com/#website",
     "name": "Word Counter Plus",
     "url": "https://wordcounterplusapp.com/",
     "description": "Free online word counter, character counter, and text analysis tool with readability scores, keyword density, and export options.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Word Counter Plus"
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://wordcounterplusapp.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://wordcounterplusapp.com/#software",
+    "name": "Word Counter Plus",
+    "url": "https://wordcounterplusapp.com/",
+    "description": "Free online word counter, character counter, and text analysis tool with readability scores, keyword density, and export options for writers, students, and content creators.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
     },
+    "featureList": [
+      "Word Count",
+      "Character Count", 
+      "Paragraph Count",
+      "Sentence Count",
+      "Readability Score",
+      "Keyword Density",
+      "Reading Time Calculator",
+      "Export to PDF/CSV/TXT"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
       "bestRating": "5",
       "ratingCount": "128"
     }
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://wordcounterplusapp.com/#organization",
+    "name": "Word Counter Plus",
+    "url": "https://wordcounterplusapp.com/",
+    "logo": "https://wordcounterplusapp.com/logo.png",
+    "description": "Providing free online text analysis tools for writers, students, and content creators worldwide.",
+    "sameAs": [
+      "https://wordcounterplusapp.com/"
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://wordcounterplusapp.com/"
+      }
+    ]
   };
 
   return (
@@ -171,10 +224,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ✅ Inject Review Schema for Stars */}
+      {/* ✅ Inject Structured Data Schemas */}
       <script 
         type="application/ld+json" 
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
     </>
   );
