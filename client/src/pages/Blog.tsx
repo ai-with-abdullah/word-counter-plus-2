@@ -34,7 +34,7 @@ const updateURL = (page: number, setLocation: (path: string) => void, currentLoc
   }
   
   const queryString = params.toString();
-  const path = queryString ? `/blog?${queryString}` : '/blog';
+  const path = queryString ? `${pathname}?${queryString}` : pathname;
   setLocation(path);
 };
 
@@ -56,15 +56,15 @@ export default function Blog() {
     const search = location.includes('?') ? location.split('?')[1] : '';
     const { page } = getQueryParams(search);
     // Clamp page to valid range [1, totalPages]
-    const urlPage = Math.max(1, Math.min(page, totalPages));
-    
-    // Keep local state in sync with URL
-    if (urlPage !== localCurrentPage) {
-      setLocalCurrentPage(urlPage);
+    return Math.max(1, Math.min(page, totalPages));
+  }, [location, totalPages]);
+
+  // Keep local state in sync with URL changes
+  useEffect(() => {
+    if (currentPage !== localCurrentPage) {
+      setLocalCurrentPage(currentPage);
     }
-    
-    return urlPage;
-  }, [location, totalPages, localCurrentPage]);
+  }, [currentPage, localCurrentPage]);
   
   // Calculate pagination using local state for instant updates
   const { currentPosts, startIndex, endIndex } = useMemo(() => {
@@ -326,11 +326,11 @@ export default function Blog() {
                     const pages = [];
                     
                     // Always show current page
-                    pages.push(currentPage);
+                    pages.push(localCurrentPage);
                     
                     // Show next page if it exists
                     if (localCurrentPage < totalPages) {
-                      pages.push(currentPage + 1);
+                      pages.push(localCurrentPage + 1);
                     }
                     
                     return pages;
@@ -339,10 +339,10 @@ export default function Blog() {
                   return getVisiblePages().map((page) => (
                     <Button
                       key={page}
-                      variant={page === currentPage ? "default" : "outline"}
+                      variant={page === localCurrentPage ? "default" : "outline"}
                       onClick={() => goToPage(page)}
                       className={`w-12 h-12 rounded-full border-2 shadow-md font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 hover:shadow-lg ${
-                        page === currentPage 
+                        page === localCurrentPage 
                           ? 'bg-primary text-primary-foreground shadow-lg scale-105 bg-gradient-to-b from-primary to-primary/90' 
                           : 'bg-gradient-to-b from-background to-background/80 hover:bg-primary/10 hover:border-primary/50'
                       }`}
