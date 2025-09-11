@@ -166,12 +166,26 @@ export default function Blog() {
           <div className="mt-12">
             {/* Mobile Pagination */}
             <div className="flex sm:hidden items-center justify-between">
+              {/* Jump Back 2 Pages Button - Only show if current page > 2 */}
+              {currentPage > 2 ? (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(Math.max(1, currentPage - 2))}
+                  className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-jump-back-mobile"
+                >
+                  <span className="text-xs font-bold">{"<<"}</span>
+                </Button>
+              ) : (
+                <div className="w-12 h-10"></div>
+              )}
+
               {/* Previous Button - Only show if not on first page */}
               {currentPage > 1 ? (
                 <Button
                   variant="outline"
                   onClick={() => setCurrentPage(currentPage - 1)}
-                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page-mobile"
                 >
                   <ChevronLeft className="w-4 h-4" />
@@ -191,7 +205,7 @@ export default function Blog() {
                 <Button
                   variant="outline"
                   onClick={() => setCurrentPage(currentPage + 1)}
-                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page-mobile"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -199,16 +213,42 @@ export default function Blog() {
               ) : (
                 <div className="w-10 h-10"></div>
               )}
+
+              {/* Jump Forward 2 Pages Button - Only show if current page < totalPages - 1 */}
+              {currentPage < totalPages - 1 ? (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 2))}
+                  className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-jump-forward-mobile"
+                >
+                  <span className="text-xs font-bold">{">>"}</span>
+                </Button>
+              ) : (
+                <div className="w-12 h-10"></div>
+              )}
             </div>
 
             {/* Desktop Pagination */}
             <div className="hidden sm:flex items-center justify-center gap-3">
+              {/* Jump Back 2 Pages Button - Only show if current page > 2 */}
+              {currentPage > 2 && (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(Math.max(1, currentPage - 2))}
+                  className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-jump-back"
+                >
+                  <span className="text-sm font-bold">{"<<"}</span>
+                </Button>
+              )}
+
               {/* Previous Button - Only show if not on first page */}
               {currentPage > 1 && (
                 <Button
                   variant="outline"
                   onClick={() => setCurrentPage(currentPage - 1)}
-                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page"
                 >
                   <ChevronLeft className="w-4 h-4" />
@@ -237,10 +277,10 @@ export default function Blog() {
                       key={page}
                       variant={page === currentPage ? "default" : "outline"}
                       onClick={() => setCurrentPage(page)}
-                      className={`w-12 h-12 rounded-full font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 shadow-sm ${
+                      className={`w-12 h-12 rounded-full border-2 shadow-md font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 hover:shadow-lg ${
                         page === currentPage 
-                          ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
-                          : 'bg-background hover:bg-primary/10 hover:border-primary/50'
+                          ? 'bg-primary text-primary-foreground shadow-lg scale-105 bg-gradient-to-b from-primary to-primary/90' 
+                          : 'bg-gradient-to-b from-background to-background/80 hover:bg-primary/10 hover:border-primary/50'
                       }`}
                       data-testid={`button-page-${page}`}
                     >
@@ -255,10 +295,22 @@ export default function Blog() {
                 <Button
                   variant="outline"
                   onClick={() => setCurrentPage(currentPage + 1)}
-                  className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page"
                 >
                   <ChevronRight className="w-4 h-4" />
+                </Button>
+              )}
+
+              {/* Jump Forward 2 Pages Button - Only show if current page < totalPages - 1 */}
+              {currentPage < totalPages - 1 && (
+                <Button
+                  variant="outline"
+                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 2))}
+                  className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                  data-testid="button-jump-forward"
+                >
+                  <span className="text-sm font-bold">{">>"}</span>
                 </Button>
               )}
             </div>
