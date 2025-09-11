@@ -218,25 +218,65 @@ export default function WordCounterTool() {
     }
   };
 
-  // PDF text extraction function
+  // Enhanced PDF text extraction function with proper error handling
   const extractPdfText = async (file: File): Promise<string> => {
     try {
       const arrayBuffer = await file.arrayBuffer();
-      // Use safer PDF.js API with proper data parameter
-      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      
+      // First attempt: Try to load PDF normally
+      const pdf = await pdfjsLib.getDocument({ 
+        data: arrayBuffer,
+        password: '', // Try without password first
+        verbosity: 0 // Suppress warnings for cleaner logs
+      }).promise;
+      
       let fullText = '';
       
       for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const textContent = await page.getTextContent();
-        const pageText = textContent.items.map((item: any) => item.str).join(' ');
-        fullText += pageText + '\n';
+        try {
+          const page = await pdf.getPage(i);
+          const textContent = await page.getTextContent();
+          const pageText = textContent.items.map((item: any) => item.str).join(' ');
+          fullText += pageText + '\n';
+        } catch (pageError: any) {
+          console.warn(`Failed to extract text from page ${i}:`, pageError);
+          // Continue with other pages even if one fails
+        }
       }
       
-      return fullText.trim();
-    } catch (error) {
+      const result = fullText.trim();
+      if (!result) {
+        throw new Error('PDF_NO_TEXT');
+      }
+      
+      return result;
+      
+    } catch (error: any) {
       console.error('PDF extraction error:', error);
-      throw new Error('Failed to extract text from PDF. File may be corrupted, encrypted, or password-protected.');
+      
+      // Check specific error types to provide accurate feedback
+      if (error.name === 'PasswordException') {
+        // This is actually password-protected/encrypted
+        throw new Error('This PDF is password-protected. Please remove the password protection and try again.');
+      } else if (error.name === 'InvalidPDFException') {
+        // PDF structure is corrupted
+        throw new Error('PDF file appears to be corrupted or has an invalid structure.');
+      } else if (error.name === 'MissingPDFException') {
+        // File not found (shouldn't happen in our case)
+        throw new Error('PDF file could not be loaded.');
+      } else if (error.name === 'FormatError') {
+        // PDF format issues - try to be helpful
+        throw new Error('PDF format is not supported or file is corrupted.');
+      } else if (error.message === 'PDF_NO_TEXT') {
+        // Our custom error for PDFs with no extractable text
+        throw new Error('PDF loaded successfully but contains no readable text. It may be a scan or image-based PDF.');
+      } else if (error.name === 'UnknownErrorException' || error.message.includes('TypeError')) {
+        // Generic PDF.js errors - likely not encryption
+        throw new Error('Unable to process PDF. File may be corrupted or use unsupported features.');
+      } else {
+        // Fallback for any other errors
+        throw new Error(`PDF processing failed: ${error.message || 'Unknown error'}`);
+      }
     }
   };
 
@@ -341,7 +381,7 @@ export default function WordCounterTool() {
       let extractedText = '';
       
       // Determine file type and extract text accordingly
-      if (fileName.endsWith('.pdf')) {
+      if (file.type.includes('pdf') || fileName.endsWith('.pdf')) {
         extractedText = await extractPdfText(file);
       } else if (fileName.endsWith('.docx')) {
         extractedText = await extractDocxText(file);
@@ -390,15 +430,40 @@ export default function WordCounterTool() {
       let title = "Upload Error";
       let description = "Failed to process the file. Please try again.";
       
-      if (errorMessage.includes('corrupted') || errorMessage.includes('encrypted') || errorMessage.includes('password')) {
-        title = "File Issue Detected";
-        description = `Your file appears to be ${errorMessage.includes('encrypted') ? 'encrypted' : 'damaged'}. Please ensure the file is not password-protected or corrupted.`;
-      } else if (errorMessage.includes('empty')) {
+      // Handle password-protected files specifically
+      if (errorMessage.includes('password-protected')) {
+        title = "Password-Protected File";
+        description = "This file is password-protected. Please remove the password protection and try uploading again.";
+      } 
+      // Handle corrupted/invalid structure
+      else if (errorMessage.includes('corrupted') || errorMessage.includes('invalid structure')) {
+        title = "File Structure Issue";
+        description = "The file appears to be corrupted or has an invalid structure. Please try a different file or re-export it.";
+      }
+      // Handle unsupported PDF format
+      else if (errorMessage.includes('format is not supported') || errorMessage.includes('unsupported features')) {
+        title = "Unsupported File Format";
+        description = "This file uses features that aren't supported. Try saving/exporting it in a standard format.";
+      }
+      // Handle image-based PDFs (no text)
+      else if (errorMessage.includes('no readable text') || errorMessage.includes('scan or image-based')) {
+        title = "Image-Based Document";
+        description = "This appears to be a scanned document or image-based PDF with no extractable text. Try using OCR software first.";
+      }
+      // Handle empty files
+      else if (errorMessage.includes('empty') || errorMessage.includes('No text content found')) {
         title = "Empty File";
-        description = "The file appears to be empty or contains no readable text.";
-      } else if (errorMessage.includes('timeout') || errorMessage.includes('network')) {
+        description = "The file appears to be empty or contains no readable text content.";
+      }
+      // Handle processing timeouts
+      else if (errorMessage.includes('timeout') || errorMessage.includes('network')) {
         title = "Processing Timeout";
-        description = "The file is taking too long to process. Please try a smaller file.";
+        description = "The file is taking too long to process. Please try a smaller file or check your connection.";
+      }
+      // Generic fallback
+      else {
+        title = "Processing Error";
+        description = errorMessage.length > 100 ? "Unable to process this file. Please try a different file or format." : errorMessage;
       }
       
       toast({
