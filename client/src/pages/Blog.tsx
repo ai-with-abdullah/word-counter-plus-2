@@ -1,9 +1,9 @@
 import useSEO from '@/hooks/useSEO';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { FaPlay, FaCalendar, FaClock, FaArrowRight, FaArrowLeft } from "@/components/common/Icons";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { blogPosts, BlogPost } from '@/data/blogData';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import AdSenseUnit from '@/components/ads/AdSenseUnit';
 
@@ -11,23 +11,81 @@ export type { BlogPost };
 
 const POSTS_PER_PAGE = 6;
 
+// Utility functions for URL query parameter handling
+const getQueryParams = (search: string) => {
+  const params = new URLSearchParams(search);
+  const pageStr = params.get('page') || '1';
+  const page = parseInt(pageStr, 10);
+  
+  // Handle NaN and invalid values by defaulting to 1
+  return {
+    page: Number.isFinite(page) && page >= 1 ? page : 1
+  };
+};
+
+const updateURL = (page: number, setLocation: (path: string) => void, currentLocation: string) => {
+  // Preserve existing query parameters while updating page
+  const [pathname, existingSearch] = currentLocation.split('?');
+  const params = new URLSearchParams(existingSearch || '');
+  
+  if (page > 1) {
+    params.set('page', page.toString());
+  } else {
+    params.delete('page'); // Remove page param for page 1 to keep URLs clean
+  }
+  
+  const queryString = params.toString();
+  const path = queryString ? `/blog?${queryString}` : '/blog';
+  setLocation(path);
+};
+
 export default function Blog() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [location, setLocation] = useLocation();
+  
+  // Calculate total pages first to use for clamping
+  const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+  
+  // Parse current page from URL parameters with proper clamping
+  const currentPage = useMemo(() => {
+    const search = location.includes('?') ? location.split('?')[1] : '';
+    const { page } = getQueryParams(search);
+    // Clamp page to valid range [1, totalPages]
+    return Math.max(1, Math.min(page, totalPages));
+  }, [location, totalPages]);
   
   // Calculate pagination
-  const { currentPosts, totalPages, startIndex, endIndex } = useMemo(() => {
+  const { currentPosts, startIndex, endIndex } = useMemo(() => {
     const startIdx = (currentPage - 1) * POSTS_PER_PAGE;
     const endIdx = startIdx + POSTS_PER_PAGE;
     const current = blogPosts.slice(startIdx, endIdx);
-    const total = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
     
     return {
       currentPosts: current,
-      totalPages: total,
       startIndex: startIdx + 1,
       endIndex: Math.min(endIdx, blogPosts.length)
     };
   }, [currentPage]);
+
+  // Normalize out-of-range URLs by redirecting to valid page
+  useEffect(() => {
+    if (totalPages > 0) {
+      const search = location.includes('?') ? location.split('?')[1] : '';
+      const { page: urlPage } = getQueryParams(search);
+      
+      // If URL page is out of range, redirect to the clamped page
+      if (urlPage > totalPages) {
+        updateURL(totalPages, setLocation, location);
+      } else if (urlPage < 1) {
+        updateURL(1, setLocation, location);
+      }
+    }
+  }, [location, totalPages, setLocation]);
+
+  // Navigation handlers that update URL
+  const goToPage = (page: number) => {
+    const validPage = Math.max(1, Math.min(page, totalPages));
+    updateURL(validPage, setLocation, location);
+  };
 
   useSEO({
     title: "Blog - Writing Tips & Text Analysis Guides | Word Counter Plus",
@@ -170,7 +228,7 @@ export default function Blog() {
               {currentPage > 2 ? (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(Math.max(1, currentPage - 2))}
+                  onClick={() => goToPage(currentPage - 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-back-mobile"
                 >
@@ -184,7 +242,7 @@ export default function Blog() {
               {currentPage > 1 ? (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage - 1)}
+                  onClick={() => goToPage(currentPage - 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page-mobile"
                 >
@@ -204,7 +262,7 @@ export default function Blog() {
               {currentPage < totalPages ? (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage + 1)}
+                  onClick={() => goToPage(currentPage + 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page-mobile"
                 >
@@ -218,7 +276,7 @@ export default function Blog() {
               {currentPage < totalPages - 1 ? (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 2))}
+                  onClick={() => goToPage(currentPage + 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-forward-mobile"
                 >
@@ -235,7 +293,7 @@ export default function Blog() {
               {currentPage > 2 && (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(Math.max(1, currentPage - 2))}
+                  onClick={() => goToPage(currentPage - 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-back"
                 >
@@ -247,7 +305,7 @@ export default function Blog() {
               {currentPage > 1 && (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage - 1)}
+                  onClick={() => goToPage(currentPage - 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page"
                 >
@@ -276,7 +334,7 @@ export default function Blog() {
                     <Button
                       key={page}
                       variant={page === currentPage ? "default" : "outline"}
-                      onClick={() => setCurrentPage(page)}
+                      onClick={() => goToPage(page)}
                       className={`w-12 h-12 rounded-full border-2 shadow-md font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 hover:shadow-lg ${
                         page === currentPage 
                           ? 'bg-primary text-primary-foreground shadow-lg scale-105 bg-gradient-to-b from-primary to-primary/90' 
@@ -294,7 +352,7 @@ export default function Blog() {
               {currentPage < totalPages && (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(currentPage + 1)}
+                  onClick={() => goToPage(currentPage + 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page"
                 >
@@ -306,7 +364,7 @@ export default function Blog() {
               {currentPage < totalPages - 1 && (
                 <Button
                   variant="outline"
-                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 2))}
+                  onClick={() => goToPage(currentPage + 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-forward"
                 >
