@@ -256,7 +256,7 @@ export default function WordCounterTool() {
     if (fileName.endsWith('.doc')) {
       toast({
         title: "Unsupported File Format",
-        description: "Legacy Word (.doc) files are not supported. Please convert to .docx or upload as a text file.",
+        description: "Legacy Word (.doc) files are not supported. Please convert to a text format (.txt, .rtf, .html) and try again.",
         variant: "destructive",
       });
       return;
