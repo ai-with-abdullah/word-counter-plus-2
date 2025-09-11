@@ -4,6 +4,9 @@ import StatsCard from './StatsCard';
 import KeywordTable from './KeywordTable';
 import ExportButtons from './ExportButtons';
 import { useToast } from '@/hooks/use-toast';
+import * as pdfjsLib from 'pdfjs-dist';
+import Docxtemplater from 'docxtemplater';
+import PizZip from 'pizzip';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { lazy, Suspense } from 'react';
 
@@ -23,6 +26,10 @@ const FeatureLoader = () => (
 
 import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
 import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash, FaUpload, FaCopy, FaSync, FaSort, FaBook, FaClock, FaInfoCircle, FaCalendar } from "@/components/common/Icons";
+
+// Configure PDF.js worker - Use bundled worker to avoid version mismatch
+pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.js', import.meta.url).toString();
+
 // Using icons from the common Icons file that are already working
 // import AdSenseUnit from '@/components/ads/AdSenseUnit'; // Commented out - ads disabled
 
@@ -211,6 +218,44 @@ export default function WordCounterTool() {
     }
   };
 
+  // PDF text extraction function
+  const extractPdfText = async (file: File): Promise<string> => {
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      // Use safer PDF.js API with proper data parameter
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      let fullText = '';
+      
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const textContent = await page.getTextContent();
+        const pageText = textContent.items.map((item: any) => item.str).join(' ');
+        fullText += pageText + '\n';
+      }
+      
+      return fullText.trim();
+    } catch (error) {
+      console.error('PDF extraction error:', error);
+      throw new Error('Failed to extract text from PDF. File may be corrupted, encrypted, or password-protected.');
+    }
+  };
+
+  // Word document text extraction function
+  const extractDocxText = async (file: File): Promise<string> => {
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const zip = new PizZip(arrayBuffer);
+      const doc = new Docxtemplater(zip, {
+        delimiters: { start: '|||', end: '|||' } // Use unique delimiters to avoid template parsing
+      });
+      
+      return doc.getFullText();
+    } catch (error) {
+      console.error('DOCX extraction error:', error);
+      throw new Error('Failed to extract text from Word document. File may be corrupted, encrypted, or password-protected.');
+    }
+  };
+
   const processFileContent = (content: string, fileName: string, fileType: string): string => {
     const extension = fileName.toLowerCase().split('.').pop();
     
@@ -230,97 +275,140 @@ export default function WordCounterTool() {
     }
   };
 
-  // Enhanced file upload functionality
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  // Enhanced file upload functionality with PDF and Word support
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
     // Reset the input value so the same file can be uploaded again if needed
     event.target.value = '';
 
-    // Enhanced file type validation - support more text formats
-    const validTypes = ['text/plain', 'text/markdown', 'text/html', 'application/rtf'];
-    const validExtensions = ['.txt', '.md', '.markdown', '.rtf', '.html', '.htm', '.csv'];
+    // Enhanced file type validation - support PDF, Word (.docx only), and text formats
+    const validTypes = [
+      'text/plain', 'text/markdown', 'text/html', 'application/rtf',
+      'application/pdf',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+      'text/csv'
+    ];
+    const validExtensions = [
+      '.txt', '.md', '.markdown', '.rtf', '.html', '.htm', '.csv',
+      '.pdf', '.docx'
+    ];
     
+    const fileName = file.name.toLowerCase();
     const isValidType = validTypes.includes(file.type) || 
-                       validExtensions.some(ext => file.name.toLowerCase().endsWith(ext));
+                       validExtensions.some(ext => fileName.endsWith(ext));
+
+    // Special handling for .doc files (not supported)
+    if (fileName.endsWith('.doc')) {
+      toast({
+        title: "Unsupported File Format",
+        description: "Legacy Word (.doc) files are not supported. Please convert to .docx or upload as a text file.",
+        variant: "destructive",
+      });
+      return;
+    }
 
     if (!isValidType) {
       toast({
         title: "Invalid File Type",
-        description: "Please upload a text file (.txt, .md, .rtf, .html, .csv).",
+        description: "Please upload a supported file: PDF, Word (.docx), Text (.txt), Markdown (.md), HTML, RTF, or CSV.",
         variant: "destructive",
       });
       return;
     }
 
-    // Check file size (limit to 10MB)
-    const maxSize = 10 * 1024 * 1024; // 10MB
+    // Check file size (limit to 100MB)
+    const maxSize = 100 * 1024 * 1024; // 100MB
     if (file.size > maxSize) {
       toast({
         title: "File Too Large",
-        description: "Please upload a file smaller than 10MB.",
+        description: "Please upload a file smaller than 100MB.",
         variant: "destructive",
       });
       return;
     }
 
-    // Show loading state
+    // Show loading state with file size info
     setIsUploading(true);
+    const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
     toast({
-      title: "Uploading...",
-      description: "Reading file content, please wait.",
+      title: "Processing File...",
+      description: `Processing "${file.name}" (${fileSizeMB}MB). This may take a moment for large files.`,
     });
 
-    const reader = new FileReader();
-    
-    reader.onload = (e) => {
-      try {
-        const content = e.target?.result as string;
-        if (!content) {
+    try {
+      let extractedText = '';
+      
+      // Determine file type and extract text accordingly
+      if (fileName.endsWith('.pdf')) {
+        extractedText = await extractPdfText(file);
+      } else if (fileName.endsWith('.docx')) {
+        extractedText = await extractDocxText(file);
+      } else {
+        // Handle text-based files
+        const content = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = (e) => resolve(e.target?.result as string);
+          reader.onerror = () => reject(new Error('Failed to read file'));
+          reader.readAsText(file, 'UTF-8');
+        });
+        
+        if (!content || content.trim().length === 0) {
           throw new Error('File appears to be empty');
         }
         
-        // SECURITY FIX: Process file content based on format to extract plain text
-        const cleanedContent = processFileContent(content, file.name, file.type);
-        
-        setText(cleanedContent);
-        setIsHighlighted(false); // Reset highlighting
-        
-        // Store file information for display
-        setUploadedFileInfo({
-          name: file.name,
-          size: file.size,
-          type: file.type || 'text/plain'
-        });
-        
-        // Show success message with file details
-        const fileSizeKB = Math.round(file.size / 1024);
-        toast({
-          title: "File Uploaded Successfully!",
-          description: `"${file.name}" (${fileSizeKB}KB) analyzed. Scroll down to see detailed analysis.`,
-        });
-        setIsUploading(false);
-      } catch (error) {
-        toast({
-          title: "Upload Error",
-          description: "Failed to read file content. Please try again.",
-          variant: "destructive",
-        });
-        setIsUploading(false);
+        extractedText = processFileContent(content, file.name, file.type);
       }
-    };
-    
-    reader.onerror = () => {
+      
+      if (!extractedText || extractedText.trim().length === 0) {
+        throw new Error('No text content found in the file');
+      }
+      
+      setText(extractedText);
+      setIsHighlighted(false); // Reset highlighting
+      
+      // Store file information for display
+      setUploadedFileInfo({
+        name: file.name,
+        size: file.size,
+        type: file.type || 'application/octet-stream'
+      });
+      
+      // Show success message with file details
+      const wordCount = extractedText.split(/\s+/).filter(word => word.length > 0).length;
       toast({
-        title: "Upload Error",
-        description: "Failed to read the file. Please try again.",
+        title: "File Processed Successfully!",
+        description: `"${file.name}" analyzed successfully. Found ${wordCount.toLocaleString()} words.`,
+      });
+      
+    } catch (error: any) {
+      console.error('File upload error:', error);
+      
+      // Determine error type and show appropriate message
+      const errorMessage = error.message || 'Unknown error occurred';
+      let title = "Upload Error";
+      let description = "Failed to process the file. Please try again.";
+      
+      if (errorMessage.includes('corrupted') || errorMessage.includes('encrypted') || errorMessage.includes('password')) {
+        title = "File Issue Detected";
+        description = `Your file appears to be ${errorMessage.includes('encrypted') ? 'encrypted' : 'damaged'}. Please ensure the file is not password-protected or corrupted.`;
+      } else if (errorMessage.includes('empty')) {
+        title = "Empty File";
+        description = "The file appears to be empty or contains no readable text.";
+      } else if (errorMessage.includes('timeout') || errorMessage.includes('network')) {
+        title = "Processing Timeout";
+        description = "The file is taking too long to process. Please try a smaller file.";
+      }
+      
+      toast({
+        title,
+        description,
         variant: "destructive",
       });
+    } finally {
       setIsUploading(false);
-    };
-    
-    reader.readAsText(file, 'UTF-8');
+    }
   };
 
   // Additional text manipulation functions
@@ -514,7 +602,7 @@ export default function WordCounterTool() {
                       : 'bg-primary text-primary-foreground hover:bg-primary/80 cursor-pointer'
                   }`}
                          data-testid="button-upload-file"
-                         title="Upload text files (.txt, .md, .rtf, .html, .csv)">
+                         title="Upload files: PDF, Word (.docx), Text (.txt, .md, .rtf, .html, .csv)">
                     {isUploading ? (
                       <>
                         <div className="inline-block w-4 h-4 mr-1 animate-spin rounded-full border-2 border-white border-t-transparent" aria-hidden="true" />
@@ -530,11 +618,11 @@ export default function WordCounterTool() {
                     )}
                     <input 
                       type="file" 
-                      accept=".txt,.md,.markdown,.rtf,.html,.htm,.csv,text/plain,text/markdown,text/html,application/rtf" 
+                      accept=".txt,.md,.markdown,.rtf,.html,.htm,.csv,.pdf,.docx,text/plain,text/markdown,text/html,application/rtf,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
                       onChange={handleFileUpload}
                       disabled={isUploading}
                       className="sr-only"
-                      aria-label="Upload a text file to analyze (.txt, .md, .rtf, .html, .csv)"
+                      aria-label="Upload files: PDF, Word (.docx), Text (.txt, .md, .rtf, .html, .csv)"
                     />
                   </label>
 
