@@ -220,16 +220,21 @@ export default function WordCounterTool() {
 
   // Enhanced PDF text extraction function with proper error handling
   const extractPdfText = async (file: File): Promise<string> => {
+    console.log('Starting PDF extraction for file:', file.name, 'Size:', file.size, 'Type:', file.type);
+    
     try {
       const arrayBuffer = await file.arrayBuffer();
+      console.log('ArrayBuffer loaded, size:', arrayBuffer.byteLength);
       
       // First attempt: Try to load PDF normally
+      console.log('Attempting to load PDF with PDF.js...');
       const pdf = await pdfjsLib.getDocument({ 
         data: arrayBuffer,
         password: '', // Try without password first
         verbosity: 0 // Suppress warnings for cleaner logs
       }).promise;
       
+      console.log('PDF loaded successfully! Pages:', pdf.numPages);
       let fullText = '';
       
       for (let i = 1; i <= pdf.numPages; i++) {
@@ -238,6 +243,7 @@ export default function WordCounterTool() {
           const textContent = await page.getTextContent();
           const pageText = textContent.items.map((item: any) => item.str).join(' ');
           fullText += pageText + '\n';
+          console.log(`Page ${i} processed, extracted ${pageText.length} characters`);
         } catch (pageError: any) {
           console.warn(`Failed to extract text from page ${i}:`, pageError);
           // Continue with other pages even if one fails
@@ -245,6 +251,8 @@ export default function WordCounterTool() {
       }
       
       const result = fullText.trim();
+      console.log('Total extracted text length:', result.length);
+      
       if (!result) {
         throw new Error('PDF_NO_TEXT');
       }
@@ -252,29 +260,35 @@ export default function WordCounterTool() {
       return result;
       
     } catch (error: any) {
-      console.error('PDF extraction error:', error);
+      console.error('PDF extraction error details:', {
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+        constructor: error.constructor.name,
+        fullError: error
+      });
       
       // Check specific error types to provide accurate feedback
       if (error.name === 'PasswordException') {
-        // This is actually password-protected/encrypted
+        console.log('Detected: Password-protected PDF');
         throw new Error('This PDF is password-protected. Please remove the password protection and try again.');
       } else if (error.name === 'InvalidPDFException') {
-        // PDF structure is corrupted
+        console.log('Detected: Invalid PDF structure');
         throw new Error('PDF file appears to be corrupted or has an invalid structure.');
       } else if (error.name === 'MissingPDFException') {
-        // File not found (shouldn't happen in our case)
+        console.log('Detected: Missing PDF file');
         throw new Error('PDF file could not be loaded.');
       } else if (error.name === 'FormatError') {
-        // PDF format issues - try to be helpful
+        console.log('Detected: PDF format error');
         throw new Error('PDF format is not supported or file is corrupted.');
       } else if (error.message === 'PDF_NO_TEXT') {
-        // Our custom error for PDFs with no extractable text
+        console.log('Detected: PDF with no extractable text');
         throw new Error('PDF loaded successfully but contains no readable text. It may be a scan or image-based PDF.');
       } else if (error.name === 'UnknownErrorException' || error.message.includes('TypeError')) {
-        // Generic PDF.js errors - likely not encryption
+        console.log('Detected: Generic PDF.js error');
         throw new Error('Unable to process PDF. File may be corrupted or use unsupported features.');
       } else {
-        // Fallback for any other errors
+        console.log('Detected: Other error type');
         throw new Error(`PDF processing failed: ${error.message || 'Unknown error'}`);
       }
     }
