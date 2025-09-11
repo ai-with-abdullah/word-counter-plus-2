@@ -5,7 +5,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { blogPosts, BlogPost } from '@/data/blogData';
 import { useState, useMemo, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import AdSenseUnit from '@/components/ads/AdSenseUnit';
 
 export type { BlogPost };
 
@@ -122,16 +121,6 @@ export default function Blog() {
 
   return (
     <main className="container mx-auto px-4 py-8">
-      {/* Strategic Content Ad - Above the fold but non-intrusive */}
-      <div className="max-w-4xl mx-auto mb-8 no-print">
-        <AdSenseUnit 
-          adSlot="4567890123"
-          adFormat="horizontal"
-          style={{ minHeight: '90px' }}
-          className="w-full"
-          adTest={true}
-        />
-      </div>
 
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
