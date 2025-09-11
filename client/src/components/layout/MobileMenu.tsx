@@ -14,7 +14,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ isOpen, onClose, navigation, currentLocation }: MobileMenuProps) {
   return (
-    <nav className={`fixed top-16 left-0 w-full h-screen bg-card/95 backdrop-blur-sm z-40 md:hidden transition-transform duration-300 ease-in-out ${
+    <nav className={`fixed top-16 left-0 w-full h-screen bg-card/90 backdrop-blur-md z-40 md:hidden transition-transform duration-300 ease-in-out ${
       isOpen ? 'translate-x-0' : '-translate-x-full'
     }`}>
       <div className="flex flex-col p-6 space-y-4">
