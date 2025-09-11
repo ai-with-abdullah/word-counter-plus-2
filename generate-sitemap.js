@@ -33,22 +33,81 @@ function getStaticPages() {
   }));
 }
 
-// Function to get blog posts from blogData.ts
+// Function to get blog posts from built module
 async function getBlogPosts() {
   try {
-    // Try to import the blog data from source (during development)
-    const { allBlogPosts } = await import('./client/src/data/blogData.js');
+    // Try to import from built module first
+    const fs = await import('fs');
+    const path = await import('path');
+    const { pathToFileURL } = await import('url');
     
-    return allBlogPosts.map(post => ({
+    const jsDir = join(DIST_PUBLIC_PATH, 'js');
+    
+    if (fs.existsSync(jsDir)) {
+      const jsFiles = fs.readdirSync(jsDir);
+      const blogDataFile = jsFiles.find(file => file.startsWith('blogData-') && file.endsWith('.js'));
+      
+      if (blogDataFile) {
+        const blogDataPath = join(jsDir, blogDataFile);
+        const fileUrl = pathToFileURL(blogDataPath);
+        console.log(`Loading blog data from built module: ${blogDataFile}`);
+        
+        const module = await import(fileUrl.href);
+        console.log('Available exports:', Object.keys(module));
+        
+        // Try different export patterns, including minified names
+        let blogPosts = module.blogPosts || module.default?.blogPosts || module.default;
+        
+        // If no standard exports found, check all exports for arrays that look like blog posts
+        if (!blogPosts || !Array.isArray(blogPosts)) {
+          for (const [key, value] of Object.entries(module)) {
+            if (Array.isArray(value) && value.length > 0 && value[0]?.slug) {
+              console.log(`Found blog posts array in export '${key}' with ${value.length} items`);
+              blogPosts = value;
+              break;
+            }
+          }
+        }
+        
+        if (!blogPosts || !Array.isArray(blogPosts)) {
+          // Log sample of each export to help debug
+          for (const [key, value] of Object.entries(module)) {
+            console.log(`Export '${key}':`, Array.isArray(value) ? `Array[${value.length}]` : typeof value);
+            if (Array.isArray(value) && value.length > 0) {
+              console.log(`  Sample item:`, Object.keys(value[0] || {}));
+            }
+          }
+          throw new Error(`No valid blogPosts array found`);
+        }
+        
+        console.log(`Found ${blogPosts.length} blog posts in built module`);
+        
+        return blogPosts.map(post => ({
+          url: `/blog/${post.slug}`,
+          changefreq: 'monthly',
+          priority: 0.6,
+          lastmod: post.publishDate ? new Date(post.publishDate).toISOString() : new Date('2025-01-01').toISOString()
+        }));
+      }
+    }
+  } catch (error) {
+    console.warn('Could not load blog data from built module:', error.message);
+  }
+  
+  try {
+    // Fallback: Try to import the blog data from source
+    const { blogPosts } = await import('./client/src/data/blogData.js');
+    
+    return blogPosts.map(post => ({
       url: `/blog/${post.slug}`,
       changefreq: 'monthly',
       priority: 0.6,
-      lastmod: new Date(post.publishDate).toISOString()
+      lastmod: post.publishDate ? new Date(post.publishDate).toISOString() : new Date('2025-01-01').toISOString()
     }));
   } catch (error) {
-    console.warn('Could not load blog data from source, trying alternative methods...');
+    console.warn('Could not load blog data from source, trying regex parsing...');
     
-    // Alternative approach: read the file as text and extract blog post data
+    // Final fallback: read the file as text and extract blog post data
     try {
       const fs = await import('fs');
       const path = await import('path');
