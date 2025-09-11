@@ -44,17 +44,31 @@ export default function Blog() {
   // Calculate total pages first to use for clamping
   const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
   
+  // Add local state for current page to ensure reliability
+  const [localCurrentPage, setLocalCurrentPage] = useState(() => {
+    const search = location.includes('?') ? location.split('?')[1] : '';
+    const { page } = getQueryParams(search);
+    return Math.max(1, Math.min(page, totalPages));
+  });
+  
   // Parse current page from URL parameters with proper clamping
   const currentPage = useMemo(() => {
     const search = location.includes('?') ? location.split('?')[1] : '';
     const { page } = getQueryParams(search);
     // Clamp page to valid range [1, totalPages]
-    return Math.max(1, Math.min(page, totalPages));
-  }, [location, totalPages]);
+    const urlPage = Math.max(1, Math.min(page, totalPages));
+    
+    // Keep local state in sync with URL
+    if (urlPage !== localCurrentPage) {
+      setLocalCurrentPage(urlPage);
+    }
+    
+    return urlPage;
+  }, [location, totalPages, localCurrentPage]);
   
-  // Calculate pagination
+  // Calculate pagination using local state for instant updates
   const { currentPosts, startIndex, endIndex } = useMemo(() => {
-    const startIdx = (currentPage - 1) * POSTS_PER_PAGE;
+    const startIdx = (localCurrentPage - 1) * POSTS_PER_PAGE;
     const endIdx = startIdx + POSTS_PER_PAGE;
     const current = blogPosts.slice(startIdx, endIdx);
     
@@ -63,7 +77,7 @@ export default function Blog() {
       startIndex: startIdx + 1,
       endIndex: Math.min(endIdx, blogPosts.length)
     };
-  }, [currentPage]);
+  }, [localCurrentPage]);
 
   // Normalize out-of-range URLs by redirecting to valid page
   useEffect(() => {
@@ -83,6 +97,9 @@ export default function Blog() {
   // Navigation handlers that update URL
   const goToPage = (page: number) => {
     const validPage = Math.max(1, Math.min(page, totalPages));
+    // Update local state immediately for instant UI response
+    setLocalCurrentPage(validPage);
+    // Also update URL
     updateURL(validPage, setLocation, location);
   };
 
@@ -214,10 +231,10 @@ export default function Blog() {
             {/* Mobile Pagination */}
             <div className="flex sm:hidden items-center justify-between">
               {/* Jump Back 2 Pages Button - Only show if current page > 2 */}
-              {currentPage > 2 ? (
+              {localCurrentPage > 2 ? (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage - 2)}
+                  onClick={() => goToPage(localCurrentPage - 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-back-mobile"
                 >
@@ -228,10 +245,10 @@ export default function Blog() {
               )}
 
               {/* Previous Button - Only show if not on first page */}
-              {currentPage > 1 ? (
+              {localCurrentPage > 1 ? (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage - 1)}
+                  onClick={() => goToPage(localCurrentPage - 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page-mobile"
                 >
@@ -243,15 +260,15 @@ export default function Blog() {
               
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground">
-                  Page {currentPage} of {totalPages}
+                  Page {localCurrentPage} of {totalPages}
                 </span>
               </div>
               
               {/* Next Button - Only show if not on last page */}
-              {currentPage < totalPages ? (
+              {localCurrentPage < totalPages ? (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage + 1)}
+                  onClick={() => goToPage(localCurrentPage + 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page-mobile"
                 >
@@ -262,10 +279,10 @@ export default function Blog() {
               )}
 
               {/* Jump Forward 2 Pages Button - Only show if current page < totalPages - 1 */}
-              {currentPage < totalPages - 1 ? (
+              {localCurrentPage < totalPages - 1 ? (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage + 2)}
+                  onClick={() => goToPage(localCurrentPage + 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-forward-mobile"
                 >
@@ -279,10 +296,10 @@ export default function Blog() {
             {/* Desktop Pagination */}
             <div className="hidden sm:flex items-center justify-center gap-3">
               {/* Jump Back 2 Pages Button - Only show if current page > 2 */}
-              {currentPage > 2 && (
+              {localCurrentPage > 2 && (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage - 2)}
+                  onClick={() => goToPage(localCurrentPage - 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-back"
                 >
@@ -291,10 +308,10 @@ export default function Blog() {
               )}
 
               {/* Previous Button - Only show if not on first page */}
-              {currentPage > 1 && (
+              {localCurrentPage > 1 && (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage - 1)}
+                  onClick={() => goToPage(localCurrentPage - 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-prev-page"
                 >
@@ -312,7 +329,7 @@ export default function Blog() {
                     pages.push(currentPage);
                     
                     // Show next page if it exists
-                    if (currentPage < totalPages) {
+                    if (localCurrentPage < totalPages) {
                       pages.push(currentPage + 1);
                     }
                     
@@ -338,10 +355,10 @@ export default function Blog() {
               </div>
 
               {/* Next Button - Only show if not on last page */}
-              {currentPage < totalPages && (
+              {localCurrentPage < totalPages && (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage + 1)}
+                  onClick={() => goToPage(localCurrentPage + 1)}
                   className="w-10 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-next-page"
                 >
@@ -350,10 +367,10 @@ export default function Blog() {
               )}
 
               {/* Jump Forward 2 Pages Button - Only show if current page < totalPages - 1 */}
-              {currentPage < totalPages - 1 && (
+              {localCurrentPage < totalPages - 1 && (
                 <Button
                   variant="outline"
-                  onClick={() => goToPage(currentPage + 2)}
+                  onClick={() => goToPage(localCurrentPage + 2)}
                   className="w-12 h-10 p-0 rounded-full border-2 shadow-md bg-gradient-to-b from-background to-background/80 hover:shadow-lg transition-all duration-200 hover:scale-110 hover:-translate-y-1"
                   data-testid="button-jump-forward"
                 >
