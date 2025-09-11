@@ -81,14 +81,6 @@ const AdSenseUnit = ({
 */
 
 // AdSense component is disabled - returns null
-interface AdSenseUnitProps {
-  adSlot?: string;
-  adFormat?: 'auto' | 'rectangle' | 'vertical' | 'horizontal';
-  style?: React.CSSProperties;
-  className?: string;
-  adTest?: boolean;
-}
-
-const AdSenseUnit = (props: AdSenseUnitProps) => null;
+const AdSenseUnit = () => null;
 
 export default AdSenseUnit;

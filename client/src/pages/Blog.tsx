@@ -66,7 +66,20 @@ export default function Blog() {
     };
   }, [currentPage]);
 
-  // Note: URL normalization is handled by the currentPage clamping above
+  // Normalize out-of-range URLs by redirecting to valid page
+  useEffect(() => {
+    if (totalPages > 0) {
+      const search = location.includes('?') ? location.split('?')[1] : '';
+      const { page: urlPage } = getQueryParams(search);
+      
+      // If URL page is out of range, redirect to the clamped page
+      if (urlPage > totalPages) {
+        updateURL(totalPages, setLocation, location);
+      } else if (urlPage < 1) {
+        updateURL(1, setLocation, location);
+      }
+    }
+  }, [location, totalPages, setLocation]);
 
   // Navigation handlers that update URL
   const goToPage = (page: number) => {
