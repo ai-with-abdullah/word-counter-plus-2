@@ -4,9 +4,6 @@ import StatsCard from './StatsCard';
 import KeywordTable from './KeywordTable';
 import ExportButtons from './ExportButtons';
 import { useToast } from '@/hooks/use-toast';
-import * as pdfjsLib from 'pdfjs-dist';
-import Docxtemplater from 'docxtemplater';
-import PizZip from 'pizzip';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { lazy, Suspense } from 'react';
 
@@ -26,9 +23,6 @@ const FeatureLoader = () => (
 
 import { BarChart3, Search, Share2, TrendingUp, Target, Sparkles } from 'lucide-react';
 import { FaCheck, FaEraser, FaHighlighter, FaPaste, FaTrash, FaUpload, FaCopy, FaSync, FaSort, FaBook, FaClock, FaInfoCircle, FaCalendar } from "@/components/common/Icons";
-
-// Configure PDF.js worker - Use bundled worker to avoid version mismatch
-pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/build/pdf.worker.min.js', import.meta.url).toString();
 
 // Using icons from the common Icons file that are already working
 // import AdSenseUnit from '@/components/ads/AdSenseUnit'; // Commented out - ads disabled
