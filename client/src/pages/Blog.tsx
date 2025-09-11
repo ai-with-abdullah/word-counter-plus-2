@@ -1,7 +1,7 @@
 import useSEO from '@/hooks/useSEO';
 import { Link } from 'wouter';
 import { FaPlay, FaCalendar, FaClock, FaArrowRight, FaArrowLeft } from "@/components/common/Icons";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 import { blogPosts, BlogPost } from '@/data/blogData';
 import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
@@ -170,11 +170,10 @@ export default function Blog() {
                 variant="outline"
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="flex items-center gap-2"
+                className="w-10 h-10 p-0 rounded-full"
                 data-testid="button-prev-page-mobile"
               >
                 <ChevronLeft className="w-4 h-4" />
-                Previous
               </Button>
               
               <div className="flex items-center gap-2">
@@ -187,75 +186,75 @@ export default function Blog() {
                 variant="outline"
                 onClick={() => setCurrentPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="flex items-center gap-2"
+                className="w-10 h-10 p-0 rounded-full"
                 data-testid="button-next-page-mobile"
               >
-                Next
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
 
             {/* Desktop Pagination */}
-            <div className="hidden sm:flex items-center justify-center gap-4">
+            <div className="hidden sm:flex items-center justify-center gap-3">
+              {/* First Page Button */}
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(1)}
+                disabled={currentPage === 1}
+                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
+                data-testid="button-first-page"
+              >
+                <ChevronsLeft className="w-4 h-4" />
+              </Button>
+              
               {/* Previous Button */}
               <Button
                 variant="outline"
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="flex items-center gap-2"
+                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
                 data-testid="button-prev-page"
               >
                 <ChevronLeft className="w-4 h-4" />
-                Previous
               </Button>
 
-              {/* Smart Page Numbers */}
-              <div className="flex items-center gap-1">
+              {/* Smart Page Numbers - Show first 2 pages and last page only */}
+              <div className="flex items-center gap-2">
                 {(() => {
                   const getPageNumbers = () => {
-                    const delta = 2; // Number of pages to show on each side of current page
-                    const range = [];
-                    const rangeWithDots = [];
-
+                    if (totalPages <= 4) {
+                      // If 4 or fewer pages, show all
+                      return Array.from({ length: totalPages }, (_, i) => i + 1);
+                    }
+                    
+                    // Show pattern: 1, 2, ..., last
+                    const pages = [];
+                    
                     // Always show first page
-                    range.push(1);
-
-                    // Calculate start and end of middle range
-                    const start = Math.max(2, currentPage - delta);
-                    const end = Math.min(totalPages - 1, currentPage + delta);
-
-                    // Add dots after first page if needed
-                    if (start > 2) {
-                      rangeWithDots.push(1);
-                      rangeWithDots.push('...');
-                    } else {
-                      rangeWithDots.push(1);
+                    pages.push(1);
+                    
+                    // Show second page if it exists
+                    if (totalPages >= 2) {
+                      pages.push(2);
                     }
-
-                    // Add middle range
-                    for (let i = start; i <= end; i++) {
-                      if (i !== 1 && i !== totalPages) {
-                        rangeWithDots.push(i);
-                      }
+                    
+                    // Add dots if there's a gap
+                    if (totalPages > 3) {
+                      pages.push('...');
                     }
-
-                    // Add dots before last page if needed
-                    if (end < totalPages - 1) {
-                      rangeWithDots.push('...');
-                      rangeWithDots.push(totalPages);
-                    } else if (totalPages > 1) {
-                      rangeWithDots.push(totalPages);
+                    
+                    // Always show last page (if different from first 2)
+                    if (totalPages > 2) {
+                      pages.push(totalPages);
                     }
-
-                    // Remove duplicates and clean up
-                    return Array.from(new Set(rangeWithDots));
+                    
+                    return pages;
                   };
 
                   return getPageNumbers().map((page, index) => {
                     if (page === '...') {
                       return (
-                        <span key={`dots-${index}`} className="px-2 text-muted-foreground">
-                          ...
+                        <span key={`dots-${index}`} className="px-3 text-muted-foreground font-bold text-lg">
+                          -----
                         </span>
                       );
                     }
@@ -264,9 +263,12 @@ export default function Blog() {
                       <Button
                         key={page}
                         variant={page === currentPage ? "default" : "outline"}
-                        size="sm"
                         onClick={() => setCurrentPage(page as number)}
-                        className="w-10 h-10"
+                        className={`w-12 h-12 rounded-full font-semibold transition-all duration-200 hover:scale-110 hover:-translate-y-1 active:scale-95 shadow-sm ${
+                          page === currentPage 
+                            ? 'bg-primary text-primary-foreground shadow-lg scale-105' 
+                            : 'bg-background hover:bg-primary/10 hover:border-primary/50'
+                        }`}
                         data-testid={`button-page-${page}`}
                       >
                         {page}
@@ -281,11 +283,21 @@ export default function Blog() {
                 variant="outline"
                 onClick={() => setCurrentPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="flex items-center gap-2"
+                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
                 data-testid="button-next-page"
               >
-                Next
                 <ChevronRight className="w-4 h-4" />
+              </Button>
+              
+              {/* Last Page Button */}
+              <Button
+                variant="outline"
+                onClick={() => setCurrentPage(totalPages)}
+                disabled={currentPage === totalPages}
+                className="w-10 h-10 p-0 rounded-full transition-all duration-200 hover:scale-110 hover:-translate-y-1 disabled:hover:scale-100 disabled:hover:translate-y-0"
+                data-testid="button-last-page"
+              >
+                <ChevronsRight className="w-4 h-4" />
               </Button>
             </div>
           </div>
