@@ -240,16 +240,12 @@ export default function WordCounterTool() {
     // Reset the input value so the same file can be uploaded again if needed
     event.target.value = '';
 
-    // Enhanced file type validation - support PDF, Word (.docx only), and text formats
+    // File type validation - support only text-based formats
     const validTypes = [
-      'text/plain', 'text/markdown', 'text/html', 'application/rtf',
-      'application/pdf',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
-      'text/csv'
+      'text/plain', 'text/markdown', 'text/html', 'application/rtf', 'text/csv'
     ];
     const validExtensions = [
-      '.txt', '.md', '.markdown', '.rtf', '.html', '.htm', '.csv',
-      '.pdf', '.docx'
+      '.txt', '.md', '.markdown', '.rtf', '.html', '.htm', '.csv'
     ];
     
     const fileName = file.name.toLowerCase();
@@ -269,7 +265,7 @@ export default function WordCounterTool() {
     if (!isValidType) {
       toast({
         title: "Invalid File Type",
-        description: "Please upload a supported file: PDF, Word (.docx), Text (.txt), Markdown (.md), HTML, RTF, or CSV.",
+        description: "Please upload a text-based file: Text (.txt), Markdown (.md), HTML, RTF, or CSV.",
         variant: "destructive",
       });
       return;
@@ -295,28 +291,19 @@ export default function WordCounterTool() {
     });
 
     try {
-      let extractedText = '';
+      // Handle text-based files only
+      const content = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target?.result as string);
+        reader.onerror = () => reject(new Error('Failed to read file'));
+        reader.readAsText(file, 'UTF-8');
+      });
       
-      // Determine file type and extract text accordingly
-      if (file.type.includes('pdf') || fileName.endsWith('.pdf')) {
-        extractedText = await extractPdfText(file);
-      } else if (fileName.endsWith('.docx')) {
-        extractedText = await extractDocxText(file);
-      } else {
-        // Handle text-based files
-        const content = await new Promise<string>((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = (e) => resolve(e.target?.result as string);
-          reader.onerror = () => reject(new Error('Failed to read file'));
-          reader.readAsText(file, 'UTF-8');
-        });
-        
-        if (!content || content.trim().length === 0) {
-          throw new Error('File appears to be empty');
-        }
-        
-        extractedText = processFileContent(content, file.name, file.type);
+      if (!content || content.trim().length === 0) {
+        throw new Error('File appears to be empty');
       }
+      
+      const extractedText = processFileContent(content, file.name, file.type);
       
       if (!extractedText || extractedText.trim().length === 0) {
         throw new Error('No text content found in the file');
@@ -584,7 +571,7 @@ export default function WordCounterTool() {
                       : 'bg-primary text-primary-foreground hover:bg-primary/80 cursor-pointer'
                   }`}
                          data-testid="button-upload-file"
-                         title="Upload files: PDF, Word (.docx), Text (.txt, .md, .rtf, .html, .csv)">
+                         title="Upload text-based files: Text (.txt), Markdown (.md), HTML, RTF, CSV">
                     {isUploading ? (
                       <>
                         <div className="inline-block w-4 h-4 mr-1 animate-spin rounded-full border-2 border-white border-t-transparent" aria-hidden="true" />
@@ -600,11 +587,11 @@ export default function WordCounterTool() {
                     )}
                     <input 
                       type="file" 
-                      accept=".txt,.md,.markdown,.rtf,.html,.htm,.csv,.pdf,.docx,text/plain,text/markdown,text/html,application/rtf,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
+                      accept=".txt,.md,.markdown,.rtf,.html,.htm,.csv,text/plain,text/markdown,text/html,application/rtf,text/csv" 
                       onChange={handleFileUpload}
                       disabled={isUploading}
                       className="sr-only"
-                      aria-label="Upload files: PDF, Word (.docx), Text (.txt, .md, .rtf, .html, .csv)"
+                      aria-label="Upload text-based files: Text (.txt), Markdown (.md), HTML, RTF, CSV"
                     />
                   </label>
 
