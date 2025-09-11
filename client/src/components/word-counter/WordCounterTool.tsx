@@ -30,6 +30,8 @@ export default function WordCounterTool() {
   const [text, setText] = useState('');
   const [wordLimit, setWordLimit] = useState(500);
   const [isHighlighted, setIsHighlighted] = useState(false);
+  const [uploadedFileInfo, setUploadedFileInfo] = useState<{name: string, size: number, type: string} | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
   const { stats, readability, keywords } = useTextAnalysis(text);
   const { toast } = useToast();
 
@@ -57,6 +59,7 @@ export default function WordCounterTool() {
   const clearText = () => {
     setText('');
     setIsHighlighted(false);
+    setUploadedFileInfo(null);
   };
 
   const pasteText = async () => {
@@ -131,30 +134,193 @@ export default function WordCounterTool() {
     });
   };
 
-  // File upload functionality
+  // SECURITY FIX: Safe file content extraction utilities
+  const extractHtmlText = (htmlContent: string): string => {
+    try {
+      // Use DOMParser to safely extract text from HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, 'text/html');
+      
+      // Remove script and style elements completely
+      const scripts = doc.querySelectorAll('script, style, noscript');
+      scripts.forEach(element => element.remove());
+      
+      // Extract text content
+      const textContent = doc.body?.textContent || doc.documentElement?.textContent || '';
+      
+      // Clean up the extracted text
+      return textContent
+        .replace(/\s+/g, ' ')  // Normalize whitespace
+        .replace(/\n\s*\n/g, '\n\n')  // Preserve paragraph breaks
+        .trim();
+    } catch (error) {
+      console.warn('Failed to parse HTML content:', error);
+      // Fallback: strip basic HTML tags
+      return htmlContent.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    }
+  };
+
+  const extractRtfText = (rtfContent: string): string => {
+    try {
+      // Basic RTF control word removal
+      let text = rtfContent;
+      
+      // Remove RTF header and control words
+      text = text.replace(/\{\\rtf1[^\}]*\}/g, ''); // Remove RTF header
+      text = text.replace(/\\[a-zA-Z]+\d*\s?/g, ''); // Remove control words
+      text = text.replace(/\{[^\}]*\}/g, ''); // Remove control groups
+      text = text.replace(/\\[^a-zA-Z]/g, ''); // Remove escape sequences
+      
+      // Clean up the text
+      return text
+        .replace(/\s+/g, ' ')
+        .replace(/\n\s*\n/g, '\n\n')
+        .trim();
+    } catch (error) {
+      console.warn('Failed to parse RTF content:', error);
+      return rtfContent.replace(/\\[a-zA-Z]+\d*\s?/g, '').replace(/[{}]/g, '').trim();
+    }
+  };
+
+  const extractMarkdownText = (markdownContent: string): string => {
+    try {
+      let text = markdownContent;
+      
+      // Remove markdown syntax
+      text = text.replace(/^#{1,6}\s+/gm, ''); // Headers
+      text = text.replace(/\*\*([^*]+)\*\*/g, '$1'); // Bold
+      text = text.replace(/\*([^*]+)\*/g, '$1'); // Italic
+      text = text.replace(/`([^`]+)`/g, '$1'); // Inline code
+      text = text.replace(/```[\s\S]*?```/g, ''); // Code blocks
+      text = text.replace(/\[[^\]]*\]\([^\)]*\)/g, ''); // Links
+      text = text.replace(/!\[[^\]]*\]\([^\)]*\)/g, ''); // Images
+      text = text.replace(/^[-*+]\s+/gm, ''); // List items
+      text = text.replace(/^\d+\.\s+/gm, ''); // Numbered lists
+      text = text.replace(/^>\s+/gm, ''); // Blockquotes
+      text = text.replace(/\|[^\n]*\|/g, ''); // Tables
+      text = text.replace(/^[-=]+$/gm, ''); // Horizontal rules
+      
+      // Clean up whitespace
+      return text
+        .replace(/\s+/g, ' ')
+        .replace(/\n\s*\n/g, '\n\n')
+        .trim();
+    } catch (error) {
+      console.warn('Failed to parse Markdown content:', error);
+      return markdownContent.replace(/[#*`\[\]()>|-]/g, '').replace(/\s+/g, ' ').trim();
+    }
+  };
+
+  const processFileContent = (content: string, fileName: string, fileType: string): string => {
+    const extension = fileName.toLowerCase().split('.').pop();
+    
+    // Determine file format and process accordingly
+    if (fileType.includes('html') || extension === 'html' || extension === 'htm') {
+      return extractHtmlText(content);
+    } else if (fileType.includes('rtf') || extension === 'rtf') {
+      return extractRtfText(content);
+    } else if (fileType.includes('markdown') || extension === 'md' || extension === 'markdown') {
+      return extractMarkdownText(content);
+    } else {
+      // Plain text or CSV - just normalize line endings
+      return content
+        .replace(/\r\n/g, '\n')
+        .replace(/\r/g, '\n')
+        .trim();
+    }
+  };
+
+  // Enhanced file upload functionality
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    if (file.type !== 'text/plain' && !file.name.endsWith('.txt')) {
+    // Reset the input value so the same file can be uploaded again if needed
+    event.target.value = '';
+
+    // Enhanced file type validation - support more text formats
+    const validTypes = ['text/plain', 'text/markdown', 'text/html', 'application/rtf'];
+    const validExtensions = ['.txt', '.md', '.markdown', '.rtf', '.html', '.htm', '.csv'];
+    
+    const isValidType = validTypes.includes(file.type) || 
+                       validExtensions.some(ext => file.name.toLowerCase().endsWith(ext));
+
+    if (!isValidType) {
       toast({
         title: "Invalid File Type",
-        description: "Please upload a text (.txt) file only.",
+        description: "Please upload a text file (.txt, .md, .rtf, .html, .csv).",
         variant: "destructive",
       });
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const content = e.target?.result as string;
-      setText(content);
+    // Check file size (limit to 10MB)
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    if (file.size > maxSize) {
       toast({
-        title: "File Uploaded",
-        description: `File "${file.name}" has been uploaded successfully.`,
+        title: "File Too Large",
+        description: "Please upload a file smaller than 10MB.",
+        variant: "destructive",
       });
+      return;
+    }
+
+    // Show loading state
+    setIsUploading(true);
+    toast({
+      title: "Uploading...",
+      description: "Reading file content, please wait.",
+    });
+
+    const reader = new FileReader();
+    
+    reader.onload = (e) => {
+      try {
+        const content = e.target?.result as string;
+        if (!content) {
+          throw new Error('File appears to be empty');
+        }
+        
+        // SECURITY FIX: Process file content based on format to extract plain text
+        const cleanedContent = processFileContent(content, file.name, file.type);
+        
+        setText(cleanedContent);
+        setIsHighlighted(false); // Reset highlighting
+        
+        // Store file information for display
+        setUploadedFileInfo({
+          name: file.name,
+          size: file.size,
+          type: file.type || 'text/plain'
+        });
+        
+        // Show success message with file details
+        const fileSizeKB = Math.round(file.size / 1024);
+        toast({
+          title: "File Uploaded Successfully!",
+          description: `"${file.name}" (${fileSizeKB}KB) analyzed. Scroll down to see detailed analysis.`,
+        });
+        setIsUploading(false);
+      } catch (error) {
+        toast({
+          title: "Upload Error",
+          description: "Failed to read file content. Please try again.",
+          variant: "destructive",
+        });
+        setIsUploading(false);
+      }
     };
-    reader.readAsText(file);
+    
+    reader.onerror = () => {
+      toast({
+        title: "Upload Error",
+        description: "Failed to read the file. Please try again.",
+        variant: "destructive",
+      });
+      setIsUploading(false);
+    };
+    
+    reader.readAsText(file, 'UTF-8');
   };
 
   // Additional text manipulation functions
@@ -214,20 +380,71 @@ export default function WordCounterTool() {
 
   const progressPercentage = Math.min((stats.wordCount / wordLimit) * 100, 100);
 
+  // SECURITY FIX: Safe React text rendering instead of dangerouslySetInnerHTML
   const renderTextWithHighlights = () => {
     if (!isHighlighted || keywords.single.length === 0) {
-      return text;
+      return text.split('\n').map((line, lineIndex) => (
+        <div key={lineIndex}>{line}</div>
+      ));
     }
 
-    let highlightedText = text;
     const topKeywords = keywords.single.slice(0, 5).map(k => k.keyword);
     
-    topKeywords.forEach(keyword => {
-      const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
-      highlightedText = highlightedText.replace(regex, `<mark class="highlight-keyword">${keyword}</mark>`);
-    });
+    // Create a safe highlighting function that returns React elements
+    const highlightText = (inputText: string) => {
+      let parts: (string | { type: 'highlight'; text: string })[] = [inputText];
+      
+      // Process each keyword to create highlighted segments
+      topKeywords.forEach(keyword => {
+        const newParts: (string | { type: 'highlight'; text: string })[] = [];
+        
+        parts.forEach(part => {
+          if (typeof part === 'string') {
+            // Split by keyword while preserving case and word boundaries
+            const regex = new RegExp(`\\b(${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b`, 'gi');
+            const segments = part.split(regex);
+            
+            for (let i = 0; i < segments.length; i++) {
+              if (i % 2 === 0) {
+                // Non-highlighted text
+                if (segments[i]) newParts.push(segments[i]);
+              } else {
+                // Highlighted text (matched keyword)
+                newParts.push({ type: 'highlight', text: segments[i] });
+              }
+            }
+          } else {
+            // Already highlighted part, keep as is
+            newParts.push(part);
+          }
+        });
+        
+        parts = newParts;
+      });
+      
+      return parts;
+    };
 
-    return highlightedText;
+    // Process text line by line to maintain structure
+    return text.split('\n').map((line, lineIndex) => {
+      const highlightedParts = highlightText(line);
+      
+      return (
+        <div key={lineIndex}>
+          {highlightedParts.map((part, partIndex) => {
+            if (typeof part === 'string') {
+              return part;
+            } else {
+              return (
+                <mark key={partIndex} className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">
+                  {part.text}
+                </mark>
+              );
+            }
+          })}
+        </div>
+      );
+    });
   };
 
   return (
@@ -258,6 +475,32 @@ export default function WordCounterTool() {
             </p>
           </div>
 
+          {/* File Information Display */}
+          {uploadedFileInfo && (
+            <div className="bg-green-50 dark:bg-green-950 rounded-lg p-4 border border-green-200 dark:border-green-800 mb-4">
+              <h3 className="text-sm font-semibold text-green-800 dark:text-green-200 mb-2 flex items-center">
+                <FaUpload className="mr-2" />
+                File Analysis Complete
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <span className="text-green-600 dark:text-green-400 font-medium">File:</span>
+                  <p className="text-green-800 dark:text-green-200 break-all" data-testid="text-uploaded-filename">{uploadedFileInfo.name}</p>
+                </div>
+                <div>
+                  <span className="text-green-600 dark:text-green-400 font-medium">Size:</span>
+                  <p className="text-green-800 dark:text-green-200" data-testid="text-uploaded-filesize">
+                    {Math.round(uploadedFileInfo.size / 1024)}KB ({uploadedFileInfo.size} bytes)
+                  </p>
+                </div>
+                <div>
+                  <span className="text-green-600 dark:text-green-400 font-medium">Type:</span>
+                  <p className="text-green-800 dark:text-green-200" data-testid="text-uploaded-filetype">{uploadedFileInfo.type}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Text Input Area */}
           <div className="bg-card rounded-lg p-3 sm:p-6 shadow-sm border border-border">
             <div className="mb-4">
@@ -265,17 +508,33 @@ export default function WordCounterTool() {
                 <label htmlFor="textInput" className="text-base sm:text-lg font-semibold text-foreground">Enter Your Text</label>
                 <div className="flex gap-2 w-full sm:w-auto">
                   {/* File Upload */}
-                  <label className="flex-1 sm:flex-none px-3 py-1.5 bg-primary text-primary-foreground rounded text-sm hover:bg-primary/80 transition-colors cursor-pointer text-center"
-                         data-testid="button-upload-file">
-                    <FaUpload className="inline mr-1" aria-hidden="true" />
-                    <span className="hidden sm:inline">Upload</span>
-                    <span className="sm:hidden">Upload File</span>
+                  <label className={`flex-1 sm:flex-none px-3 py-1.5 rounded text-sm transition-colors text-center ${
+                    isUploading 
+                      ? 'bg-primary/50 text-primary-foreground cursor-wait' 
+                      : 'bg-primary text-primary-foreground hover:bg-primary/80 cursor-pointer'
+                  }`}
+                         data-testid="button-upload-file"
+                         title="Upload text files (.txt, .md, .rtf, .html, .csv)">
+                    {isUploading ? (
+                      <>
+                        <div className="inline-block w-4 h-4 mr-1 animate-spin rounded-full border-2 border-white border-t-transparent" aria-hidden="true" />
+                        <span className="hidden sm:inline">Uploading...</span>
+                        <span className="sm:hidden">Uploading...</span>
+                      </>
+                    ) : (
+                      <>
+                        <FaUpload className="inline mr-1" aria-hidden="true" />
+                        <span className="hidden sm:inline">Upload</span>
+                        <span className="sm:hidden">Upload File</span>
+                      </>
+                    )}
                     <input 
                       type="file" 
-                      accept=".txt,text/plain" 
+                      accept=".txt,.md,.markdown,.rtf,.html,.htm,.csv,text/plain,text/markdown,text/html,application/rtf" 
                       onChange={handleFileUpload}
+                      disabled={isUploading}
                       className="sr-only"
-                      aria-label="Upload a text file to analyze"
+                      aria-label="Upload a text file to analyze (.txt, .md, .rtf, .html, .csv)"
                     />
                   </label>
 
@@ -317,10 +576,11 @@ export default function WordCounterTool() {
             ) : (
               <div 
                 className="w-full h-64 p-4 bg-background border border-border rounded-lg overflow-auto whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{ __html: renderTextWithHighlights() }}
                 aria-label="Highlighted text with top keywords marked"
                 data-testid="text-highlighted-preview"
-              />
+              >
+                {renderTextWithHighlights()}
+              </div>
             )}
 
 
