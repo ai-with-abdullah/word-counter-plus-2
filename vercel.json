@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/public"
+      }
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/text-case-converter/(.*)",
+      "destination": "/text-case-convert",
+      "permanent": true
+    },
+    {
+      "source": "/text-case-converter",
+      "destination": "/text-case-convert",
+      "permanent": true
+    },
+    {
+      "source": "/text-case",
+      "destination": "/text-case-convert",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

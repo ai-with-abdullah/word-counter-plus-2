@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and internal areas
+Disallow: /admin/
+Disallow: /drafts/
+Disallow: /*.pdf$
+
+# Set crawl delay for general bots
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://wordcounterplusapp.com/sitemap.xml

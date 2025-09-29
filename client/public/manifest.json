@@ -1,0 +1,60 @@
+{
+  "name": "Free Word Counter, Character Counter & Text Counter - Word Counter Plus",
+  "short_name": "Word Counter Plus",
+  "description": "Free online word counter, character counter, and text counter tool. Count words, characters, paragraphs, sentences instantly. Best text analysis tool with readability scores, keyword density, and export options for writers, students, and content creators.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["productivity", "utilities", "education", "writing", "business"],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "shortcuts": [
+    {
+      "name": "Start Counting Words",
+      "short_name": "Count Words",
+      "description": "Start counting words in your text",
+      "url": "/?action=count",
+      "icons": [{ "src": "/favicon-32x32.png", "sizes": "32x32" }]
+    },
+    {
+      "name": "Analyze Text",
+      "short_name": "Analyze",
+      "description": "Analyze text readability and statistics",
+      "url": "/?action=analyze",
+      "icons": [{ "src": "/favicon-32x32.png", "sizes": "32x32" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/word-counter-plus-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

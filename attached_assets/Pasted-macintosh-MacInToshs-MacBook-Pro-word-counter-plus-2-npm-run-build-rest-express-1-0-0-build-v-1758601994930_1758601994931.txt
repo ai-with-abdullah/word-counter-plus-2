@@ -1,0 +1,175 @@
+macintosh@MacInToshs-MacBook-Pro word-counter-plus-2 % npm run build
+
+> rest-express@1.0.0 build
+> vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+
+vite v6.3.5 building for production...
+✓ 2999 modules transformed.
+../dist/public/index.html                            21.12 kB │ gzip:   6.31 kB
+../dist/public/css/index-BHZ8cq43.css                 6.25 kB │ gzip:   1.73 kB
+../dist/public/css/index-CsVPRQef.css                94.54 kB │ gzip:  15.60 kB
+../dist/public/js/ui-core-D3hghNPx.js                 0.14 kB │ gzip:   0.13 kB
+../dist/public/js/progress-BfEv43OV.js                0.43 kB │ gzip:   0.31 kB
+../dist/public/js/textarea-C84j-zfb.js                0.52 kB │ gzip:   0.34 kB
+../dist/public/js/badge-D3Ixlsym.js                   0.74 kB │ gzip:   0.39 kB
+../dist/public/js/button-CAv4vorH.js                  1.32 kB │ gzip:   0.65 kB
+../dist/public/js/routing-C69-gSw5.js                 3.62 kB │ gzip:   1.86 kB
+../dist/public/js/not-found-D-CLVEhw.js               3.88 kB │ gzip:   1.19 kB
+../dist/public/js/Privacy-CSdKkQEZ.js                 4.28 kB │ gzip:   1.41 kB
+../dist/public/js/Contact-DAvVWQVw.js                 5.13 kB │ gzip:   1.75 kB
+../dist/public/js/Tools-DJqgKv9W.js                   5.54 kB │ gzip:   2.03 kB
+../dist/public/js/Terms-t1Rr_rNe.js                   5.72 kB │ gzip:   1.82 kB
+../dist/public/js/tabs-BG3KSGQ1.js                    6.00 kB │ gzip:   2.34 kB
+../dist/public/js/SEOAnalyzer-CGWmGfTK.js             6.25 kB │ gzip:   1.99 kB
+../dist/public/js/Disclaimer-WB5b08Vw.js              7.21 kB │ gzip:   2.28 kB
+../dist/public/js/Blog-DD0cpRJV.js                    7.43 kB │ gzip:   2.51 kB
+../dist/public/js/CompetitorAnalysis-P5RSd4SN.js      7.45 kB │ gzip:   2.04 kB
+../dist/public/js/SocialMediaOptimizer-ByV3tIOW.js    8.01 kB │ gzip:   2.55 kB
+../dist/public/js/Cookies-Hl7QUga0.js                 8.12 kB │ gzip:   2.26 kB
+../dist/public/js/FAQ-C4D1sI7v.js                     9.13 kB │ gzip:   3.50 kB
+../dist/public/js/ContentGoals-CwMXtOKV.js           10.10 kB │ gzip:   3.16 kB
+../dist/public/js/About-CWQKw2Dk.js                  10.11 kB │ gzip:   2.28 kB
+../dist/public/js/BlogPost-4tv6jNhf.js               10.43 kB │ gzip:   3.11 kB
+../dist/public/js/utils-fzKV8Oe-.js                  20.70 kB │ gzip:   6.68 kB
+../dist/public/js/purify.es-zAFzuAM2.js              21.74 kB │ gzip:   8.31 kB
+../dist/public/js/TextCaseConverter-0eC07OYJ.js      23.73 kB │ gzip:   5.78 kB
+../dist/public/js/WordCounterTool-Cc_MeOes.js        29.58 kB │ gzip:   8.00 kB
+../dist/public/js/CharacterCounter-DjLJJDBp.js       38.98 kB │ gzip:   8.96 kB
+../dist/public/js/index-BKUIukEi.js                  51.70 kB │ gzip:  14.15 kB
+../dist/public/js/index.es-CwbfRAVC.js              111.29 kB │ gzip:  33.55 kB
+../dist/public/js/html2canvas.esm-BzmDOhfD.js       198.23 kB │ gzip:  45.72 kB
+../dist/public/js/vendor-i6axhBEA.js                321.58 kB │ gzip: 104.07 kB
+../dist/public/js/optimized-image-CBvATG2P.js       353.91 kB │ gzip:  95.56 kB
+../dist/public/js/AdvancedAnalytics-tb6zAu4C.js     358.50 kB │ gzip:  96.38 kB
+../dist/public/js/pdf-CUQXT9B5.js                   373.00 kB │ gzip: 108.21 kB
+../dist/public/js/jspdf.es.min-CxlsnZ6S.js          376.93 kB │ gzip: 120.36 kB
+../dist/public/js/index-C2NCHJ8N.js                 452.91 kB │ gzip: 113.32 kB
+✓ built in 26.88s
+
+✨ [vite-plugin-imagemin]- compressed image resource successfully: 
+public/apple-touch-icon.png                                           -76%  24.49kb / tiny: 5.99kb
+public/favicon-16x16.png                                              -76%  24.49kb / tiny: 5.99kb
+public/favicon-32x32.png                                              -76%  24.49kb / tiny: 5.99kb
+public/og-image.png                                                   -98%  94.59kb / tiny: 2.41kb
+public/word-counter-plus-logo.png                                     -97%  1355.78kb / tiny: 41.08kb
+public/images/technical_writing_blog_image.png                        -86%  805.14kb / tiny: 113.36kb
+public/images/academic_writing_blog_image.png                         -78%  499.72kb / tiny: 111.02kb
+public/images/Writing_mistakes_blog_image_856c193e.png                -69%  397.39kb / tiny: 124.41kb
+public/images/Writing_efficiency_character_counting_fb9b213f.png      -68%  1248.04kb / tiny: 399.63kb
+public/images/writing_52_blog_image.png                               -69%  1114.55kb / tiny: 348.98kb
+public/images/Product_description_ecommerce_header_01274060.png       -69%  1114.55kb / tiny: 348.98kb
+public/images/writing_34_blog_image.png                               -69%  1114.55kb / tiny: 348.98kb
+public/images/Email_marketing_character_limits_2da42b8b.png           -69%  927.93kb / tiny: 288.09kb
+public/images/Grammar_language_improvement_header_98a53d5d.png        -73%  1313.56kb / tiny: 362.37kb
+public/images/writing_25_blog_image.png                               -73%  1313.56kb / tiny: 362.37kb
+public/images/writing_43_blog_image.png                               -73%  1313.56kb / tiny: 362.37kb
+public/images/Social_media_character_limits_guide_56f08336.png        -67%  1031.44kb / tiny: 342.95kb
+public/images/content_marketing_blog_image.png                        -74%  732.20kb / tiny: 191.91kb
+public/images/Typography_text_case_design_8bfd2fca.png                -72%  1097.35kb / tiny: 311.35kb
+public/images/writing_44_blog_image.png                               -73%  1489.94kb / tiny: 410.76kb
+public/images/writing_26_blog_image.png                               -73%  1489.94kb / tiny: 410.76kb
+public/images/Writing_tips_techniques_header_599f7541.png             -73%  1489.94kb / tiny: 410.76kb
+public/images/Research_documentation_header_7f655333.png              -71%  1173.98kb / tiny: 346.96kb
+public/images/writing_46_blog_image.png                               -71%  1173.98kb / tiny: 346.96kb
+public/images/writing_28_blog_image.png                               -71%  1173.98kb / tiny: 346.96kb
+public/images/writing_38_blog_image.png                               -72%  1167.78kb / tiny: 332.06kb
+public/images/Writing_productivity_tools_header_1a82c0b3.png          -72%  1167.78kb / tiny: 332.06kb
+public/images/writing_20_blog_image.png                               -72%  1167.78kb / tiny: 332.06kb
+public/images/writing_30_blog_image.png                               -70%  1205.28kb / tiny: 365.32kb
+public/images/Grant_writing_funding_header_d858afa4.png               -70%  1205.28kb / tiny: 365.32kb
+public/images/writing_48_blog_image.png                               -70%  1205.28kb / tiny: 365.32kb
+public/images/writing_45_blog_image.png                               -67%  1165.89kb / tiny: 386.29kb
+public/images/writing_27_blog_image.png                               -67%  1165.89kb / tiny: 386.29kb
+public/images/Content_creation_blogging_header_10c4b4b6.png           -67%  1165.89kb / tiny: 386.29kb
+public/images/writing_29_blog_image.png                               -75%  1223.21kb / tiny: 306.92kb
+public/images/writing_47_blog_image.png                               -75%  1223.21kb / tiny: 306.92kb
+public/images/Writing_productivity_workflow_header_5ee44978.png       -75%  1223.21kb / tiny: 306.92kb
+public/images/writing_40_blog_image.png                               -71%  1346.92kb / tiny: 391.11kb
+public/images/writing_22_blog_image.png                               -71%  1346.92kb / tiny: 391.11kb
+public/images/Professional_communication_header_91e2bfb8.png          -71%  1346.92kb / tiny: 391.11kb
+public/images/writing_41_blog_image.png                               -74%  1179.95kb / tiny: 315.29kb
+public/images/Writing_education_skills_header_1c4a190e.png            -74%  1179.95kb / tiny: 315.29kb
+public/images/writing_23_blog_image.png                               -74%  1179.95kb / tiny: 315.29kb
+public/images/creative_writing_blog_image.png                         -71%  1379.36kb / tiny: 406.42kb
+public/images/writing_31_blog_image.png                               -70%  1143.63kb / tiny: 353.16kb
+public/images/writing_49_blog_image.png                               -70%  1143.63kb / tiny: 353.16kb
+public/images/Newsletter_email_marketing_header_d728bd4c.png          -70%  1143.63kb / tiny: 353.16kb
+public/images/writing_21_blog_image.png                               -70%  1223.41kb / tiny: 368.03kb
+public/images/Content_planning_strategy_header_9ca8e732.png           -70%  1223.41kb / tiny: 368.03kb
+public/images/writing_39_blog_image.png                               -70%  1223.41kb / tiny: 368.03kb
+public/images/writing_51_blog_image.png                               -74%  1071.60kb / tiny: 287.63kb
+public/images/writing_33_blog_image.png                               -74%  1071.60kb / tiny: 287.63kb
+public/images/Proposal_writing_business_header_fc5da720.png           -74%  1071.60kb / tiny: 287.63kb
+public/images/social_media_blog_image.png                             -68%  867.04kb / tiny: 279.76kb
+public/images/Freelance_writing_career_header_743ce501.png            -72%  1026.64kb / tiny: 287.87kb
+public/images/writing_42_blog_image.png                               -72%  1026.64kb / tiny: 287.87kb
+public/images/writing_24_blog_image.png                               -72%  1026.64kb / tiny: 287.87kb
+public/images/Grammar_tips_blog_image_64d0441b.png                    -76%  847.21kb / tiny: 204.52kb
+public/images/writing_32_blog_image.png                               -74%  1172.06kb / tiny: 314.39kb
+public/images/Website_copywriting_conversion_header_20c8660a.png      -74%  1172.06kb / tiny: 314.39kb
+public/images/writing_50_blog_image.png                               -74%  1172.06kb / tiny: 314.39kb
+public/images/SEO_content_blog_image_17fd0347.png                     -69%  523.34kb / tiny: 164.96kb
+public/images/Text_case_conversion_guide_ef6981be.png                 -84%  928.38kb / tiny: 156.70kb
+public/images/professional_email_blog_image.png                       -76%  698.21kb / tiny: 170.23kb
+public/images/Professional_business_text_case_d1d56b84.png            -77%  1032.58kb / tiny: 242.15kb
+public/images/copywriting_blog_image.png                              -79%  1047.08kb / tiny: 228.98kb
+public/images/Text_analysis_blog_image_e338860d.png                   -72%  937.32kb / tiny: 264.66kb
+public/images/Content_strategy_blog_image_fc6428d5.png                -78%  882.97kb / tiny: 202.70kb
+public/images/improve-readability.png                                 -90%  1915.13kb / tiny: 207.13kb
+public/images/writing_37_blog_image.png                               -75%  1118.39kb / tiny: 286.30kb
+public/images/writing_19_blog_image.png                               -75%  1118.39kb / tiny: 286.30kb
+public/images/Digital_marketing_strategy_header_d65e53c3.png          -75%  1118.39kb / tiny: 286.30kb
+public/images/Professional_writing_communication_header_9761fe0d.png  -80%  1085.45kb / tiny: 224.99kb
+public/images/writing_35_blog_image.png                               -80%  1085.45kb / tiny: 224.99kb
+public/images/Academic_writing_blog_image_5375a266.png                -78%  1164.65kb / tiny: 261.29kb
+public/images/writing_18_blog_image.png                               -79%  927.23kb / tiny: 199.56kb
+public/images/writing_36_blog_image.png                               -79%  927.23kb / tiny: 199.56kb
+public/images/Professional_business_writing_header_12c006db.png       -79%  927.23kb / tiny: 199.56kb
+
+
+
+  dist/index.js  25.2kb
+
+⚡ Done in 7ms
+
+> rest-express@1.0.0 postbuild
+> node generate-sitemap.js
+
+🚀 Generating sitemap and robots.txt...
+Attempting to load blog data using tsx...
+/Users/macintosh/Downloads/word-counter-plus-2/client/src/data/blogData.ts:2937
+if (import.meta.env.DEV) {
+                    ^
+
+
+TypeError: Cannot read properties of undefined (reading 'DEV')
+    at <anonymous> (/Users/macintosh/Downloads/word-counter-plus-2/client/src/data/blogData.ts:2937:21)
+    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)
+    at async <anonymous> (/Users/macintosh/Downloads/word-counter-plus-2/temp-blog-loader.mjs:2:29)
+
+Node.js v20.19.4
+tsx loading failed: Command failed: npx tsx temp-blog-loader.mjs
+/Users/macintosh/Downloads/word-counter-plus-2/client/src/data/blogData.ts:2937
+if (import.meta.env.DEV) {
+                    ^
+
+
+TypeError: Cannot read properties of undefined (reading 'DEV')
+    at <anonymous> (/Users/macintosh/Downloads/word-counter-plus-2/client/src/data/blogData.ts:2937:21)
+    at ModuleJob.run (node:internal/modules/esm/module_job:263:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:540:24)
+    at async <anonymous> (/Users/macintosh/Downloads/word-counter-plus-2/temp-blog-loader.mjs:2:29)
+
+Node.js v20.19.4
+
+Falling back to regex parsing...
+Extracted 38 blog slugs from all blog files
+📄 Found 12 static pages
+📝 Found 38 blog posts
+🔗 Total URLs: 50
+✅ Generated sitemap.xml
+✅ Generated robots.txt
+🎉 Sitemap generation completed successfully!
+📍 Files generated in: /Users/macintosh/Downloads/word-counter-plus-2/dist/public
+macintosh@MacInToshs-MacBook-Pro word-counter-plus-2 % 
