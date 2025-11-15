@@ -1,0 +1,16 @@
+/* TEAM */
+Creator: Word Counter Plus Team
+Site: https://wordcounterplusapp.com
+Location: Global
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript ES6+, React 18, TypeScript
+Components: Radix UI, Tailwind CSS, Vite
+Tools: Word Counter, Text Analysis, Readability Scoring, Keyword Density Analysis
+
+/* THANKS */
+Font Awesome for icons
+Google Fonts for typography
+Radix UI for accessible components
+Tailwind CSS for styling
+React community for the amazing ecosystem

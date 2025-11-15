@@ -1,0 +1,65 @@
+# Robots.txt for Word Counter Plus
+# Optimized for search engines (Google, Bing, Yahoo, DuckDuckGo)
+
+User-agent: *
+Allow: /
+Allow: /seo-content-analyzer
+Allow: /plagiarism-checker
+Allow: /resume-cv-checker
+Allow: /grammar-checker
+Allow: /character-counter
+Allow: /text-case-converter
+Allow: /word-frequency-counter
+Allow: /random-word-generator
+Allow: /words-per-page
+Allow: /speech-to-text
+Allow: /readability-calculator
+Allow: /text-compare
+Allow: /blog
+Allow: /tools
+Allow: /about
+Allow: /contact
+Allow: /faq
+
+# Disallow non-indexable files and directories
+Disallow: /admin/
+Disallow: /api/
+Disallow: /drafts/
+Disallow: /*.pdf$
+Disallow: /private/
+Disallow: /.local/
+Disallow: /server/
+Disallow: /*.ico$
+Disallow: /favicon.ico
+Disallow: /manifest.json
+Disallow: /sw.js
+
+# Google-specific settings
+User-agent: Googlebot
+Allow: /
+Disallow: /favicon.ico
+Disallow: /*.ico$
+Crawl-delay: 0
+
+# Bing-specific settings
+User-agent: Bingbot
+Allow: /
+Disallow: /favicon.ico
+Disallow: /*.ico$
+Crawl-delay: 0
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://wordcounterplusapp.com/sitemap.xml

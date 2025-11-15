@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <url>
+    <loc>https://wordcounterplusapp.com/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/tools</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/blog</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/about</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/contact</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/faq</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/grammar-checker</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/plagiarism-checker</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/resume-cv-checker</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/seo-content-analyzer</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/character-counter</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/text-case-converter</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/word-frequency-counter</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/random-word-generator</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/words-per-page</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/readability-calculator</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/text-compare</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/speech-to-text</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/privacy</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/terms</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/disclaimer</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://wordcounterplusapp.com/cookies</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Blog: We Just Launched Our Chrome Extension – And It's Completely Free! -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/chrome-extension-launch-announcement</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: The Ultimate Guide to Study Methods: 7 Proven Techniques That Actually Work -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/ultimate-guide-study-methods-techniques</loc>
+    <lastmod>2025-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: How to Improve Your Writing Readability Score -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/improve-writing-readability-score</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Email Writing: Craft Messages That Get Results -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/email-writing-craft-messages-results</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: SEO Content Analysis: Complete Guide to Ranking Higher in Search Results -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/seo-content-analysis-ranking-guide</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: LSI Keywords and Semantic SEO: Advanced Content Optimization Strategies -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/lsi-keywords-semantic-seo-guide</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Meta Tag Optimization: Boost Click-Through Rates and Search Rankings -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/meta-tag-optimization-ctr-guide</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: SEO Content Writing: The Ultimate Guide -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/seo-content-writing-ultimate-guide</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Marketing for Small Businesses -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-marketing-small-businesses</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: ATS-Optimized Resume: Complete Guide to Applicant Tracking Systems -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/ats-optimized-resume-complete-guide</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Resume Writing Best Practices: Create Winning CVs for US, UK, and Canada -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/resume-writing-best-practices-guide</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Cover Letter Optimization: Perfect Length and Content for Job Applications -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/cover-letter-optimization-perfect-length</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: 10 Writing Mistakes That Kill Your Content -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/writing-mistakes-kill-content</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Academic Writing: A Complete Guide for Students -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/academic-writing-complete-guide</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Social Media Writing: Engaging Your Audience -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/social-media-writing-engaging-audience</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Plagiarism Detection: Essential Guide for Students and Academic Writers -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/plagiarism-detection-academic-guide</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Originality: Ensuring Unique Writing for SEO and Publishing -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-originality-seo-publishing-guide</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Paraphrase Detection: Advanced Techniques for Academic and Professional Writing -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/paraphrase-detection-techniques-guide</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Planning: How to Create a Winning Strategy -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-planning-winning-strategy</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Essential Grammar Rules Every Writer Should Know -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/essential-grammar-rules-writers</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Words Per Page Calculator: Complete Guide for Students and Writers -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/words-per-page-calculator-complete-guide</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Book Manuscript Formatting: Understanding Word Count and Page Length -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/book-manuscript-formatting-word-count-guide</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Essay Planning: Calculate Perfect Length for Academic Success -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/essay-planning-perfect-length-academic-success</loc>
+    <lastmod>2025-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Creative Writing Prompts: Using Random Word Generators for Inspiration -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/creative-writing-random-word-generator</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Brainstorming Techniques: Unlock Innovation with Random Word Methods -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/brainstorming-techniques-random-word-innovation</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Vocabulary Building: Expand Your Word Power with Random Word Practice -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/vocabulary-building-random-word-practice</loc>
+    <lastmod>2025-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Word Frequency Analysis: Unlock Hidden Patterns in Your Writing -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/word-frequency-analysis-writing-patterns</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Data-Driven Content Creation: Using Word Frequency for Better Engagement -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/data-driven-content-word-frequency-engagement</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Auditing with Word Frequency: Find and Fix Writing Issues Fast -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-auditing-word-frequency-analysis</loc>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Text Case Conversion: When and How to Use Different Text Cases -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/text-case-conversion-complete-guide</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Professional Writing: Mastering Proper Text Case for Business Communication -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/professional-business-text-case-communication</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Typography and Text Case: Design Principles for Better Readability -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/typography-text-case-design-principles</loc>
+    <lastmod>2025-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Character Count Limits for Social Media Platforms: Complete Guide -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/social-media-character-limits-complete-guide</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: How Character Counting Improves Writing Efficiency and Quality -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/character-counting-writing-efficiency-quality</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Email Marketing Character Limits: Maximize Engagement and Deliverability -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/email-marketing-character-limits-guide</loc>
+    <lastmod>2025-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: SEO Content Optimization: Using Character Count for Better Search Rankings -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/seo-content-optimization-character-count-guide</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Academic Writing Character Limits: Essays, Research Papers, and Citations -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/academic-writing-character-limits-guide</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Strategy: Planning Character Limits for Multi-Platform Publishing -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-strategy-multi-platform-character-limits</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Copywriting Mastery: Character Count Psychology for Higher Conversions -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/copywriting-character-count-psychology-conversions</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Technical Writing: Documentation Character Limits and Best Practices -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/technical-writing-documentation-character-limits</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Creation Workflow: Character Counting for Better Productivity -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-creation-workflow-character-counting-productivity</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Professional Communication: Character Limits for Effective Business Messaging -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/professional-communication-character-limits-business-messaging</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Grammar and Text Case: Language Rules for Perfect Writing -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/grammar-text-case-language-rules-perfect-writing</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Marketing: Text Case Strategies for Brand Consistency -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-marketing-text-case-brand-consistency</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Web Development: Text Case Best Practices for User Experience -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/web-development-text-case-user-experience-best-practices</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Creative Writing and Text Case: Stylistic Choices for Authors -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/creative-writing-text-case-stylistic-choices-authors</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Educational Content: Text Case Guidelines for Learning Materials -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/educational-content-text-case-guidelines-learning-materials</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Legal Writing: Text Case Conventions for Professional Documents -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/legal-writing-text-case-conventions-professional-documents</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Publishing and Editorial: Text Case Standards for Book Production -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/publishing-editorial-text-case-standards-book-production</loc>
+    <lastmod>2025-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Email Writing Best Practices for Professionals -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/email-writing-best-practices-professionals</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Technical Writing: Making Complex Ideas Simple -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/technical-writing-complex-ideas-simple</loc>
+    <lastmod>2025-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Marketing Strategy: A Complete Guide -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-marketing-strategy-complete-guide</loc>
+    <lastmod>2025-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Academic Writing: Research Papers and Essays -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/academic-writing-research-papers-essays</loc>
+    <lastmod>2025-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Creative Writing Techniques for Engaging Stories -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/creative-writing-techniques-engaging-stories</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Copywriting Psychology: Words That Sell -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/copywriting-psychology-words-that-sell</loc>
+    <lastmod>2025-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Grant Writing: Securing Funding for Projects -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/grant-writing-securing-funding-for-projects</loc>
+    <lastmod>2025-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Newsletter Writing: Building Subscriber Relationships -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/newsletter-writing-building-subscriber-relationships</loc>
+    <lastmod>2025-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Blog SEO: Optimizing Content for Search -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/blog-seo-optimizing-content-for-search</loc>
+    <lastmod>2025-08-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Screenwriting: Crafting Compelling Scripts -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/screenwriting-crafting-compelling-scripts</loc>
+    <lastmod>2025-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Resume Writing: Landing Your Dream Job -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/resume-writing-landing-your-dream-job</loc>
+    <lastmod>2025-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Press Release Writing: Getting Media Attention -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/press-release-writing-getting-media-attention</loc>
+    <lastmod>2025-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Website Copy: Converting Visitors to Customers -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/website-copy-converting-visitors-to-customers</loc>
+    <lastmod>2025-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Proposal Writing: Winning Business Deals -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/proposal-writing-winning-business-deals</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Product Description Writing: Selling with Words -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/product-description-writing-selling-with-words</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Editorial Writing: Expressing Opinions Effectively -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/editorial-writing-expressing-opinions-effectively</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Travel Writing: Capturing Experiences in Words -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/travel-writing-capturing-experiences-in-words</loc>
+    <lastmod>2025-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Food Writing: Making Readers Taste Your Words -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/food-writing-making-readers-taste-your-words</loc>
+    <lastmod>2025-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Keyword Density: How to Optimize Without Overstuffing -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/keyword-density-optimization-guide</loc>
+    <lastmod>2025-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Review Writing: Honest and Helpful Critiques -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/review-writing-honest-and-helpful-critiques</loc>
+    <lastmod>2025-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Interview Writing: Capturing Authentic Voices -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/interview-writing-capturing-authentic-voices</loc>
+    <lastmod>2025-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Memoir Writing: Telling Your Life Story -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/memoir-writing-telling-your-life-story</loc>
+    <lastmod>2025-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: The Psychology of Persuasive Writing -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/psychology-persuasive-writing</loc>
+    <lastmod>2025-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Children's Book Writing: Engaging Young Readers -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/children-s-book-writing-engaging-young-readers</loc>
+    <lastmod>2025-08-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Poetry Writing: Expressing Emotions Through Verse -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/poetry-writing-expressing-emotions-through-verse</loc>
+    <lastmod>2025-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Ghostwriting: Writing in Someone Else's Voice -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/ghostwriting-writing-in-someone-else-s-voice</loc>
+    <lastmod>2025-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Web Content Strategy: Planning Digital Presence -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/web-content-strategy-planning-digital-presence</loc>
+    <lastmod>2025-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Curation: Finding and Sharing Quality Content -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-curation-finding-and-sharing-quality-content</loc>
+    <lastmod>2025-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Writing for Mobile: Optimizing for Small Screens -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/writing-for-mobile-optimizing-for-small-screens</loc>
+    <lastmod>2025-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Voice and Tone: Developing Brand Personality -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/voice-and-tone-developing-brand-personality</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Writing Headlines That Get Clicks -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/writing-headlines-that-get-clicks</loc>
+    <lastmod>2025-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Content Calendar Planning: Organizing Your Strategy -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/content-calendar-planning-organizing-your-strategy</loc>
+    <lastmod>2025-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Blogging for Beginners: Complete Startup Guide -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/blogging-beginners-complete-startup-guide</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Writing for Different Generations -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/writing-for-different-generations</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: International Writing: Cultural Considerations -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/international-writing-cultural-considerations</loc>
+    <lastmod>2025-08-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Legal Writing: Clear and Precise Documentation -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/legal-writing-clear-and-precise-documentation</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Medical Writing: Communicating Health Information -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/medical-writing-communicating-health-information</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Scientific Writing: Presenting Research Clearly -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/scientific-writing-presenting-research-clearly</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Financial Writing: Explaining Complex Concepts -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/financial-writing-explaining-complex-concepts</loc>
+    <lastmod>2025-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Real Estate Writing: Property Descriptions That Sell -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/real-estate-writing-property-descriptions-that-sell</loc>
+    <lastmod>2025-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Non-Profit Writing: Inspiring Action for Causes -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/non-profit-writing-inspiring-action-for-causes</loc>
+    <lastmod>2025-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Event Writing: Promoting and Documenting Gatherings -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/event-writing-promoting-and-documenting-gatherings</loc>
+    <lastmod>2025-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Sports Writing: Capturing Athletic Excellence -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/sports-writing-capturing-athletic-excellence</loc>
+    <lastmod>2025-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Fashion Writing: Describing Style and Trends -->
+  <url>
+    <loc>https://wordcounterplusapp.com/blog/fashion-writing-describing-style-and-trends</loc>
+    <lastmod>2025-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

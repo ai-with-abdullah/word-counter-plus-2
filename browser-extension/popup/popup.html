@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter Plus</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header with Real Logo -->
+    <header class="header">
+      <a href="https://wordcounterplusapp.com" target="_blank" rel="noopener noreferrer" class="logo-container">
+        <img src="../icons/logo.png" alt="Word Counter Plus" class="logo-image">
+        <h1 class="site-title">Word Counter Plus</h1>
+      </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="analyze">Analyze</button>
+        <button class="tab-btn" data-tab="keywords">Keywords</button>
+        <button class="tab-btn" data-tab="advanced">Advanced</button>
+        <button class="tab-btn" data-tab="tools">Tools</button>
+        <button class="tab-btn" data-tab="history">History</button>
+        <button class="tab-btn" data-tab="export">Export</button>
+      </div>
+
+      <!-- Tab: Analyze -->
+      <div class="tab-content active" id="analyze-tab">
+        <div class="input-section">
+          <textarea 
+            id="textInput" 
+            placeholder="Paste your text here or select text on any webpage and right-click..."
+            rows="4"
+          ></textarea>
+          <div class="button-group">
+            <button id="clearBtn" class="btn-secondary-small">Clear Text</button>
+            <button id="copyBtn" class="btn-secondary-small">Copy Text</button>
+          </div>
+        </div>
+
+        <div id="results" class="results hidden">
+          <!-- Stats Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" id="wordCount">0</div>
+              <div class="stat-label">WORDS</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="charCount">0</div>
+              <div class="stat-label">CHARACTERS</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="charNoSpaces">0</div>
+              <div class="stat-label">CHARS (NO SPACE)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="sentenceCount">0</div>
+              <div class="stat-label">SENTENCES</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="paragraphCount">0</div>
+              <div class="stat-label">PARAGRAPHS</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="lineCount">0</div>
+              <div class="stat-label">LINES</div>
+            </div>
+          </div>
+
+          <!-- Readability -->
+          <div class="readability-section">
+            <h3>Readability Analysis</h3>
+            <div class="readability-card">
+              <div class="score-value" id="readabilityScore">0</div>
+              <div class="score-label" id="readabilityLevel">Standard</div>
+            </div>
+          </div>
+
+          <!-- Extra Stats -->
+          <div class="extra-stats">
+            <div class="stat-row">
+              <span class="label">Reading Time:</span>
+              <span class="value" id="readingTime">0 min</span>
+            </div>
+            <div class="stat-row">
+              <span class="label">Speaking Time:</span>
+              <span class="value" id="speakingTime">0 min</span>
+            </div>
+            <div class="stat-row">
+              <span class="label">Avg. Word Length:</span>
+              <span class="value" id="avgWordLength">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Keywords -->
+      <div class="tab-content" id="keywords-tab">
+        <div class="keywords-section">
+          <h3>Top Keywords & Frequency</h3>
+          <div id="keywordsList" class="keywords-list">
+            <p class="empty-state">Analyze text first to extract keywords</p>
+          </div>
+          
+          <div class="density-checker">
+            <h3>Keyword Density Checker</h3>
+            <input type="text" id="densityKeyword" placeholder="Enter keyword to check density..." class="density-input">
+            <button id="checkDensity" class="btn-primary">Check Density</button>
+            <div id="densityResult" class="density-result hidden">
+              <p><strong id="densityWord"></strong> appears <strong id="densityCount">0</strong> times (<strong id="densityPercent">0%</strong> density)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Advanced Statistics -->
+      <div class="tab-content" id="advanced-tab">
+        <div class="advanced-section">
+          <h3>Advanced Statistics</h3>
+          
+          <div class="stat-box">
+            <div class="stat-row">
+              <span class="label">Unique Words:</span>
+              <span class="value" id="uniqueWords">0</span>
+            </div>
+            <div class="stat-row">
+              <span class="label">Longest Word:</span>
+              <span class="value" id="longestWord">-</span>
+            </div>
+            <div class="stat-row">
+              <span class="label">Shortest Word:</span>
+              <span class="value" id="shortestWord">-</span>
+            </div>
+            <div class="stat-row">
+              <span class="label">Average Sentence Length:</span>
+              <span class="value" id="avgSentenceLength">0 words</span>
+            </div>
+          </div>
+
+          <h3>Word Frequency Chart</h3>
+          <div id="frequencyChart" class="frequency-chart">
+            <p class="empty-state">Analyze text to see word frequency</p>
+          </div>
+
+          <h3>Duplicate Words</h3>
+          <div id="duplicateWords" class="duplicates-list">
+            <p class="empty-state">Analyze text to find duplicates</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Text Tools -->
+      <div class="tab-content" id="tools-tab">
+        <div class="tools-section">
+          <h3>Text Transformation Tools</h3>
+          
+          <!-- Text Area for Tools -->
+          <div class="tools-input-section">
+            <textarea 
+              id="toolsTextInput" 
+              placeholder="Paste or type your text here to transform..."
+              rows="4"
+            ></textarea>
+            <div class="tools-actions">
+              <button id="toolsClear" class="btn-secondary-small">Clear Text</button>
+              <button id="toolsCopy" class="btn-secondary-small">Copy Text</button>
+            </div>
+          </div>
+          
+          <div class="tool-group">
+            <label class="tool-label">Case Converter:</label>
+            <div class="button-row">
+              <button class="tool-btn" id="uppercase">UPPERCASE</button>
+              <button class="tool-btn" id="lowercase">lowercase</button>
+              <button class="tool-btn" id="titlecase">Title Case</button>
+              <button class="tool-btn" id="sentencecase">Sentence case</button>
+            </div>
+          </div>
+
+          <div class="tool-group">
+            <label class="tool-label">Text Cleanup:</label>
+            <div class="button-row">
+              <button class="tool-btn" id="removeSpaces">Remove Extra Spaces</button>
+              <button class="tool-btn" id="removeBreaks">Remove Line Breaks</button>
+              <button class="tool-btn" id="trimText">Trim Text</button>
+            </div>
+          </div>
+
+          <div class="tool-group">
+            <label class="tool-label">Text Manipulation:</label>
+            <div class="button-row">
+              <button class="tool-btn" id="reverseText">Reverse Text</button>
+              <button class="tool-btn" id="sortLines">Sort Lines A-Z</button>
+              <button class="tool-btn" id="removeDuplicateLines">Remove Duplicate Lines</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: History -->
+      <div class="tab-content" id="history-tab">
+        <div class="history-section">
+          <div class="history-header">
+            <h3>Analysis History</h3>
+            <button id="clearHistory" class="btn-secondary-small">Clear All</button>
+          </div>
+          <div id="historyList" class="history-list">
+            <p class="empty-state">No history yet. Start analyzing text!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Export -->
+      <div class="tab-content" id="export-tab">
+        <div class="export-section">
+          <h3>Export Analysis Results</h3>
+          <button class="export-btn" id="exportTXT">📄 Download as Text File</button>
+          <button class="export-btn" id="exportCSV">📊 Download as CSV</button>
+          <button class="export-btn" id="exportJSON">💾 Download as JSON</button>
+          <button class="export-btn" id="copyResults">📋 Copy to Clipboard</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-buttons">
+        <a href="https://wordcounterplusapp.com/tools" target="_blank" rel="noopener noreferrer" class="footer-btn footer-btn-primary">
+          More Text Tools →
+        </a>
+        <a href="https://wordcounterplusapp.com/contact" target="_blank" rel="noopener noreferrer" class="footer-btn footer-btn-secondary">
+          Contact
+        </a>
+      </div>
+      
+      <div class="footer-legal">
+        <a href="https://wordcounterplusapp.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+        <span>·</span>
+        <a href="https://wordcounterplusapp.com/terms" target="_blank" rel="noopener noreferrer">Terms</a>
+      </div>
+      
+      <div class="footer-credit">
+        <a href="https://wordcounterplusapp.com" target="_blank" rel="noopener noreferrer">
+          Powered by Word Counter Plus
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../utils/textAnalysis.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

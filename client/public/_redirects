@@ -1,0 +1,14 @@
+# Redirects for SEO - Netlify/Vercel compatible
+
+# Ensure www to non-www redirect
+https://www.wordcounterplusapp.com/*  https://wordcounterplusapp.com/:splat  301!
+
+# Redirect HTTP to HTTPS
+http://wordcounterplusapp.com/*  https://wordcounterplusapp.com/:splat  301!
+http://www.wordcounterplusapp.com/*  https://wordcounterplusapp.com/:splat  301!
+
+# Remove trailing slashes for consistency (except root)
+/*/  /:splat  301!
+
+# Fallback for SPA (must be last)
+/*  /index.html  200
