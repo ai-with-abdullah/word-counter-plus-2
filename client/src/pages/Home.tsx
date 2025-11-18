@@ -196,6 +196,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Comparisons Section */}
+      <section className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 bg-muted/30 dark:bg-muted/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
+              Why Choose Word Counter Plus?
+            </h2>
+            <p className="text-muted-foreground text-sm sm:text-base max-w-3xl mx-auto">
+              See how Word Counter Plus compares to popular alternatives. We offer all premium features completely free - no subscriptions, no ads, no limitations.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="bg-card rounded-lg p-4 border border-border text-center">
+              <FaCheckCircle className="text-green-500 text-2xl mx-auto mb-2" />
+              <h3 className="font-semibold mb-1">100% Free Forever</h3>
+              <p className="text-xs text-muted-foreground">All features included</p>
+            </div>
+            <div className="bg-card rounded-lg p-4 border border-border text-center">
+              <FaCheckCircle className="text-green-500 text-2xl mx-auto mb-2" />
+              <h3 className="font-semibold mb-1">No Advertisements</h3>
+              <p className="text-xs text-muted-foreground">Clean, distraction-free</p>
+            </div>
+            <div className="bg-card rounded-lg p-4 border border-border text-center">
+              <FaCheckCircle className="text-green-500 text-2xl mx-auto mb-2" />
+              <h3 className="font-semibold mb-1">Privacy Focused</h3>
+              <p className="text-xs text-muted-foreground">No data storage</p>
+            </div>
+            <div className="bg-card rounded-lg p-4 border border-border text-center">
+              <FaCheckCircle className="text-green-500 text-2xl mx-auto mb-2" />
+              <h3 className="font-semibold mb-1">All-in-One Platform</h3>
+              <p className="text-xs text-muted-foreground">15+ tools included</p>
+            </div>
+          </div>
+          <div className="text-center">
+            <Link href="/comparisons">
+              <span className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 font-medium transition-colors" data-testid="button-view-comparisons">
+                Compare with Competitors
+                <FaArrowRight className="ml-2" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Blog Posts Section */}
       <section className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 min-h-[600px]">
         <div className="max-w-6xl mx-auto">

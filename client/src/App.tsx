@@ -48,6 +48,7 @@ const Admin = lazy(() => import("@/pages/Admin"));
 const Download = lazy(() => import("@/pages/Download"));
 
 // Comparison pages
+const Comparisons = lazy(() => import("@/pages/Comparisons"));
 const VsWordCounter = lazy(() => import("@/pages/comparisons/VsWordCounter"));
 const VsCharacterCount = lazy(() => import("@/pages/comparisons/VsCharacterCount"));
 const VsGrammarly = lazy(() => import("@/pages/comparisons/VsGrammarly"));
@@ -103,6 +104,7 @@ function Router() {
             <Route path="/loading-demo" component={LoadingDemo} />
             <Route path="/admin" component={Admin} />
             <Route path="/download" component={Download} />
+            <Route path="/comparisons" component={Comparisons} />
             <Route path="/vs-wordcounter" component={VsWordCounter} />
             <Route path="/vs-charactercount" component={VsCharacterCount} />
             <Route path="/vs-grammarly" component={VsGrammarly} />
