@@ -183,8 +183,8 @@ export default function RelatedToolsSidebar({ currentTool, limit = 5 }: RelatedT
 
   return (
     <div className="space-y-4 sm:space-y-6 w-full max-w-xs">
-      {/* Related Tools */}
-      <div className="bg-card rounded-lg p-4 shadow-sm border border-border">
+      {/* Related Tools - min-height prevents CLS */}
+      <div className="bg-card rounded-lg p-4 shadow-sm border border-border min-h-[400px]">
         <h3 className="text-lg font-semibold text-foreground mb-4 border-b border-border pb-2">Related Tools</h3>
         <div className="grid grid-cols-1 gap-3">
           {filteredRelatedTools.map((tool) => {

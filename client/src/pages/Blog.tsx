@@ -121,17 +121,17 @@ export default function Blog() {
           </p>
         </div>
 
-        {/* Blog Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Blog Posts Grid - min-height prevents CLS during image loading */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[800px]">
           {currentPosts.map((post, index) => (
             <article 
               key={`${post.id}-${index}`}
-              className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow overflow-hidden"
+              className="bg-card rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow overflow-hidden min-h-[450px]"
               data-testid={`blog-post-${post.id}`}
             >
               {/* Featured Image */}
               {post.image && (
-                <div className="aspect-video">
+                <div className="aspect-video bg-muted">
                   <OptimizedImage
                     src={post.image}
                     alt={post.title}

@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Progress } from '@/components/ui/progress';
-import jsPDF from 'jspdf';
 import { 
   FaDownload, 
   FaFileAlt, 
@@ -116,6 +115,8 @@ export default function Download() {
       if (selectedFormat === 'pdf') {
         finalFilename = finalFilename + '.pdf';
         
+        // Dynamic import for jsPDF to reduce initial bundle size
+        const { default: jsPDF } = await import('jspdf');
         const pdf = new jsPDF();
         const pageWidth = pdf.internal.pageSize.getWidth();
         const pageHeight = pdf.internal.pageSize.getHeight();

@@ -7,6 +7,8 @@ import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import viteImagemin from "vite-plugin-imagemin";
 import webp from "imagemin-webp";
+import viteCompression from "vite-plugin-compression";
+import { visualizer } from "rollup-plugin-visualizer";
 
 // Small helper to resolve paths
 const r = (...segments: string[]) => path.resolve(process.cwd(), ...segments);
@@ -36,6 +38,27 @@ export default defineConfig({
                 { name: "removeEmptyAttrs", active: false },
               ],
             },
+          }),
+          // Brotli compression for maximum compression
+          viteCompression({
+            algorithm: "brotliCompress",
+            ext: ".br",
+            threshold: 1024, // Only compress files larger than 1KB
+            deleteOriginFile: false,
+          }),
+          // Gzip compression as fallback for older browsers
+          viteCompression({
+            algorithm: "gzip",
+            ext: ".gz",
+            threshold: 1024,
+            deleteOriginFile: false,
+          }),
+          // Bundle analyzer
+          visualizer({
+            filename: "dist/stats.html",
+            open: false,
+            gzipSize: true,
+            brotliSize: true,
           }),
         ]
       : []),

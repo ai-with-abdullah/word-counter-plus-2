@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { type Server } from "http";
+import expressStaticGzip from "express-static-gzip";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -283,17 +284,21 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // Serve static files with aggressive caching for production performance
-  app.use(express.static(distPath, {
-    maxAge: '1y', // Cache static assets for 1 year
-    etag: true,
-    lastModified: true,
-    setHeaders: (res, path) => {
-      // Different cache strategies for different file types
-      if (path.endsWith('.html')) {
-        res.setHeader('Cache-Control', 'no-cache'); // HTML should not be cached
-      } else if (path.match(/\.(js|css|woff2?|png|jpg|jpeg|gif|svg|ico)$/)) {
-        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 year cache for assets
+  // Serve precompressed Brotli/Gzip files for better performance
+  app.use(expressStaticGzip(distPath, {
+    enableBrotli: true,
+    orderPreference: ['br', 'gz'], // Prefer Brotli over Gzip
+    serveStatic: {
+      maxAge: '1y', // Cache static assets for 1 year
+      etag: true,
+      lastModified: true,
+      setHeaders: (res, filePath) => {
+        // Different cache strategies for different file types
+        if (filePath.endsWith('.html')) {
+          res.setHeader('Cache-Control', 'no-cache'); // HTML should not be cached
+        } else if (filePath.match(/\.(js|css|woff2?|png|jpg|jpeg|gif|svg|ico)$/)) {
+          res.setHeader('Cache-Control', 'public, max-age=31536000, immutable'); // 1 year cache for assets
+        }
       }
     }
   }));
