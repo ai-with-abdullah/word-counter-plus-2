@@ -57,33 +57,40 @@ export default function ComparisonTemplate({
   const renderValue = (value: boolean | string) => {
     if (typeof value === 'boolean') {
       return value ? (
-        <Check className="w-5 h-5 text-green-600 dark:text-green-400" data-testid="icon-check" />
+        <div className="flex justify-center">
+          <Check className="w-5 h-5 text-green-600 dark:text-green-400" data-testid="icon-check" />
+        </div>
       ) : (
-        <X className="w-5 h-5 text-red-600 dark:text-red-400" data-testid="icon-cross" />
+        <div className="flex justify-center">
+          <X className="w-5 h-5 text-red-600 dark:text-red-400" data-testid="icon-cross" />
+        </div>
       );
     }
-    return <span className="text-sm text-muted-foreground">{value}</span>;
+    return (
+      <div className="flex justify-center">
+        <span className="text-sm text-muted-foreground">{value}</span>
+      </div>
+    );
   };
 
   return (
     <>
-
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4" data-testid="text-heading">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 max-w-6xl">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4" data-testid="text-heading">
             {heading}
           </h1>
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6">
             {introduction}
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <Link href="/">
-              <Button data-testid="button-try-free">
+              <Button className="w-full sm:w-auto" data-testid="button-try-free">
                 Try Word Counter Plus Free
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
-            <Button variant="outline" asChild data-testid="button-visit-competitor">
+            <Button variant="outline" asChild className="w-full sm:w-auto" data-testid="button-visit-competitor">
               <a href={competitorUrl} target="_blank" rel="noopener noreferrer">
                 Visit {competitorName}
               </a>
@@ -91,26 +98,30 @@ export default function ComparisonTemplate({
           </div>
         </div>
 
-        <Card className="mb-8">
+        <Card className="mb-6 sm:mb-8">
           <CardHeader>
-            <CardTitle data-testid="text-features-comparison">Feature Comparison</CardTitle>
+            <CardTitle className="text-lg sm:text-xl" data-testid="text-features-comparison">Feature Comparison</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-0 sm:p-6">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[500px]">
                 <thead>
                   <tr className="border-b">
-                    <th className="text-left py-3 px-2 font-semibold">Feature</th>
-                    <th className="text-center py-3 px-2 font-semibold">Word Counter Plus</th>
-                    <th className="text-center py-3 px-2 font-semibold">{competitorName}</th>
+                    <th className="text-left py-3 px-3 sm:px-4 font-semibold text-sm sm:text-base">Feature</th>
+                    <th className="py-3 px-3 sm:px-4 font-semibold text-sm sm:text-base w-[140px] sm:w-[180px]">
+                      <div className="flex justify-center">Word Counter Plus</div>
+                    </th>
+                    <th className="py-3 px-3 sm:px-4 font-semibold text-sm sm:text-base w-[140px] sm:w-[180px]">
+                      <div className="flex justify-center">{competitorName}</div>
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {features.map((feature, index) => (
-                    <tr key={index} className="border-b" data-testid={`row-feature-${index}`}>
-                      <td className="py-3 px-2 font-medium">{feature.name}</td>
-                      <td className="py-3 px-2 text-center">{renderValue(feature.us)}</td>
-                      <td className="py-3 px-2 text-center">{renderValue(feature.competitor)}</td>
+                    <tr key={index} className="border-b last:border-b-0" data-testid={`row-feature-${index}`}>
+                      <td className="py-3 px-3 sm:px-4 font-medium text-sm sm:text-base">{feature.name}</td>
+                      <td className="py-3 px-3 sm:px-4">{renderValue(feature.us)}</td>
+                      <td className="py-3 px-3 sm:px-4">{renderValue(feature.competitor)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -119,20 +130,20 @@ export default function ComparisonTemplate({
           </CardContent>
         </Card>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
           <Card>
             <CardHeader>
-              <CardTitle data-testid="text-pricing-title">Pricing</CardTitle>
+              <CardTitle className="text-lg sm:text-xl" data-testid="text-pricing-title">Pricing</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold mb-1">Word Counter Plus</h3>
-                  <p className="text-muted-foreground">{pricing.us}</p>
+                  <h3 className="font-semibold mb-1 text-sm sm:text-base">Word Counter Plus</h3>
+                  <p className="text-muted-foreground text-sm sm:text-base">{pricing.us}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">{competitorName}</h3>
-                  <p className="text-muted-foreground">{pricing.competitor}</p>
+                  <h3 className="font-semibold mb-1 text-sm sm:text-base">{competitorName}</h3>
+                  <p className="text-muted-foreground text-sm sm:text-base">{pricing.competitor}</p>
                 </div>
               </div>
             </CardContent>
@@ -140,13 +151,13 @@ export default function ComparisonTemplate({
 
           <Card>
             <CardHeader>
-              <CardTitle data-testid="text-pros-cons-title">Pros & Cons</CardTitle>
+              <CardTitle className="text-lg sm:text-xl" data-testid="text-pros-cons-title">Pros & Cons</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold mb-2 text-green-600 dark:text-green-400">Word Counter Plus</h3>
-                  <ul className="space-y-1 text-sm">
+                  <h3 className="font-semibold mb-2 text-green-600 dark:text-green-400 text-sm sm:text-base">Word Counter Plus</h3>
+                  <ul className="space-y-1 text-xs sm:text-sm">
                     {pros.us.map((pro, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -156,8 +167,8 @@ export default function ComparisonTemplate({
                   </ul>
                   {cons.us.length > 0 && (
                     <>
-                      <h4 className="font-semibold mt-3 mb-2 text-red-600 dark:text-red-400">Cons</h4>
-                      <ul className="space-y-1 text-sm">
+                      <h4 className="font-semibold mt-3 mb-2 text-red-600 dark:text-red-400 text-sm sm:text-base">Cons</h4>
+                      <ul className="space-y-1 text-xs sm:text-sm">
                         {cons.us.map((con, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <X className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -173,14 +184,14 @@ export default function ComparisonTemplate({
           </Card>
         </div>
 
-        <Card className="mb-8">
+        <Card className="mb-6 sm:mb-8">
           <CardHeader>
-            <CardTitle data-testid="text-conclusion-title">Conclusion</CardTitle>
+            <CardTitle className="text-lg sm:text-xl" data-testid="text-conclusion-title">Conclusion</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">{conclusion}</p>
+            <p className="text-muted-foreground mb-4 text-sm sm:text-base">{conclusion}</p>
             <Link href="/">
-              <Button data-testid="button-get-started">
+              <Button className="w-full sm:w-auto" data-testid="button-get-started">
                 Get Started with Word Counter Plus - Free Forever
               </Button>
             </Link>
