@@ -4,6 +4,7 @@ import helmet from "helmet";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { initializeFirebase } from "./firebase";
+import sitemapRouter from "./sitemap";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -60,6 +61,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: false, limit: '10mb' }));
+
+// Sitemap route
+app.use(sitemapRouter);
 
 // Optimized logging middleware - only for API calls
 app.use("/api", (req, res, next) => {

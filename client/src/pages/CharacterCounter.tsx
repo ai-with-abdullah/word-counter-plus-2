@@ -904,7 +904,7 @@ ${new Date().toLocaleString()}
 
         {/* Related Tools Sidebar - Desktop Only (sticky on right) */}
         <div className="hidden lg:block">
-          <div className="sticky top-4">
+          <div className="sticky top-4 min-h-[600px]">
             <RelatedToolsSidebar currentTool="/character-counter" limit={5} />
           </div>
         </div>

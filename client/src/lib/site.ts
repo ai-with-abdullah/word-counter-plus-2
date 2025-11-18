@@ -1,8 +1,20 @@
 // Site configuration for multi-domain support
 // Main domain serves Word Counter, subdomain serves Text Case Converter
 
-export const MAIN_HOST = import.meta.env.VITE_MAIN_HOST || 'wordcounterplusapp.com';
-export const CASE_HOST = import.meta.env.VITE_CASE_HOST || 'textcase.wordcounterplusapp.com';
+// Handle both browser and server environments
+const getEnvVar = (key: string, fallback: string): string => {
+  if (typeof import.meta !== 'undefined' && import.meta.env) {
+    return import.meta.env[key] || fallback;
+  }
+  // Server-side: use process.env or fallback
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env[key] || fallback;
+  }
+  return fallback;
+};
+
+export const MAIN_HOST = getEnvVar('VITE_MAIN_HOST', 'wordcounterplusapp.com');
+export const CASE_HOST = getEnvVar('VITE_CASE_HOST', 'textcase.wordcounterplusapp.com');
 
 export const MAIN_ORIGIN = `https://${MAIN_HOST}`;
 export const CASE_ORIGIN = `https://${CASE_HOST}`;

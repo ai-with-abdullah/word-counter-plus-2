@@ -16,6 +16,66 @@ function escapeHtml(unsafe: string): string {
     .replace(/'/g, "&#039;");
 }
 
+// Tool page structured data injection for SEO
+async function injectToolStructuredData(template: string, toolPath: string): Promise<string> {
+  try {
+    log(`Attempting to inject structured data for tool: ${toolPath}`);
+    
+    // Map tool paths to their SEO config functions
+    const toolConfigMap: { [key: string]: string } = {
+      '/character-counter': 'getCharacterCounterSEO',
+      '/text-case-convert': 'getTextCaseConverterSEO',
+      '/word-frequency-counter': 'getWordFrequencyCounterSEO',
+      '/random-word-generator': 'getRandomWordGeneratorSEO',
+      '/words-per-page': 'getWordsPerPageSEO',
+      '/plagiarism-checker': 'getPlagiarismCheckerSEO',
+      '/resume-cv-checker': 'getResumeCVCheckerSEO',
+      '/seo-analyzer': 'getSEOContentAnalyzerSEO',
+      '/speech-to-text': 'getSpeechToTextSEO',
+      '/readability-calculator': 'getReadabilityCalculatorSEO',
+      '/grammar-checker': 'getGrammarCheckerSEO',
+      '/text-compare': 'getTextCompareSEO'
+    };
+    
+    const configFunctionName = toolConfigMap[toolPath];
+    if (!configFunctionName) {
+      log(`No SEO config found for tool path: ${toolPath}`);
+      return template;
+    }
+    
+    // Import the SEO config module
+    const toolSEOConfigs = await import("../client/src/lib/tool-seo-configs.ts");
+    const getSEOConfig = (toolSEOConfigs as any)[configFunctionName];
+    
+    if (typeof getSEOConfig !== 'function') {
+      log(`SEO config function ${configFunctionName} not found or not a function`);
+      return template;
+    }
+    
+    const seoConfig = getSEOConfig();
+    
+    if (!seoConfig.structuredData) {
+      log(`No structured data found in SEO config for ${toolPath}`);
+      return template;
+    }
+    
+    // Create the structured data script tag
+    const structuredDataScript = `
+    <script type="application/ld+json" data-seo-structured="true">
+    ${JSON.stringify(seoConfig.structuredData, null, 2)}
+    </script>`;
+    
+    // Inject the structured data into the head section (before closing </head>)
+    const injectedTemplate = template.replace('</head>', `${structuredDataScript}\n  </head>`);
+    log(`Successfully injected structured data for ${toolPath}`);
+    return injectedTemplate;
+    
+  } catch (error) {
+    log(`Error injecting tool structured data for ${toolPath}: ${error}`);
+    return template;
+  }
+}
+
 // Blog post meta tag injection for social media crawlers
 async function injectBlogPostMeta(template: string, slug: string): Promise<string> {
   try {
@@ -179,6 +239,20 @@ export async function setupVite(app: Express, server: Server) {
       // Cache template in memory for better performance  
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       
+      // Check if this is a tool page route and inject structured data
+      const toolPaths = [
+        '/character-counter', '/text-case-convert', '/word-frequency-counter',
+        '/random-word-generator', '/words-per-page', '/plagiarism-checker',
+        '/resume-cv-checker', '/seo-analyzer', '/speech-to-text',
+        '/readability-calculator', '/grammar-checker', '/text-compare'
+      ];
+      
+      if (toolPaths.some(path => url.startsWith(path))) {
+        const toolPath = toolPaths.find(path => url.startsWith(path))!;
+        log(`Matched tool route: ${toolPath}`);
+        template = await injectToolStructuredData(template, toolPath);
+      }
+      
       // Check if this is a blog post route and inject meta tags for social sharing
       const blogPostMatch = url.match(/^\/blog\/([^/?]+)/);
       if (blogPostMatch) {
@@ -228,6 +302,27 @@ export function serveStatic(app: Express) {
   app.use("*", async (req, res) => {
     const url = req.originalUrl;
     res.setHeader('Cache-Control', 'no-cache'); // Don't cache the fallback HTML
+    
+    // Check if this is a tool page route and inject structured data
+    const toolPaths = [
+      '/character-counter', '/text-case-convert', '/word-frequency-counter',
+      '/random-word-generator', '/words-per-page', '/plagiarism-checker',
+      '/resume-cv-checker', '/seo-analyzer', '/speech-to-text',
+      '/readability-calculator', '/grammar-checker', '/text-compare'
+    ];
+    
+    if (toolPaths.some(path => url.startsWith(path))) {
+      try {
+        const toolPath = toolPaths.find(path => url.startsWith(path))!;
+        const indexPath = path.resolve(distPath, "index.html");
+        let template = await fs.promises.readFile(indexPath, "utf-8");
+        template = await injectToolStructuredData(template, toolPath);
+        res.send(template);
+        return;
+      } catch (error) {
+        log(`Error serving tool page ${url}: ${error}`);
+      }
+    }
     
     // Check if this is a blog post route and inject meta tags for social sharing
     const blogPostMatch = url.match(/^\/blog\/([^/?]+)/);

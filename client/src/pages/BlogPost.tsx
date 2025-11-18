@@ -11,6 +11,15 @@ import {
   FaCalendar,
   FaCog
 } from 'react-icons/fa';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+import SocialShare from '@/components/ui/social-share';
 
 export default function BlogPost() {
   const [match, params] = useRoute('/blog/:slug');
@@ -125,7 +134,7 @@ export default function BlogPost() {
     twitterCard: 'summary_large_image',
     author: 'Word Counter Plus Team',
     siteName: 'Word Counter Plus',
-    structuredData: jsonLdSchema
+    structuredData: [jsonLdSchema, breadcrumbSchema]
   });
 
   // Convert markdown-style content to HTML-like JSX
@@ -230,29 +239,27 @@ export default function BlogPost() {
     <main className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         {/* Breadcrumb Navigation */}
-        <nav className="mb-4 text-sm" aria-label="Breadcrumb">
-          <ol className="flex items-center space-x-2 text-muted-foreground">
-            <li>
-              <Link href="/">
-                <span className="hover:text-primary transition-colors">Home</span>
-              </Link>
-            </li>
-            <li>
-              <span>/</span>
-            </li>
-            <li>
-              <Link href="/blog">
-                <span className="hover:text-primary transition-colors">Blog</span>
-              </Link>
-            </li>
-            <li>
-              <span>/</span>
-            </li>
-            <li className="text-foreground font-medium truncate max-w-[200px] sm:max-w-none" aria-current="page">
-              {post.title}
-            </li>
-          </ol>
-        </nav>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/blog">Blog</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="max-w-[200px] sm:max-w-none truncate">
+                {post.title}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
         {/* Back to Blog */}
         <div className="mb-8">
@@ -281,18 +288,27 @@ export default function BlogPost() {
             {post.title}
           </h1>
 
-          <div className="flex items-center text-muted-foreground text-sm">
-            <FaCalendar className="mr-2" aria-label="Calendar Icon" />
-            <span>
-              {new Date(post.publishDate).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
-            </span>
-            <span className="mx-2">•</span>
-            <FaCalendar className="mr-2" aria-label="Calendar Icon" />
-            <span>{post.readTime}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:justify-between">
+            <div className="flex items-center text-muted-foreground text-sm">
+              <FaCalendar className="mr-2" aria-label="Calendar Icon" />
+              <span>
+                {new Date(post.publishDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </span>
+              <span className="mx-2">•</span>
+              <FaCalendar className="mr-2" aria-label="Calendar Icon" />
+              <span>{post.readTime}</span>
+            </div>
+            
+            {/* Social Share */}
+            <SocialShare 
+              url={`${baseUrl}/blog/${post.slug}`}
+              title={post.title}
+              description={post.excerpt}
+            />
           </div>
         </header>
 
@@ -302,8 +318,10 @@ export default function BlogPost() {
             <OptimizedImage
               src={post.image}
               alt={post.title}
-              loading="lazy"
-              className="w-full rounded-lg shadow-md object-cover"
+              loading="eager"
+              width={1200}
+              height={675}
+              className="w-full rounded-lg shadow-md"
             />
           </div>
         )}
@@ -336,6 +354,8 @@ export default function BlogPost() {
                           alt={relatedPost.title}
                           className="w-full h-full object-cover rounded"
                           loading="lazy"
+                          width={400}
+                          height={225}
                         />
                       </div>
                     )}

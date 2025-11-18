@@ -137,6 +137,8 @@ export default function Blog() {
                     alt={post.title}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    width={1200}
+                    height={675}
                   />
                 </div>
               )}

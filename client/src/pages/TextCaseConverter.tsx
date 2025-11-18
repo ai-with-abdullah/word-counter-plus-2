@@ -1,11 +1,11 @@
 import TextCaseConverter from '@/components/text-tools/TextCaseConverter';
 import { useSEO } from '@/hooks/useSEO';
 import { getCurrentOrigin } from '@/lib/site';
-import { getTextCaseSEO } from '@/lib/seo-config';
+import { getTextCaseConverterSEO } from '@/lib/tool-seo-configs';
 
 export default function TextCaseConverterPage() {
   const currentOrigin = getCurrentOrigin();
-  const seoConfig = getTextCaseSEO();
+  const seoConfig = getTextCaseConverterSEO();
   
   useSEO({
     title: seoConfig.title,
@@ -14,8 +14,7 @@ export default function TextCaseConverterPage() {
     canonical: seoConfig.canonical,
     ogImage: seoConfig.ogImage,
     ogType: 'website',
-    structuredData: seoConfig.structuredData,
-    breadcrumbs: seoConfig.breadcrumbs
+    structuredData: seoConfig.structuredData
   });
 
   // SEO configuration with structured data is now handled by the useSEO hook
