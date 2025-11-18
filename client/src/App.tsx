@@ -47,6 +47,12 @@ const LoadingDemo = lazy(() => import("@/pages/LoadingDemo"));
 const Admin = lazy(() => import("@/pages/Admin"));
 const Download = lazy(() => import("@/pages/Download"));
 
+// Comparison pages
+const VsWordCounter = lazy(() => import("@/pages/comparisons/VsWordCounter"));
+const VsCharacterCount = lazy(() => import("@/pages/comparisons/VsCharacterCount"));
+const VsGrammarly = lazy(() => import("@/pages/comparisons/VsGrammarly"));
+const VsWordCountTool = lazy(() => import("@/pages/comparisons/VsWordCountTool"));
+
 // Loading fallback component
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-[50vh]">
@@ -97,6 +103,10 @@ function Router() {
             <Route path="/loading-demo" component={LoadingDemo} />
             <Route path="/admin" component={Admin} />
             <Route path="/download" component={Download} />
+            <Route path="/vs-wordcounter" component={VsWordCounter} />
+            <Route path="/vs-charactercount" component={VsCharacterCount} />
+            <Route path="/vs-grammarly" component={VsGrammarly} />
+            <Route path="/vs-wordcounttool" component={VsWordCountTool} />
           </>
         )}
         
