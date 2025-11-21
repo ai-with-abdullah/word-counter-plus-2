@@ -39,7 +39,7 @@ export default function Contact() {
     
     // Create WhatsApp message
     const whatsappMessage = `Name: ${formData.name}%0AEmail: ${formData.email}%0ASubject: ${formData.subject}%0AMessage: ${formData.message}`;
-    const whatsappURL = `https://wa.me/923194124382?text=${whatsappMessage}`;
+    const whatsappURL = `https://wa.me/923166155948?text=${whatsappMessage}`;
     
     // Open WhatsApp
     window.open(whatsappURL, '_blank');
