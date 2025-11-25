@@ -33,6 +33,12 @@ function getStaticPages() {
     { url: '/paragraph-counter', priority: 0.85, changefreq: 'weekly' },
     { url: '/line-counter', priority: 0.85, changefreq: 'weekly' },
     
+    { url: '/comparisons', priority: 0.85, changefreq: 'weekly' },
+    { url: '/vs-wordcounter', priority: 0.8, changefreq: 'weekly' },
+    { url: '/vs-charactercount', priority: 0.8, changefreq: 'weekly' },
+    { url: '/vs-grammarly', priority: 0.8, changefreq: 'weekly' },
+    { url: '/vs-wordcounttool', priority: 0.8, changefreq: 'weekly' },
+    
     { url: '/extension', priority: 0.8, changefreq: 'monthly' },
     { url: '/about', priority: 0.8, changefreq: 'monthly' },
     { url: '/blog', priority: 0.8, changefreq: 'daily' },
