@@ -614,27 +614,6 @@ export default function Extension() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-10 sm:py-12 md:py-16 bg-gradient-to-br from-red-50 via-background to-red-50/30 dark:from-red-950/20 dark:via-background dark:to-red-950/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
-            Extension Launching Soon!
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-            We've submitted our extension to all major browser stores. 
-            Check back soon to install it on your browser!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md mx-auto">
-            <div className="text-center bg-muted/50 px-4 sm:px-6 py-3 rounded-lg flex-1">
-              <div className="flex items-center justify-center gap-2 text-yellow-600 dark:text-yellow-500">
-                <FaHourglass className="w-4 h-4" />
-                <span className="font-semibold text-sm sm:text-base">Review in Progress</span>
-              </div>
-              <p className="text-xs text-muted-foreground mt-1">3-7 business days</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
