@@ -65,12 +65,12 @@ The readability score was 25 (basically college-level textbook difficulty). The 
 
 I reran the metrics after my rewrite: **readability score jumped to 65** (high school reading level). Same information. Same word count. Completely different impact.
 
-Here's what I discovered: [readability scores directly correlate to engagement](/tools/readability-analyzer). Articles scoring between 60-70 on the Flesch Reading Ease scale get:
+Here's what I discovered: [readability scores directly correlate to engagement](/readability-calculator). Articles scoring between 60-70 on the Flesch Reading Ease scale get:
 - 3.2x more reader engagement
 - 4.1x higher time-on-page (according to my own analytics over 200+ pieces)
 - 2.8x more social shares
 
-**My recommendation**: Don't optimize for readability alone. Optimize for YOUR audience. A financial article for accountants can score 30-40 (complex is expected). A blog post for general readers should hit 60-75. Use a [readability analyzer](/tools/readability-analyzer) to measure your target score in real-time.
+**My recommendation**: Don't optimize for readability alone. Optimize for YOUR audience. A financial article for accountants can score 30-40 (complex is expected). A blog post for general readers should hit 60-75. Use a [readability analyzer](/readability-calculator) to measure your target score in real-time.
 
 ### 2. Sentence Complexity (The Hidden Enemy)
 
@@ -107,7 +107,7 @@ Example: If my primary keyword is "word counter for students," I also naturally 
 - "word counting tool for academic writing"
 - "how to count words in essays"
 
-Google knows these are semantically related. It rewards natural, varied usage. If you're unsure about your keyword optimization, [check your content with an SEO analyzer](/tools/seo-optimizer) to ensure proper keyword distribution.
+Google knows these are semantically related. It rewards natural, varied usage. If you're unsure about your keyword optimization, [check your content with an SEO analyzer](/seo-content-analyzer) to ensure proper keyword distribution.
 
 ### 4. Paragraph Structure (The Underrated Metric)
 
@@ -160,13 +160,12 @@ Same content. Different metrics. Completely different results.
 Here's the problem: you can't measure these properly in Microsoft Word or Google Docs. Those platforms aren't built for performance analysis.
 
 What I use:
-- **Readability analysis**: [Real-time scoring tools that calculate Flesch Reading Ease](/tools/readability-analyzer), Gunning Fog Index, and other complexity metrics
-- **Keyword analysis**: Tools that show [keyword density](/tools/seo-optimizer), semantic variations, and naturally competing keywords
-- **Character & word metrics**: [Character counting and word analysis tools](/tools/character-counter) for precise content measurement
+- **Readability analysis**: [Real-time scoring tools that calculate Flesch Reading Ease](/readability-calculator), Gunning Fog Index, and other complexity metrics
+- **Character & word metrics**: [Character counting and word analysis tools](/character-counter) for precise content measurement
 - **Structure analysis**: Visual feedback showing paragraph lengths, sentence structure distribution, and content flow
 - **Performance prediction**: Algorithms that estimate how your content will perform based on millions of data points
 
-The best tools combine all of these into one real-time dashboard where you can see metrics as you write. Our [word counter](/tools/word-counter) and [readability analyzer](/tools/readability-analyzer) are designed exactly for this—lightweight, fast, and packed with the metrics that actually matter.
+The best tools combine all of these into one real-time dashboard where you can see metrics as you write. Our [word counter](/) and [readability analyzer](/readability-calculator) are designed exactly for this—lightweight, fast, and packed with the metrics that actually matter.
 
 ## My Personal Writing Formula (Based on What Actually Works)
 
@@ -193,7 +192,7 @@ Measure what matters. Everything else is noise.
 
 ---
 
-**Ready to measure what actually matters in your writing?** Start with our [word counter](/tools/word-counter), [readability analyzer](/tools/readability-analyzer), and [SEO optimizer](/tools/seo-optimizer)—all free, all designed to make you a better writer.
+**Ready to measure what actually matters in your writing?** Start with our [word counter](/), [readability analyzer](/readability-calculator), and [SEO optimizer](/seo-content-analyzer)—all free, all designed to make you a better writer.
 
 **What metrics do YOU focus on in your writing?** I'm genuinely interested. Reply in the comments or reach out on Twitter.`,
   },
