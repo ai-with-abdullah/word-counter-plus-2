@@ -137,6 +137,16 @@ export default function BlogPost() {
     structuredData: [jsonLdSchema, breadcrumbSchema]
   });
 
+  // Helper function to convert markdown links to HTML with proper handling of internal vs external links
+  const processMarkdownLink = (text: string) => {
+    return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, linkText, url) => {
+      // Check if it's an internal link (starts with /)
+      const isInternal = url.startsWith('/');
+      const target = isInternal ? '' : ' target="_blank" rel="noopener noreferrer"';
+      return `<a href="${url}" class="text-primary hover:text-primary/80 underline"${target}>${linkText}</a>`;
+    });
+  };
+
   // Convert markdown-style content to HTML-like JSX
   const renderContent = (content: string) => {
     const lines = content.split('\n');
@@ -174,12 +184,12 @@ export default function BlogPost() {
         const listItems = [];
         let j = i;
         while (j < lines.length && lines[j].trim().startsWith('- ')) {
-          const itemText = lines[j].trim().substring(2)
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary hover:text-primary/80 underline" target="_blank" rel="noopener noreferrer">$1</a>')
+          const itemText = lines[j].trim().substring(2);
+          const processedItemText = processMarkdownLink(itemText)
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/\*(.*?)\*/g, '<em>$1</em>');
           listItems.push(
-            <li key={key++} className="mb-2" dangerouslySetInnerHTML={{ __html: itemText }} />
+            <li key={key++} className="mb-2" dangerouslySetInnerHTML={{ __html: processedItemText }} />
           );
           j++;
         }
@@ -194,12 +204,12 @@ export default function BlogPost() {
         const listItems = [];
         let j = i;
         while (j < lines.length && lines[j].trim().match(/^\d+\. /)) {
-          const itemText = lines[j].trim().replace(/^\d+\. /, '')
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary hover:text-primary/80 underline" target="_blank" rel="noopener noreferrer">$1</a>')
+          const itemText = lines[j].trim().replace(/^\d+\. /, '');
+          const processedItemText = processMarkdownLink(itemText)
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/\*(.*?)\*/g, '<em>$1</em>');
           listItems.push(
-            <li key={key++} className="mb-2" dangerouslySetInnerHTML={{ __html: itemText }} />
+            <li key={key++} className="mb-2" dangerouslySetInnerHTML={{ __html: processedItemText }} />
           );
           j++;
         }
@@ -217,8 +227,7 @@ export default function BlogPost() {
         );
       } else {
         // Regular paragraph
-        const processedLine = line
-          .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary hover:text-primary/80 underline" target="_blank" rel="noopener noreferrer">$1</a>')
+        const processedLine = processMarkdownLink(line)
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
           .replace(/\*(.*?)\*/g, '<em>$1</em>');
 
