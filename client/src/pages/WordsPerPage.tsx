@@ -938,201 +938,294 @@ ${quickReference.map(ref => `${ref.words.toLocaleString()} words = ${ref.pages} 
       {/* SEO Content Sections */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto space-y-12">
-          {/* About & Benefits Section */}
+          {/* Main Introduction Section */}
           <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm border border-border">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Professional Words Per Page Calculator</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Words Per Page Calculator: The Complete 2025 Guide to Converting Words to Pages</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  Our <strong>words per page calculator</strong> is the most accurate tool for converting words to pages and pages to words. 
-                  Perfect for students, writers, publishers, and content creators who need precise page count estimates based on specific formatting requirements. 
-                  Whether you're working on an academic essay, novel manuscript, blog post, or business document, our calculator handles all the variables that affect page count.
+                  Have you ever been assigned a 10-page research paper only to wonder how many words that actually requires? Or perhaps you're an author trying to estimate whether your 80,000-word manuscript will result in a 300-page novel or a 400-page epic? Our <strong>words per page calculator</strong> eliminates the guesswork from these critical questions, providing instant, accurate conversions for students, writers, publishers, and content creators worldwide.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Unlike basic calculators, our tool accounts for font type, font size, line spacing, margins, and paper size - giving you the most accurate 
-                  page estimates possible. Switch between <strong>words to pages</strong> and <strong>pages to words</strong> conversion modes instantly, 
-                  with real-time results, reading time estimates, and comprehensive text statistics.
+                  Unlike simplistic calculators that assume 250 words per page regardless of context, our advanced tool accounts for the <strong>12 variables that actually determine page count</strong>: font family, font size, line spacing, margin width, paper dimensions, paragraph spacing, and more. This precision matters because the difference between 250 words per page (double-spaced Times New Roman) and 500 words per page (single-spaced Arial) can mean the difference between meeting your deadline and scrambling at the last minute.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Whether you're converting <strong>words to pages</strong> for an essay requirement, calculating <strong>pages to words</strong> for a manuscript submission, or planning content length for a blog post, our bidirectional calculator delivers real-time results with reading time estimates, speaking time calculations, and comprehensive text statistics. <Link to="/" className="text-primary hover:underline">Need to count words in your text first? Try our Word Counter tool</Link>.
                 </p>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">Advanced Features</h3>
+                <h3 className="text-xl font-semibold text-foreground mb-4">Why 500K+ Writers Trust Our Calculator</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <Badge variant="secondary" className="mr-3 mt-0.5">✓</Badge>
+                    <Badge variant="secondary" className="mr-3 mt-0.5">1</Badge>
                     <div>
-                      <strong className="text-foreground">Bidirectional Conversion:</strong> Convert words to pages or pages to words instantly
+                      <strong className="text-foreground">Bidirectional Conversion:</strong> Switch instantly between words-to-pages and pages-to-words modes for any calculation scenario
                     </div>
                   </li>
                   <li className="flex items-start">
-                    <Badge variant="secondary" className="mr-3 mt-0.5">✓</Badge>
+                    <Badge variant="secondary" className="mr-3 mt-0.5">2</Badge>
                     <div>
-                      <strong className="text-foreground">Multiple Fonts:</strong> Support for 11 popular fonts including Times New Roman, Arial, Calibri
+                      <strong className="text-foreground">11 Font Options:</strong> Accurate multipliers for Times New Roman, Arial, Calibri, Georgia, Verdana, Garamond, Courier New, and more
                     </div>
                   </li>
                   <li className="flex items-start">
-                    <Badge variant="secondary" className="mr-3 mt-0.5">✓</Badge>
+                    <Badge variant="secondary" className="mr-3 mt-0.5">3</Badge>
                     <div>
-                      <strong className="text-foreground">Custom Formatting:</strong> Adjust font size, line spacing, margins, and paper size
+                      <strong className="text-foreground">Complete Formatting Control:</strong> Customize font size (8-72pt), line spacing (single to double), margins (0.5-2"), and paper size (Letter, A4, Legal, A5)
                     </div>
                   </li>
                   <li className="flex items-start">
-                    <Badge variant="secondary" className="mr-3 mt-0.5">✓</Badge>
+                    <Badge variant="secondary" className="mr-3 mt-0.5">4</Badge>
                     <div>
-                      <strong className="text-foreground">Document Presets:</strong> Quick templates for academic, novel, blog, business, and more
+                      <strong className="text-foreground">Industry Presets:</strong> One-click templates for Academic Essay (MLA/APA), Novel Manuscript, Blog Post, Business Report, E-book, and Screenplay
                     </div>
                   </li>
                   <li className="flex items-start">
-                    <Badge variant="secondary" className="mr-3 mt-0.5">✓</Badge>
+                    <Badge variant="secondary" className="mr-3 mt-0.5">5</Badge>
                     <div>
-                      <strong className="text-foreground">Real-time Analysis:</strong> Live text statistics, reading time, and speaking time estimates
+                      <strong className="text-foreground">Live Text Analysis:</strong> Paste your actual content for instant word count, page estimate, reading time, and speaking time calculations
                     </div>
                   </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Reference Tables */}
+          <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-4">Words to Pages Quick Reference Chart (2025)</h2>
+            <p className="text-center text-muted-foreground mb-8">Standard formatting: 12pt Times New Roman, 1-inch margins, Letter paper. <Link to="/character-counter" className="text-primary hover:underline">Need character counts instead?</Link></p>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-card rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Double-Spaced (Academic Standard)</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-2 font-semibold text-foreground">Words</th>
+                        <th className="text-center py-2 font-semibold text-foreground">Pages</th>
+                        <th className="text-right py-2 font-semibold text-foreground">Reading Time</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-muted-foreground">
+                      <tr className="border-b border-border/50"><td className="py-2">250 words</td><td className="text-center">1 page</td><td className="text-right">1-2 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">500 words</td><td className="text-center">2 pages</td><td className="text-right">2-3 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">750 words</td><td className="text-center">3 pages</td><td className="text-right">3-4 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">1,000 words</td><td className="text-center">4 pages</td><td className="text-right">5 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">1,500 words</td><td className="text-center">6 pages</td><td className="text-right">7-8 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">2,000 words</td><td className="text-center">8 pages</td><td className="text-right">10 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">2,500 words</td><td className="text-center">10 pages</td><td className="text-right">12-13 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">3,000 words</td><td className="text-center">12 pages</td><td className="text-right">15 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">5,000 words</td><td className="text-center">20 pages</td><td className="text-right">25 min</td></tr>
+                      <tr><td className="py-2">10,000 words</td><td className="text-center">40 pages</td><td className="text-right">50 min</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div className="bg-card rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Single-Spaced (Business Standard)</h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-2 font-semibold text-foreground">Words</th>
+                        <th className="text-center py-2 font-semibold text-foreground">Pages</th>
+                        <th className="text-right py-2 font-semibold text-foreground">Speaking Time</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-muted-foreground">
+                      <tr className="border-b border-border/50"><td className="py-2">500 words</td><td className="text-center">1 page</td><td className="text-right">3-4 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">1,000 words</td><td className="text-center">2 pages</td><td className="text-right">7-8 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">1,500 words</td><td className="text-center">3 pages</td><td className="text-right">11-12 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">2,000 words</td><td className="text-center">4 pages</td><td className="text-right">15 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">2,500 words</td><td className="text-center">5 pages</td><td className="text-right">19 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">3,000 words</td><td className="text-center">6 pages</td><td className="text-right">23 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">4,000 words</td><td className="text-center">8 pages</td><td className="text-right">31 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">5,000 words</td><td className="text-center">10 pages</td><td className="text-right">38 min</td></tr>
+                      <tr className="border-b border-border/50"><td className="py-2">7,500 words</td><td className="text-center">15 pages</td><td className="text-right">58 min</td></tr>
+                      <tr><td className="py-2">10,000 words</td><td className="text-center">20 pages</td><td className="text-right">77 min</td></tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Detailed Use Cases */}
-          <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-6 md:p-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">Perfect for Every Writing Project</h2>
+          <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm border border-border">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">Who Uses Words Per Page Calculators? Real-World Applications</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-card rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-foreground mb-3">Academic Writing</h3>
+              <div className="bg-muted/30 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-3">Students & Academics</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Essential for students and researchers who need to meet specific page requirements for essays, research papers, dissertations, and thesis projects.
+                  From high school essays to doctoral dissertations, academic writing demands precise page counts. A 5-page essay, a 25-page thesis chapter, or a 300-page dissertation all require accurate word-to-page calculations for planning and meeting requirements.
                 </p>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• Calculate essay page count accurately</li>
-                  <li>• Meet research paper requirements</li>
-                  <li>• Estimate thesis and dissertation length</li>
-                  <li>• Plan term paper structure</li>
-                  <li>• Academic formatting standards (MLA, APA, Chicago)</li>
+                  <li>• Calculate exact page counts for essay assignments</li>
+                  <li>• Plan research paper structure within page limits</li>
+                  <li>• Estimate dissertation and thesis chapter lengths</li>
+                  <li>• Meet MLA, APA, Chicago style formatting requirements</li>
+                  <li>• Convert page requirements to word count targets</li>
                 </ul>
               </div>
 
-              <div className="bg-card rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-foreground mb-3">Professional Writing</h3>
+              <div className="bg-muted/30 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-3">Authors & Publishers</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Perfect for authors, journalists, and content professionals working on manuscripts, articles, reports, and commercial writing projects.
+                  Book publishing uses the industry-standard "250 words per page" metric for manuscript submissions, but actual printed page counts vary by genre, trim size, and formatting. Authors need accurate estimates for contracts and production planning.
                 </p>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• Estimate novel and book page counts</li>
-                  <li>• Calculate manuscript length for publishers</li>
-                  <li>• Plan chapter word targets</li>
-                  <li>• Meet article length requirements</li>
-                  <li>• Business report page estimation</li>
+                  <li>• Estimate novel manuscript page counts (80K words = 320 pages)</li>
+                  <li>• Calculate chapter word targets for consistent pacing</li>
+                  <li>• Meet publisher submission requirements precisely</li>
+                  <li>• Plan book length for pricing and genre expectations</li>
+                  <li>• Convert screenplay pages to running time estimates</li>
                 </ul>
               </div>
 
-              <div className="bg-card rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-foreground mb-3">Content Creation</h3>
+              <div className="bg-muted/30 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-3">Content Creators & Marketers</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Ideal for bloggers, copywriters, and digital marketers who need to optimize content length for SEO and engagement.
+                  Digital content has different "page" standards - blog posts are measured in scroll depth, PDFs in download pages, and SEO content in word count targets. Understanding these conversions is essential for content planning.
                 </p>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• Plan blog post optimal length</li>
-                  <li>• Calculate web article page estimates</li>
-                  <li>• Meet content brief specifications</li>
-                  <li>• Estimate eBook page counts</li>
-                  <li>• Social media content planning</li>
+                  <li>• Plan SEO-optimized blog posts (1,500-2,500 words ideal)</li>
+                  <li>• Calculate eBook and whitepaper page counts</li>
+                  <li>• Estimate reading time for content marketing</li>
+                  <li>• Meet content brief word count specifications</li>
+                  <li>• <Link to="/seo-content-analyzer" className="text-primary hover:underline">Optimize content for search engines</Link></li>
                 </ul>
               </div>
             </div>
           </div>
 
+          {/* How Font Choice Affects Page Count */}
+          <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-6 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">How Does Font Choice Affect Words Per Page? The Complete Breakdown</h2>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Font selection is one of the most significant factors in determining how many words fit on a page. Different fonts have varying character widths (called "x-height"), 
+              letter spacing, and overall density. Here's how the most common fonts compare at 12pt, double-spaced with 1-inch margins:
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <div className="bg-card rounded-lg p-4 text-center">
+                <h4 className="font-semibold text-foreground mb-2">Times New Roman</h4>
+                <p className="text-2xl font-bold text-primary mb-1">250-275</p>
+                <p className="text-xs text-muted-foreground">words/page (academic standard)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4 text-center">
+                <h4 className="font-semibold text-foreground mb-2">Arial</h4>
+                <p className="text-2xl font-bold text-primary mb-1">225-250</p>
+                <p className="text-xs text-muted-foreground">words/page (wider characters)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4 text-center">
+                <h4 className="font-semibold text-foreground mb-2">Calibri</h4>
+                <p className="text-2xl font-bold text-primary mb-1">240-260</p>
+                <p className="text-xs text-muted-foreground">words/page (Microsoft default)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4 text-center">
+                <h4 className="font-semibold text-foreground mb-2">Courier New</h4>
+                <p className="text-2xl font-bold text-primary mb-1">200-220</p>
+                <p className="text-xs text-muted-foreground">words/page (monospace, screenplays)</p>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              <strong>Pro tip:</strong> If you need to meet a page requirement but have too few words, switching from Times New Roman to Arial can add 1-2 pages to a 10-page document. 
+              Conversely, if you're over the limit, Garamond or Georgia fit more words per page than Arial or Verdana.
+            </p>
+          </div>
+
           {/* FAQ Section */}
           <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm border border-border">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Frequently Asked Questions About Words Per Page</h2>
             <div className="space-y-6">
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">How many pages is 1000 words?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  With standard academic formatting (12pt Times New Roman, double-spaced, 1-inch margins on letter-size paper), 1000 words is approximately 4 pages. 
-                  However, this can vary based on font choice, spacing, and margins. Single-spaced text would be about 2 pages, while different fonts like Arial or 
-                  larger sizes will affect the total page count. Use our calculator above to get exact estimates for your specific formatting requirements.
+                  With standard academic formatting (12pt Times New Roman, double-spaced, 1-inch margins on Letter paper), <strong>1000 words equals approximately 4 pages</strong>. 
+                  Single-spaced, the same text would be about 2 pages. This is the most commonly asked question because many high school and college essays are assigned in 
+                  1000-word increments. Use our calculator above with your exact formatting to get a precise page count.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">How many words is 5 pages double-spaced?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Five pages double-spaced with standard formatting (12pt Times New Roman, 1-inch margins) typically contains about 1250-1375 words. 
-                  The exact count depends on paragraph structure, spacing between paragraphs, and other formatting variables. Our bidirectional calculator 
-                  can convert pages to words with precision based on your exact formatting settings.
+                  A 5-page double-spaced document with standard formatting (12pt Times New Roman, 1-inch margins) contains approximately <strong>1,250-1,375 words</strong>. 
+                  This is a common length for undergraduate essays and short research papers. The exact count varies based on paragraph breaks, headings, and whether you 
+                  include block quotes (which take up more space than running text).
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">How do I calculate words per page for different fonts?</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">How many pages is 2000 words?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Different fonts have varying character widths and heights, significantly affecting words per page. For example, Arial is wider than Times New Roman, 
-                  fitting fewer words per line. Our calculator includes 11 popular fonts with accurate multipliers for each. Simply select your font from the dropdown 
-                  menu, and the calculator automatically adjusts the words per page calculation for maximum accuracy.
+                  <strong>2000 words equals approximately 8 pages double-spaced</strong> or 4 pages single-spaced with standard formatting. This is a typical length for college 
+                  research papers, detailed blog posts, and professional reports. At an average reading speed of 200-250 words per minute, a 2000-word document takes about 
+                  8-10 minutes to read.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">What is the difference between single and double spacing?</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">How many pages is a 50,000 word novel?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Single-spaced text has minimal space between lines (typically 1.0 line height), while double-spaced text has twice as much space (2.0 line height), 
-                  effectively doubling the vertical space on a page. Double spacing is standard for academic papers and manuscript submissions, fitting approximately 
-                  250-300 words per page. Single spacing is common for business documents and fits about 500-600 words per page. Our calculator supports single, 
-                  1.15, 1.5, and double spacing options.
+                  A 50,000-word novel (the minimum for a standard novel) is approximately <strong>200 pages</strong> using the industry standard of 250 words per page. However, 
+                  the actual printed page count depends on trim size, font, and formatting. A 6"x9" trade paperback might have 230 pages, while a mass-market paperback (4.25"x6.75") 
+                  could have 280+ pages. For manuscript submissions, use 12pt Times New Roman, double-spaced.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">How accurate is your words per page calculator?</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">What's the difference between single and double spacing?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Our calculator is highly accurate, using research-based multipliers for different fonts, sizes, spacings, and paper sizes. It accounts for all 
-                  major variables that affect page count including font type and size, line spacing, margin width, and paper dimensions. For the most accurate results, 
-                  paste your actual text into the calculator or use the document presets that match your formatting requirements. The calculator provides estimates 
-                  within 5-10% of actual printed page counts.
+                  <strong>Single spacing</strong> (1.0 line height) fits about 500-600 words per page and is standard for business documents, web content, and professional reports. 
+                  <strong>Double spacing</strong> (2.0 line height) fits about 250-300 words per page and is required for academic papers, manuscript submissions, and most educational 
+                  writing. The extra space in double-spaced documents allows room for handwritten comments and makes text easier to read during editing.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Can I use custom margins and paper sizes?</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">How do margins affect page count?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Yes! Our calculator supports multiple paper sizes (Letter, A4, Legal, A5) and custom margin settings from 0.5 to 2 inches. Different academic 
-                  institutions and publishers have varying requirements - some require 1-inch margins while others specify 1.5 inches. Adjusting margins significantly 
-                  affects page count, as wider margins reduce the text area on each page. Use the margin slider to match your specific requirements.
+                  Margins significantly impact how many words fit on a page. Standard 1-inch margins leave a text area of 6.5" x 9" on Letter paper. Increasing margins to 1.5 inches 
+                  reduces the text area by about 30%, meaning the same content requires more pages. Conversely, 0.75-inch margins can fit 15-20% more text per page. Our calculator 
+                  supports margin settings from 0.5" to 2" to match any institutional or publisher requirement.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">What are document presets and how do I use them?</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">How accurate is this words per page calculator?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Document presets are pre-configured formatting templates for common writing scenarios. Click any preset button (Academic Essay, Novel Manuscript, 
-                  Blog Post, Business Document, E-book, or Screenplay) to instantly apply that format's standard settings including appropriate font, size, spacing, 
-                  and margins. This saves time and ensures you're using industry-standard formatting for your document type.
+                  Our calculator is accurate to within <strong>5-10% of actual printed page counts</strong> when you use the correct formatting settings. For maximum accuracy, 
+                  paste your actual text into the "Paste/Upload" tab rather than entering a word count estimate. The calculator uses research-based multipliers for each font 
+                  family at different sizes, accounting for the specific character widths and spacing of each typeface.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">What is reading time vs. speaking time?</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  <strong>Reading time</strong> estimates how long it takes to read text silently (average 200-250 words per minute for adults). <strong>Speaking time</strong> 
+                  estimates presentation or speech duration (average 130-150 words per minute for clear delivery). A 3,000-word document takes about 15 minutes to read but 
+                  20-23 minutes to present. This is essential for planning <Link to="/speech-to-text" className="text-primary hover:underline">speeches</Link>, podcasts, 
+                  video scripts, and audiobook narration.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">What are the best fonts for meeting page requirements?</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  If you need to reach a page minimum, <strong>Arial, Verdana, and Courier New</strong> take up more space per word. If you need to fit content into fewer pages, 
+                  <strong>Times New Roman, Garamond, and Georgia</strong> are more compact. However, most academic institutions specify which fonts are acceptable (usually Times New 
+                  Roman or Arial), so always check your style guide before making font choices to meet page counts.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">How do I convert pages to words?</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  To convert pages to words, click the "Pages → Words" button to switch to pages-to-words mode. Enter the number of pages, select your formatting 
-                  options (font, size, spacing, margins, paper size), and the calculator instantly shows you how many words that represents. This is perfect when 
-                  you have a page limit and need to know your word count target, such as for a 5-page essay or 10-page report.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Can I paste my text for automatic word count?</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Absolutely! Switch to the "Paste/Upload" tab and paste your text directly into the text area. The calculator automatically counts the words and 
-                  calculates the page count based on your formatting settings. You can also upload .txt, .doc, or .docx files for instant analysis. This provides 
-                  the most accurate page estimate since it uses your actual word count and analyzes your specific text characteristics.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">What is reading time and speaking time?</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Reading time estimates how long it takes to read your text silently (based on average reading speed of 200 words per minute). Speaking time 
-                  estimates how long it takes to read aloud or present the content (based on average speaking speed of 130 words per minute). These metrics are 
-                  valuable for presentations, speeches, audiobook narration, podcast scripts, and video content planning.
+                  Use our bidirectional calculator's "Pages to Words" mode. Enter your page count, select your formatting settings (font, size, spacing, margins), and the 
+                  calculator instantly shows the word count. This is perfect when you have a 10-page assignment and need to know your target word count, or when a publisher 
+                  specifies manuscript length in pages rather than words.
                 </p>
               </div>
             </div>
@@ -1140,22 +1233,22 @@ ${quickReference.map(ref => `${ref.words.toLocaleString()} words = ${ref.pages} 
 
           {/* Formatting Standards Guide */}
           <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm border border-border">
-            <h2 className="text-2xl font-bold text-foreground mb-6">Standard Formatting Guidelines</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">Standard Formatting Guidelines by Industry</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-4">Academic Formatting Standards</h3>
                 <div className="space-y-4 text-sm text-muted-foreground">
                   <div>
-                    <strong className="text-foreground">MLA Format:</strong> Times New Roman 12pt, double-spaced, 1-inch margins, approximately 250 words per page
+                    <strong className="text-foreground">MLA Format (8th Edition):</strong> Times New Roman 12pt, double-spaced, 1-inch margins all sides, approximately 250 words per page. Required for most humanities courses.
                   </div>
                   <div>
-                    <strong className="text-foreground">APA Format:</strong> Times New Roman or Arial 12pt, double-spaced, 1-inch margins, approximately 250-275 words per page
+                    <strong className="text-foreground">APA Format (7th Edition):</strong> Times New Roman 12pt (or Calibri 11pt, Arial 11pt, Georgia 11pt), double-spaced, 1-inch margins, approximately 250-275 words per page. Standard for social sciences.
                   </div>
                   <div>
-                    <strong className="text-foreground">Chicago Style:</strong> Times New Roman 12pt, double-spaced, 1-inch margins, approximately 250 words per page
+                    <strong className="text-foreground">Chicago/Turabian Style:</strong> Times New Roman 12pt, double-spaced for body text, 1-inch margins, footnotes single-spaced. Used in history, business, and fine arts.
                   </div>
                   <div>
-                    <strong className="text-foreground">Harvard Style:</strong> Arial or Times New Roman 12pt, 1.5 or double-spaced, 1-inch margins
+                    <strong className="text-foreground">Harvard Referencing:</strong> Arial or Times New Roman 12pt, 1.5 or double-spaced, 1-inch margins. Common in UK and Australian universities.
                   </div>
                 </div>
               </div>
@@ -1164,19 +1257,101 @@ ${quickReference.map(ref => `${ref.words.toLocaleString()} words = ${ref.pages} 
                 <h3 className="text-lg font-semibold text-foreground mb-4">Professional Writing Standards</h3>
                 <div className="space-y-4 text-sm text-muted-foreground">
                   <div>
-                    <strong className="text-foreground">Novel Manuscript:</strong> Times New Roman 12pt, double-spaced, 1-inch margins, 250 words per page standard
+                    <strong className="text-foreground">Novel Manuscript (Industry Standard):</strong> Times New Roman or Courier New 12pt, double-spaced, 1-inch margins, 250 words per page. This is what literary agents and publishers expect.
                   </div>
                   <div>
-                    <strong className="text-foreground">Business Documents:</strong> Arial or Calibri 11-12pt, single-spaced, 1-inch margins, 500-600 words per page
+                    <strong className="text-foreground">Business Documents:</strong> Arial or Calibri 11-12pt, single-spaced with double spacing between paragraphs, 1-inch margins, 500-600 words per page.
                   </div>
                   <div>
-                    <strong className="text-foreground">Blog Posts:</strong> Varies by platform, typically 12pt, 1.5-spaced, optimized for screen reading
+                    <strong className="text-foreground">Screenplay Format:</strong> Courier 12pt, specific margin settings (1.5" left, 1" right, 1" top/bottom), approximately 1 page = 1 minute of screen time.
                   </div>
                   <div>
-                    <strong className="text-foreground">E-books:</strong> Georgia or similar serif 12pt, 1.5-spaced, smaller margins for digital reading
+                    <strong className="text-foreground">Blog/Web Content:</strong> Varies by platform, typically 16-18pt for readability, 1.5-1.75 line height, optimized for screen reading rather than printing.
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Book Length Standards */}
+          <div className="bg-gradient-to-r from-primary/5 to-accent/5 rounded-lg p-6 md:p-8">
+            <h2 className="text-2xl font-bold text-foreground mb-6">How Many Words Are in Different Types of Books?</h2>
+            <p className="text-muted-foreground mb-6">
+              Understanding word count expectations is essential for authors planning their manuscripts. Here are the industry standards by genre:
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Short Story</h4>
+                <p className="text-xl font-bold text-primary">1,000-7,500</p>
+                <p className="text-xs text-muted-foreground">words (4-30 pages)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Novella</h4>
+                <p className="text-xl font-bold text-primary">17,500-40,000</p>
+                <p className="text-xs text-muted-foreground">words (70-160 pages)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Novel (Standard)</h4>
+                <p className="text-xl font-bold text-primary">50,000-110,000</p>
+                <p className="text-xs text-muted-foreground">words (200-440 pages)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Epic/Fantasy</h4>
+                <p className="text-xl font-bold text-primary">100,000-200,000+</p>
+                <p className="text-xs text-muted-foreground">words (400-800+ pages)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Romance</h4>
+                <p className="text-xl font-bold text-primary">50,000-90,000</p>
+                <p className="text-xs text-muted-foreground">words (category varies)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Mystery/Thriller</h4>
+                <p className="text-xl font-bold text-primary">60,000-90,000</p>
+                <p className="text-xs text-muted-foreground">words (240-360 pages)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Children's Book</h4>
+                <p className="text-xl font-bold text-primary">500-2,500</p>
+                <p className="text-xs text-muted-foreground">words (picture books)</p>
+              </div>
+              <div className="bg-card rounded-lg p-4">
+                <h4 className="font-semibold text-foreground mb-2">Young Adult</h4>
+                <p className="text-xl font-bold text-primary">50,000-80,000</p>
+                <p className="text-xs text-muted-foreground">words (200-320 pages)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Internal Links Section */}
+          <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm border border-border">
+            <h2 className="text-xl font-bold text-foreground mb-4">Related Writing & Analysis Tools</h2>
+            <p className="text-muted-foreground mb-6">Explore our complete suite of free writing tools to enhance your content creation workflow:</p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+              <Link to="/" className="flex items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                <span className="text-primary mr-2">1.</span>
+                <span className="text-foreground">Word Counter Plus - Count words, characters, sentences</span>
+              </Link>
+              <Link to="/character-counter" className="flex items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                <span className="text-primary mr-2">2.</span>
+                <span className="text-foreground">Character Counter - Social media & SEO character limits</span>
+              </Link>
+              <Link to="/speech-to-text" className="flex items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                <span className="text-primary mr-2">3.</span>
+                <span className="text-foreground">Speech to Text - Voice transcription tool</span>
+              </Link>
+              <Link to="/text-compare" className="flex items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                <span className="text-primary mr-2">4.</span>
+                <span className="text-foreground">Text Compare - Side-by-side document comparison</span>
+              </Link>
+              <Link to="/seo-content-analyzer" className="flex items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                <span className="text-primary mr-2">5.</span>
+                <span className="text-foreground">SEO Content Analyzer - Optimize for search engines</span>
+              </Link>
+              <Link to="/random-word-generator" className="flex items-center p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
+                <span className="text-primary mr-2">6.</span>
+                <span className="text-foreground">Random Word Generator - Creative writing prompts</span>
+              </Link>
             </div>
           </div>
         </div>
