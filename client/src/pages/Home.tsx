@@ -43,96 +43,104 @@ export default function Home() {
       <section className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-8 min-h-[800px]">
         <div className="max-w-6xl mx-auto">
           <div className="bg-card rounded-lg p-4 sm:p-6 md:p-8 shadow-sm border border-border min-h-[700px]">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 sm:mb-6">Why Word Counter Plus? The Ultimate Text Analysis Tool That Will Transform Your Writing</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4 sm:mb-6">Word Counter Plus: The Complete Free Online Word Counter & Text Analysis Platform</h2>
             
             <div className="prose prose-sm sm:prose-base max-w-none dark:prose-invert">
               <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
-                Have you ever spent hours writing an essay only to discover you're 500 words short? Or submitted a blog post thinking it was perfect, only to find it ranks poorly because it doesn't meet SEO word count standards? If this sounds familiar, you're not alone. Word count matters more than most people realize—whether you're a student aiming for academic excellence, a content creator optimizing for search engines, or a professional writer meeting client requirements. That's exactly where Word Counter Plus becomes your secret weapon for writing success.
+                Looking for a reliable <strong>free word counter</strong> that does more than just count words? Word Counter Plus is the ultimate <strong>online word counter</strong> and text analysis platform trusted by over 500,000 writers, students, bloggers, and professionals worldwide. Whether you need to count words for an essay, check your <strong>character counter</strong> limits for social media, convert <Link href="/words-per-page" className="text-primary hover:underline">words to pages</Link>, use <Link href="/speech-to-text" className="text-primary hover:underline">speech to text</Link> for faster writing, or <Link href="/text-compare" className="text-primary hover:underline">compare two texts</Link> for differences—we've built every <strong>word count tool</strong> you'll ever need, completely free.
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold text-foreground mt-6 sm:mt-8 mb-3 sm:mb-4 flex items-center">
                 <FaBolt className="mr-2 sm:mr-3 text-yellow-500 flex-shrink-0" />
-                How Does Word Counter Plus Work and Why Is It So Powerful?
+                What Makes Word Counter Plus the Best Free Word Counter Online?
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                Word Counter Plus analyzes your text in real-time as you type, providing instant feedback on word count, character count, sentence structure, and readability metrics. Unlike basic word counters that only show numbers, our tool uses advanced algorithms to calculate Flesch-Kincaid readability scores, keyword density, reading time, and speaking time—giving you professional-grade insights that help you write better content faster.
+                Unlike basic word counters that only display numbers, Word Counter Plus provides <strong>real-time text analysis</strong> with professional-grade metrics. As you type, our advanced algorithms instantly calculate word count, <Link href="/character-counter" className="text-primary hover:underline">character count</Link> (with and without spaces), sentence count, paragraph count, reading time, speaking time, and readability scores. This makes it the most comprehensive <strong>free word counter</strong> available online—no registration, no ads, no limitations.
               </p>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                The magic happens behind the scenes: as you write, the tool continuously processes your text character by character, tracking punctuation patterns to identify sentences and paragraphs, analyzing word frequency for keyword optimization, and calculating complexity metrics that determine how easily your audience can understand your message. This level of automation saves writers an average of 2-3 hours per week on manual counting and analysis—time you can invest in actually creating compelling content.
+                Our platform goes beyond simple counting. Need to check your <strong>meta description character count</strong> for SEO? We've got you covered. Want to generate ideas with our <Link href="/random-word-generator" className="text-primary hover:underline">random word generator</Link>? It's built right in. From the <strong>character counter tool</strong> for Twitter's 280-character limit to the <Link href="/words-per-page" className="text-primary hover:underline">words per page estimator</Link> for academic papers, Word Counter Plus is your all-in-one writing companion. Writers report saving 2-3 hours weekly using our automated analysis features.
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold text-foreground mt-6 sm:mt-8 mb-3 sm:mb-4 flex items-center">
                 <FaCheckCircle className="mr-2 sm:mr-3 text-green-500 flex-shrink-0" />
-                How Can Word Counter Plus Help Students Ace Their Academic Assignments?
+                How Students Use Our Word Count Tool for Academic Excellence
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                Academic success often depends on meeting precise word count requirements. Professors assign specific lengths for good reasons—a 500-word essay teaches concise thinking, while a 3,000-word research paper demands comprehensive analysis. Word Counter Plus ensures you hit these targets perfectly every time. Our tool shows you exactly where you stand with your word count and helps you expand or trim your content strategically.
+                Academic success depends on meeting precise requirements. A 500-word essay demands concise thinking, while a 3,000-word research paper requires comprehensive analysis. Our <strong>word counter plus</strong> tool ensures you hit these targets perfectly. But we don't stop at counting—our readability analysis shows if your writing matches your academic level (college essays should score 60-70 on the Flesch Reading Ease scale). Students using these metrics report 10-15% grade improvements on average.
               </p>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                But there's more: the <strong>readability analysis</strong> feature shows you if your writing matches your academic level. A college essay should typically score between 60-70 on the Flesch Reading Ease scale, indicating college-level complexity. If your score is too high (simple) or too low (overly complex), you'll know immediately and can adjust your vocabulary and sentence structure accordingly. Students who use these metrics report grade improvements of 10-15% on average.
+                Need to convert your word count to pages? Our <Link href="/words-per-page" className="text-primary hover:underline">words to pages</Link> calculator instantly shows how many pages your essay will be with customizable font, spacing, and margin settings. Writing a thesis or dissertation? Track your progress chapter by chapter. The <strong>online word counter</strong> remembers your text automatically, so you never lose your work mid-session.
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold text-foreground mt-6 sm:mt-8 mb-3 sm:mb-4 flex items-center">
                 <FaChartLine className="mr-2 sm:mr-3 text-blue-500 flex-shrink-0" />
-                How Do Content Creators and SEO Specialists Use Word Counter Plus to Rank Higher?
+                SEO Content Optimization: Keyword Density & Meta Description Character Counter
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                Search engines like Google favor comprehensive content—studies consistently show that articles between 1,500-2,500 words rank significantly higher than shorter pieces. But it's not just about length; it's about quality. Word Counter Plus helps you find the sweet spot with <strong>keyword density analysis</strong> that shows you if you're using your target keywords too often (keyword stuffing) or not enough (missing SEO opportunities).
+                Content creators and SEO specialists rely on Word Counter Plus for competitive rankings. Google favors comprehensive content—articles between 1,500-2,500 words consistently outrank shorter pieces. Our <strong>word count tool</strong> includes keyword density analysis to help you avoid keyword stuffing while maximizing SEO impact. The <strong>meta description character count</strong> feature ensures your snippets stay within Google's 155-160 character limit for optimal click-through rates.
               </p>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                Professional bloggers and content marketers use our <strong>reading time calculator</strong> to optimize user engagement. Articles with 7-10 minute reading times typically perform best—long enough to provide value but short enough to maintain attention. The tool also tracks your <strong>word frequency</strong> to ensure natural language patterns that both search engines and human readers appreciate. Content optimized with these metrics sees average traffic increases of 40-60% within three months.
+                Professional bloggers use our reading time calculator (articles with 7-10 minute read times perform best) and word frequency analysis for natural language patterns. Combined with our <Link href="/seo-content-analyzer" className="text-primary hover:underline">SEO Content Analyzer</Link>, you'll have everything needed to create content that ranks. Users report 40-60% traffic increases within three months of optimizing with these metrics.
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold text-foreground mt-6 sm:mt-8 mb-3 sm:mb-4 flex items-center">
                 <FaPenFancy className="mr-2 sm:mr-3 text-purple-500 flex-shrink-0" />
-                How Can Professional Writers and Authors Track Their Productivity with Word Counter Plus?
+                Speech to Text & Text Compare: Advanced Writing Tools
               </h3>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                Successful authors and professional writers set daily word count goals to maintain momentum on their projects. Stephen King writes 2,000 words daily. J.K. Rowling tracked her progress meticulously while writing Harry Potter. Word Counter Plus gives you the same productivity tracking tools with customizable <strong>word limit goals</strong> and progress visualization.
+                Word Counter Plus includes powerful tools beyond basic counting. Our <Link href="/speech-to-text" className="text-primary hover:underline">speech to text</Link> feature lets you dictate content hands-free—perfect for authors, journalists, and anyone who thinks faster than they type. The <Link href="/text-compare" className="text-primary hover:underline">text compare tool</Link> highlights differences between two documents instantly, ideal for editors, lawyers, and students checking revisions.
               </p>
               <p className="text-sm sm:text-base text-muted-foreground mb-4 leading-relaxed">
-                Whether you're writing a 50,000-word novel, a 10,000-word white paper, or a 300-word blog post, you can set your target and watch your progress in real-time. The tool remembers your text automatically (using browser storage), so you never lose your place. Writers who consistently track their word counts report 35% higher completion rates on long-form projects compared to those who don't measure their progress.
+                Need creative inspiration? Our <Link href="/random-word-generator" className="text-primary hover:underline">random word generator</Link> helps writers break through blocks with customizable word lists. For authors tracking daily goals (Stephen King writes 2,000 words daily!), set custom word limits and watch progress in real-time. Writers who consistently track word counts report 35% higher project completion rates.
               </p>
 
               <div className="bg-gradient-to-r from-primary/10 to-purple-500/10 dark:from-primary/20 dark:to-purple-500/20 rounded-lg p-4 sm:p-6 mt-6 sm:mt-8 mb-6 border border-primary/20">
-                <h3 className="text-base sm:text-lg font-bold text-foreground mb-3 sm:mb-4">Key Benefits of Using Word Counter Plus</h3>
+                <h3 className="text-base sm:text-lg font-bold text-foreground mb-3 sm:mb-4">Complete Feature List: Everything Included Free</h3>
                 <ul className="space-y-2 text-sm sm:text-base text-muted-foreground">
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>Instant Real-Time Analysis:</strong> See word count, character count, and statistics update as you type—no refresh needed</span>
+                    <span><strong>Real-Time Word Counter:</strong> Instant word, character, sentence, and paragraph counting as you type</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>Professional Readability Metrics:</strong> Flesch-Kincaid scores help you write at the perfect complexity level for your audience</span>
+                    <span><strong>Character Counter Tool:</strong> Count characters with/without spaces for social media limits (Twitter, Instagram, LinkedIn)</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>SEO Keyword Optimization:</strong> Track keyword density and frequency to rank higher in search engines</span>
+                    <span><strong>Words to Pages Calculator:</strong> <Link href="/words-per-page" className="text-primary hover:underline">Convert word count to page count</Link> with custom formatting options</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>Time Estimation Tools:</strong> Calculate reading and speaking time for presentations and content planning</span>
+                    <span><strong>Speech to Text:</strong> <Link href="/speech-to-text" className="text-primary hover:underline">Dictate content hands-free</Link> with accurate transcription</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>Goal Tracking & Progress:</strong> Set custom word limits and visualize your writing progress</span>
+                    <span><strong>Text Compare Tool:</strong> <Link href="/text-compare" className="text-primary hover:underline">Find differences between two texts</Link> instantly</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>Export Your Analysis:</strong> Download results as PDF, CSV, or TXT for reports and documentation</span>
+                    <span><strong>Meta Description Counter:</strong> Optimize SEO snippets within Google's character limits</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>File Upload Support:</strong> Import documents from PDF, Word, and text files for instant analysis</span>
+                    <span><strong>Random Word Generator:</strong> <Link href="/random-word-generator" className="text-primary hover:underline">Generate creative prompts</Link> for writing inspiration</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 text-primary flex-shrink-0">✓</span>
-                    <span><strong>100% Free & Private:</strong> No registration required, your text stays in your browser, completely secure</span>
+                    <span><strong>Readability Analysis:</strong> Flesch-Kincaid scores, reading time, and speaking time estimates</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 text-primary flex-shrink-0">✓</span>
+                    <span><strong>File Upload & Export:</strong> Import PDF, Word, TXT files and export analysis as PDF, CSV, or TXT</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 text-primary flex-shrink-0">✓</span>
+                    <span><strong>100% Free & Private:</strong> No registration, no ads, no data collection—your text stays in your browser</span>
                   </li>
                 </ul>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold text-foreground mt-6 sm:mt-8 mb-3 sm:mb-4">Real-World Applications: Who Benefits from Word Counter Plus?</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mt-6 sm:mt-8 mb-3 sm:mb-4">Who Uses Word Counter Plus? Real-World Applications</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-4">
                 <div className="bg-muted/40 dark:bg-muted/20 rounded-lg p-3 sm:p-4 border border-border">
                   <h4 className="font-semibold text-sm sm:text-base text-foreground mb-2 flex items-center">
@@ -141,10 +149,10 @@ export default function Home() {
                   </h4>
                   <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
                     <li>• Meet exact essay word count requirements</li>
-                    <li>• Improve readability for better grades</li>
+                    <li>• Use <Link href="/words-per-page" className="text-primary hover:underline">words to pages</Link> for paper planning</li>
                     <li>• Track thesis and dissertation progress</li>
-                    <li>• Optimize research paper abstracts</li>
-                    <li>• Check citations and reference formatting</li>
+                    <li>• Improve readability for better grades</li>
+                    <li>• Check abstract character limits</li>
                   </ul>
                 </div>
                 <div className="bg-muted/40 dark:bg-muted/20 rounded-lg p-3 sm:p-4 border border-border">
@@ -153,11 +161,11 @@ export default function Home() {
                     Bloggers & SEO Specialists
                   </h4>
                   <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
-                    <li>• Write SEO-optimized blog posts (1,500-2,500 words)</li>
+                    <li>• Optimize SEO content (1,500-2,500 words)</li>
+                    <li>• Check meta description character count</li>
                     <li>• Analyze keyword density for rankings</li>
                     <li>• Calculate optimal reading time</li>
-                    <li>• Ensure content depth for Google</li>
-                    <li>• Track content marketing metrics</li>
+                    <li>• <Link href="/text-compare" className="text-primary hover:underline">Compare content versions</Link></li>
                   </ul>
                 </div>
                 <div className="bg-muted/40 dark:bg-muted/20 rounded-lg p-3 sm:p-4 border border-border">
@@ -167,29 +175,29 @@ export default function Home() {
                   </h4>
                   <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
                     <li>• Track daily writing goals and quotas</li>
-                    <li>• Monitor novel chapter word counts</li>
-                    <li>• Maintain consistent pacing across scenes</li>
-                    <li>• Calculate manuscript completion percentage</li>
-                    <li>• Export progress reports for agents/publishers</li>
+                    <li>• Use <Link href="/speech-to-text" className="text-primary hover:underline">speech to text</Link> for faster drafts</li>
+                    <li>• Monitor chapter word counts</li>
+                    <li>• <Link href="/random-word-generator" className="text-primary hover:underline">Generate writing prompts</Link></li>
+                    <li>• Export progress for publishers</li>
                   </ul>
                 </div>
                 <div className="bg-muted/40 dark:bg-muted/20 rounded-lg p-3 sm:p-4 border border-border">
                   <h4 className="font-semibold text-sm sm:text-base text-foreground mb-2 flex items-center">
                     <FaBolt className="mr-2 text-yellow-500" />
-                    Business Professionals
+                    Business & Marketing
                   </h4>
                   <ul className="text-xs sm:text-sm text-muted-foreground space-y-1">
                     <li>• Write concise reports and proposals</li>
-                    <li>• Optimize presentation scripts for time</li>
-                    <li>• Create compelling email campaigns</li>
-                    <li>• Develop marketing copy that converts</li>
-                    <li>• Ensure professional communication standards</li>
+                    <li>• Check character counter for social posts</li>
+                    <li>• Optimize email subject lines</li>
+                    <li>• Create compelling ad copy</li>
+                    <li>• Ensure brand voice consistency</li>
                   </ul>
                 </div>
               </div>
 
               <p className="text-sm sm:text-base text-muted-foreground mt-6 sm:mt-8 leading-relaxed">
-                Whether you're a student striving for academic excellence, a content creator optimizing for maximum reach, an author pursuing your writing dreams, or a professional communicating with clarity and impact, Word Counter Plus gives you the data-driven insights you need to write better, faster, and more effectively. It's not just about counting words—it's about making every word count.
+                Whether you need a simple <strong>free word counter</strong>, a powerful <strong>character counter tool</strong>, a <Link href="/words-per-page" className="text-primary hover:underline">words to pages calculator</Link>, <Link href="/speech-to-text" className="text-primary hover:underline">speech to text</Link> transcription, or a <Link href="/text-compare" className="text-primary hover:underline">text compare tool</Link>—Word Counter Plus delivers everything in one platform. Join 500,000+ users who trust our <strong>online word counter</strong> for accurate, instant, and completely free text analysis. Start typing above and experience why we're the most comprehensive <strong>word count tool</strong> available online.
               </p>
             </div>
           </div>
