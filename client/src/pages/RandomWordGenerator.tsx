@@ -184,8 +184,8 @@ export default function RandomWordGenerator() {
 
   // SEO Configuration
   useSEO({
-    title: 'Free Random Word Generator 2025 - Writing Prompts & Brainstorming Tool | US, UK',
-    description: 'Free random word generator for creative writing, brainstorming & word games. Generate random nouns, verbs, adjectives with custom length, count & formatting. Used by 40K+ writers, students, teachers in US, UK, Canada, Australia. Perfect for writing prompts, vocabulary building, game night.',
+    title: 'Free Random Word Generator - Creative Writing Tool Online',
+    description: 'Generate random nouns, verbs, and adjectives with our free word generator tool. Perfect for creative writing, brainstorming, word games, vocabulary.',
     keywords: 'random word generator free, random words generator, random noun generator, random verb generator, random adjective generator, creative writing tool, brainstorming tool free, word game generator, writing prompts generator, vocabulary builder, random word picker, word randomizer free, writing exercises tool, creative writing prompts, random word list maker, word inspiration tool',
     canonical: 'https://wordcounterplusapp.com/random-word-generator',
     structuredData: randomWordGeneratorSchema,

@@ -109,8 +109,8 @@ export default function TextCompare() {
 
   // SEO Configuration
   useSEO({
-    title: 'Free Text Compare Tool 2025 - Online Text Diff & Comparison Checker',
-    description: 'Free online text comparison tool to find differences between two texts instantly. Compare documents, code, articles side-by-side with highlighted additions and deletions. Best text diff checker for writers, developers, editors. Trusted by 300K+ users in US, UK, Canada, Australia. No sign-up required.',
+    title: 'Free Text Compare Online - Diff & Document Checker Tool',
+    description: 'Compare two texts and find differences with our free text compare tool online. See additions, deletions, and changes highlighted side-by-side.',
     keywords: 'text compare free, compare text online, text diff tool, text comparison tool free, compare two texts, diff checker online, text difference finder, document compare tool, text compare side by side, online text diff, file compare tool, text comparison online, compare documents free, text diff checker, find text differences, compare versions, text comparison software, online diff tool, compare text files, text diff online free',
     canonical: 'https://wordcounterplusapp.com/text-compare',
     structuredData: textCompareSchema,

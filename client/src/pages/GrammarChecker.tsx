@@ -118,8 +118,8 @@ export default function GrammarChecker() {
 
   // SEO Configuration
   useSEO({
-    title: 'Free Grammar Checker 2025 - Online Grammar & Spell Check Tool',
-    description: 'Professional free grammar checker online. Detect and fix grammar mistakes, spelling errors, and punctuation instantly. AI-powered grammar correction tool for students, writers, professionals. Check grammar free with real-time suggestions. Trusted by 500K+ users in US, UK, Canada, Australia. No sign-up required, unlimited free use.',
+    title: 'Free Grammar Checker Online - Spell & Punctuation Check',
+    description: 'Fix grammar, spelling and punctuation errors with our free grammar checker tool. AI-powered corrections for students, writers, and professionals.',
     keywords: 'grammar checker free, free grammar check online, grammar check tool, spell checker free, grammar correction online, punctuation checker, grammar and spelling checker, online grammar checker, free grammar checker no sign up, grammar check online free, sentence checker, writing grammar checker, english grammar checker, grammar mistake finder, grammar correction tool free, essay grammar checker, academic grammar check, professional grammar checker, grammar fixer free, grammar check app',
     canonical: 'https://wordcounterplusapp.com/grammar-checker',
     structuredData: grammarCheckerSchema,

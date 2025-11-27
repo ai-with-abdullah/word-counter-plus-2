@@ -167,8 +167,8 @@ export default function WordsPerPage() {
   };
 
   useSEO({
-    title: 'Free Words to Pages Calculator 2025 - How Many Pages is 1000 Words? | Essay Length',
-    description: 'Free words per page calculator - convert words to pages & pages to words instantly. How many pages is 1000 words? 500 words? Calculate essay length with custom font, spacing, margins. Used by 100K+ students in US, UK, Canada, Australia for academic papers, assignments, dissertations. Includes reading time estimates.',
+    title: 'Free Words to Pages Calculator - Essay Length Converter',
+    description: 'Convert words to pages with our free calculator. How many pages is 1000 words? Custom font, spacing, margins for essays and academic papers.',
     keywords: 'words per page calculator free, words to pages, pages to words, how many pages is 1000 words, how many words is 5 pages, essay length calculator, word count to pages, academic paper length, pages to word count, 500 words how many pages, 1500 words how many pages, words per page double spaced, words per page single spaced, essay page calculator, assignment length calculator, college essay pages',
     canonical: 'https://wordcounterplusapp.com/words-per-page',
     structuredData: wordsPerPageSchema,

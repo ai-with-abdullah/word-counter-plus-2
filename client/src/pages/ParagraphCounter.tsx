@@ -42,8 +42,8 @@ export default function ParagraphCounter() {
   };
 
   useSEO({
-    title: 'Free Paragraph Counter 2025 - Count Paragraphs & Analyze Text Structure',
-    description: 'Professional paragraph counter free tool to count paragraphs, analyze paragraph length, words per paragraph. Track paragraph structure and distribution. Used by writers, students worldwide.',
+    title: 'Free Paragraph Counter Online - Analyze Text Structure',
+    description: 'Count paragraphs with our free paragraph counter. Analyze paragraph length, words per paragraph, and text structure. Perfect for writers and students.',
     keywords: 'paragraph counter, count paragraphs, paragraph count tool, paragraph length analyzer, words per paragraph, paragraph structure checker, writing analysis tool',
     canonical: 'https://wordcounterplusapp.com/paragraph-counter',
     structuredData: paragraphCounterSchema,

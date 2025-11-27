@@ -62,8 +62,8 @@ export default function SEOContentAnalyzer() {
   };
 
   useSEO({
-    title: 'Free SEO Content Analyzer 2025 - SERP Preview & Meta Tag Optimizer | US, UK, CA',
-    description: 'Professional SEO content analyzer with Google SERP preview, Twitter/Facebook cards, keyword density checker, LSI keywords, featured snippet optimizer, FAQ schema generator. Free tool for US, UK, Canada, Australia content marketers & bloggers.',
+    title: 'Free SEO Content Analyzer Online - SERP Preview Tool',
+    description: 'Analyze SEO content with our free tool. Get SERP preview, keyword density, LSI keywords, meta tag optimization. Perfect for content marketers.',
     keywords: 'seo content analyzer free, serp preview tool, google serp simulator, social media card preview, keyword density checker, content optimization tool, meta tag generator, lsi keywords finder, featured snippets optimizer, faq schema generator, title optimizer, alt text generator, competitor content analysis, on page seo tool, content marketing tool free, blog seo checker, article optimizer, seo score checker',
     canonical: 'https://wordcounterplusapp.com/seo-content-analyzer',
     structuredData: seoSchema,

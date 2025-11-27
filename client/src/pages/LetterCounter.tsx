@@ -52,8 +52,8 @@ export default function LetterCounter() {
   };
 
   useSEO({
-    title: 'Free Letter Counter 2025 - Count Letters, Vowels & Consonants | Alphabet Counter',
-    description: 'Professional letter counter free tool to count total letters, uppercase, lowercase, vowels, consonants. Analyze alphabetic characters, letter frequency distribution. Used by students, writers, teachers worldwide.',
+    title: 'Letter Counter - Count Letters & Vowels Free',
+    description: 'Free letter counter to count letters, vowels, consonants. Analyze uppercase, lowercase, letter frequency. Perfect for students, writers, teachers.',
     keywords: 'letter counter, alphabet counter, vowel counter, consonant counter, letter count tool, count letters online, uppercase lowercase counter, alphabetic character counter, letter frequency analyzer',
     canonical: 'https://wordcounterplusapp.com/letter-counter',
     structuredData: letterCounterSchema,

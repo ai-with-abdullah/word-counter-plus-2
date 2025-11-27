@@ -102,8 +102,8 @@ export default function CharacterCounter() {
 
   // SEO Configuration
   useSEO({
-    title: 'Free Character Counter 2025 - Count Characters, Words & Text Length | Twitter, SMS',
-    description: 'Professional character counter free tool for Twitter, SMS, meta tags & social media. Count characters with/without spaces, analyze emoji, check readability scores. Used by 200K+ marketers, writers & students in US, UK, Canada, Australia. Real-time character limits for Facebook, Instagram, LinkedIn, TikTok, YouTube.',
+    title: 'Free Character Counter Online - Count Characters & Spaces',
+    description: 'Count characters with our free character counter tool. Track character limits for Twitter, SMS, and social media posts with real-time emoji analysis.',
     keywords: 'character counter free, character count tool, free character counter online, text character counter, twitter character counter 280, sms character counter 160, meta description character count, facebook character limit, instagram caption counter, linkedin post character limit, tiktok bio character limit, youtube description counter, email subject line counter, google ads character limit, character counter with spaces, character counter without spaces, emoji character counter, social media character limits, real time character counter, mobile character counter, writing character counter',
     canonical: 'https://wordcounterplusapp.com/character-counter',
     structuredData: characterCounterSchema,

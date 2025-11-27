@@ -43,8 +43,8 @@ export default function SentenceCounter() {
   };
 
   useSEO({
-    title: 'Free Sentence Counter 2025 - Count Sentences & Analyze Text Structure',
-    description: 'Professional sentence counter free tool to count sentences, analyze sentence length, structure patterns. Track short, medium, long sentences. Used by writers, students, editors worldwide.',
+    title: 'Sentence Counter - Count Sentences Online Free',
+    description: 'Free sentence counter to count sentences, analyze length and structure. Track short, medium, long sentences. Perfect for writers, students, editors.',
     keywords: 'sentence counter, count sentences, sentence count tool, sentence length analyzer, sentence structure checker, average sentence length calculator, writing analysis tool',
     canonical: 'https://wordcounterplusapp.com/sentence-counter',
     structuredData: sentenceCounterSchema,

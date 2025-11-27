@@ -119,8 +119,8 @@ export default function PlagiarismChecker() {
   };
 
   useSEO({
-    title: 'Free Plagiarism Checker 2025 - Detect Copy, Paraphrasing & Sources | For Students',
-    description: 'Advanced plagiarism checker free for students, writers & researchers. Detect copied content, paraphrasing, duplicate text with source matching. Deep scan algorithm checks essays, articles, papers for academic integrity. Used by 100K+ students in US, UK, Canada, Australia.',
+    title: 'Free Plagiarism Checker Online - Duplicate Detector Tool',
+    description: 'Detect plagiarism with our free checker for students and writers. Find copied content, paraphrasing, duplicates with source matching instantly.',
     keywords: 'plagiarism checker free, plagiarism detector online, duplicate content checker, originality checker free, paraphrase detector, content similarity checker, academic integrity tool, essay plagiarism checker, article originality scanner, paper duplicate checker, content analysis tool, citation checker, free plagiarism scan, student plagiarism checker, academic plagiarism detector, turnitin alternative free, grammarly plagiarism free, copyscape alternative',
     canonical: 'https://wordcounterplusapp.com/plagiarism-checker',
     structuredData: plagiarismCheckerSchema,

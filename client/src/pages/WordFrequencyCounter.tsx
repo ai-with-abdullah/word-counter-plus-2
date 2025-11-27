@@ -52,8 +52,8 @@ export default function WordFrequencyCounterPage() {
   };
 
   useSEO({
-    title: 'Free Word Frequency Counter 2025 - Keyword Density Analyzer & SEO Tool | US, UK, CA',
-    description: 'Advanced word frequency counter free with keyword density analysis, stop word filtering, visual charts. Analyze text patterns, SEO keyword optimization, track word usage. Used by 50K+ SEO specialists, content marketers, researchers in USA, UK, Canada, Australia. CSV export, click-to-highlight, real-time analysis.',
+    title: 'Free Word Frequency Counter - Keyword Density Analyzer',
+    description: 'Analyze word frequency with our free counter. Check keyword density, filter stop words, visualize patterns with charts. Export data to CSV for SEO.',
     keywords: 'word frequency counter free, keyword density analyzer, word occurrence counter, text frequency analysis tool, keyword frequency checker free, word usage analyzer, SEO keyword density calculator, content analysis tool free, word repetition checker, word distribution chart, text pattern analysis, stop words filter, word occurrence statistics, keyword analysis tool, text analytics free, word frequency visualization, corpus analysis tool, text diversity analyzer, unique word counter, semantic analysis tool',
     canonical: 'https://wordcounterplusapp.com/word-frequency-counter',
     structuredData: wordFrequencySchema,

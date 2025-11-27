@@ -63,8 +63,8 @@ export default function ResumeCVChecker() {
   };
 
   useSEO({
-    title: 'Free Resume Checker & ATS Scanner 2025 - CV Analyzer with Salary Estimator | US, UK, CA',
-    description: 'Professional resume/CV checker with ATS optimization score, salary estimator ($50K-$200K+), quantifiable achievements detector, buzzword alerts. Free resume analyzer for job seekers in USA, UK, Canada, Australia. Get ATS-friendly resume tips, action verbs, industry benchmarks for tech, finance, marketing careers.',
+    title: 'Free Resume Checker Online - ATS Scanner & Analyzer',
+    description: 'Check your resume with our free ATS scanner. Get optimization score, salary estimate, achievement analysis. ATS-friendly tips for job seekers.',
     keywords: 'resume checker free, cv analyzer, ats checker free, resume scanner, ats optimization tool, resume word counter, cv word count, resume analyzer free, ats resume checker, applicant tracking system checker, resume score, cv score checker, salary estimator resume, job application checker, resume optimization tool, cv optimization, resume buzzword detector, action verb checker, resume ats score, professional resume checker, cv analysis tool free, resume review tool, job resume analyzer',
     canonical: 'https://wordcounterplusapp.com/resume-cv-checker',
     structuredData: resumeSchema,

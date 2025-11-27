@@ -42,8 +42,8 @@ export default function LineCounter() {
   };
 
   useSEO({
-    title: 'Free Line Counter 2025 - Count Lines, Empty Lines & Line Length | Code & Text',
-    description: 'Professional line counter free tool to count total lines, non-empty lines, blank lines, average line length. Perfect for developers, writers, editors. Analyze code and text structure.',
+    title: 'Free Line Counter Online - Count Lines & Empty Lines',
+    description: 'Count lines with our free line counter tool. Track total lines, empty lines, blank lines, average line length. Perfect for developers and writers.',
     keywords: 'line counter, count lines, line count tool, empty line counter, code line counter, text line analyzer, line length calculator, blank line counter',
     canonical: 'https://wordcounterplusapp.com/line-counter',
     structuredData: lineCounterSchema,
