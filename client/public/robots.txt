@@ -48,13 +48,16 @@ Disallow: /favicon.ico
 Disallow: /*.ico$
 Crawl-delay: 0
 
-# Block aggressive crawlers
+# Allow SEO analysis tools
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
+Crawl-delay: 1
 
 User-agent: SemrushBot
-Disallow: /
+Allow: /
+Crawl-delay: 1
 
+# Block aggressive crawlers
 User-agent: MJ12bot
 Disallow: /
 
