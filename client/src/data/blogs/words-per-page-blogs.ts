@@ -3,9 +3,9 @@ import { BlogPost } from '../blogData';
 export const wordsPerPageBlogs: BlogPost[] = [
   {
     id: "68",
-    title: "Words to Pages Calculator: The Complete 2025 Guide for Essays, Books & Documents",
+    title: "Words to Pages Calculator: The Complete 2025-2026 Guide for Essays, Books & Documents",
     excerpt: "Free words per page calculator with instant conversion. How many pages is 1000 words? 500 words? Calculate essay length with custom font, spacing, margins. Trusted by 100K+ students for academic papers.",
-    content: `# Words to Pages Calculator: The Complete 2025 Guide for Essays, Books & Documents
+    content: `# Words to Pages Calculator: The Complete 2025-2026 Guide for Essays, Books & Documents
 
 **Meta Description:** Free words per page calculator - convert words to pages instantly. How many pages is 1000 words? Calculate essay length with custom formatting. Trusted by 100K+ students and writers worldwide.
 
