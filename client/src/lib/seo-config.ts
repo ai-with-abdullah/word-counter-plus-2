@@ -273,6 +273,447 @@ export const getTextCaseSEO = (): SEOConfig => {
   };
 };
 
+// Character Counter SEO Configuration
+export const getCharacterCounterSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Free Character Counter Online - Count Characters & Spaces",
+    description: "Free character counter tool. Count characters with/without spaces, words, sentences. Check Twitter, Instagram, Facebook limits instantly. No signup needed.",
+    keywords: "character counter, count characters, character count online, letter counter, twitter character limit, instagram character limit, facebook character limit, text length counter",
+    canonical: `${origin}/character-counter`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Character Counter",
+      "url": `${origin}/character-counter`,
+      "description": "Free online character counter tool with social media limit checking.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Character Counter", url: `${origin}/character-counter` }
+    ]
+  };
+};
+
+// Word Frequency Counter SEO Configuration
+export const getWordFrequencyCounterSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Word Frequency Counter - Analyze Word Usage & Density",
+    description: "Free word frequency counter. Find most used words, analyze keyword density, export to CSV. Perfect for SEO, content analysis, and writing improvement.",
+    keywords: "word frequency counter, word count frequency, keyword density, word usage analyzer, text analysis, word occurrence counter, SEO keyword tool",
+    canonical: `${origin}/word-frequency-counter`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Word Frequency Counter",
+      "url": `${origin}/word-frequency-counter`,
+      "description": "Analyze word frequency and keyword density in your text.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Word Frequency Counter", url: `${origin}/word-frequency-counter` }
+    ]
+  };
+};
+
+// Random Word Generator SEO Configuration
+export const getRandomWordGeneratorSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Random Word Generator - Generate Words for Writing",
+    description: "Free random word generator with customizable options. Generate nouns, verbs, adjectives for creative writing, games, and brainstorming sessions.",
+    keywords: "random word generator, word generator, random words, creative writing tool, brainstorming words, random noun generator, random verb generator",
+    canonical: `${origin}/random-word-generator`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Random Word Generator",
+      "url": `${origin}/random-word-generator`,
+      "description": "Generate random words for writing, games, and brainstorming.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Random Word Generator", url: `${origin}/random-word-generator` }
+    ]
+  };
+};
+
+// Words Per Page Calculator SEO Configuration
+export const getWordsPerPageSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Words Per Page Calculator - Convert Words to Pages",
+    description: "Free words per page calculator. Convert word count to pages with custom font, size, spacing. Estimate reading and speaking time for essays and documents.",
+    keywords: "words per page, page calculator, word to page converter, essay length calculator, reading time calculator, speaking time estimator, document formatter",
+    canonical: `${origin}/words-per-page`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Words Per Page Calculator",
+      "url": `${origin}/words-per-page`,
+      "description": "Convert word count to pages with customizable formatting options.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Words Per Page", url: `${origin}/words-per-page` }
+    ]
+  };
+};
+
+// Plagiarism Checker SEO Configuration
+export const getPlagiarismCheckerSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Free Plagiarism Checker - Detect Duplicate Content",
+    description: "Free plagiarism checker for students and writers. Detect copied content, check originality, get detailed reports. Ensure academic integrity instantly.",
+    keywords: "plagiarism checker, plagiarism detector, duplicate content checker, originality checker, academic integrity, content authenticity, copy checker",
+    canonical: `${origin}/plagiarism-checker`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Plagiarism Checker",
+      "url": `${origin}/plagiarism-checker`,
+      "description": "Detect plagiarism and check content originality.",
+      "applicationCategory": "Education",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Plagiarism Checker", url: `${origin}/plagiarism-checker` }
+    ]
+  };
+};
+
+// Resume/CV Checker SEO Configuration
+export const getResumeCVCheckerSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Resume Word Counter - ATS Optimization & Analysis",
+    description: "Free resume word counter with ATS optimization score. Analyze word count, action verbs, skills extraction. Perfect for job seekers in US, UK, Canada.",
+    keywords: "resume word counter, CV analyzer, ATS optimization, resume checker, job application tool, resume analyzer, CV word count, career tool",
+    canonical: `${origin}/resume-cv-checker`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Resume CV Checker",
+      "url": `${origin}/resume-cv-checker`,
+      "description": "Analyze and optimize your resume for ATS systems.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Resume CV Checker", url: `${origin}/resume-cv-checker` }
+    ]
+  };
+};
+
+// SEO Content Analyzer SEO Configuration
+export const getSEOContentAnalyzerSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "SEO Content Analyzer - Optimize Content for Rankings",
+    description: "Free SEO content analyzer. Check keyword density, readability scores, meta tags, heading structure. Improve search rankings with actionable insights.",
+    keywords: "SEO content analyzer, keyword density checker, SEO tool, content optimization, meta tag analyzer, heading checker, SEO audit, search ranking tool",
+    canonical: `${origin}/seo-content-analyzer`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SEO Content Analyzer",
+      "url": `${origin}/seo-content-analyzer`,
+      "description": "Analyze and optimize your content for better search rankings.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "SEO Content Analyzer", url: `${origin}/seo-content-analyzer` }
+    ]
+  };
+};
+
+// Speech to Text SEO Configuration
+export const getSpeechToTextSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Speech to Text - Free Voice Typing & Transcription",
+    description: "Free speech to text converter. Real-time voice recognition, multi-language support, browser-based transcription. No API keys or signup required.",
+    keywords: "speech to text, voice to text, voice typing, transcription, dictation, voice recognition, audio to text, speech recognition",
+    canonical: `${origin}/speech-to-text`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Speech to Text",
+      "url": `${origin}/speech-to-text`,
+      "description": "Convert speech to text with real-time voice recognition.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Speech to Text", url: `${origin}/speech-to-text` }
+    ]
+  };
+};
+
+// Readability Calculator SEO Configuration
+export const getReadabilityCalculatorSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Readability Calculator - Check Reading Level Score",
+    description: "Free readability calculator with Flesch-Kincaid, Gunning Fog, SMOG, ARI scores. Analyze text complexity and optimize content for your target audience.",
+    keywords: "readability calculator, Flesch-Kincaid score, reading level, Gunning Fog index, SMOG score, text complexity, readability score, content readability",
+    canonical: `${origin}/readability-calculator`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Readability Calculator",
+      "url": `${origin}/readability-calculator`,
+      "description": "Calculate readability scores and reading level for your text.",
+      "applicationCategory": "Education",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Readability Calculator", url: `${origin}/readability-calculator` }
+    ]
+  };
+};
+
+// Grammar Checker SEO Configuration
+export const getGrammarCheckerSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Free Grammar Checker - Fix Grammar & Spelling Errors",
+    description: "Free online grammar checker. Detect and fix grammar mistakes, spelling errors, punctuation issues instantly. AI-powered suggestions for better writing.",
+    keywords: "grammar checker, spell checker, grammar correction, spelling errors, punctuation checker, writing tool, grammar fix, proofreader",
+    canonical: `${origin}/grammar-checker`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Grammar Checker",
+      "url": `${origin}/grammar-checker`,
+      "description": "Check and fix grammar, spelling, and punctuation errors.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Grammar Checker", url: `${origin}/grammar-checker` }
+    ]
+  };
+};
+
+// Text Compare SEO Configuration
+export const getTextCompareSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Text Compare Tool - Find Differences Between Texts",
+    description: "Free text comparison tool. Compare two texts side-by-side, highlight additions, deletions, changes. Perfect for document review and version control.",
+    keywords: "text compare, diff checker, text difference, compare documents, text comparison, find differences, document compare, version compare",
+    canonical: `${origin}/text-compare`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Text Compare",
+      "url": `${origin}/text-compare`,
+      "description": "Compare two texts and find differences between them.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Text Compare", url: `${origin}/text-compare` }
+    ]
+  };
+};
+
+// Letter Counter SEO Configuration
+export const getLetterCounterSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Letter Counter - Count Letters, Vowels, Consonants",
+    description: "Free letter counter tool. Count total letters, vowels, consonants, analyze letter frequency distribution. Track uppercase and lowercase characters.",
+    keywords: "letter counter, count letters, vowel counter, consonant counter, alphabet counter, letter frequency, character analysis",
+    canonical: `${origin}/letter-counter`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Letter Counter",
+      "url": `${origin}/letter-counter`,
+      "description": "Count letters, vowels, and consonants in your text.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Letter Counter", url: `${origin}/letter-counter` }
+    ]
+  };
+};
+
+// Sentence Counter SEO Configuration
+export const getSentenceCounterSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Sentence Counter - Count & Analyze Sentence Length",
+    description: "Free sentence counter with length analysis. Count sentences, track short/medium/long distribution, improve writing structure and readability.",
+    keywords: "sentence counter, count sentences, sentence length, sentence analysis, writing structure, sentence statistics, text analysis",
+    canonical: `${origin}/sentence-counter`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sentence Counter",
+      "url": `${origin}/sentence-counter`,
+      "description": "Count and analyze sentences in your text.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Sentence Counter", url: `${origin}/sentence-counter` }
+    ]
+  };
+};
+
+// Paragraph Counter SEO Configuration
+export const getParagraphCounterSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Paragraph Counter - Count & Analyze Paragraphs",
+    description: "Free paragraph counter with structure analysis. Count paragraphs, analyze length distribution, track words per paragraph for better content organization.",
+    keywords: "paragraph counter, count paragraphs, paragraph analysis, paragraph length, content structure, writing organization, text analysis",
+    canonical: `${origin}/paragraph-counter`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Paragraph Counter",
+      "url": `${origin}/paragraph-counter`,
+      "description": "Count and analyze paragraphs in your text.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Paragraph Counter", url: `${origin}/paragraph-counter` }
+    ]
+  };
+};
+
+// Line Counter SEO Configuration
+export const getLineCounterSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Line Counter - Count Lines in Text & Code",
+    description: "Free line counter tool. Count total lines, empty lines, non-empty lines. Perfect for code analysis, text documents, and content formatting.",
+    keywords: "line counter, count lines, code line counter, empty lines, text lines, document lines, line analysis",
+    canonical: `${origin}/line-counter`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Line Counter",
+      "url": `${origin}/line-counter`,
+      "description": "Count lines in text and code files.",
+      "applicationCategory": "Productivity",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` },
+      { name: "Line Counter", url: `${origin}/line-counter` }
+    ]
+  };
+};
+
+// Tools Page SEO Configuration
+export const getToolsPageSEO = (): SEOConfig => {
+  const origin = getCurrentOrigin();
+  return {
+    title: "Free Writing Tools - Word Counter, Grammar Checker & More",
+    description: "17+ free writing tools: word counter, character counter, grammar checker, plagiarism detector, SEO analyzer. All tools 100% free, no signup required.",
+    keywords: "writing tools, word counter, character counter, grammar checker, plagiarism checker, SEO tools, text analysis, free online tools",
+    canonical: `${origin}/tools`,
+    ogImage: `${origin}/og-image.png`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Free Writing Tools",
+      "url": `${origin}/tools`,
+      "description": "Collection of 17+ free writing and text analysis tools.",
+      "isAccessibleForFree": true
+    },
+    breadcrumbs: [
+      { name: "Home", url: `${origin}/` },
+      { name: "Tools", url: `${origin}/tools` }
+    ]
+  };
+};
+
+// Tool SEO configuration map for easy lookup
+export const getToolSEO = (toolPath: string): SEOConfig => {
+  const origin = getCurrentOrigin();
+  const seoMap: Record<string, () => SEOConfig> = {
+    '/': getWordCounterSEO,
+    '/character-counter': getCharacterCounterSEO,
+    '/text-case-convert': getTextCaseSEO,
+    '/word-frequency-counter': getWordFrequencyCounterSEO,
+    '/random-word-generator': getRandomWordGeneratorSEO,
+    '/words-per-page': getWordsPerPageSEO,
+    '/plagiarism-checker': getPlagiarismCheckerSEO,
+    '/resume-cv-checker': getResumeCVCheckerSEO,
+    '/seo-content-analyzer': getSEOContentAnalyzerSEO,
+    '/speech-to-text': getSpeechToTextSEO,
+    '/readability-calculator': getReadabilityCalculatorSEO,
+    '/grammar-checker': getGrammarCheckerSEO,
+    '/text-compare': getTextCompareSEO,
+    '/letter-counter': getLetterCounterSEO,
+    '/sentence-counter': getSentenceCounterSEO,
+    '/paragraph-counter': getParagraphCounterSEO,
+    '/line-counter': getLineCounterSEO,
+    '/tools': getToolsPageSEO
+  };
+  
+  return seoMap[toolPath]?.() || getWordCounterSEO();
+};
+
 // Dynamic SEO getter based on current domain
 export const getCurrentSEOConfig = (): SEOConfig => {
   if (isCaseHost()) {
