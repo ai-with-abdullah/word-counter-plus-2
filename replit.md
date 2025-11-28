@@ -155,3 +155,41 @@ Preferred communication style: Simple, everyday language.
 - Standalone JavaScript implementation (no React)
 - Local text analysis (fully offline)
 - Context menu integration for selected text analysis
+
+## SEO Issues & Implementation Plan (November 2025)
+
+### Identified Issues (Ahrefs Audit)
+A comprehensive SEO audit identified critical issues caused by Client-Side Rendering (CSR):
+
+| Issue | Count | Status |
+|-------|-------|--------|
+| Duplicate pages without canonical | 131 | Pending Fix |
+| Orphan pages (blog posts) | 130 | Pending Fix |
+| Pages with no outgoing links | 131 | Pending Fix |
+| Missing H1 on all pages | All | Pending Fix |
+| Low word count | All | Pending Fix |
+| Long meta tags | Homepage | Pending Fix |
+| URL redirect chains | Multiple | Pending Fix |
+
+### Root Cause
+The application uses Client-Side Rendering (CSR) where:
+- All content is rendered by JavaScript
+- Crawlers see empty `<div id="root">`
+- Meta tags, canonicals, H1s, and links are JavaScript-dependent
+
+### Solution: Server-Side Rendering (SSR)
+Implementation plan documented in:
+- `SEO_FIX_IMPLEMENTATION_PLAN.md` - Detailed technical plan
+- `NEXT_SESSION_PROMPT.md` - Ready-to-use prompt for implementation
+
+### Key Files for SSR Implementation
+- `client/src/entry-server.tsx` (to create) - SSR entry point
+- `client/src/entry-client.tsx` (to create) - Client hydration
+- `server/seo-config.ts` (to create) - Centralized SEO data
+- `server/vite.ts` (to modify) - Integrate SSR rendering
+- `vite.config.ts` (to modify) - SSR build config
+- `client/index.html` (to modify) - SSR placeholders
+
+### Quick Fixes Needed
+1. `client/index.html`: Shorten title (<60 chars) and description (<160 chars)
+2. `generate-sitemap.js`: Fix `/text-case-converter` to `/text-case-convert`
