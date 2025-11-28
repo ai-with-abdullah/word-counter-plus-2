@@ -8,6 +8,7 @@ import { plagiarismCheckerBlogs } from './blogs/plagiarism-checker-blogs';
 import { resumeCVBlogs } from './blogs/resume-cv-blogs';
 import { seoContentAnalyzerBlogs } from './blogs/seo-content-analyzer-blogs';
 import { brokenLinkBlogs } from './blogs/broken-link-blogs';
+import { writingTrends2026Blog } from './blogs/writing-trends-2026-blog';
 
 export interface BlogPost {
   id: string;
@@ -22,6 +23,7 @@ export interface BlogPost {
 }
 
 export const allBlogPosts: BlogPost[] = [
+  writingTrends2026Blog,
   {
     id: "beyond-word-count-professional-writing-metrics",
     title: "Beyond Word Count: The Hidden Metrics That Separate Good Writers From Great Ones",
