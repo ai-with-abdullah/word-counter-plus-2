@@ -21,7 +21,7 @@ function getStaticPages() {
     
     { url: '/tools', priority: 0.9, changefreq: 'weekly' },
     { url: '/character-counter', priority: 0.9, changefreq: 'weekly' },
-    { url: '/text-case-converter', priority: 0.9, changefreq: 'weekly' },
+    { url: '/text-case-convert', priority: 0.9, changefreq: 'weekly' },
     { url: '/word-frequency-counter', priority: 0.85, changefreq: 'weekly' },
     { url: '/random-word-generator', priority: 0.85, changefreq: 'weekly' },
     { url: '/words-per-page', priority: 0.85, changefreq: 'weekly' },
