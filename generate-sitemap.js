@@ -102,7 +102,7 @@ Allow: /plagiarism-checker
 Allow: /resume-cv-checker
 Allow: /grammar-checker
 Allow: /character-counter
-Allow: /text-case-converter
+Allow: /text-case-convert
 Allow: /word-frequency-counter
 Allow: /random-word-generator
 Allow: /words-per-page
