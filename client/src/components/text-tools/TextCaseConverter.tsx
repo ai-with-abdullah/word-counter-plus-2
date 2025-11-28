@@ -613,12 +613,12 @@ ${new Date().toLocaleString()}
               </div>
 
               <div className="lg:hidden">
-                <RelatedToolsSidebar currentTool="/text-case-converter" limit={5} />
+                <RelatedToolsSidebar currentTool="/text-case-convert" limit={5} />
               </div>
             </div>
 
             <div className="hidden lg:block">
-              <RelatedToolsSidebar currentTool="/text-case-converter" />
+              <RelatedToolsSidebar currentTool="/text-case-convert" />
             </div>
           </div>
         </div>

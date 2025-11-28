@@ -119,6 +119,11 @@ Allow: /tools
 Allow: /about
 Allow: /contact
 Allow: /faq
+Allow: /comparisons
+Allow: /vs-wordcounter
+Allow: /vs-charactercount
+Allow: /vs-grammarly
+Allow: /vs-wordcounttool
 
 Disallow: /admin/
 Disallow: /api/
@@ -127,6 +132,9 @@ Disallow: /*.pdf$
 Disallow: /private/
 Disallow: /.local/
 Disallow: /server/
+Disallow: /help-us
+Disallow: /loading-demo
+Disallow: /download
 
 User-agent: Googlebot
 Allow: /

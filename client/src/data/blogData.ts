@@ -733,7 +733,7 @@ Thank you for being part of this journey. Let's make better writing accessible t
 - [Readability Calculator](/readability-calculator) – Deep readability analysis  
 - [SEO Content Analyzer](/seo-content-analyzer) – Optimize content for search engines  
 - [Word Frequency Counter](/word-frequency-counter) – Find your most-used words  
-- [Text Case Converter](/text-case-converter) – Convert text to different cases
+- [Text Case Converter](/text-case-convert) – Convert text to different cases
 
 ---
 

@@ -12,7 +12,7 @@ const staticRoutes = [
   { path: '/blog', priority: '0.9', changefreq: 'daily' },
   { path: '/tools', priority: '0.9', changefreq: 'weekly' },
   { path: '/character-counter', priority: '0.8', changefreq: 'weekly' },
-  { path: '/text-case-converter', priority: '0.8', changefreq: 'weekly' },
+  { path: '/text-case-convert', priority: '0.8', changefreq: 'weekly' },
   { path: '/word-frequency-counter', priority: '0.8', changefreq: 'weekly' },
   { path: '/random-word-generator', priority: '0.8', changefreq: 'weekly' },
   { path: '/words-per-page', priority: '0.8', changefreq: 'weekly' },

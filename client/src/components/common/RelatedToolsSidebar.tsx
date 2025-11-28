@@ -115,7 +115,7 @@ export default function RelatedToolsSidebar({ currentTool, limit = 5 }: RelatedT
       category: "utility"
     },
     {
-      href: "/text-case-converter",
+      href: "/text-case-convert",
       name: "Case Converter",
       description: "Change text case format",
       icon: FaTextHeight,

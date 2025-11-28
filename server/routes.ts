@@ -81,9 +81,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const staticPages = [
         { url: '/', priority: 1.0, changefreq: 'daily' },
+        
         { url: '/seo-content-analyzer', priority: 0.95, changefreq: 'weekly' },
         { url: '/plagiarism-checker', priority: 0.95, changefreq: 'weekly' },
         { url: '/resume-cv-checker', priority: 0.95, changefreq: 'weekly' },
+        { url: '/grammar-checker', priority: 0.95, changefreq: 'weekly' },
+        
         { url: '/tools', priority: 0.9, changefreq: 'weekly' },
         { url: '/character-counter', priority: 0.9, changefreq: 'weekly' },
         { url: '/text-case-convert', priority: 0.9, changefreq: 'weekly' },
@@ -92,12 +95,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { url: '/words-per-page', priority: 0.85, changefreq: 'weekly' },
         { url: '/speech-to-text', priority: 0.85, changefreq: 'weekly' },
         { url: '/readability-calculator', priority: 0.85, changefreq: 'weekly' },
-        { url: '/grammar-checker', priority: 0.9, changefreq: 'weekly' },
         { url: '/text-compare', priority: 0.85, changefreq: 'weekly' },
+        { url: '/letter-counter', priority: 0.85, changefreq: 'weekly' },
+        { url: '/sentence-counter', priority: 0.85, changefreq: 'weekly' },
+        { url: '/paragraph-counter', priority: 0.85, changefreq: 'weekly' },
+        { url: '/line-counter', priority: 0.85, changefreq: 'weekly' },
+        
+        { url: '/comparisons', priority: 0.85, changefreq: 'weekly' },
+        { url: '/vs-wordcounter', priority: 0.8, changefreq: 'weekly' },
+        { url: '/vs-charactercount', priority: 0.8, changefreq: 'weekly' },
+        { url: '/vs-grammarly', priority: 0.8, changefreq: 'weekly' },
+        { url: '/vs-wordcounttool', priority: 0.8, changefreq: 'weekly' },
+        
+        { url: '/extension', priority: 0.8, changefreq: 'monthly' },
         { url: '/about', priority: 0.8, changefreq: 'monthly' },
         { url: '/blog', priority: 0.8, changefreq: 'daily' },
         { url: '/contact', priority: 0.7, changefreq: 'monthly' },
         { url: '/faq', priority: 0.7, changefreq: 'monthly' },
+        
         { url: '/privacy', priority: 0.5, changefreq: 'yearly' },
         { url: '/terms', priority: 0.5, changefreq: 'yearly' },
         { url: '/disclaimer', priority: 0.5, changefreq: 'yearly' },
@@ -170,12 +185,30 @@ Allow: /
 Allow: /seo-content-analyzer
 Allow: /plagiarism-checker
 Allow: /resume-cv-checker
+Allow: /grammar-checker
 Allow: /character-counter
 Allow: /text-case-convert
 Allow: /word-frequency-counter
 Allow: /random-word-generator
 Allow: /words-per-page
+Allow: /speech-to-text
+Allow: /readability-calculator
+Allow: /text-compare
+Allow: /letter-counter
+Allow: /sentence-counter
+Allow: /paragraph-counter
+Allow: /line-counter
+Allow: /extension
 Allow: /blog
+Allow: /tools
+Allow: /about
+Allow: /contact
+Allow: /faq
+Allow: /comparisons
+Allow: /vs-wordcounter
+Allow: /vs-charactercount
+Allow: /vs-grammarly
+Allow: /vs-wordcounttool
 
 Disallow: /admin/
 Disallow: /api/
@@ -184,6 +217,9 @@ Disallow: /*.pdf$
 Disallow: /private/
 Disallow: /.local/
 Disallow: /server/
+Disallow: /help-us
+Disallow: /loading-demo
+Disallow: /download
 
 User-agent: Googlebot
 Allow: /

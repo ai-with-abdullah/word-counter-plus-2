@@ -151,14 +151,14 @@ export const getTextCaseSEO = (): SEOConfig => {
     title: "Free Text Case Converter 2025 - Uppercase, Lowercase, Camel Case | US, UK, CA",
     description: "Free text case converter online - instantly convert to UPPERCASE, lowercase, Title Case, camelCase, snake_case, kebab-case. Used by 150K+ developers, programmers, writers in US, UK, Canada, Australia. 10+ case formats, real-time conversion, copy to clipboard. Perfect for coding, variable names, content formatting.",
     keywords: "text case converter free, case converter online, uppercase converter, lowercase converter, camel case converter, snake case converter, title case converter, pascal case converter, kebab case converter, text transformer, string converter, variable name converter, coding case converter, programming case tool, text format converter, case changer online free",
-    canonical: `${origin}/text-case-converter`,
+    canonical: `${origin}/text-case-convert`,
     ogImage: `${origin}/og-image.png`,
     structuredData: {
       "@context": "https://schema.org",
       "@type": ["WebApplication", "SoftwareApplication"],
       "name": "Text Case Converter - Convert to Upper, Lower, Title, Camel Case Online",
       "alternateName": ["Case Converter", "Text Case Tool", "Case Changer", "Text Transformer", "String Converter"],
-      "url": `${origin}/text-case-converter`,
+      "url": `${origin}/text-case-convert`,
       "logo": `${origin}/word-counter-plus-logo.png`,
       "description": "Free online text case converter tool. Convert text to uppercase, lowercase, title case, camel case, snake case, kebab case, and more. Perfect for developers, writers, and content creators.",
       "keywords": "text case converter, uppercase, lowercase, camel case, snake case",
@@ -268,7 +268,7 @@ export const getTextCaseSEO = (): SEOConfig => {
     breadcrumbs: [
       { name: "Home", url: `${origin}/` },
       { name: "Tools", url: `${origin}/tools` },
-      { name: "Text Case Converter", url: `${origin}/text-case-converter` }
+      { name: "Text Case Converter", url: `${origin}/text-case-convert` }
     ]
   };
 };

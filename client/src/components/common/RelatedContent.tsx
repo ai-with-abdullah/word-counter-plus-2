@@ -166,7 +166,7 @@ export const TOOL_RELATED_CONTENT: Record<string, RelatedItem[]> = {
     {
       title: 'Text Case Converter',
       description: 'Convert text between different case formats for professional documents.',
-      href: '/text-case-converter',
+      href: '/text-case-convert',
       type: 'tool',
       category: 'Text Formatting'
     }

@@ -63,7 +63,7 @@ export const getToolsData = (): Tool[] => {
       title: 'Text Case Converter',
       description: 'Convert text between different cases: uppercase, lowercase, title case, camel case, and more. Ideal for formatting text for different platforms.',
       icon: FaTextHeight,
-      href: '/text-case-converter',
+      href: '/text-case-convert',
       isExternal: false,
       category: 'Formatting',
       tags: ['case conversion', 'formatting', 'uppercase', 'lowercase'],
