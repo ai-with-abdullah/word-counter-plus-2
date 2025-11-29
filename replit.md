@@ -51,10 +51,15 @@ Preferred communication style: Simple, everyday language.
 - GitHub integration for content management (via Octokit)
 - Separate route handlers for serverless (routes-serverless.ts) and full server (routes.ts)
 
-**Server-Side Rendering:**
-- Dynamic HTML template injection for SEO (meta tags, structured data)
-- Tool-specific SEO configurations injected at request time
+**Server-Side Rendering (SSR) for SEO:**
+- Dynamic HTML template injection for SEO meta tags (title, description, canonical, Open Graph, Twitter Cards)
+- Page-specific SEO configurations in server/seo-config.ts covering all routes:
+  - Homepage and 16 tool pages with unique meta data
+  - Blog posts with dynamic titles from blog data
+  - Comparison pages, static pages (about, contact, privacy, etc.)
+- Tool-specific structured data (JSON-LD) injected at request time
 - Sitemap generation with dynamic blog post inclusion
+- Template placeholders: <!--ssr-head--> for meta tags injection
 
 ### Data Storage Solutions
 

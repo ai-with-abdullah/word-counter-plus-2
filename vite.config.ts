@@ -10,7 +10,6 @@ import webp from "imagemin-webp";
 import viteCompression from "vite-plugin-compression";
 import { visualizer } from "rollup-plugin-visualizer";
 
-// Small helper to resolve paths
 const r = (...segments: string[]) => path.resolve(process.cwd(), ...segments);
 
 export default defineConfig({

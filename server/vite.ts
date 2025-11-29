@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { type Server } from "http";
 import expressStaticGzip from "express-static-gzip";
+import { getSEODataForUrl, generateMetaTags } from "./seo-config";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -224,7 +225,6 @@ export async function setupVite(app: Express, server: Server) {
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
 
-    // Skip Vite's HTML handler for API routes
     if (url.startsWith('/api/')) {
       return next();
     }
@@ -237,10 +237,13 @@ export async function setupVite(app: Express, server: Server) {
         "index.html",
       );
 
-      // Cache template in memory for better performance  
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       
-      // Check if this is a tool page route and inject structured data
+      const seoData = await getSEODataForUrl(url);
+      const metaTags = generateMetaTags(seoData);
+      template = template.replace('<!--ssr-head-->', metaTags);
+      template = template.replace('<!--ssr-outlet-->', '');
+      
       const toolPaths = [
         '/character-counter', '/text-case-convert', '/word-frequency-counter',
         '/random-word-generator', '/words-per-page', '/plagiarism-checker',
@@ -254,17 +257,9 @@ export async function setupVite(app: Express, server: Server) {
         template = await injectToolStructuredData(template, toolPath);
       }
       
-      // Check if this is a blog post route and inject meta tags for social sharing
-      const blogPostMatch = url.match(/^\/blog\/([^/?]+)/);
-      if (blogPostMatch) {
-        const slug = blogPostMatch[1];
-        log(`Matched blog post route with slug: ${slug}`);
-        template = await injectBlogPostMeta(template, slug);
-      }
-      
       template = template.replace(
-        `src="/src/main.tsx"`,
-        `src="/src/main.tsx?v=${Date.now()}"`,
+        `src="/src/entry-client.tsx"`,
+        `src="/src/entry-client.tsx?v=${Date.now()}"`,
       );
       const page = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
@@ -303,47 +298,34 @@ export function serveStatic(app: Express) {
     }
   }));
 
-  // fall through to index.html if the file doesn't exist
   app.use("*", async (req, res) => {
     const url = req.originalUrl;
-    res.setHeader('Cache-Control', 'no-cache'); // Don't cache the fallback HTML
+    res.setHeader('Cache-Control', 'no-cache');
     
-    // Check if this is a tool page route and inject structured data
-    const toolPaths = [
-      '/character-counter', '/text-case-convert', '/word-frequency-counter',
-      '/random-word-generator', '/words-per-page', '/plagiarism-checker',
-      '/resume-cv-checker', '/seo-analyzer', '/speech-to-text',
-      '/readability-calculator', '/grammar-checker', '/text-compare'
-    ];
-    
-    if (toolPaths.some(path => url.startsWith(path))) {
-      try {
-        const toolPath = toolPaths.find(path => url.startsWith(path))!;
-        const indexPath = path.resolve(distPath, "index.html");
-        let template = await fs.promises.readFile(indexPath, "utf-8");
+    try {
+      const indexPath = path.resolve(distPath, "index.html");
+      let template = await fs.promises.readFile(indexPath, "utf-8");
+      
+      const seoData = await getSEODataForUrl(url);
+      const metaTags = generateMetaTags(seoData);
+      template = template.replace('<!--ssr-head-->', metaTags);
+      
+      const toolPaths = [
+        '/character-counter', '/text-case-convert', '/word-frequency-counter',
+        '/random-word-generator', '/words-per-page', '/plagiarism-checker',
+        '/resume-cv-checker', '/seo-analyzer', '/speech-to-text',
+        '/readability-calculator', '/grammar-checker', '/text-compare'
+      ];
+      
+      if (toolPaths.some(p => url.startsWith(p))) {
+        const toolPath = toolPaths.find(p => url.startsWith(p))!;
         template = await injectToolStructuredData(template, toolPath);
-        res.send(template);
-        return;
-      } catch (error) {
-        log(`Error serving tool page ${url}: ${error}`);
       }
+      
+      res.send(template);
+    } catch (error) {
+      log(`Error serving ${url}: ${error}`);
+      res.sendFile(path.resolve(distPath, "index.html"));
     }
-    
-    // Check if this is a blog post route and inject meta tags for social sharing
-    const blogPostMatch = url.match(/^\/blog\/([^/?]+)/);
-    if (blogPostMatch) {
-      try {
-        const slug = blogPostMatch[1];
-        const indexPath = path.resolve(distPath, "index.html");
-        let template = await fs.promises.readFile(indexPath, "utf-8");
-        template = await injectBlogPostMeta(template, slug);
-        res.send(template);
-        return;
-      } catch (error) {
-        log(`Error serving blog post ${blogPostMatch[1]}: ${error}`);
-      }
-    }
-    
-    res.sendFile(path.resolve(distPath, "index.html"));
   });
 }

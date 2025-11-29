@@ -5,44 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Primary SEO Meta Tags - Optimized for High RPM Countries (US, UK, CA, AU) -->
-    <title>Word Counter Plus - Free Online Text Analyzer</title>
-    <meta name="title" content="Word Counter Plus - Free Online Text Analyzer" />
-    <meta name="description" content="Free word counter and character counter tool. Real-time text analysis with readability scores, keyword density, and SEO optimization for writers." />
-    <meta name="keywords" content="word counter, character counter, free word counter online, text analysis tool, plagiarism checker free, readability score checker, SEO content optimizer, academic writing tools, essay word counter, blog post analyzer, content marketing tools, social media character limit checker, professional writing software, text statistics calculator, grammar checker online, content creation tools, digital marketing analytics, copywriting tools free, student essay checker, academic plagiarism detector" />
-    <meta name="author" content="Word Counter Plus - Professional Text Analysis Tools" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="geo.region" content="US-CA" />
-    <meta name="geo.placename" content="United States" />
-    <meta name="coverage" content="Worldwide" />
-    <meta name="distribution" content="Global" />
-    <meta name="target" content="all" />
-    <meta name="audience" content="Writers, Students, Content Creators, Marketers, Bloggers, Academic Researchers, Professional Authors" />
-    <!-- Canonical tag will be set dynamically by useSEO hook -->
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://wordcounterplusapp.com/" />
-    <meta property="og:title" content="Free Word Counter & Text Analyzer - Real-Time Character Count Tool" />
-    <meta property="og:description" content="Fast, free word counter and character counter with real-time text analysis. Readability scores, keyword density, SEO optimization, plagiarism detection & grammar checking. 2M+ users worldwide." />
-    <meta property="og:image" content="https://wordcounterplusapp.com/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Word Counter Plus - Free online word counter and character counter tool" />
-    <meta property="og:site_name" content="Word Counter Plus" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="article:author" content="Word Counter Plus" />
-    <meta property="article:publisher" content="Word Counter Plus" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://wordcounterplusapp.com/" />
-    <meta name="twitter:title" content="Free Word Counter & Text Analyzer - Real-Time Character Count Tool" />
-    <meta name="twitter:description" content="Fast, free word counter with real-time text analysis, readability scores, SEO optimization & plagiarism detection. Perfect for writers, students & marketers. Count words instantly!" />
-    <meta name="twitter:image" content="https://wordcounterplusapp.com/og-image.png" />
-    <meta name="twitter:image:alt" content="Word Counter Plus - Free online word counter and character counter tool" />
-    <meta name="twitter:creator" content="@wordcounterplusapp" />
-    <meta name="twitter:site" content="@wordcounterplusapp" />
+    <!-- SSR SEO Meta Tags - Replaced server-side -->
+    <!--ssr-head-->
     
     <!-- Additional SEO Tags -->
     <meta name="theme-color" content="#2563eb" />
@@ -411,18 +375,8 @@
   </head>
   <body>
     
-    <div id="root">
-      
-      <!-- Fallback noscript content -->
-      <noscript>
-        <div style="padding: 2rem; max-width: 1200px; margin: 0 auto; font-family: 'Poppins', sans-serif;">
-          <p style="margin-top: 2rem; padding: 1rem; background: #ffebee; border-left: 4px solid #f44336; border-radius: 0.5rem; color: #c62828;">
-            <strong>JavaScript Required:</strong> This page requires JavaScript to be enabled for the interactive text analysis tools to work. Please enable JavaScript in your browser settings to use all features.
-          </p>
-        </div>
-      </noscript>
-    </div>
-    <script type="module" src="/src/main.tsx"></script>
+    <div id="root"><!--ssr-outlet--></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
     
     <!-- Performance optimizations and monitoring -->
     <script>
