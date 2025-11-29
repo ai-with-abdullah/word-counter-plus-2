@@ -1,9 +1,16 @@
-import { createRoot } from 'react-dom/client';
+import { hydrateRoot, createRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';
 
 const rootElement = document.getElementById('root')!;
-createRoot(rootElement).render(<App />);
+
+const hasSSRContent = rootElement.innerHTML.trim().length > 0;
+
+if (hasSSRContent) {
+  hydrateRoot(rootElement, <App />);
+} else {
+  createRoot(rootElement).render(<App />);
+}
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
