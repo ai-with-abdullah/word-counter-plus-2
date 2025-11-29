@@ -1,16 +1,20 @@
-import { hydrateRoot, createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';
 
 const rootElement = document.getElementById('root')!;
 
-const hasSSRContent = rootElement.innerHTML.trim().length > 0;
-
-if (hasSSRContent) {
-  hydrateRoot(rootElement, <App />);
-} else {
-  createRoot(rootElement).render(<App />);
+// Remove SSR content for SEO crawlers before React renders
+// SSR content is hidden and purely for search engine indexing
+const ssrContent = document.getElementById('ssr-content');
+if (ssrContent) {
+  // Keep SSR content in DOM but outside root for SEO
+  document.body.appendChild(ssrContent);
 }
+
+// Always use createRoot for React rendering
+// SSR content is separate and hidden for SEO only
+createRoot(rootElement).render(<App />);
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
