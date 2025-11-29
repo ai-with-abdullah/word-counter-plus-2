@@ -114,12 +114,12 @@ async function generateStaticSSRHtml(url: string, seoData: any): Promise<string>
     `<a href="${link.href}">${escapeHtml(link.label)}</a>`
   ).join('\n            ');
   
-  // Generate blog post links if on blog page
+  // Generate blog post links if on blog page - include ALL posts for SEO
   let blogLinksHtml = '';
   if (normalizedUrl === '/blog' || normalizedUrl.startsWith('/blog/')) {
     try {
       const { blogPosts } = await import("../client/src/data/blogData.ts");
-      blogLinksHtml = blogPosts.slice(0, 20).map((post: any) => 
+      blogLinksHtml = blogPosts.map((post: any) => 
         `<a href="/blog/${post.slug}">${escapeHtml(post.title)}</a>`
       ).join('\n            ');
     } catch (e) {
