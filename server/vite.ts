@@ -18,6 +18,158 @@ function escapeHtml(unsafe: string): string {
     .replace(/'/g, "&#039;");
 }
 
+// Navigation links for SSR
+const navigationLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/tools', label: 'Tools' },
+  { href: '/extension', label: 'Extension' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/blog', label: 'Blog' },
+];
+
+// Tool links for SSR
+const toolLinks = [
+  { href: '/character-counter', label: 'Character Counter' },
+  { href: '/text-case-convert', label: 'Text Case Converter' },
+  { href: '/word-frequency-counter', label: 'Word Frequency Counter' },
+  { href: '/random-word-generator', label: 'Random Word Generator' },
+  { href: '/words-per-page', label: 'Words Per Page Calculator' },
+  { href: '/plagiarism-checker', label: 'Plagiarism Checker' },
+  { href: '/resume-cv-checker', label: 'Resume/CV Checker' },
+  { href: '/seo-content-analyzer', label: 'SEO Content Analyzer' },
+  { href: '/speech-to-text', label: 'Speech to Text' },
+  { href: '/readability-calculator', label: 'Readability Calculator' },
+  { href: '/grammar-checker', label: 'Grammar Checker' },
+  { href: '/text-compare', label: 'Text Compare' },
+  { href: '/letter-counter', label: 'Letter Counter' },
+  { href: '/sentence-counter', label: 'Sentence Counter' },
+  { href: '/paragraph-counter', label: 'Paragraph Counter' },
+  { href: '/line-counter', label: 'Line Counter' },
+];
+
+// Footer links for SSR
+const footerLinks = [
+  { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms of Service' },
+  { href: '/disclaimer', label: 'Disclaimer' },
+  { href: '/cookies', label: 'Cookie Policy' },
+  { href: '/faq', label: 'FAQ' },
+];
+
+// Page-specific H1 and content
+const pageContent: Record<string, { h1: string; description: string }> = {
+  '/': { h1: 'Word Counter Plus', description: 'Analyze your text with advanced word counting and readability tools' },
+  '/character-counter': { h1: 'Character Counter', description: 'Count characters with and without spaces, track Twitter and social media limits' },
+  '/text-case-convert': { h1: 'Text Case Converter', description: 'Convert text to UPPERCASE, lowercase, Title Case, camelCase, and more' },
+  '/word-frequency-counter': { h1: 'Word Frequency Counter', description: 'Analyze word usage and keyword density in your text' },
+  '/random-word-generator': { h1: 'Random Word Generator', description: 'Generate random words for writing, games, and brainstorming' },
+  '/words-per-page': { h1: 'Words Per Page Calculator', description: 'Calculate how many pages your word count will fill' },
+  '/plagiarism-checker': { h1: 'Plagiarism Checker', description: 'Check your content for originality and detect duplicate text' },
+  '/resume-cv-checker': { h1: 'Resume & CV Word Counter', description: 'Optimize your resume with word count analysis and ATS scoring' },
+  '/seo-content-analyzer': { h1: 'SEO Content Analyzer', description: 'Analyze and optimize your content for search engines' },
+  '/speech-to-text': { h1: 'Speech to Text', description: 'Convert your voice to text with real-time transcription' },
+  '/readability-calculator': { h1: 'Readability Calculator', description: 'Check reading level with Flesch-Kincaid and other scores' },
+  '/grammar-checker': { h1: 'Grammar Checker', description: 'Fix grammar, spelling, and punctuation errors in your text' },
+  '/text-compare': { h1: 'Text Compare Tool', description: 'Compare two texts and find the differences' },
+  '/letter-counter': { h1: 'Letter Counter', description: 'Count letters, vowels, and consonants in your text' },
+  '/sentence-counter': { h1: 'Sentence Counter', description: 'Count and analyze sentences in your text' },
+  '/paragraph-counter': { h1: 'Paragraph Counter', description: 'Count paragraphs and analyze text structure' },
+  '/line-counter': { h1: 'Line Counter', description: 'Count lines in your text or code' },
+  '/tools': { h1: 'Free Writing Tools', description: 'Explore our collection of free text analysis and writing tools' },
+  '/blog': { h1: 'Writing Tips & Guides', description: 'Expert writing tips, content creation strategies, and text analysis guides' },
+  '/about': { h1: 'About Word Counter Plus', description: 'Learn about our mission to provide free text analysis tools' },
+  '/contact': { h1: 'Contact Us', description: 'Get in touch with the Word Counter Plus team' },
+  '/extension': { h1: 'Browser Extension', description: 'Install Word Counter Plus extension for Chrome, Firefox, and Edge' },
+  '/faq': { h1: 'Frequently Asked Questions', description: 'Find answers to common questions about Word Counter Plus' },
+  '/privacy': { h1: 'Privacy Policy', description: 'How we handle and protect your data' },
+  '/terms': { h1: 'Terms of Service', description: 'Terms and conditions for using Word Counter Plus' },
+  '/disclaimer': { h1: 'Disclaimer', description: 'Important disclaimers about our services' },
+  '/cookies': { h1: 'Cookie Policy', description: 'How we use cookies on our website' },
+  '/comparisons': { h1: 'Tool Comparisons', description: 'Compare Word Counter Plus with other tools' },
+};
+
+// Generate static SSR HTML with navigation, H1, content, and footer
+async function generateStaticSSRHtml(url: string, seoData: any): Promise<string> {
+  const normalizedUrl = url.split('?')[0].replace(/\/$/, '') || '/';
+  
+  // Get page content or use defaults
+  const content = pageContent[normalizedUrl] || {
+    h1: seoData.title.split(' - ')[0] || 'Word Counter Plus',
+    description: seoData.description
+  };
+  
+  // Generate header navigation
+  const headerNav = navigationLinks.map(link => 
+    `<a href="${link.href}" class="nav-link">${escapeHtml(link.label)}</a>`
+  ).join('\n          ');
+  
+  // Generate tool links for footer
+  const toolLinksHtml = toolLinks.map(link => 
+    `<a href="${link.href}">${escapeHtml(link.label)}</a>`
+  ).join('\n            ');
+  
+  // Generate footer links
+  const footerLinksHtml = footerLinks.map(link => 
+    `<a href="${link.href}">${escapeHtml(link.label)}</a>`
+  ).join('\n            ');
+  
+  // Generate blog post links if on blog page
+  let blogLinksHtml = '';
+  if (normalizedUrl === '/blog' || normalizedUrl.startsWith('/blog/')) {
+    try {
+      const { blogPosts } = await import("../client/src/data/blogData.ts");
+      blogLinksHtml = blogPosts.slice(0, 20).map((post: any) => 
+        `<a href="/blog/${post.slug}">${escapeHtml(post.title)}</a>`
+      ).join('\n            ');
+    } catch (e) {
+      log(`Error loading blog posts for SSR: ${e}`);
+    }
+  }
+  
+  // Build the static HTML
+  const staticHtml = `
+    <!-- SSR Static Content for SEO -->
+    <div id="ssr-content" style="position:absolute;left:-9999px;top:-9999px;visibility:hidden;" aria-hidden="true">
+      <!-- Header Navigation -->
+      <nav aria-label="Main navigation">
+        <a href="/" class="logo">Word Counter Plus</a>
+        ${headerNav}
+      </nav>
+      
+      <!-- Main Content -->
+      <main>
+        <h1>${escapeHtml(content.h1)}</h1>
+        <p>${escapeHtml(content.description)}</p>
+        
+        <!-- Tool Links -->
+        <section aria-label="Available Tools">
+          <h2>Free Writing Tools</h2>
+          ${toolLinksHtml}
+        </section>
+        
+        ${blogLinksHtml ? `
+        <!-- Blog Links -->
+        <section aria-label="Blog Posts">
+          <h2>Latest Blog Posts</h2>
+          ${blogLinksHtml}
+        </section>
+        ` : ''}
+      </main>
+      
+      <!-- Footer -->
+      <footer>
+        <nav aria-label="Footer navigation">
+          ${footerLinksHtml}
+        </nav>
+        <p>Word Counter Plus - Free online word counter, character counter, and text analysis tools.</p>
+      </footer>
+    </div>
+  `;
+  
+  return staticHtml;
+}
+
 // Tool page structured data injection for SEO
 async function injectToolStructuredData(template: string, toolPath: string): Promise<string> {
   try {
@@ -242,7 +394,10 @@ export async function setupVite(app: Express, server: Server) {
       const seoData = await getSEODataForUrl(url);
       const metaTags = generateMetaTags(seoData);
       template = template.replace('<!--ssr-head-->', metaTags);
-      template = template.replace('<!--ssr-outlet-->', '');
+      
+      // Generate static SSR HTML with navigation, H1, and content
+      const staticHtml = await generateStaticSSRHtml(url, seoData);
+      template = template.replace('<!--ssr-outlet-->', staticHtml);
       
       const toolPaths = [
         '/character-counter', '/text-case-convert', '/word-frequency-counter',
@@ -309,6 +464,10 @@ export function serveStatic(app: Express) {
       const seoData = await getSEODataForUrl(url);
       const metaTags = generateMetaTags(seoData);
       template = template.replace('<!--ssr-head-->', metaTags);
+      
+      // Generate static SSR HTML with navigation, H1, and content
+      const staticHtml = await generateStaticSSRHtml(url, seoData);
+      template = template.replace('<!--ssr-outlet-->', staticHtml);
       
       const toolPaths = [
         '/character-counter', '/text-case-convert', '/word-frequency-counter',

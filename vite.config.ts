@@ -167,13 +167,6 @@ export default defineConfig({
   },
 
   ssr: {
-    noExternal: [
-      'wouter',
-      '@tanstack/react-query',
-      'clsx',
-      'tailwind-merge',
-      'class-variance-authority',
-      'lucide-react',
-    ],
+    noExternal: ['wouter'],
   },
 });
