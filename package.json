@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development tsx server/index.ts",
     "build": "vite build",
-    "vercel-build": "vite build && npx tsx generate-sitemap.js",
+    "vercel-build": "vite build && npx tsx scripts/prerender.ts && npx tsx generate-sitemap.js",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview",
     "check": "tsc",
