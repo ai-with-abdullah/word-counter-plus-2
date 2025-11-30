@@ -1,0 +1,326 @@
+All tools
+Dashboard
+Social Media Manager
+MCP Server
+Brand Radar
+AI Content Helper
+Site Explorer
+Keywords Explorer
+Content Explorer
+Site Audit
+
+Upgrade
+
+Muhammad Abdullah's workspace
+
+Site Audit
+/
+
+Wordcounterplusapp
+
+Today, 07:44 AM
+
+Compare with: Today, 06:10 AM
+
+
+Segment
+
+Patches
+
+Looker Studio
+
+New crawl
+
+Overview
+All Issues
+5
+Alerts 
+New
+Crawl log
+Bulk export
+Tools
+Page explorer
+Link explorer
+Internal link opportunities
+Structure explorer
+Reports
+Internal pages
+Indexability
+Links
+Redirects
+Content
+Social tags
+Duplicates
+Localization
+Performance
+Images
+JavaScript
+CSS
+External pages
+
+All issues
+
+Print to PDF
+
+Actual
+22
+
+New
+14
+
+All tracked
+171
+
+Turned off
+0
+
+Importance
+
+Export all issues
+Issue
+Crawled
+Change
+Added
+New
+Removed
+Missing
+Internal pages
+404 page 
+New
+16	
+16
+16
+0
+0
+0
+
+
+4XX page 
+New
+16	
+16
+16
+0
+0
+0
+
+
+Indexability
+Indexable page became non-indexable  
+New
+17	
+17
+—
+—
+—
+—
+
+
+Canonical URL changed  
+New
+1	
+1
+—
+—
+—
+—
+
+
+Links
+Indexable
+Page has links to broken page 
+New
+115	
+115
+115
+0
+0
+0
+
+
+Orphan page (has no incoming internal links) 
+93	
+38
+0
+0
+38
+0
+
+
+Not indexable
+Orphan page (has no incoming internal links) 
+New
+1	
+1
+1
+0
+0
+0
+
+
+Page has links to broken page 
+New
+1	
+1
+1
+0
+0
+0
+
+
+Redirects
+3XX redirect  
+3	
+0
+0
+0
+0
+0
+
+
+HTTP to HTTPS redirect 
+2	
+0
+0
+0
+0
+0
+
+
+Redirect chain  
+1	
+0
+0
+0
+0
+0
+
+
+Content
+Indexable
+Title too long  
+New
+38	
+38
+38
+0
+0
+0
+
+
+Meta description too short  
+New
+34	
+34
+34
+0
+0
+0
+
+
+H1 tag changed  
+New
+115	
+115
+—
+—
+—
+—
+
+
+Meta description changed  
+New
+115	
+115
+—
+—
+—
+—
+
+
+Title tag changed  
+New
+115	
+115
+—
+—
+—
+—
+
+
+Page and SERP titles do not match  
+8	
+0
+0
+0
+0
+0
+
+
+Localization
+Self-reference hreflang annotation missing 
+114	
+17
+0
+0
+17
+0
+
+
+CSS
+CSS file size too large 
+1	
+0
+0
+0
+0
+0
+
+
+Sitemaps
+4XX page in sitemap 
+New
+16	
+16
+16
+0
+0
+0
+
+
+Other
+Pages to submit to IndexNow  
+New
+131	
+131
+—
+—
+—
+—
+
+
+Structured data has schema.org validation error 
+116	
+16
+0
+0
+16
+0
+
+
+About
+Team
+Our data
+Blog
+Robot
+Jobs
+Plans & pricing
+API
+Help
+Contact us
+
+English
+© 2025 Ahrefs Pte. Ltd. (201227417H) 16 Raffles Quay, #33-03 Hong Leong Building, Singapore 048581
+Legal info
+
+35
