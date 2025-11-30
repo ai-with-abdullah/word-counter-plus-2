@@ -5,12 +5,12 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
+import viteImagemin from "vite-plugin-imagemin";
+import webp from "imagemin-webp";
+import viteCompression from "vite-plugin-compression";
+import { visualizer } from "rollup-plugin-visualizer";
 
 const r = (...segments: string[]) => path.resolve(process.cwd(), ...segments);
-
-// Check if running on Vercel - skip heavy plugins that slow down builds
-// Vercel already handles compression (Brotli/Gzip) automatically
-const isVercel = process.env.VERCEL === '1';
 
 export default defineConfig({
   plugins: [
@@ -21,6 +21,44 @@ export default defineConfig({
     ...(process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined
       ? [
           (await import("@replit/vite-plugin-cartographer")).cartographer(),
+        ]
+      : []),
+    // Image optimization - only in production
+    ...(process.env.NODE_ENV === "production"
+      ? [
+          viteImagemin({
+            gifsicle: { optimizationLevel: 7, interlaced: false },
+            optipng: { optimizationLevel: 7 },
+            mozjpeg: { quality: 85, progressive: true },
+            pngquant: { quality: [0.65, 0.8], speed: 4 },
+            svgo: {
+              plugins: [
+                { name: "removeViewBox", active: false },
+                { name: "removeEmptyAttrs", active: false },
+              ],
+            },
+          }),
+          // Brotli compression for maximum compression
+          viteCompression({
+            algorithm: "brotliCompress",
+            ext: ".br",
+            threshold: 1024, // Only compress files larger than 1KB
+            deleteOriginFile: false,
+          }),
+          // Gzip compression as fallback for older browsers
+          viteCompression({
+            algorithm: "gzip",
+            ext: ".gz",
+            threshold: 1024,
+            deleteOriginFile: false,
+          }),
+          // Bundle analyzer
+          visualizer({
+            filename: "dist/stats.html",
+            open: false,
+            gzipSize: true,
+            brotliSize: true,
+          }),
         ]
       : []),
   ],
@@ -71,10 +109,18 @@ export default defineConfig({
         unknownGlobalSideEffects: false,
       },
     },
-    // Use esbuild for much faster minification (terser with 2 passes is very slow)
-    minify: "esbuild",
-    // Disable compressed size reporting to speed up builds
-    reportCompressedSize: false,
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: process.env.NODE_ENV === "production",
+        drop_debugger: true,
+        pure_funcs: ["console.log", "console.info", "console.debug", "console.trace"],
+        passes: 2,
+      },
+      mangle: true, // ✅ modern, no safari10 legacy fix
+      format: { comments: false },
+    },
+    reportCompressedSize: true,
     chunkSizeWarningLimit: 1000,
   },
 
