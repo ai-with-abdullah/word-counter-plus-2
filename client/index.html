@@ -351,7 +351,7 @@
     }
     </script>
     
-    <!-- Analytics deferred for better performance - loads only after user interaction -->
+    <!-- Google Analytics - deferred for better performance -->
     <script>
       let analyticsLoaded = false;
       function loadAnalytics() {
@@ -362,11 +362,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-NF8M6HRHGY');
-        
-        const gtmScript = document.createElement('script');
-        gtmScript.async = true;
-        gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KN5GZJ7T';
-        document.head.appendChild(gtmScript);
         
         const gtagScript = document.createElement('script');
         gtagScript.async = true;
