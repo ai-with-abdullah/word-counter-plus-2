@@ -14,14 +14,20 @@ const app = express();
 // Initialize Firebase/Firestore
 initializeFirebase();
 
-// Force HTTPS redirect in production
+// Force HTTPS and non-www redirect in production
 app.use((req: Request, res: Response, next: NextFunction) => {
   // Only redirect in production
   if (process.env.NODE_ENV === 'production') {
-    // Check if the request is not secure and not already HTTPS
+    const host = req.headers.host || '';
     const proto = req.headers['x-forwarded-proto'] || req.protocol;
-    if (proto !== 'https') {
-      return res.redirect(301, `https://${req.headers.host}${req.url}`);
+    const isHttps = proto === 'https';
+    const isWww = host.startsWith('www.');
+    
+    // If either HTTP or www, redirect to https://wordcounterplusapp.com (no www)
+    if (!isHttps || isWww) {
+      // Remove www prefix if present and always use https
+      const cleanHost = host.replace(/^www\./, '');
+      return res.redirect(301, `https://${cleanHost}${req.url}`);
     }
   }
   next();
