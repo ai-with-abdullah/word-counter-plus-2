@@ -8,6 +8,30 @@ import { getSEODataForUrl, generateMetaTags } from "./seo-config";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Cache blog posts to avoid repeated dynamic imports (improves TTFB)
+let blogPostsCache: any[] | null = null;
+let blogPostsCachePromise: Promise<any[]> | null = null;
+
+async function getCachedBlogPosts(): Promise<any[]> {
+  if (blogPostsCache) return blogPostsCache;
+  
+  // Prevent multiple concurrent imports
+  if (blogPostsCachePromise) return blogPostsCachePromise;
+  
+  blogPostsCachePromise = (async () => {
+    try {
+      const { blogPosts } = await import("../client/src/data/blogData.ts");
+      blogPostsCache = blogPosts;
+      return blogPosts;
+    } catch (error) {
+      console.error('Failed to load blog posts:', error);
+      return [];
+    }
+  })();
+  
+  return blogPostsCachePromise;
+}
+
 // Helper function to escape HTML content for safe attribute injection
 function escapeHtml(unsafe: string): string {
   return unsafe
@@ -114,11 +138,11 @@ async function generateStaticSSRHtml(url: string, seoData: any): Promise<string>
     `<a href="${link.href}">${escapeHtml(link.label)}</a>`
   ).join('\n            ');
   
-  // Generate blog post links if on blog page - include ALL posts for SEO
+  // Generate blog post links if on blog page - include ALL posts for SEO (using cache)
   let blogLinksHtml = '';
   if (normalizedUrl === '/blog' || normalizedUrl.startsWith('/blog/')) {
     try {
-      const { blogPosts } = await import("../client/src/data/blogData.ts");
+      const blogPosts = await getCachedBlogPosts();
       blogLinksHtml = blogPosts.map((post: any) => 
         `<a href="/blog/${post.slug}">${escapeHtml(post.title)}</a>`
       ).join('\n            ');
@@ -230,13 +254,13 @@ async function injectToolStructuredData(template: string, toolPath: string): Pro
   }
 }
 
-// Blog post meta tag injection for social media crawlers
+// Blog post meta tag injection for social media crawlers (using cached blog posts)
 async function injectBlogPostMeta(template: string, slug: string): Promise<string> {
   try {
     log(`Attempting to inject meta tags for blog post slug: ${slug}`);
-    // Import blog data from client location (server-safe)
-    const { blogPosts } = await import("../client/src/data/blogData.ts");
-    log(`Successfully imported blog data, found ${blogPosts.length} posts`);
+    // Use cached blog posts for faster response
+    const blogPosts = await getCachedBlogPosts();
+    log(`Using cached blog data, found ${blogPosts.length} posts`);
     const post = blogPosts.find((p: any) => p.slug === slug);
     
     if (!post) {
