@@ -90,6 +90,10 @@ function generateMetaTags(page: PageSEO, pagePath: string): string {
     <meta name="description" content="${escapeHtml(page.description)}">
     <link rel="canonical" href="${canonical}">
     
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en" href="${canonical}">
+    <link rel="alternate" hreflang="x-default" href="${canonical}">
+    
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="${escapeHtml(page.title)}">

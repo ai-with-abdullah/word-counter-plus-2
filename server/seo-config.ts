@@ -269,6 +269,10 @@ export function generateMetaTags(seoData: SEOData): string {
     <meta name="description" content="${escapeHtml(seoData.description)}">
     <link rel="canonical" href="${seoData.canonical}">
     
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="en" href="${seoData.canonical}">
+    <link rel="alternate" hreflang="x-default" href="${seoData.canonical}">
+    
     <!-- Open Graph -->
     <meta property="og:type" content="${seoData.ogType || 'website'}">
     <meta property="og:title" content="${escapeHtml(seoData.title)}">
