@@ -1,0 +1,235 @@
+All filter results
+16
+
+Lost from filter results
+0
+
+Lost
+0
+
+Patches: Show all
+
+Changes: Don't show
+
+Columns
+
+Export
+PR
+URL
+Organic traffic
+HTTP status code
+Content type
+Is in sitemap
+Canonical URL
+Patch it
+Referenced in sitemaps
+No. of all inlinks
+6
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/extension 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+131 
+6
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/sentence-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+131 
+6
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/line-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+131 
+6
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/letter-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+131 
+6
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/paragraph-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+131 
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/ai-content-writing-tools-2026-seo-guide 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/firefox-extension-launch-announcement 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-grammarly 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/opera-extension-available-announcement 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/beyond-word-count-professional-writing-metrics 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-wordcounttool 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/edge-extension-launch-announcement 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-charactercount 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-wordcounter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/comparisons 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/complete-guide-writing-tools-trends-2026 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+Showing 16 of 16
