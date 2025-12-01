@@ -22,121 +22,76 @@ export const getWordCounterSEO = (): SEOConfig => {
     keywords: "word counter 2025, free word counter tool, character counter online, text analysis tool, count words characters instantly, readability score checker, keyword density analyzer, SEO content optimizer, writing productivity tool, real-time text counter, mobile word counter, AI text analysis, content optimization tool, social media character limit, twitter character counter, facebook post counter, instagram caption counter, linkedin post counter, blog word count, article word counter, essay character count, academic writing tool, student word counter, content creator tool, copywriter word count, digital marketing text tool, email subject line counter, meta description checker, title tag analyzer, paragraph counter, sentence analyzer, flesch reading score, gunning fog index, automated readability index, content grade level, typing speed calculator, reading time estimator, speaking time calculator, text statistics dashboard, word frequency analysis, phrase density checker, duplicate content detector, text similarity checker, document analyzer, manuscript word count, thesis character limit, research paper optimizer, novel word tracker, screenplay format checker, poetry line counter, speech timer, presentation word limit, report optimizer, resume word checker, cover letter optimizer, press release analyzer, website content audit, web copy optimizer, product description analyzer, ecommerce content tool, amazon listing optimizer, google ads text counter, facebook ads character limit, content marketing analyzer, email marketing optimizer, newsletter text checker, blog SEO analyzer, content strategy tool, competitive content analysis, semantic SEO tool, voice search optimizer, featured snippet optimizer, local SEO content tool, technical writing analyzer, accessibility content checker, mobile content optimizer, voice-to-text counter, transcription analyzer, podcast script counter, video script analyzer, youtube description optimizer, tiktok caption counter, text message counter, sms character limit, push notification optimizer, app content analyzer, help content checker, knowledge base optimizer, user manual optimizer, training material analyzer, course content counter, lesson plan optimizer, business plan analyzer, marketing plan counter, legal document counter, contract analyzer, grant application analyzer, scholarship essay analyzer, personal statement counter, portfolio description analyzer, biography optimizer, blog post analyzer, news article counter, editorial optimizer, interview analyzer, press release counter, social media content planner, hashtag analyzer, trending content optimizer, viral content checker, engagement optimizer",
     canonical: `${origin}/`,
     ogImage: `${origin}/og-image.png`,
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": ["WebApplication", "SoftwareApplication"],
-      "name": "Word Counter Plus - Free Word Counter, Character Counter & Text Counter",
-      "alternateName": ["Word Counter", "Character Counter", "Text Counter", "Word Count Tool", "Character Count Tool"],
-      "url": `${origin}`,
-      "logo": `${origin}/word-counter-plus-logo.png`,
-      "description": "Free online word counter, character counter, and text counter tool. Count words, characters, paragraphs, sentences instantly. Best text analysis tool with readability scores, keyword density, and export options for writers, students, and content creators.",
-      "keywords": "word counter, character counter, text counter, count words, count characters, free word counter, online word counter, text analysis, word count tool, character count tool, text count tool, paragraph counter, sentence counter, readability score, keyword density",
-      "applicationCategory": ["Productivity", "Education", "Writing", "Text Analysis"],
-      "operatingSystem": ["Web Browser", "Windows", "macOS", "Linux", "iOS", "Android"],
-      "browserRequirements": "Requires JavaScript. Works with Chrome, Firefox, Safari, Edge.",
-      "softwareVersion": "2.0",
-      "datePublished": "2024-01-01",
-      "dateModified": "2025-09-18",
-      "inLanguage": "en-US",
-      "isAccessibleForFree": true,
-      "isFamilyFriendly": true,
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": 4.9,
-        "ratingCount": 2847,
-        "bestRating": 5,
-        "worstRating": 1,
-        "reviewCount": 2847
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "validFrom": "2024-01-01"
-      },
-      "creator": {
-        "@type": "Organization",
-        "name": "Word Counter Plus",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Word Counter Plus - Free Word Counter, Character Counter & Text Counter",
+        "alternateName": ["Word Counter", "Character Counter", "Text Counter"],
         "url": `${origin}`,
-        "logo": `${origin}/word-counter-plus-logo.png`
+        "description": "Free online word counter, character counter, and text counter tool. Count words, characters, paragraphs, sentences instantly.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "inLanguage": "en-US",
+        "isAccessibleForFree": true,
+        "isFamilyFriendly": true,
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "2847",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "Word Counter Plus",
+          "url": `${origin}`
+        },
+        "featureList": [
+          "Real-time word counting",
+          "Character counting with and without spaces",
+          "Paragraph and sentence analysis",
+          "Readability scoring",
+          "Keyword density analysis",
+          "Export to PDF, CSV, TXT",
+          "Reading time estimation",
+          "File upload support",
+          "Mobile responsive",
+          "Dark mode support"
+        ],
+        "potentialAction": {
+          "@type": "UseAction",
+          "target": `${origin}`
+        }
       },
-      "publisher": {
+      {
+        "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Word Counter Plus",
-        "url": `${origin}`
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": ["Writers", "Students", "Content Creators", "Bloggers", "Authors", "Journalists", "Marketers", "Educators", "Researchers", "Social Media Managers"]
-      },
-      "featureList": [
-        "Real-time word counting with instant results",
-        "Character counting with and without spaces",
-        "Advanced paragraph and sentence analysis",
-        "Professional readability scoring (Flesch-Kincaid, Gunning Fog, ARI)",
-        "Comprehensive keyword density analysis",
-        "SEO content optimization insights",
-        "Multiple export formats (PDF, CSV, TXT, JSON)",
-        "Reading time estimation with accuracy",
-        "Speaking time calculator for presentations",
-        "Writing productivity goal tracking",
-        "Multi-format file upload support (DOC, DOCX, PDF, TXT)",
-        "Advanced copy and paste functionality",
-        "Mobile-first responsive design",
-        "Dark mode with system preference sync",
-        "Zero registration requirement",
-        "Privacy-first approach - no data storage",
-        "Full offline functionality after initial load",
-        "100% free with no hidden costs",
-        "Cross-platform compatibility (Windows, Mac, Linux, iOS, Android)",
-        "Language detection and analysis",
-        "Text complexity scoring",
-        "Duplicate content detection",
-        "Word frequency analysis",
-        "Text similarity checker",
-        "Content grade level assessment",
-        "Social media character limit checker",
-        "Email subject line optimizer",
-        "Meta description length checker",
-        "Title tag optimization",
-        "Content accessibility compliance"
-      ],
-      "potentialAction": {
-        "@type": "UseAction",
-        "target": `${origin}`,
-        "object": {
-          "@type": "WebPage",
-          "name": "Word Counter Plus Tool"
-        }
-      },
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do I count words in a text?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Simply paste or type your text into the text area and Word Counter Plus will automatically count words, characters, paragraphs, and sentences in real-time."
-          }
+        "alternateName": "WordCounterPlus",
+        "url": `${origin}`,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${origin}/word-counter-plus-logo.png`,
+          "width": "512",
+          "height": "512"
         },
-        {
-          "@type": "Question", 
-          "name": "Is Word Counter Plus free to use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, Word Counter Plus is completely free to use with no registration required. All features including export options are available at no cost."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I export my text analysis results?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, you can export your text analysis results to PDF, CSV, or TXT formats with detailed statistics and readability scores."
-          }
+        "description": "Professional text analysis and writing tools for students, writers, content creators, and marketers worldwide.",
+        "foundingDate": "2024",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "url": `${origin}/contact`,
+          "availableLanguage": "English"
         }
-      ]
-    },
+      }
+    ],
     breadcrumbs: [
       { name: "Word Counter", url: `${origin}/` }
     ]

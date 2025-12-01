@@ -67,14 +67,22 @@ export default function BlogPost() {
     url: `${baseUrl}/blog/${post.slug}`,
     datePublished: post.publishDate,
     dateModified: post.publishDate,
-    image: post.image ? `${baseUrl}${post.image}` : `${baseUrl}/og-image.png`,
+    image: {
+      '@type': 'ImageObject',
+      url: post.image ? `${baseUrl}${post.image}` : `${baseUrl}/og-image.png`,
+      width: '1200',
+      height: '630'
+    },
+    inLanguage: 'en-US',
     author: {
       '@type': 'Organization',
       name: 'Word Counter Plus',
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/word-counter-plus-logo.png`
+        url: `${baseUrl}/word-counter-plus-logo.png`,
+        width: '512',
+        height: '512'
       }
     },
     publisher: {
@@ -83,12 +91,13 @@ export default function BlogPost() {
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/word-counter-plus-logo.png`
+        url: `${baseUrl}/word-counter-plus-logo.png`,
+        width: '512',
+        height: '512'
       }
     },
     keywords: post.tags.join(', '),
     wordCount: post.content.split(' ').length,
-    timeRequired: post.readTime.replace(/(\d+)\s*min\s*read/, 'PT$1M'),
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': `${baseUrl}/blog/${post.slug}`
@@ -114,8 +123,7 @@ export default function BlogPost() {
       {
         '@type': 'ListItem',
         position: 3,
-        name: post.title,
-        item: `${baseUrl}/blog/${post.slug}`
+        name: post.title
       }
     ]
   };
