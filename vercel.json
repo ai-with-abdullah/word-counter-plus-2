@@ -28,6 +28,10 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
         }
       ]
     },
@@ -60,6 +64,17 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.wordcounterplusapp.com"
+        }
+      ],
+      "destination": "https://wordcounterplusapp.com/:path*",
+      "permanent": true
+    },
     {
       "source": "/text-case-converter/(.*)",
       "destination": "/text-case-converter",
