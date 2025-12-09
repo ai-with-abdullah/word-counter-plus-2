@@ -9,6 +9,7 @@ import { resumeCVBlogs } from './blogs/resume-cv-blogs';
 import { seoContentAnalyzerBlogs } from './blogs/seo-content-analyzer-blogs';
 import { brokenLinkBlogs } from './blogs/broken-link-blogs';
 import { writingTrends2026Blog } from './blogs/writing-trends-2026-blog';
+import { proposalWritingBlog } from './blogs/proposal-writing-blogs';
 
 export interface BlogPost {
   id: string;
@@ -23,6 +24,7 @@ export interface BlogPost {
 }
 
 export const allBlogPosts: BlogPost[] = [
+  proposalWritingBlog,
   writingTrends2026Blog,
   {
     id: "beyond-word-count-professional-writing-metrics",
