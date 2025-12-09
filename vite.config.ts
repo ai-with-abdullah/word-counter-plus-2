@@ -5,10 +5,6 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
-import viteImagemin from "vite-plugin-imagemin";
-import webp from "imagemin-webp";
-import viteCompression from "vite-plugin-compression";
-import { visualizer } from "rollup-plugin-visualizer";
 
 // Small helper to resolve paths
 const r = (...segments: string[]) => path.resolve(process.cwd(), ...segments);
@@ -24,44 +20,8 @@ export default defineConfig({
           (await import("@replit/vite-plugin-cartographer")).cartographer(),
         ]
       : []),
-    // Image optimization - only in production
-    ...(process.env.NODE_ENV === "production"
-      ? [
-          viteImagemin({
-            gifsicle: { optimizationLevel: 7, interlaced: false },
-            optipng: { optimizationLevel: 7 },
-            mozjpeg: { quality: 85, progressive: true },
-            pngquant: { quality: [0.65, 0.8], speed: 4 },
-            svgo: {
-              plugins: [
-                { name: "removeViewBox", active: false },
-                { name: "removeEmptyAttrs", active: false },
-              ],
-            },
-          }),
-          // Brotli compression for maximum compression
-          viteCompression({
-            algorithm: "brotliCompress",
-            ext: ".br",
-            threshold: 1024, // Only compress files larger than 1KB
-            deleteOriginFile: false,
-          }),
-          // Gzip compression as fallback for older browsers
-          viteCompression({
-            algorithm: "gzip",
-            ext: ".gz",
-            threshold: 1024,
-            deleteOriginFile: false,
-          }),
-          // Bundle analyzer
-          visualizer({
-            filename: "dist/stats.html",
-            open: false,
-            gzipSize: true,
-            brotliSize: true,
-          }),
-        ]
-      : []),
+    // Production optimizations - disabled for memory-constrained environments
+    // Enable these locally if needed for analysis
   ],
 
   resolve: {
@@ -84,16 +44,10 @@ export default defineConfig({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          if (id.includes("react") || id.includes("react-dom")) return "vendor";
-          if (id.includes("wouter")) return "routing";
-          if (id.includes("@tanstack/react-query")) return "query";
-          if (id.includes("@radix-ui") && (id.includes("slot") || id.includes("primitive"))) return "ui-core";
-          if (id.includes("jspdf") || id.includes("html2canvas") || id.includes("recharts") || id.includes("framer-motion")) return null;
-          if (id.includes("lucide-react")) return "icons";
-          if (id.includes("clsx") || id.includes("tailwind-merge")) return "utils";
-          if (id.includes("react-hook-form") || id.includes("@hookform/resolvers") || id.includes("zod")) return "form";
-          if (id.includes("@radix-ui") || id.includes("input-otp") || id.includes("react-day-picker") || id.includes("embla-carousel")) return null;
+        manualChunks: {
+          'vendor': ['react', 'react-dom'],
+          'routing': ['wouter'],
+          'query': ['@tanstack/react-query'],
         },
         chunkFileNames: "js/[name]-[hash].js",
         entryFileNames: "js/[name]-[hash].js",
@@ -105,9 +59,9 @@ export default defineConfig({
         },
       },
       treeshake: {
-        moduleSideEffects: false,
-        propertyReadSideEffects: false,
-        unknownGlobalSideEffects: false,
+        moduleSideEffects: true,
+        propertyReadSideEffects: true,
+        unknownGlobalSideEffects: true,
       },
     },
     minify: "terser",
