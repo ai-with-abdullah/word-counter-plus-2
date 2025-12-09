@@ -65,91 +65,91 @@ function Router() {
   const currentIsMainHost = isMainHost();
   const currentIsCaseHost = isCaseHost();
 
+  const mainRoutes = [
+    { path: "/", component: Home },
+    { path: "/text-case-convert", component: TextCaseConverterPage },
+    { path: "/text-case-converter", component: TextCaseConverterPage },
+    { path: "/tools", component: Tools },
+    { path: "/character-counter", component: CharacterCounter },
+    { path: "/word-frequency-counter", component: WordFrequencyCounter },
+    { path: "/random-word-generator", component: RandomWordGenerator },
+    { path: "/words-per-page", component: WordsPerPage },
+    { path: "/plagiarism-checker", component: PlagiarismChecker },
+    { path: "/resume-cv-checker", component: ResumeCVChecker },
+    { path: "/seo-content-analyzer", component: SEOContentAnalyzer },
+    { path: "/speech-to-text", component: SpeechToText },
+    { path: "/readability-calculator", component: ReadabilityCalculator },
+    { path: "/grammar-checker", component: GrammarChecker },
+    { path: "/text-compare", component: TextCompare },
+    { path: "/letter-counter", component: LetterCounter },
+    { path: "/sentence-counter", component: SentenceCounter },
+    { path: "/paragraph-counter", component: ParagraphCounter },
+    { path: "/line-counter", component: LineCounter },
+    { path: "/extension", component: Extension },
+    { path: "/about", component: About },
+    { path: "/contact", component: Contact },
+    { path: "/blog/:slug", component: BlogPost },
+    { path: "/blog", component: Blog },
+    { path: "/faq", component: FAQ },
+    { path: "/privacy", component: Privacy },
+    { path: "/terms", component: Terms },
+    { path: "/disclaimer", component: Disclaimer },
+    { path: "/cookies", component: Cookies },
+    { path: "/help-us", component: HelpUs },
+    { path: "/loading-demo", component: LoadingDemo },
+    { path: "/admin", component: Admin },
+    { path: "/download", component: Download },
+    { path: "/comparisons", component: Comparisons },
+    { path: "/vs-wordcounter", component: VsWordCounter },
+    { path: "/vs-charactercount", component: VsCharacterCount },
+    { path: "/vs-grammarly", component: VsGrammarly },
+    { path: "/vs-wordcounttool", component: VsWordCountTool },
+  ];
+
+  const caseRoutes = [
+    { path: "/", component: TextCaseConverterPage },
+    { path: "/tools", component: Tools },
+    { path: "/character-counter", component: CharacterCounter },
+    { path: "/word-frequency-counter", component: WordFrequencyCounter },
+    { path: "/random-word-generator", component: RandomWordGenerator },
+    { path: "/words-per-page", component: WordsPerPage },
+    { path: "/plagiarism-checker", component: PlagiarismChecker },
+    { path: "/resume-cv-checker", component: ResumeCVChecker },
+    { path: "/seo-content-analyzer", component: SEOContentAnalyzer },
+    { path: "/speech-to-text", component: SpeechToText },
+    { path: "/readability-calculator", component: ReadabilityCalculator },
+    { path: "/grammar-checker", component: GrammarChecker },
+    { path: "/text-compare", component: TextCompare },
+    { path: "/letter-counter", component: LetterCounter },
+    { path: "/sentence-counter", component: SentenceCounter },
+    { path: "/paragraph-counter", component: ParagraphCounter },
+    { path: "/line-counter", component: LineCounter },
+    { path: "/text-case-convert", component: TextCaseConverterPage },
+    { path: "/text-case-converter", component: TextCaseConverterPage },
+    { path: "/extension", component: Extension },
+    { path: "/about", component: About },
+    { path: "/contact", component: Contact },
+    { path: "/blog/:slug", component: BlogPost },
+    { path: "/blog", component: Blog },
+    { path: "/faq", component: FAQ },
+    { path: "/privacy", component: Privacy },
+    { path: "/terms", component: Terms },
+    { path: "/disclaimer", component: Disclaimer },
+    { path: "/cookies", component: Cookies },
+    { path: "/help-us", component: HelpUs },
+    { path: "/loading-demo", component: LoadingDemo },
+    { path: "/admin", component: Admin },
+    { path: "/download", component: Download },
+  ];
+
+  const routes = currentIsMainHost ? mainRoutes : (currentIsCaseHost ? caseRoutes : mainRoutes);
+
   return (
     <Suspense fallback={<PageLoader />}>
       <Switch>
-        {/* Host-specific routing */}
-        {currentIsMainHost && (
-          <>
-            <Route path="/" component={Home} />
-            <Route path="/text-case-convert" component={TextCaseConverterPage} />
-            <Route path="/text-case-converter" component={TextCaseConverterPage} />
-            <Route path="/tools" component={Tools} />
-            <Route path="/character-counter" component={CharacterCounter} />
-            <Route path="/word-frequency-counter" component={WordFrequencyCounter} />
-            <Route path="/random-word-generator" component={RandomWordGenerator} />
-            <Route path="/words-per-page" component={WordsPerPage} />
-            <Route path="/plagiarism-checker" component={PlagiarismChecker} />
-            <Route path="/resume-cv-checker" component={ResumeCVChecker} />
-            <Route path="/seo-content-analyzer" component={SEOContentAnalyzer} />
-            <Route path="/speech-to-text" component={SpeechToText} />
-            <Route path="/readability-calculator" component={ReadabilityCalculator} />
-            <Route path="/grammar-checker" component={GrammarChecker} />
-            <Route path="/text-compare" component={TextCompare} />
-            <Route path="/letter-counter" component={LetterCounter} />
-            <Route path="/sentence-counter" component={SentenceCounter} />
-            <Route path="/paragraph-counter" component={ParagraphCounter} />
-            <Route path="/line-counter" component={LineCounter} />
-            <Route path="/extension" component={Extension} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/blog/:slug" component={BlogPost} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/faq" component={FAQ} />
-            <Route path="/privacy" component={Privacy} />
-            <Route path="/terms" component={Terms} />
-            <Route path="/disclaimer" component={Disclaimer} />
-            <Route path="/cookies" component={Cookies} />
-            <Route path="/help-us" component={HelpUs} />
-            <Route path="/loading-demo" component={LoadingDemo} />
-            <Route path="/admin" component={Admin} />
-            <Route path="/download" component={Download} />
-            <Route path="/comparisons" component={Comparisons} />
-            <Route path="/vs-wordcounter" component={VsWordCounter} />
-            <Route path="/vs-charactercount" component={VsCharacterCount} />
-            <Route path="/vs-grammarly" component={VsGrammarly} />
-            <Route path="/vs-wordcounttool" component={VsWordCountTool} />
-          </>
-        )}
-        
-        {currentIsCaseHost && (
-          <>
-            <Route path="/" component={TextCaseConverterPage} />
-            <Route path="/tools" component={Tools} />
-            <Route path="/character-counter" component={CharacterCounter} />
-            <Route path="/word-frequency-counter" component={WordFrequencyCounter} />
-            <Route path="/random-word-generator" component={RandomWordGenerator} />
-            <Route path="/words-per-page" component={WordsPerPage} />
-            <Route path="/plagiarism-checker" component={PlagiarismChecker} />
-            <Route path="/resume-cv-checker" component={ResumeCVChecker} />
-            <Route path="/seo-content-analyzer" component={SEOContentAnalyzer} />
-            <Route path="/speech-to-text" component={SpeechToText} />
-            <Route path="/readability-calculator" component={ReadabilityCalculator} />
-            <Route path="/grammar-checker" component={GrammarChecker} />
-            <Route path="/text-compare" component={TextCompare} />
-            <Route path="/letter-counter" component={LetterCounter} />
-            <Route path="/sentence-counter" component={SentenceCounter} />
-            <Route path="/paragraph-counter" component={ParagraphCounter} />
-            <Route path="/line-counter" component={LineCounter} />
-            <Route path="/text-case-convert" component={TextCaseConverterPage} />
-            <Route path="/text-case-converter" component={TextCaseConverterPage} />
-            <Route path="/extension" component={Extension} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/blog/:slug" component={BlogPost} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/faq" component={FAQ} />
-            <Route path="/privacy" component={Privacy} />
-            <Route path="/terms" component={Terms} />
-            <Route path="/disclaimer" component={Disclaimer} />
-            <Route path="/cookies" component={Cookies} />
-            <Route path="/help-us" component={HelpUs} />
-            <Route path="/loading-demo" component={LoadingDemo} />
-            <Route path="/admin" component={Admin} />
-            <Route path="/download" component={Download} />
-          </>
-        )}
-        
+        {routes.map((route) => (
+          <Route key={route.path} path={route.path} component={route.component} />
+        ))}
         <Route component={NotFound} />
       </Switch>
     </Suspense>
