@@ -5,7 +5,7 @@ export const wordCounterComparisonBlog: BlogPost = {
   title: "Word Counter Plus vs CountWordsFree: The Ultimate Comparison for Writers in 2026",
   excerpt: "Looking for the best free word counter tool? Here's an honest, detailed comparison between Word Counter Plus and CountWordsFree.com to help you choose the right text analysis platform for your writing needs.",
   image: "/images/word-counter-plus-vs-countwordsfree-comparison.png",
-  publishDate: "2026-01-15",
+  publishDate: "2025-12-13",
   readTime: "14 min read",
   tags: ["word counter comparison", "free word counter", "text analysis tools", "writing tools 2026", "CountWordsFree alternative", "best word counter", "online text analyzer", "character counter", "plagiarism checker", "content writing tools"],
   slug: "word-counter-plus-vs-countwordsfree-comparison-2026",
