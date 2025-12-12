@@ -192,13 +192,13 @@ Follow this formula, and your content will outperform 80% of what's competing fo
 
 Word count is a checkbox. It's the minimum requirement.
 
-Real writers focus on the metrics that actually convert: readability, structure, keyword variation, and strategic call-to-action placement.
+Real writers focus on the metrics that actually convert: readability, structure, keyword variation, and strategic call-to-action placement. And don't overlook text formatting—proper [text case conversion](/blog/text-case-conversion-complete-guide) can mean the difference between looking professional and triggering spam filters.
 
 Measure what matters. Everything else is noise.
 
 ---
 
-**Ready to measure what actually matters in your writing?** Start with our [word counter](/), [readability analyzer](/readability-calculator), and [SEO optimizer](/seo-content-analyzer)—all free, all designed to make you a better writer.
+**Ready to measure what actually matters in your writing?** Start with our [word counter](/), [readability analyzer](/readability-calculator), [text case converter](/text-case-convert), and [SEO optimizer](/seo-content-analyzer)—all free, all designed to make you a better writer.
 
 **What metrics do YOU focus on in your writing?** I'm genuinely interested. Reply in the comments or reach out on Twitter.`,
   },

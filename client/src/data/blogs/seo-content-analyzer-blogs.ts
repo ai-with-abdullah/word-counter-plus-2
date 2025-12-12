@@ -123,6 +123,7 @@ SEO content analysis is the systematic evaluation of your content against search
 - Descriptive and engaging
 - Break up long content sections
 - Support scanability
+- Use proper [text case formatting](/blog/text-case-conversion-complete-guide) for professional appearance
 
 **SEO Impact:**
 - Helps search engines understand structure

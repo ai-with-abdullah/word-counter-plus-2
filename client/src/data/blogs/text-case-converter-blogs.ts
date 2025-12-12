@@ -4,7 +4,7 @@ export const textCaseConverterBlogs: BlogPost[] = [
   {
     id: "57",
     title: "Text Case Conversion: Complete Guide to Transform Your Writing in 2026",
-    excerpt: "Master text case conversion with our comprehensive 2026 guide. Learn how to convert uppercase to lowercase, use title case properly, understand camelCase for coding, and transform any text format instantly. Includes free tools, real examples, FAQs, and expert tips for writers, developers, and content creators.",
+    excerpt: "Master text case conversion in 2026. Convert uppercase to lowercase, title case, camelCase and more. Free tools, examples, and tips for writers.",
     content: `# Text Case Conversion: Complete Guide to Transform Your Writing in 2026
 
 Alright, let's talk about something that seems simple but can completely make or break your writing.
