@@ -54,6 +54,37 @@ async function getUncachableGitHubClient() {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // SEO: Redirect URLs with tracking/referral query parameters to clean URLs
+  // This prevents duplicate content issues and helps with AdSense approval
+  const trackingParams = ['ref', 'from', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid', 'gclid', 'msclkid'];
+  
+  app.use((req, res, next) => {
+    // Skip API routes and static assets
+    if (req.path.startsWith('/api/') || req.path.startsWith('/assets/') || 
+        req.path === '/sitemap.xml' || req.path === '/robots.txt') {
+      return next();
+    }
+    
+    const url = new URL(req.url, `http://${req.headers.host}`);
+    let hasTrackingParams = false;
+    
+    // Check if URL has any tracking parameters
+    for (const param of trackingParams) {
+      if (url.searchParams.has(param)) {
+        hasTrackingParams = true;
+        url.searchParams.delete(param);
+      }
+    }
+    
+    // If tracking params were found, redirect to clean URL
+    if (hasTrackingParams) {
+      const cleanPath = url.pathname + (url.searchParams.toString() ? `?${url.searchParams.toString()}` : '');
+      return res.redirect(301, cleanPath);
+    }
+    
+    next();
+  });
+
   // Legacy route redirects - redirect to local routes instead of external subdomains
   app.get('/text-case-converter', (req, res) => {
     const queryString = Object.keys(req.query).length > 0 ? 
@@ -220,6 +251,16 @@ Disallow: /server/
 Disallow: /help-us
 Disallow: /loading-demo
 Disallow: /download
+
+# Block URLs with tracking/referral parameters (prevents duplicate content)
+Disallow: /*?ref=*
+Disallow: /*?from=*
+Disallow: /*?utm_source=*
+Disallow: /*?utm_medium=*
+Disallow: /*?utm_campaign=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+Disallow: /*?msclkid=*
 
 User-agent: Googlebot
 Allow: /
