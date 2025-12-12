@@ -10,6 +10,7 @@ import { seoContentAnalyzerBlogs } from './blogs/seo-content-analyzer-blogs';
 import { brokenLinkBlogs } from './blogs/broken-link-blogs';
 import { writingTrends2026Blog } from './blogs/writing-trends-2026-blog';
 import { proposalWritingBlog } from './blogs/proposal-writing-blogs';
+import { wordCounterComparisonBlog } from './blogs/word-counter-comparison-blog';
 
 export interface BlogPost {
   id: string;
@@ -24,6 +25,7 @@ export interface BlogPost {
 }
 
 export const allBlogPosts: BlogPost[] = [
+  wordCounterComparisonBlog,
   proposalWritingBlog,
   writingTrends2026Blog,
   {
