@@ -34,66 +34,6 @@ waitForPort = 5000
 localPort = 5000
 externalPort = 80
 
-[[ports]]
-localPort = 34561
-externalPort = 9000
-
-[[ports]]
-localPort = 44967
-externalPort = 6800
-
-[[ports]]
-localPort = 45003
-externalPort = 8080
-
-[[ports]]
-localPort = 45069
-externalPort = 8008
-
-[[ports]]
-localPort = 45231
-externalPort = 8099
-
-[[ports]]
-localPort = 45579
-externalPort = 3000
-
-[[ports]]
-localPort = 45737
-externalPort = 3001
-
-[[ports]]
-localPort = 45875
-externalPort = 5000
-
-[[ports]]
-localPort = 45895
-externalPort = 4200
-
-[[ports]]
-localPort = 46255
-externalPort = 5173
-
-[[ports]]
-localPort = 46313
-externalPort = 3003
-
-[[ports]]
-localPort = 46555
-externalPort = 3002
-
-[[ports]]
-localPort = 46773
-externalPort = 6000
-
-[[ports]]
-localPort = 46819
-externalPort = 8081
-
-[[ports]]
-localPort = 46861
-externalPort = 8000
-
 [deployment]
 deploymentTarget = "autoscale"
 run = ["npm", "run", "start"]
