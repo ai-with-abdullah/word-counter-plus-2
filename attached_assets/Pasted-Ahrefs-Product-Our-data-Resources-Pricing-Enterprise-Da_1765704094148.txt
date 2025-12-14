@@ -1,0 +1,379 @@
+Ahrefs
+Product
+Our data
+Resources
+Pricing
+Enterprise
+Dashboard
+Upgrade
+Ahrefs
+Sign up
+Free SEO Tools /
+Backlink Checker
+Try the free version of Ahrefs’ Backlink Checker. Get a glimpse into the power of our premium tool.
+
+
+Backlink Checker
+/
+Website Authority Checker
+/
+Broken Link Checker
+
+https://wordcounterplusapp.com/
+For example,
+
+ahrefs.com
+
+yep.com
+
+Subdomains
+
+Check backlinks
+The most powerful backlink checker
+Ahrefs has the second most active web crawler after Google, which means we have the best backlink database in the industry.
+
+Our backlink index is updated with fresh data every 15 minutes.
+
+493
+B
+Pages in index
+28
+T
+Internal backlinks
+500
+M
+Domains
+35
+T
+External backlinks (historical records)
+Ahrefs SEO Toolbar
+Check any website’s authority
+as you browse
+Unlock Domain Rating (DR) and URL Rating (UR) metrics with our browser extension and free Ahrefs account.
+
+Add to Chrome
+Also available for Firefox.
+
+Ahrefs Metrics Banner
+See domain and page-level metrics for any target
+Check any website, URL or subsection to see actionable and insightful SEO metrics:
+
+Number of referring domains
+
+Number of backlinks
+
+Domain Rating (DR)
+
+Ahrefs Rank (AR)
+
+
+Our proprietary Domain Rating (DR) metric is super-useful for judging the “backlink popularity” (strength) of a target.
+
+Monitor the growth and decline of backlink profiles
+See an interactive view of referring domains and pages over time.
+
+
+Shows the cumulative growth or decline in referring domains over time.
+Get a complete breakdown of the target’s backlink profile
+See every page linking to your target in the detailed Backlinks report. Use powerful filters to dive deeper.
+
+Link type (“dofollow” / “nofollow”)
+
+Platform
+
+Domain Rating (DR)
+
+URL Rating (UR)
+
+Referring domains
+
+Etc
+
+
+See estimated organic traffic to each linking page & referring domain
+Get awesome insights into the popularity of the linking web page and website with organic traffic estimates. No other tool shows you this.
+
+
+See estimated organic traffic to the linking page.
+
+Backlinks report
+/
+
+Referring domains report
+See all websites linking to your target with domain-wide metrics
+Check the Referring domains report to see every linking domain, along with useful SEO metrics.
+
+Domain Rating (DR)
+
+Referring domains (followed)
+
+Linked domains (followed)
+
+Estimated organic traffic
+
+Links to target (total & followed)
+
+
+Find any linking domain with the handy search function.
+
+
+See the most linked-to pages
+Find "linkworthy" pages by researching your competitors' most linked-to pages with the Best by links report.
+
+
+Use the "404 not found" filter to find highly linked-to broken pages on any website and kickstart a broken link building campaign.
+
+
+See a complete breakdown of all outbound links
+The Linked domains report shows SEO metrics for every outbound linked domain.
+
+Domain Rating (DR)
+
+Ahrefs Rank (AR)
+
+Total followed referring domains
+
+Total followed linked domains
+
+Estimated organic traffic
+
+Number of links from the target (total & followed)
+
+
+We also show the target's broken outbound links in the Broken links report, and a full breakdown of outbound linking anchor text in the Anchors report.
+
+
+See all broken outbound links on the target website or URL.
+
+Broken links
+/
+
+Anchors
+In-depth link analysis features
+Here are more features that make Ahrefs’ Backlink Checker special:
+
+See followed and nofollowed links — The more quality followed backlinks a site has, the more trustworthy it is in the eyes of Google. Ahrefs shows you the complete picture of followed vs nofollowed links for any target.
+Backlink anchor text — Analyze anchor texts to see how your competitors optimize their backlink profiles. Use anchor text analysis to detect possible negative SEO attacks on your website.
+Disavow link spam — If you notice some suspicious backlink activity, you can add spammy links to a disavow file directly from the Backlink Checker. Importing this file into Google’s Disavow Tool takes only a few clicks.
+Export to PDF and CSV — Need to report on your findings or download a report for further analysis? Simply export your data and reports to a PDF or CSV file.
+Inbuilt filters, in every report — Analyze the data you care about, and nothing else.
+In a nutshell, Ahrefs’ Backlink Checker is a powerhouse capable of pretty much any backlink research task.
+
+We're constantly evolving the tool and introducing more useful features and data for SEO professionals.
+
+Link Building Guides
+
+The Beginner’s Guide to Link Building
+Everything you need to know about link building for SEO. What it is, how it works, what makes a good link, how to build it and more.
+
+
+9 Easy Link Building Strategies (That Anyone Can Use)
+Are you struggling to build backlinks to your website? Try these 9 easy (yet effective) link building strategies today.
+
+
+The Only 8 Link-Building Tools You Need (Free & Paid)
+You don't need dozens of link building tools. You just need 8 of them. Here are the 8 we recommend.
+
+Sign up for Ahrefs. Stay discoverable—in search, AI, and beyond.
+17,259 users joined Ahrefs in the last 7 days
+Starter
+
+See what people search and spy on competitors.
+
+Learn more ↗
+
+$
+29
+/mo
+Get started
+Webmaster Tools
+
+Get Ahrefs data on your site and fix what matters.
+
+Learn more ↗
+
+Free
+Get started
+Language
+
+English
+Core tools
+Brand Radar
+Dashboard
+Site Explorer
+Keywords Explorer
+Site Audit
+Rank Tracker
+Content Explorer
+Web Analytics
+GBP Monitor
+Social Media Manager
+Use cases →
+Competitive Intelligence
+SEO
+PPC
+Content Marketing
+Brand Marketing
+Alternatives →
+Ahrefs vs Semrush
+Free SEO tools →
+Webmaster Tools
+Backlink Checker
+Broken Link Checker
+Website Authority Checker
+Keyword Generator
+YouTube Keyword Tool
+Amazon Keyword Tool
+Bing Keyword Tool
+SERP Checker
+SEO Toolbar
+WordPress Plugin
+Keyword Rank Checker
+Keyword Difficulty Checker
+Website Checker
+AI Writing tools
+SEO Audit Tool
+Extra tools & features
+Domain Comparison
+Batch Analysis
+Link Intersect
+Content Gap
+Email Alerts
+SEO Checker
+Word Count
+Grammar Checker
+Traffic Checker
+Looker Studio Connectors
+Top Websites
+SEO Reporting
+AI Content Helper
+Patches
+Portfolios
+IndexNow
+Product
+Pricing
+Our data
+AhrefsBot
+API
+Enterprise
+What’s new?
+Company
+About
+Team
+Jobs
+Tech
+Media kit
+Contact us
+Legal info
+Privacy Policy
+Events
+Testimonials
+Resources
+Blog
+Tech blog
+Podcast
+SEO Guide
+Help center
+Academy
+Marketing Agencies
+Digest
+Social
+Twitter
+Youtube
+Instagram
+Facebook
+Linkedin
+© 2025 Ahrefs Pte. Ltd. (201227417H) 16 Raffles Quay, #33-03 Hong Leong Building, Singapore 048581
+
+Backlink profile for https://wordcounterplusapp.com/
+
+
+Domain including subdomains. One link per domain
+
+Domain Rating
+0
+URL Rating
+Get UR free with Ahrefs SEO Toolbar
+Backlinks
+8
+13% dofollow
+
+Linking websites
+8
+13% dofollow
+
+DR
+Referring page
+Anchor and target URL
+53
+
+ProductHunt Launch Domain Usage (9th October 2025 ) - Crunch.id
+
+https://crunch.id/producthunt-launch-domain-usage-9th-october-2025/
+
+Website: wordcounterplusapp.com
+
+https://wordcounterplusapp.com/?ref=producthunt
+1
+
+Optimizing Your SEO Audit Process with SeoDaro.com
+
+https://seodaro.com/increasing-engagement-with-seo-seodaro-7220/
+
+wordcounterplusapp.com’s success story with SeoDaro.com
+
+https://wordcounterplusapp.com/
+5
+
+Startups Launched on 19 Oct 2025 - StartupTile
+
+https://startuptile.com/19-Oct-2025
+
+startuptile Word Counter Plus App-Word Counter & Text Analyzer Word Counter Plus App Word Counter & Text Analyzer
+
+https://wordcounterplusapp.com/
+2
+
+Effective Backlink Building Tips from the Experts at SeoNexi.com
+
+https://seonexi.com/affordable-seo-solutions-seonexi-6233/
+
+SeoNexi.com tips directly from wordcounterplusapp.com
+
+https://wordcounterplusapp.com/
+53
+
+👲 Domain Report 👲
+
+https://atomizelink.icu/report/125278
+
+more helpful hints wordcounterplusapp.com &nbsp
+
+https://wordcounterplusapp.com/
+42
+
+Professional SEO Services: Boost Domain Rating with High-Quality, DoFollow & Permanent Backlinks – My Blog
+
+https://seoprobox.xyz/seo-services-increase-dr-permanent-dofollow-backlinks-9810/
+
+Rank Fast, Rank Smart – DR/DA Backlink Boost for wordcounterplusapp.com
+
+https://wordcounterplusapp.com/
+77
+
+Google Ranking Booster: Manual Work: Ahrefs DR + MOZ DA+Pbn Backlinks Visit SeoBoost.agency – rankongoogle.agency
+
+https://rankongoogle.agency/ulkdzj-google-ranking-lift-traffic-with-contextual-seo-backlinks/
+
+whitehat traffic wordcounterplusapp.com DR 70+ backlinks Google ranking upto 8x | Seoboost.agency World no 1 Seo Agency
+
+https://wordcounterplusapp.com/
+70
+
+Boost Your SEO Performance and Rank #1 on Google with Powerful Premium Backlinks Discover the Secret to Google Ranking Success with Quality Premium Backlinks – Boost Your SEO Performance and Rank #1 on Google with Powerful Premium Backlinks
+
+https://primeseo.xyz/the-best-way-to-improve-your-google-ranking-using-trusted-premium-backlinks-for-faster-seo-growth-1457/
+
+Rank Higher on Google with Premium Backlinks and Proven SEO Strategies – wordcounterplusapp.com provides powerful link-building services, including guest posts, high-authority backlinks, and safe PBN campaigns that deliver real, long-term ranking growth, improved visibility, and consistent website traffic.
+
+https://wordcounterplusapp.com/
