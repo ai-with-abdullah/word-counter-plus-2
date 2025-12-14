@@ -1,0 +1,205 @@
+All tools
+Dashboard
+Social Media Manager
+MCP Server
+Brand Radar
+AI Content Helper
+Site Explorer
+Keywords Explorer
+Content Explorer
+Site Audit
+
+Upgrade
+
+Muhammad Abdullah's workspace
+
+Site Audit
+/
+
+Wordcounterplusapp
+
+13 Dec, 06:12 AM
+
+Compare with: 13 Dec, 01:03 AM
+
+
+Segment
+
+Patches
+
+Looker Studio
+
+New crawl
+
+Overview
+All Issues
+2
+Alerts 
+New
+Crawl log
+Bulk export
+Tools
+Page explorer
+Link explorer
+Internal link opportunities
+Structure explorer
+Reports
+Internal pages
+Indexability
+Links
+Redirects
+Content
+Social tags
+Duplicates
+Localization
+Performance
+Images
+JavaScript
+CSS
+External pages
+
+Issues
+/
+3XX redirect
+
+Why and how to fix
+
+Submit to IndexNow
+
+Create new issue
+
+3XX redirects
+3
+
+Links to 3XX redirect
+0
+
+All URLs
+
+Pages
+
+Resources
+
+Content
+
+Links
+
+Redirects
+
+Indexability
+
+Sitemaps
+
+Ahrefs metrics
+Word or phrase
+
+URL
+
+Advanced filter
+Crawl history
+Hide chart
+7 Dec
+8 Dec
+9 Dec
+9 Dec
+10 Dec
+11 Dec
+12 Dec
+13 Dec
+13 Dec
+14 Dec
+0
+1
+2
+3
+4
+All filter results
+
+Last 10 crawls
+
+All filter results
+3
+
+Lost from filter results
+0
+
+Lost
+0
+
+Patches: Show all
+
+Changes: Don't show
+
+Columns
+
+Export
+PR
+URL
+Organic traffic
+HTTP status code
+Redirect URL
+Patch it
+Redirect chain URLs
+Is redirect loop
+No. of all inlinks
+No. of redirect inlinks
+First found at
+0
+301 Moved permanently
+http://wordcounterplusapp.com/ 
+0
+301
+https://wordcounterplusapp.com/ 
+200
+Enter new redirect URL
+https://wordcounterplusapp.com/ 
+200
+No
+0
+0
+0
+301 Moved permanently
+http://www.wordcounterplusapp.com/ 
+0
+301
+https://www.wordcounterplusapp.com/ 
+307
+Enter new redirect URL
+https://www.wordcounterplusapp.com/ 
+307
+https://wordcounterplusapp.com/ 
+200
+No
+0
+0
+0
+txt
+307 Temporary redirect
+https://www.wordcounterplusapp.com/ 
+0
+307
+https://wordcounterplusapp.com/ 
+200
+Enter new redirect URL
+https://wordcounterplusapp.com/ 
+200
+No
+1 
+1 
+Showing 3 of 3
+About
+Team
+Our data
+Blog
+Robot
+Jobs
+Plans & pricing
+API
+Help
+Contact us
+
+English
+© 2025 Ahrefs Pte. Ltd. (201227417H) 16 Raffles Quay, #33-03 Hong Leong Building, Singapore 048581
+Legal info
+
+2
