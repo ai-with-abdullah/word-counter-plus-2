@@ -117,7 +117,7 @@ export default function SpeechToText() {
 
   // SEO Configuration
   useSEO({
-    title: 'Free Speech to Text Converter Online - Voice to Text',
+    title: 'Free Speech to Text Converter 2025 - Multi-Language',
     description: 'Convert voice to text with our free speech to text converter tool. Real-time transcription with multi-language support. No downloads or API keys.',
     keywords: 'speech to text free, voice to text converter, speech recognition online, free transcription tool, voice typing, dictation software, speech to text converter, audio to text, voice recognition, real time transcription, multi language speech to text, online dictation, free voice typing, speech recognition tool, voice to text free online, browser speech recognition',
     canonical: 'https://wordcounterplusapp.com/speech-to-text',

@@ -39,12 +39,12 @@ async function loadBlogPosts() {
 
 const staticPagesSEO: Record<string, { title: string; description: string; keywords?: string }> = {
   '/': {
-    title: 'Word Counter Plus - Free Online Text Analyzer',
+    title: 'Word Counter Plus: Free Word Counter Tool 2025',
     description: 'Free word counter and character counter tool. Real-time text analysis with readability scores, keyword density, and SEO optimization for writers.',
     keywords: 'word counter, character counter, text analyzer, readability score, keyword density'
   },
   '/character-counter': {
-    title: 'Free Character Counter Online - Count Characters & Spaces',
+    title: 'Free Character Counter 2025 - Twitter, SMS Limits',
     description: 'Free character counter tool. Count characters with/without spaces, words, sentences. Check Twitter, Instagram, Facebook limits instantly.',
     keywords: 'character counter, count characters, letter counter, twitter character limit'
   },
@@ -59,12 +59,12 @@ const staticPagesSEO: Record<string, { title: string; description: string; keywo
     keywords: 'word frequency, keyword density, word count, text analysis'
   },
   '/random-word-generator': {
-    title: 'Random Word Generator - Generate Words for Writing',
+    title: 'Free Random Word Generator - Creative Writing Tool Online',
     description: 'Free random word generator with customizable options. Generate nouns, verbs, adjectives for creative writing, games, and brainstorming.',
     keywords: 'random word generator, word generator, creative writing'
   },
   '/words-per-page': {
-    title: 'Words Per Page Calculator - Convert Words to Pages',
+    title: 'Free Words to Pages Calculator 2025 - Essay Length',
     description: 'Free words per page calculator. Convert word count to pages with custom font, size, spacing. Estimate reading time for essays and documents.',
     keywords: 'words per page, page calculator, word count to pages'
   },
@@ -79,17 +79,17 @@ const staticPagesSEO: Record<string, { title: string; description: string; keywo
     keywords: 'resume checker, ATS optimization, resume analyzer'
   },
   '/seo-content-analyzer': {
-    title: 'SEO Content Analyzer - Optimize Content for Rankings',
+    title: 'Free SEO Content Analyzer 2025 - Optimize Rankings',
     description: 'Free SEO content analyzer. Check keyword density, readability scores, meta tags, heading structure. Improve search rankings with insights.',
     keywords: 'SEO analyzer, content optimization, keyword density'
   },
   '/speech-to-text': {
-    title: 'Speech to Text - Free Voice Typing & Transcription',
+    title: 'Free Speech to Text Converter 2025 - Multi-Language',
     description: 'Free speech to text converter. Real-time voice recognition, multi-language support, browser-based transcription. No API keys required.',
     keywords: 'speech to text, voice typing, transcription'
   },
   '/readability-calculator': {
-    title: 'Readability Calculator - Check Reading Level Score',
+    title: 'Free Readability Calculator Online - Flesch Score Checker',
     description: 'Free readability calculator with Flesch-Kincaid, Gunning Fog, SMOG, ARI scores. Analyze text complexity for your target audience.',
     keywords: 'readability calculator, flesch kincaid, reading level'
   },
@@ -99,7 +99,7 @@ const staticPagesSEO: Record<string, { title: string; description: string; keywo
     keywords: 'grammar checker, spelling checker, punctuation'
   },
   '/text-compare': {
-    title: 'Text Compare Tool - Find Differences Between Texts',
+    title: 'Free Text Compare Tool 2025 - Find Differences',
     description: 'Free text comparison tool. Compare two texts side-by-side, highlight additions, deletions, changes. Perfect for document review.',
     keywords: 'text compare, diff tool, compare documents'
   },

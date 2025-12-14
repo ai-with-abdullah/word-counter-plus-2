@@ -17,7 +17,7 @@ export const getWordCounterSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   
   return {
-    title: "Free Word Counter & Text Analyzer - Real-Time Character Count Tool | Word Counter Plus",
+    title: "Word Counter Plus: Free Word Counter Tool 2025",
     description: "Fast, free word counter and character counter with real-time text analysis. Readability scores, keyword density, SEO optimization, plagiarism detection & grammar checking. Perfect for writers, students, bloggers & marketers. Count words instantly - no signup required.",
     keywords: "word counter 2025, free word counter tool, character counter online, text analysis tool, count words characters instantly, readability score checker, keyword density analyzer, SEO content optimizer, writing productivity tool, real-time text counter, mobile word counter, AI text analysis, content optimization tool, social media character limit, twitter character counter, facebook post counter, instagram caption counter, linkedin post counter, blog word count, article word counter, essay character count, academic writing tool, student word counter, content creator tool, copywriter word count, digital marketing text tool, email subject line counter, meta description checker, title tag analyzer, paragraph counter, sentence analyzer, flesch reading score, gunning fog index, automated readability index, content grade level, typing speed calculator, reading time estimator, speaking time calculator, text statistics dashboard, word frequency analysis, phrase density checker, duplicate content detector, text similarity checker, document analyzer, manuscript word count, thesis character limit, research paper optimizer, novel word tracker, screenplay format checker, poetry line counter, speech timer, presentation word limit, report optimizer, resume word checker, cover letter optimizer, press release analyzer, website content audit, web copy optimizer, product description analyzer, ecommerce content tool, amazon listing optimizer, google ads text counter, facebook ads character limit, content marketing analyzer, email marketing optimizer, newsletter text checker, blog SEO analyzer, content strategy tool, competitive content analysis, semantic SEO tool, voice search optimizer, featured snippet optimizer, local SEO content tool, technical writing analyzer, accessibility content checker, mobile content optimizer, voice-to-text counter, transcription analyzer, podcast script counter, video script analyzer, youtube description optimizer, tiktok caption counter, text message counter, sms character limit, push notification optimizer, app content analyzer, help content checker, knowledge base optimizer, user manual optimizer, training material analyzer, course content counter, lesson plan optimizer, business plan analyzer, marketing plan counter, legal document counter, contract analyzer, grant application analyzer, scholarship essay analyzer, personal statement counter, portfolio description analyzer, biography optimizer, blog post analyzer, news article counter, editorial optimizer, interview analyzer, press release counter, social media content planner, hashtag analyzer, trending content optimizer, viral content checker, engagement optimizer",
     canonical: `${origin}/`,
@@ -232,7 +232,7 @@ export const getTextCaseSEO = (): SEOConfig => {
 export const getCharacterCounterSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   return {
-    title: "Free Character Counter Online - Count Characters & Spaces",
+    title: "Free Character Counter 2025 - Twitter, SMS Limits",
     description: "Free character counter tool. Count characters with/without spaces, words, sentences. Check Twitter, Instagram, Facebook limits instantly. No signup needed.",
     keywords: "character counter, count characters, character count online, letter counter, twitter character limit, instagram character limit, facebook character limit, text length counter",
     canonical: `${origin}/character-counter`,
@@ -284,7 +284,7 @@ export const getWordFrequencyCounterSEO = (): SEOConfig => {
 export const getRandomWordGeneratorSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   return {
-    title: "Random Word Generator - Generate Words for Writing",
+    title: "Free Random Word Generator - Creative Writing Tool Online",
     description: "Free random word generator with customizable options. Generate nouns, verbs, adjectives for creative writing, games, and brainstorming sessions.",
     keywords: "random word generator, word generator, random words, creative writing tool, brainstorming words, random noun generator, random verb generator",
     canonical: `${origin}/random-word-generator`,
@@ -310,7 +310,7 @@ export const getRandomWordGeneratorSEO = (): SEOConfig => {
 export const getWordsPerPageSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   return {
-    title: "Words Per Page Calculator - Convert Words to Pages",
+    title: "Free Words to Pages Calculator 2025 - Essay Length",
     description: "Free words per page calculator. Convert word count to pages with custom font, size, spacing. Estimate reading and speaking time for essays and documents.",
     keywords: "words per page, page calculator, word to page converter, essay length calculator, reading time calculator, speaking time estimator, document formatter",
     canonical: `${origin}/words-per-page`,
@@ -388,7 +388,7 @@ export const getResumeCVCheckerSEO = (): SEOConfig => {
 export const getSEOContentAnalyzerSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   return {
-    title: "SEO Content Analyzer - Optimize Content for Rankings",
+    title: "Free SEO Content Analyzer 2025 - Optimize Rankings",
     description: "Free SEO content analyzer. Check keyword density, readability scores, meta tags, heading structure. Improve search rankings with actionable insights.",
     keywords: "SEO content analyzer, keyword density checker, SEO tool, content optimization, meta tag analyzer, heading checker, SEO audit, search ranking tool",
     canonical: `${origin}/seo-content-analyzer`,
@@ -414,7 +414,7 @@ export const getSEOContentAnalyzerSEO = (): SEOConfig => {
 export const getSpeechToTextSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   return {
-    title: "Speech to Text - Free Voice Typing & Transcription",
+    title: "Free Speech to Text Converter 2025 - Multi-Language",
     description: "Free speech to text converter. Real-time voice recognition, multi-language support, browser-based transcription. No API keys or signup required.",
     keywords: "speech to text, voice to text, voice typing, transcription, dictation, voice recognition, audio to text, speech recognition",
     canonical: `${origin}/speech-to-text`,
@@ -440,7 +440,7 @@ export const getSpeechToTextSEO = (): SEOConfig => {
 export const getReadabilityCalculatorSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   return {
-    title: "Readability Calculator - Check Reading Level Score",
+    title: "Free Readability Calculator Online - Flesch Score Checker",
     description: "Free readability calculator with Flesch-Kincaid, Gunning Fog, SMOG, ARI scores. Analyze text complexity and optimize content for your target audience.",
     keywords: "readability calculator, Flesch-Kincaid score, reading level, Gunning Fog index, SMOG score, text complexity, readability score, content readability",
     canonical: `${origin}/readability-calculator`,
@@ -492,7 +492,7 @@ export const getGrammarCheckerSEO = (): SEOConfig => {
 export const getTextCompareSEO = (): SEOConfig => {
   const origin = getCurrentOrigin();
   return {
-    title: "Text Compare Tool - Find Differences Between Texts",
+    title: "Free Text Compare Tool 2025 - Find Differences",
     description: "Free text comparison tool. Compare two texts side-by-side, highlight additions, deletions, changes. Perfect for document review and version control.",
     keywords: "text compare, diff checker, text difference, compare documents, text comparison, find differences, document compare, version compare",
     canonical: `${origin}/text-compare`,
