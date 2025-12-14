@@ -245,20 +245,221 @@ Add your orphan page URLs here as you work through them:
 
 ## Long-Tail Keywords Reference:
 
-Use these throughout your blogs (bold them):
+Use these throughout your blogs based on the topic. Pick 5-8 relevant keywords per blog and bold them naturally.
 
+---
+
+### Word Counter Keywords
 - word counter for essays
-- character count checker online
-- how to check word count in Google Docs
 - free word counter tool
+- online word counter tool
 - paragraph word counter
-- text analyzer for students
-- word limit checker for assignments
-- online character counter free
-- reading time calculator
-- sentence counter tool
 - essay word counter online
+- word count checker online
+- text word counter free
+- word counter calculator
+- word count tool free
+- word counter for students
 - how many words in my essay
-- check character limit for social media
+- word limit checker for assignments
 - word count for college applications
+- count words in text online
+- total word counter free
+- word counter accurate
+- word counter generator
+- typing word counter
+- word count detector
+- number of words checker
+
+---
+
+### Character Counter Keywords
+- character count checker online
+- online character counter free
+- character counter for social media
+- character limit checker
+- character counter calculator
+- text length checker app
+- character counter analyzer
+- character counter accurate
+- character counter app free
+- meta description character count
+- real time social media character limits
+- twitter character counter
+- instagram character limit checker
+
+---
+
+### Grammar & Spelling Keywords
 - free grammar and word counter
+- grammar checker and word counter
+- word counter and spell checker
+- word counter and grammar check
+- grammar checker counter
+- check grammar online free
+- spelling and grammar checker
+- grammar checker for essays
+- free grammar checker tool
+
+---
+
+### Readability Keywords
+- readability checker calculator
+- readability checker app
+- check readability online
+- readability score checker
+- reading level checker
+- writing level checker
+- readability checker free
+- how to measure article readability
+- improve content writing readability
+- readability checker fast
+- readability checker generator
+
+---
+
+### Plagiarism Keywords
+- plagiarism checker counter
+- plagiarism checker free online
+- plagiarism checker calculator
+- check content originality
+- content originality checker
+- plagiarism detector free
+- plagiarism checker for students
+
+---
+
+### SEO & Content Keywords
+- seo content analysis
+- seo content checker
+- seo page content analysis
+- content seo checker
+- seo text analyzer
+- content analysis seo
+- seo content analysis tool
+- seo content analysis free
+- content optimizer analyzer
+- content optimization checker
+- keyword density in seo
+- how to increase keyword density
+- how to improve keyword density
+- keyword count tool
+- keyword counter online
+- keyword frequency counter
+
+---
+
+### Speech to Text Keywords
+- speech to text online
+- speech to text free
+- speech to text online free
+- voice to text online free
+- voice to text converter online free
+- online voice to text
+- speak to text online
+- online speech to text free
+- voice speech to text
+
+---
+
+### Words to Pages Keywords
+- words to pages converter
+- words to pages calculator
+- how many pages is 1000 words
+- how many pages is 1250 words
+- how many pages is 3000 words
+- how many pages is 4000 words
+- how many pages is 5000 words
+- how many pages is 8000 words
+- 500 words to pages
+- 1000 words to pages
+- 2000 words to pages
+- 3000 words to pages
+- 5000 words to pages
+- words per page calculator
+- pages to words converter
+- word count to pages
+
+---
+
+### Text Compare Keywords
+- text compare online
+- compare text online
+- words compare tool
+- text comparison tool
+- compare two texts
+- text comparator free
+- document comparison online
+
+---
+
+### Random Word Generator Keywords
+- random word generator
+- random word technique
+- word generator from words
+- random keyword generator
+- random words for writing
+
+---
+
+### Essay & Academic Keywords
+- essay word counter
+- essay counter online
+- word counter for essay
+- college essay word count
+- word count for essays
+- academic word counter
+- thesis word counter
+- dissertation word counter
+- research paper word count
+
+---
+
+### Tool-Specific Keywords
+- word counter chrome extension
+- word counter plus extension
+- word counter plus chrome extension
+- firefox word count extension
+- word counter browser extension
+- website word counter free
+- word counter app free
+- word counter software free
+
+---
+
+### Question-Based Keywords (Great for FAQs)
+- how to check word count in Google Docs
+- how to count words in Word
+- how to check character count
+- what is a good readability score
+- how many words per page
+- how to improve readability score
+- what is keyword density
+- how to check plagiarism free
+- how to convert speech to text
+- how many characters in a tweet
+- how many words is 5 pages
+- how to count words in an essay
+
+---
+
+### Misspelling Keywords (People search these!)
+- word countwr
+- word counteer
+- wordcounter tool
+- word clunter
+- word couter
+- word couner
+- wrod counter
+- wors counter
+- wird counter
+
+---
+
+## How to Use Keywords:
+
+1. **Pick 5-8 keywords** relevant to your blog topic
+2. **Bold them naturally** in the content (not every instance, just 1-2 times each)
+3. **Use in headings** - Include 1-2 keywords in H2/H3 headings
+4. **Use in FAQ questions** - Frame questions around long-tail keywords
+5. **Don't stuff** - Keywords should flow naturally in sentences
