@@ -1,0 +1,377 @@
+All tools
+Dashboard
+Social Media Manager
+MCP Server
+Brand Radar
+AI Content Helper
+Site Explorer
+Keywords Explorer
+Content Explorer
+Site Audit
+
+Upgrade
+
+Muhammad Abdullah's workspace
+
+Site Audit
+/
+
+Wordcounterplusapp
+
+13 Dec, 06:12 AM
+
+Compare with: 13 Dec, 01:03 AM
+
+
+Segment
+
+Patches
+
+Looker Studio
+
+New crawl
+
+Overview
+All Issues
+2
+Alerts 
+New
+Crawl log
+Bulk export
+Tools
+Page explorer
+Link explorer
+Internal link opportunities
+Structure explorer
+Reports
+Internal pages
+Indexability
+Links
+Redirects
+Content
+Social tags
+Duplicates
+Localization
+Performance
+Images
+JavaScript
+CSS
+External pages
+
+Issues
+/
+Non-canonical page in sitemap
+
+Why and how to fix
+
+Submit to IndexNow
+
+Create new issue
+
+All URLs
+
+Pages
+
+Resources
+
+Content
+
+Links
+
+Redirects
+
+Indexability
+
+Sitemaps
+
+Ahrefs metrics
+Word or phrase
+
+URL
+
+Advanced filter
+Crawl history
+Hide chart
+7 Dec
+8 Dec
+9 Dec
+9 Dec
+10 Dec
+11 Dec
+12 Dec
+13 Dec
+13 Dec
+14 Dec
+0
+5
+10
+15
+20
+All filter results
+
+Last 10 crawls
+
+All filter results
+17
+
+Lost from filter results
+0
+
+Lost
+0
+
+Patches: Show all
+
+Changes: Don't show
+
+Columns
+
+Export
+PR
+URL
+Organic traffic
+HTTP status code
+Content type
+Is in sitemap
+Canonical URL
+Patch it
+Referenced in sitemaps
+No. of all inlinks
+14
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/extension 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+132 
+14
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/sentence-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+132 
+14
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/line-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+132 
+14
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/letter-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+132 
+14
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/paragraph-counter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+132 
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/ai-content-writing-tools-2026-seo-guide 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/firefox-extension-launch-announcement 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-grammarly 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/opera-extension-available-announcement 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/beyond-word-count-professional-writing-metrics 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-wordcounttool 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/edge-extension-launch-announcement 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-charactercount 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/vs-wordcounter 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/word-counter-plus-vs-countwordsfree-comparison-2026 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/comparisons 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+0
+htmlJS
+Word Counter Plus - Free Online Text Analyzer
+https://wordcounterplusapp.com/blog/complete-guide-writing-tools-trends-2026 
+0
+200
+text/html; charset=utf-8
+Yes
+https://wordcounterplusapp.com/ 
+200
+Enter new canonical URL
+https://wordcounterplusapp.com/sitemap.xml 
+0
+Showing 17 of 17
+About
+Team
+Our data
+Blog
+Robot
+Jobs
+Plans & pricing
+API
+Help
+Contact us
+
+English
+© 2025 Ahrefs Pte. Ltd. (201227417H) 16 Raffles Quay, #33-03 Hong Leong Building, Singapore 048581
+Legal info
+
+5
