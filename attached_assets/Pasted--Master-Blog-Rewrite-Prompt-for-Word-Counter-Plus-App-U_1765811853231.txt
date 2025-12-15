@@ -1,6 +1,6 @@
 # Master Blog Rewrite Prompt for Word Counter Plus App
 
-Use this prompt to rewrite your 93 orphan blog posts. Just replace `[PASTE YOUR BLOG URL HERE]` with the actual blog URL.
+Use this prompt to rewrite your 93 orphan blog posts. Just replace `[[PASTE YOUR BLOG URL HERE]](https://wordcounterplusapp.com/blog/content-marketing-small-businesses)` with the actual blog URL.
 
 ---
 
