@@ -102,6 +102,7 @@ const pageContent: Record<string, { h1: string; description: string }> = {
   '/line-counter': { h1: 'Line Counter', description: 'Count lines in your text or code' },
   '/tools': { h1: 'Free Writing Tools', description: 'Explore our collection of free text analysis and writing tools' },
   '/blog': { h1: 'Writing Tips & Guides', description: 'Expert writing tips, content creation strategies, and text analysis guides' },
+  '/all-posts': { h1: 'All Blog Posts', description: 'Browse our complete archive of articles on writing, text analysis, and content creation' },
   '/about': { h1: 'About Word Counter Plus', description: 'Learn about our mission to provide free text analysis tools' },
   '/contact': { h1: 'Contact Us', description: 'Get in touch with the Word Counter Plus team' },
   '/extension': { h1: 'Browser Extension', description: 'Install Word Counter Plus extension for Chrome, Firefox, and Edge' },
