@@ -1,0 +1,140 @@
+
+ Analytics
+Try searching "users today"
+Home
+480
+169.7%
+462
+155.2%
+156
+-
+7.3k
+112.4%
+This card uses 100% of available data. Click to view more information.
+01Nov
+01Dec
+0
+20
+40
+60
+80
+100
+120
+Last 90 days
+Previous period
+Active users in last 30 minutes
+0
+This card uses 100% of available data. Click to view more information.
+Active users per minute
+No data available
+Launch Announcement
+Try out Analytics Advisor
+
+Try Analytics Advisor, our new conversational experience powered by Gemini. Supercharge your analysis with personalized answers, insights, and visualizations right in Google Analytics.
+Recently accessed
+17 days ago
+32 days ago
+32 days ago
+32 days ago
+32 days ago
+Suggested for you
+Active users	
+  by  
+Country ID	
+ 
+This card uses 100% of available data. Click to view more information.
+
+Country	Active users
+India	3	200.0%
+China	2	100.0%
+United States	2	0.0%
+Canada	1	-
+Germany	1	0.0%
+Guatemala	1	-
+Indonesia	1	0.0%
+Views
+ by Page title and screen class
+This card uses 100% of available data. Click to view more information.
+Page title and screen class	Views
+Free Word Counter & Text Analyzer - Real-Time Character Count Tool | Word Counter Plus	7	36.4%
+Free Word Counter Tool 2025 - Instant Character Count & Text Analysis | Word Counter Plus	1	87.5%
+Word Counter Plus: Free Word Counter Tool 2025	0	100.0%
+Text Analysis Tools - Word Counter Plus	0	100.0%
+Free Readability Calculator Online - Flesch Score Checker	0	100.0%
+Word Counter Plus - Free Online Text Analyzer	2	33.3%
+Free Word Counter & Character Counter Tool - Instant Text Analysis 2025	3	200.0%
+Sessions	
+  by  
+Session primary channel group (Default channel group)	
+ 
+This card uses 100% of available data. Click to view more information.
+Session primary channel group (Default channel group)	Sessions
+Organic Search	17	54.5%
+Direct	2	60.0%
+Referral	0	100.0%
+Unassigned	1	0.0%
+Key events	
+  by Platform
+This card uses 100% of available data. Click to view more information.
+web
+100.0%
+0.0%
+User activity over time
+This card uses 100% of available data. Click to view more information.
+24Dec
+25
+26
+27
+28
+29
+30
+0
+50
+100
+150
+200
+30 days
+101
+19.2%
+7 days
+16
+5.9%
+1 day
+4
+100.0%
+Event count
+ by Event name
+This card uses 100% of available data. Click to view more information.
+Event name	Event count
+page_view	24	69.2%
+user_engagement	8	77.1%
+session_start	19	13.6%
+first_visit	13	8.3%
+scroll	5	72.2%
+click	1	50.0%
+generate_lead	1	0.0%
+New users
+ by  
+First user primary channel group (Default channel group)	
+ 
+This card uses 100% of available data. Click to view more information.
+Organic Search
+Direct
+Referral
+0
+2
+4
+6
+8
+10
+12
+Last 7 days
+Previous period
+Insights and recommendations
+Upsell
+New
+Stay connected to your business on the go
+
+Recommended because you have not used the Google Analytics mobile app recently
+The Google Analytics mobile app helps you monitor your business in real-time, build your own reports, and take actions to improve your account.
+©2025 Google | Analytics home | Terms of Service | Privacy policy | 

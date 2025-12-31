@@ -17,6 +17,7 @@ import { isMainHost, isCaseHost } from "@/lib/site";
 const About = lazy(() => import("@/pages/About"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/BlogPost"));
+const AllBlogPosts = lazy(() => import("@/pages/AllBlogPosts"));
 const FAQ = lazy(() => import("@/pages/FAQ"));
 const Privacy = lazy(() => import("@/pages/Privacy"));
 const Terms = lazy(() => import("@/pages/Terms"));
@@ -90,6 +91,7 @@ function Router() {
     { path: "/contact", component: Contact },
     { path: "/blog/:slug", component: BlogPost },
     { path: "/blog", component: Blog },
+    { path: "/all-posts", component: AllBlogPosts },
     { path: "/faq", component: FAQ },
     { path: "/privacy", component: Privacy },
     { path: "/terms", component: Terms },
@@ -131,6 +133,7 @@ function Router() {
     { path: "/contact", component: Contact },
     { path: "/blog/:slug", component: BlogPost },
     { path: "/blog", component: Blog },
+    { path: "/all-posts", component: AllBlogPosts },
     { path: "/faq", component: FAQ },
     { path: "/privacy", component: Privacy },
     { path: "/terms", component: Terms },

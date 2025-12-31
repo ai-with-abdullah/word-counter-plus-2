@@ -1,0 +1,277 @@
+All tools
+Dashboard
+Social Media Manager
+MCP Server
+Brand Radar
+AI Content Helper
+Site Explorer
+Keywords Explorer
+Content Explorer
+Site Audit
+
+Upgrade
+
+Muhammad Abdullah's workspace
+
+Site Audit
+/
+
+Wordcounterplusapp
+
+Yesterday
+
+Compare with: 29 Dec
+
+
+Segment
+
+Patches
+
+Looker Studio
+
+New crawl
+
+Overview
+All Issues
+2
+Alerts 
+New
+Crawl log
+Bulk export
+Tools
+Page explorer
+Link explorer
+Internal link opportunities
+Structure explorer
+Reports
+Internal pages
+Indexability
+Links
+Redirects
+Content
+Social tags
+Duplicates
+Localization
+Performance
+Images
+JavaScript
+CSS
+External pages
+
+Overview
+How to use
+
+Print to PDF
+Crawled URLs distribution
+
+140
+
+Internal
+137
+
+Resources
+3
+Crawl status of links found
+
+3,591
+
+Crawled
+3,591
+Health Score
+24
+Weak
+Health Score reflects the proportion of internal URLs on your site that don't have errors
+23 Dec
+25 Dec
+27 Dec
+29 Dec
+31 Dec
+0
+50
+100
+Issues distribution
+213
+
+Errors
+110
+
+Warnings
+90
+
+Notices
+13
+Error distribution
+144
+
+URLs with errors
+110
+
+URLs without errors
+34
+Top Issues
+
+Export all issues
+Issue
+Crawled
+Change
+Added
+New
+Removed
+Missing
+Orphan page (has no incoming internal links) 
+93	
+0
+0
+0
+0
+0
+
+
+Non-canonical page in sitemap  
+17	
+0
+0
+0
+0
+0
+
+
+Title too long  
+38	
+0
+0
+0
+0
+0
+
+
+Meta description too short  
+34	
+0
+0
+0
+0
+0
+
+
+Orphan page (has no incoming internal links) (not indexable) 
+14	
+0
+0
+0
+0
+0
+
+
+3XX redirect  
+3	
+0
+0
+0
+0
+0
+
+
+CSS file size too large 
+1	
+0
+0
+0
+0
+0
+
+
+Page and SERP titles do not match  
+10	
+0
+0
+0
+0
+0
+
+
+HTTP to HTTPS redirect 
+2	
+0
+0
+0
+0
+0
+
+
+Redirect chain  
+1	
+0
+0
+0
+0
+0
+
+
+
+View all issues
+HTTP status codes distribution
+
+Success (2xx)
+141
+
+Redirect (3xx)
+3
+AI content level distribution
+Disabled
+NO DATA
+HTTP status codes by depth level
+
+0
+1
+0
+35
+70
+105
+140
+
+Success (2xx)
+
+Redirect (3xx)
+Bulk export
+Internal URLs	All crawled internal URLs. Includes non-200 pages and resources.	144	
+Export CSV
+
+View
+Uncrawled links	Links to URLs that our crawler didn't crawl. This could be due to your project settings or website restrictions like robots.txt.	134	
+Export CSV
+
+View
+Anchor texts	Anchor texts of all hyperlinks found during the crawl.	3,591	
+Export CSV
+
+View
+Image references without alt texts	All image references without alt texts found during the crawl.	0	
+Export CSV
+
+View
+Links to URLs blocked by robots.txt	Links to all URLs that our crawler could not access because of instructions in robots.txt.	134	
+Export CSV
+
+View
+Links to 4xx (Client error) URLs	Links to URLs returning client error codes, which means that there was a problem with the request.	0	
+Export CSV
+
+View
+
+View all export options
+About
+Team
+Our data
+Blog
+Robot
+Jobs
+Plans & pricing
+API
+Help
+Contact us
+
+English
+© 2025 Ahrefs Pte. Ltd. (201227417H) 16 Raffles Quay, #33-03 Hong Leong Building, Singapore 048581
+Legal info
+0

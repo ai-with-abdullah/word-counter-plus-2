@@ -179,8 +179,8 @@ export default function Blog() {
                   </div>
                   
                   <Link href={`/blog/${post.slug}`}>
-                    <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium" aria-label={`Read more about ${post.title}`}>
-                      Read More
+                    <span className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+                      Read: {post.title.length > 25 ? post.title.substring(0, 25) + '...' : post.title}
                       <FaArrowRight className="ml-2" aria-hidden="true" />
                     </span>
                   </Link>

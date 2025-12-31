@@ -1,0 +1,159 @@
+PageSpeed Insights logo
+PageSpeed Insights
+This site uses cookies from Google to deliver its services and to analyze traffic.
+Report from Dec 31, 2025, 10:26:50 AM
+https://wordcounterplusapp.com/
+Enter a valid URL
+
+
+smartphone
+Mobile
+
+computer
+Desktop
+
+Discover what your real users are experiencing
+No Data
+
+Diagnose performance issues
+56
+Performance
+100
+Accessibility
+100
+Best Practices
+85
+SEO
+56
++2
++3
++30
++16
++5
+Performance
+56
+Values are estimated and may vary. The performance score is calculated directly from these metrics.See calculator.
+0–49
+50–89
+90–100
+Final Screenshot
+
+Metrics
+Expand view
+First Contentful Paint
+4.0 s
+Largest Contentful Paint
+6.2 s
+Total Blocking Time
+10 ms
+Cumulative Layout Shift
+0.192
+Speed Index
+5.7 s
+Captured at Dec 31, 2025, 10:26 AM GMT+5
+Emulated Moto G Power with Lighthouse 13.0.1
+Single page session
+Initial page load
+Slow 4G throttling
+Using HeadlessChromium 137.0.7151.119 with lr
+View Treemap
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Screenshot
+Show audits relevant to:
+
+All
+
+FCP
+
+LCP
+
+TBT
+
+CLS
+Insights
+Render blocking requests Est savings of 160 ms
+Layout shift culprits
+Network dependency tree
+Use efficient cache lifetimes Est savings of 5 KiB
+LCP breakdown
+3rd parties
+These insights are also available in the Chrome DevTools Performance Panel - record a trace to view more detailed information.
+Diagnostics
+Reduce unused JavaScript Est savings of 317 KiB
+Reduce unused CSS Est savings of 17 KiB
+Avoid long main-thread tasks 3 long tasks found
+More information about the performance of your application. These numbers don't directly affect the Performance score.
+Passed audits (18)
+Show
+100
+Accessibility
+These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
+Additional items to manually check (10)
+Hide
+Interactive controls are keyboard focusable
+Interactive elements indicate their purpose and state
+The page has a logical tab order
+Visual order on the page follows DOM order
+User focus is not accidentally trapped in a region
+The user's focus is directed to new content added to the page
+HTML5 landmark elements are used to improve navigation
+Offscreen content is hidden from assistive technology
+Custom controls have associated labels
+Custom controls have ARIA roles
+These items address areas which an automated testing tool cannot cover. Learn more in our guide on conducting an accessibility review.
+Passed audits (27)
+Show
+Not applicable (33)
+Show
+100
+Best Practices
+Trust and Safety
+Ensure CSP is effective against XSS attacks
+Ensure proper origin isolation with COOP
+Mitigate DOM-based XSS with Trusted Types
+General
+Missing source maps for large first-party JavaScript
+Passed audits (12)
+Show
+Not applicable (4)
+Show
+85
+SEO
+These checks ensure that your page is following basic search engine optimization advice. There are many additional factors Lighthouse does not score here that may affect your search ranking, including performance on Core Web Vitals. Learn more about Google Search Essentials.
+Content Best Practices
+Links do not have descriptive text 6 links found
+Format your HTML in a way that enables crawlers to better understand your app’s content.
+Crawling and Indexing
+robots.txt is not valid 1 error found
+To appear in search results, crawlers need access to your app.
+Additional items to manually check (1)
+Show
+Run these additional validators on your site to check additional SEO best practices.
+Passed audits (8)
+Show
+More on PageSpeed Insights
+What's new
+Documentation
+Learn about Web Performance
+Ask questions on Stack Overflow
+Mailing list
+Related Content
+Updates
+Web Fundamentals
+Case Studies
+Podcasts
+Connect
+Twitter
+Youtube
+Google Developers Logo
+Chrome
+Firebase
+All products
+Terms and Privacy Policy
+For details, see the Google Developers Site Policies.

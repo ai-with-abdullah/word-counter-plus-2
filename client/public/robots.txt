@@ -21,6 +21,7 @@ Allow: /paragraph-counter
 Allow: /line-counter
 Allow: /extension
 Allow: /blog
+Allow: /all-posts
 Allow: /tools
 Allow: /about
 Allow: /contact
@@ -53,13 +54,16 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 0
 
-# Block aggressive crawlers
+# Allow SEO crawlers for better indexing
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
+Crawl-delay: 2
 
 User-agent: SemrushBot
-Disallow: /
+Allow: /
+Crawl-delay: 2
 
+# Block aggressive crawlers
 User-agent: MJ12bot
 Disallow: /
 
