@@ -133,6 +133,11 @@ const staticPagesSEO: Record<string, { title: string; description: string; keywo
     description: 'Expert writing tips, text analysis guides, and content creation strategies to improve your writing and boost productivity.',
     keywords: 'writing tips, content guides, blogging'
   },
+  '/all-posts': {
+    title: 'All Blog Posts - Complete Archive | Word Counter Plus',
+    description: 'Browse all 104 articles on writing, text analysis, SEO, and content creation. Complete archive of Word Counter Plus blog posts.',
+    keywords: 'all blog posts, blog archive, writing articles, content creation guides'
+  },
   '/about': {
     title: 'About Word Counter Plus - Free Text Analysis Tools',
     description: 'Learn about Word Counter Plus, our mission to provide free, accessible text analysis tools for writers, students, and professionals.',
