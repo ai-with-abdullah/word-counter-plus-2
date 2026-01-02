@@ -4,6 +4,12 @@ import './index.css';
 
 const rootElement = document.getElementById('root')!;
 
+// Hide the initial loader immediately when JS starts executing
+const initialLoader = document.getElementById('initial-loader');
+if (initialLoader) {
+  initialLoader.style.display = 'none';
+}
+
 // Remove SSR content for SEO crawlers before React renders
 // SSR content is hidden and purely for search engine indexing
 const ssrContent = document.getElementById('ssr-content');
