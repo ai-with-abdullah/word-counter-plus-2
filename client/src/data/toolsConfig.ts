@@ -36,6 +36,7 @@ export interface Tool {
 export const getToolsData = (): Tool[] => {
   
   return [
+    // ===== CORE COUNTING TOOLS =====
     {
       id: 'word-counter',
       title: 'Word Counter',
@@ -43,7 +44,7 @@ export const getToolsData = (): Tool[] => {
       icon: FaPenFancy,
       href: '/',
       isExternal: false,
-      category: 'Analysis',
+      category: 'Counting',
       tags: ['word count', 'readability', 'analysis', 'writing'],
       featured: true
     },
@@ -54,21 +55,55 @@ export const getToolsData = (): Tool[] => {
       icon: FaHashtag,
       href: '/character-counter',
       isExternal: false,
-      category: 'Analysis',
+      category: 'Counting',
       tags: ['character count', 'social media', 'limits', 'twitter'],
       featured: true
     },
     {
-      id: 'text-case-converter',
-      title: 'Text Case Converter',
-      description: 'Convert text between different cases: uppercase, lowercase, title case, camel case, and more. Ideal for formatting text for different platforms.',
-      icon: FaTextHeight,
-      href: '/text-case-convert',
+      id: 'letter-counter',
+      title: 'Letter Counter',
+      description: 'Count letters, vowels, consonants, and analyze letter frequency. Track uppercase, lowercase, and alphabetic character distribution in your text.',
+      icon: FaFont,
+      href: '/letter-counter',
       isExternal: false,
-      category: 'Formatting',
-      tags: ['case conversion', 'formatting', 'uppercase', 'lowercase'],
+      category: 'Counting',
+      tags: ['letter counter', 'alphabet counter', 'vowel counter', 'consonant counter', 'letter frequency', 'alphabetic characters'],
       featured: true
     },
+    {
+      id: 'sentence-counter',
+      title: 'Sentence Counter',
+      description: 'Count sentences and analyze sentence structure and length distribution. Track short, medium, and long sentences with detailed word count statistics.',
+      icon: FaListOl,
+      href: '/sentence-counter',
+      isExternal: false,
+      category: 'Counting',
+      tags: ['sentence counter', 'count sentences', 'sentence length', 'sentence structure', 'sentence analysis', 'writing analysis'],
+      featured: true
+    },
+    {
+      id: 'paragraph-counter',
+      title: 'Paragraph Counter',
+      description: 'Count paragraphs and analyze paragraph structure, length, and word distribution. Track short, medium, and long paragraphs with comprehensive statistics.',
+      icon: FaParagraph,
+      href: '/paragraph-counter',
+      isExternal: false,
+      category: 'Counting',
+      tags: ['paragraph counter', 'count paragraphs', 'paragraph length', 'paragraph analysis', 'words per paragraph'],
+      featured: true
+    },
+    {
+      id: 'line-counter',
+      title: 'Line Counter',
+      description: 'Count total lines, non-empty lines, and blank lines. Analyze line length and structure for code, text, and documents with detailed line-by-line breakdown.',
+      icon: FaAlignLeft,
+      href: '/line-counter',
+      isExternal: false,
+      category: 'Counting',
+      tags: ['line counter', 'count lines', 'line length', 'empty lines', 'code line counter', 'blank lines'],
+      featured: true
+    },
+    // ===== TEXT ANALYSIS TOOLS =====
     {
       id: 'word-frequency-counter',
       title: 'Word Frequency Counter',
@@ -78,72 +113,6 @@ export const getToolsData = (): Tool[] => {
       isExternal: false,
       category: 'Analysis',
       tags: ['word frequency', 'word count', 'occurrence', 'analysis', 'statistics'],
-      featured: true
-    },
-    {
-      id: 'random-word-generator',
-      title: 'Random Word Generator',
-      description: 'Generate random words with customizable options including word count, length, type, and complexity for creative writing and brainstorming.',
-      icon: FaRandom,
-      href: '/random-word-generator',
-      isExternal: false,
-      category: 'Generation',
-      tags: ['random words', 'word generator', 'creative writing', 'brainstorming', 'random'],
-      featured: true
-    },
-    {
-      id: 'words-per-page',
-      title: 'Words Per Page',
-      description: 'Convert words to pages or pages to words with customizable font, size, spacing, and margins. Includes reading time estimates and comparison tools.',
-      icon: FaFileAlt,
-      href: '/words-per-page',
-      isExternal: false,
-      category: 'Calculator',
-      tags: ['words per page', 'page calculator', 'word count', 'essay length', 'formatting', 'page count'],
-      featured: true
-    },
-    {
-      id: 'plagiarism-checker',
-      title: 'Plagiarism Checker',
-      description: 'Advanced plagiarism detection with deep content analysis, source matching, paraphrase detection, and detailed originality reports for students and writers.',
-      icon: FaShieldAlt,
-      href: '/plagiarism-checker',
-      isExternal: false,
-      category: 'Analysis',
-      tags: ['plagiarism', 'originality', 'duplicate content', 'academic integrity', 'content checker', 'paraphrase detection'],
-      featured: true
-    },
-    {
-      id: 'resume-cv-checker',
-      title: 'Resume/CV Word Counter',
-      description: 'Professional resume analyzer with ATS optimization score, section-specific word counts, industry benchmarks, action verb analysis, and skills extraction. Perfect for job seekers in US, UK, and Canada.',
-      icon: FaBriefcase,
-      href: '/resume-cv-checker',
-      isExternal: false,
-      category: 'Professional',
-      tags: ['resume', 'cv', 'ats', 'job application', 'career', 'optimization', 'word count', 'professional'],
-      featured: true
-    },
-    {
-      id: 'seo-content-analyzer',
-      title: 'SEO Content Analyzer',
-      description: 'Advanced SEO content optimization tool with keyword density analysis, LSI keyword suggestions, readability scoring, meta tag generator, heading hierarchy checker, and competitor comparison for better rankings.',
-      icon: FaChartLine,
-      href: '/seo-content-analyzer',
-      isExternal: false,
-      category: 'SEO',
-      tags: ['seo', 'content optimization', 'keywords', 'search engine', 'ranking', 'meta tags', 'readability', 'lsi keywords'],
-      featured: true
-    },
-    {
-      id: 'speech-to-text',
-      title: 'Speech to Text',
-      description: 'Convert voice to text instantly with real-time speech recognition. Multi-language support, continuous recording, and browser-based transcription without API keys.',
-      icon: FaMicrophone,
-      href: '/speech-to-text',
-      isExternal: false,
-      category: 'Generation',
-      tags: ['speech to text', 'voice recognition', 'transcription', 'dictation', 'voice typing', 'speech recognition', 'audio to text'],
       featured: true
     },
     {
@@ -158,6 +127,18 @@ export const getToolsData = (): Tool[] => {
       featured: true
     },
     {
+      id: 'text-compare',
+      title: 'Text Compare',
+      description: 'Free text comparison tool to find differences between two texts. Compare documents side-by-side with highlighted additions, deletions, and changes.',
+      icon: FaExchangeAlt,
+      href: '/text-compare',
+      isExternal: false,
+      category: 'Analysis',
+      tags: ['text compare', 'text diff', 'compare text', 'diff checker', 'text comparison', 'compare documents', 'find differences', 'text difference', 'compare versions', 'diff tool'],
+      featured: true
+    },
+    // ===== WRITING TOOLS =====
+    {
       id: 'grammar-checker',
       title: 'Grammar Checker',
       description: 'Free online grammar and spell checker. Instantly detect and fix grammar mistakes, spelling errors, and punctuation issues with AI-powered suggestions.',
@@ -169,61 +150,85 @@ export const getToolsData = (): Tool[] => {
       featured: true
     },
     {
-      id: 'text-compare',
-      title: 'Text Compare',
-      description: 'Free text comparison tool to find differences between two texts. Compare documents side-by-side with highlighted additions, deletions, and changes.',
-      icon: FaExchangeAlt,
-      href: '/text-compare',
+      id: 'text-case-converter',
+      title: 'Text Case Converter',
+      description: 'Convert text between different cases: uppercase, lowercase, title case, camel case, and more. Ideal for formatting text for different platforms.',
+      icon: FaTextHeight,
+      href: '/text-case-convert',
       isExternal: false,
-      category: 'Analysis',
-      tags: ['text compare', 'text diff', 'compare text', 'diff checker', 'text comparison', 'compare documents', 'find differences', 'text difference', 'compare versions', 'diff tool'],
+      category: 'Writing',
+      tags: ['case conversion', 'formatting', 'uppercase', 'lowercase'],
+      featured: true
+    },
+    // ===== PROFESSIONAL & SEO TOOLS =====
+    {
+      id: 'seo-content-analyzer',
+      title: 'SEO Content Analyzer',
+      description: 'Advanced SEO content optimization tool with keyword density analysis, LSI keyword suggestions, readability scoring, meta tag generator, heading hierarchy checker, and competitor comparison for better rankings.',
+      icon: FaChartLine,
+      href: '/seo-content-analyzer',
+      isExternal: false,
+      category: 'Professional',
+      tags: ['seo', 'content optimization', 'keywords', 'search engine', 'ranking', 'meta tags', 'readability', 'lsi keywords'],
       featured: true
     },
     {
-      id: 'letter-counter',
-      title: 'Letter Counter',
-      description: 'Count letters, vowels, consonants, and analyze letter frequency. Track uppercase, lowercase, and alphabetic character distribution in your text.',
-      icon: FaFont,
-      href: '/letter-counter',
+      id: 'plagiarism-checker',
+      title: 'Plagiarism Checker',
+      description: 'Advanced plagiarism detection with deep content analysis, source matching, paraphrase detection, and detailed originality reports for students and writers.',
+      icon: FaShieldAlt,
+      href: '/plagiarism-checker',
       isExternal: false,
-      category: 'Analysis',
-      tags: ['letter counter', 'alphabet counter', 'vowel counter', 'consonant counter', 'letter frequency', 'alphabetic characters'],
+      category: 'Professional',
+      tags: ['plagiarism', 'originality', 'duplicate content', 'academic integrity', 'content checker', 'paraphrase detection'],
       featured: true
     },
     {
-      id: 'sentence-counter',
-      title: 'Sentence Counter',
-      description: 'Count sentences and analyze sentence structure and length distribution. Track short, medium, and long sentences with detailed word count statistics.',
-      icon: FaListOl,
-      href: '/sentence-counter',
+      id: 'resume-cv-checker',
+      title: 'Resume/CV Word Counter',
+      description: 'Professional resume analyzer with ATS optimization score, section-specific word counts, industry benchmarks, action verb analysis, and skills extraction. Perfect for job seekers in US, UK, and Canada.',
+      icon: FaBriefcase,
+      href: '/resume-cv-checker',
       isExternal: false,
-      category: 'Analysis',
-      tags: ['sentence counter', 'count sentences', 'sentence length', 'sentence structure', 'sentence analysis', 'writing analysis'],
+      category: 'Professional',
+      tags: ['resume', 'cv', 'ats', 'job application', 'career', 'optimization', 'word count', 'professional'],
+      featured: true
+    },
+    // ===== UTILITY TOOLS =====
+    {
+      id: 'words-per-page',
+      title: 'Words Per Page',
+      description: 'Convert words to pages or pages to words with customizable font, size, spacing, and margins. Includes reading time estimates and comparison tools.',
+      icon: FaFileAlt,
+      href: '/words-per-page',
+      isExternal: false,
+      category: 'Utility',
+      tags: ['words per page', 'page calculator', 'word count', 'essay length', 'formatting', 'page count'],
       featured: true
     },
     {
-      id: 'paragraph-counter',
-      title: 'Paragraph Counter',
-      description: 'Count paragraphs and analyze paragraph structure, length, and word distribution. Track short, medium, and long paragraphs with comprehensive statistics.',
-      icon: FaParagraph,
-      href: '/paragraph-counter',
+      id: 'random-word-generator',
+      title: 'Random Word Generator',
+      description: 'Generate random words with customizable options including word count, length, type, and complexity for creative writing and brainstorming.',
+      icon: FaRandom,
+      href: '/random-word-generator',
       isExternal: false,
-      category: 'Analysis',
-      tags: ['paragraph counter', 'count paragraphs', 'paragraph length', 'paragraph analysis', 'words per paragraph'],
+      category: 'Utility',
+      tags: ['random words', 'word generator', 'creative writing', 'brainstorming', 'random'],
       featured: true
     },
     {
-      id: 'line-counter',
-      title: 'Line Counter',
-      description: 'Count total lines, non-empty lines, and blank lines. Analyze line length and structure for code, text, and documents with detailed line-by-line breakdown.',
-      icon: FaAlignLeft,
-      href: '/line-counter',
+      id: 'speech-to-text',
+      title: 'Speech to Text',
+      description: 'Convert voice to text instantly with real-time speech recognition. Multi-language support, continuous recording, and browser-based transcription without API keys.',
+      icon: FaMicrophone,
+      href: '/speech-to-text',
       isExternal: false,
-      category: 'Analysis',
-      tags: ['line counter', 'count lines', 'line length', 'empty lines', 'code line counter', 'blank lines'],
+      category: 'Utility',
+      tags: ['speech to text', 'voice recognition', 'transcription', 'dictation', 'voice typing', 'speech recognition', 'audio to text'],
       featured: true
     },
-    // Future tools (coming soon) - only one placeholder
+    // ===== COMING SOON =====
     {
       id: 'more-tools-coming-soon',
       title: 'More Tools Coming Soon',
