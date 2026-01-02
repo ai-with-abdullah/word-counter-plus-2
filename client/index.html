@@ -4,22 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-59QPJVR6');</script>
-    <!-- End Google Tag Manager -->
-
-    <!-- Ahrefs Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="oksNA9EicwO7ZO5O+JBaDQ" async></script>
-    <!-- End Ahrefs Analytics -->
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7937450842299614" crossorigin="anonymous"></script>
-    <!-- End Google AdSense -->
-    
+    <!-- Third-party scripts are deferred until after user interaction for better LCP -->
     <!-- SSR SEO Meta Tags - Replaced server-side -->
     <!--ssr-head-->
     
@@ -244,14 +229,22 @@
     
     <!-- Vite will automatically inject the correct script and style tags during build -->
     
-    <!-- Google Analytics - deferred for better performance -->
+    <!-- All third-party scripts deferred for better LCP performance -->
     <script>
-      let analyticsLoaded = false;
-      function loadAnalytics() {
-        if (analyticsLoaded) return;
-        analyticsLoaded = true;
+      let thirdPartyLoaded = false;
+      function loadThirdPartyScripts() {
+        if (thirdPartyLoaded) return;
+        thirdPartyLoaded = true;
         
+        // Google Tag Manager
         window.dataLayer = window.dataLayer || [];
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-59QPJVR6');
+        
+        // Google Analytics
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-NF8M6HRHGY');
@@ -260,14 +253,30 @@
         gtagScript.async = true;
         gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-NF8M6HRHGY';
         document.head.appendChild(gtagScript);
+        
+        // Ahrefs Analytics
+        const ahrefsScript = document.createElement('script');
+        ahrefsScript.async = true;
+        ahrefsScript.src = 'https://analytics.ahrefs.com/analytics.js';
+        ahrefsScript.dataset.key = 'oksNA9EicwO7ZO5O+JBaDQ';
+        document.head.appendChild(ahrefsScript);
+        
+        // Google AdSense
+        const adsenseScript = document.createElement('script');
+        adsenseScript.async = true;
+        adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7937450842299614';
+        adsenseScript.crossOrigin = 'anonymous';
+        document.head.appendChild(adsenseScript);
       }
       
-      const events = ['click', 'scroll', 'touchstart', 'keydown'];
+      // Load after user interaction or after 3 seconds (whichever comes first)
+      const events = ['click', 'scroll', 'touchstart', 'keydown', 'mousemove'];
       events.forEach(event => {
-        document.addEventListener(event, loadAnalytics, { once: true, passive: true });
+        document.addEventListener(event, loadThirdPartyScripts, { once: true, passive: true });
       });
       
-      setTimeout(loadAnalytics, 15000);
+      // Fallback: load after 3 seconds if no interaction
+      setTimeout(loadThirdPartyScripts, 3000);
     </script>
 
      

@@ -3,40 +3,11 @@
 
 User-agent: *
 Allow: /
-Allow: /seo-content-analyzer
-Allow: /plagiarism-checker
-Allow: /resume-cv-checker
-Allow: /grammar-checker
-Allow: /character-counter
-Allow: /text-case-convert
-Allow: /word-frequency-counter
-Allow: /random-word-generator
-Allow: /words-per-page
-Allow: /speech-to-text
-Allow: /readability-calculator
-Allow: /text-compare
-Allow: /letter-counter
-Allow: /sentence-counter
-Allow: /paragraph-counter
-Allow: /line-counter
-Allow: /extension
-Allow: /blog
-Allow: /all-posts
-Allow: /tools
-Allow: /about
-Allow: /contact
-Allow: /faq
-Allow: /comparisons
-Allow: /vs-wordcounter
-Allow: /vs-charactercount
-Allow: /vs-grammarly
-Allow: /vs-wordcounttool
 
 # Disallow non-indexable files and directories
-Disallow: /admin/
+Disallow: /admin
 Disallow: /api/
 Disallow: /drafts/
-Disallow: /*.pdf$
 Disallow: /private/
 Disallow: /.local/
 Disallow: /server/
@@ -47,21 +18,17 @@ Disallow: /download
 # Google-specific settings
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
 
 # Bing-specific settings
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 0
 
 # Allow SEO crawlers for better indexing
 User-agent: AhrefsBot
 Allow: /
-Crawl-delay: 2
 
 User-agent: SemrushBot
 Allow: /
-Crawl-delay: 2
 
 # Block aggressive crawlers
 User-agent: MJ12bot
